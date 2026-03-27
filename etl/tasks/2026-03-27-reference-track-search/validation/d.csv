@@ -1,0 +1,11 @@
+EVENT_TS,EVENT,SPOTIFY_TRACK_ID,SPOTIFY_ID_LENGTH,REF_TRACK_RESULTS_COUNT,REF_TRACK_TITLE,REF_TRACK_ERROR_MESSAGE,REF_TRACK_SIGNUP_TRIGGER,SEARCH_TYPE
+2026-03-27 00:19:20.000000000,Reference Track Search Sign Up Modal Opened,,,,,,URL Param,
+2026-03-26 23:34:49.000000000,Reference Track Search Error,,,,,No Spotify match,,
+2026-03-26 23:34:47.000000000,Reference Track Search Error,,,,Dead Mom (from Beetlejuice) - Instrumental by  CurtainUp Karaoke,Track not analyzed,,
+2026-03-26 23:32:22.000000000,Executed Reference Track Search,,,25,Dead Mom by Sophia Anne Caruso,,,
+2026-03-26 23:30:59.000000000,Executed Reference Track Search,,,25,Dead Mom by Sophia Anne Caruso,,,
+2026-03-26 23:30:33.000000000,Reference Track Search Error,,,,Dead Mom (from Beetlejuice) - Instrumental by  CurtainUp Karaoke,Track not analyzed,,
+2026-03-26 23:29:11.000000000,Reference Track Search Error,,,,,No Spotify match,,
+2026-03-26 23:29:04.000000000,Reference Track Search Error,,,,,No Spotify match,,
+2026-03-26 23:19:13.000000000,Executed Reference Track Search,,,25,Mayhem by Cody Martin,,,
+2026-03-26 23:18:36.000000000,Executed Reference Track Search,,,25,Mayhem by Cody Martin,,,

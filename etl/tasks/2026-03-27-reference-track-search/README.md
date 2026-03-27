@@ -1,6 +1,6 @@
 # Add Reference Track Search Events to fct_events
 
-- **Status:** in-progress
+- **Status:** complete
 - **Date:** 2026-03-27
 - **PR:** pending
 - **Models touched:** `fct_events` (marts/core)
