@@ -38,8 +38,9 @@
         "matcher": "",
         "hooks": [
           {
-            "type": "prompt",
-            "prompt": "Check the conversation: were any files created or modified? If so, were they staged with git add? If tests exist for changed code, were they run? Respond {\"decision\": \"block\", \"reason\": \"Unstaged files or untested changes remain\"} only if files were clearly changed but NOT staged. Otherwise respond {}."
+            "type": "command",
+            "command": ".claude/hooks/stop-check-staging.sh",
+            "timeout": 5
           }
         ]
       }
