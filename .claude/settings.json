@@ -35,10 +35,11 @@
   "hooks": {
     "Stop": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Before finishing: verify all new files have been staged with git add. If tests exist for changed code, confirm they were run and pass. Check that SQL, LookML, and analysis files are also staged."
+            "prompt": "Check the conversation: were any files created or modified? If so, were they staged with git add? If tests exist for changed code, were they run? Respond {\"decision\": \"block\", \"reason\": \"Unstaged files or untested changes remain\"} only if files were clearly changed but NOT staged. Otherwise respond {}."
           }
         ]
       }
