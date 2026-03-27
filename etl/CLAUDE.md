@@ -18,6 +18,7 @@ Each ETL initiative gets a task directory:
 ```
 etl/tasks/YYYY-MM-DD-<slug>/
   README.md                -- task context, status, target models, PR link
+  fct_events.sql           -- transform draft (named to match dbt model)
   <query_group>/           -- directory per query group (discovery, validation, etc.)
     <query_group>.sql      -- the SQL queries
     a.csv, b.csv, ...      -- exported results, named to match query labels
@@ -26,13 +27,13 @@ etl/tasks/YYYY-MM-DD-<slug>/
     a.csv, b.csv, ...
 ```
 
-Query groups get their own subdirectory so the SQL and its exported results
-stay together. Name CSV files to match the query labels in the SQL (Query A
--> a.csv, etc.).
+Everything lives in the task directory -- transform drafts, discovery queries,
+validation queries, and exported results. Query groups get their own
+subdirectory so the SQL and its exported results stay together. Name CSV
+files to match the query labels in the SQL (Query A -> a.csv, etc.).
 
-Transform drafts live in the layer directories (`etl/sql/marts/`, etc.) since
-they map 1:1 to dbt models and are the promotion target. The task README
-cross-references which transforms belong to the task.
+Transform draft files are named to match the dbt model they modify (e.g.,
+`fct_events.sql`) so the promotion target is obvious.
 
 ### Task README format
 
@@ -69,7 +70,7 @@ queries before duplicating effort.
 1. Create task directory: `etl/tasks/YYYY-MM-DD-<slug>/`
 2. Write discovery/schema check queries in the task directory
 3. Reference context/dbt/ for existing model patterns
-4. Write transform drafts in `etl/sql/<layer>/` (dbt-compatible SQL)
+4. Write transform drafts in the task directory (dbt-compatible SQL, named to match target model)
 5. Write validation queries in the task directory
 6. Validate with `/etl audit`
 7. Promote transforms to the dbt repo via PR

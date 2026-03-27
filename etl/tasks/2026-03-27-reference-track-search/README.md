@@ -40,6 +40,7 @@ This task adds the new property columns to `fct_events` and provides a backfill 
 
 ## Files
 
+- `fct_events.sql` -- Draft modified fct_events with 7 new columns + backfill var
 - `schema_check/` -- Snowflake verification queries + exported CSV results
 - `validation.sql` -- Post-deploy queries to confirm columns are populated correctly
-- `etl/sql/marts/fct_events.sql` -- Draft modified fct_events with 7 new columns + backfill var
+- `backfill_runbook.md` -- Step-by-step backfill execution plan
