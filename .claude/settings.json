@@ -32,20 +32,6 @@
       "Bash(wget:*)"
     ]
   },
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/stop-check-staging.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  },
   "env": {
     "PYTHONDONTWRITEBYTECODE": "1"
   }
