@@ -1,4 +1,24 @@
 .idea/
 __pycache__/
 *.pyc
+*.pyo
 .env
+.env.*
+dist/
+build/
+*.egg-info/
+.venv/
+.coverage
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Analysis scratch work
+analysis/**/scratch/
+
+# Context snapshots can contain large JSON
+context/dbt/**/*.json
+context/lookml/**/*.json
+
+# Keep .gitkeep files
+!**/.gitkeep

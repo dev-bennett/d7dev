@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(pytest:*)",
+      "Bash(pip:*)",
+      "Bash(uv:*)",
+      "Bash(ruff:*)",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(tar:*)",
+      "Bash(unzip:*)",
+      "Bash(tree:*)",
+      "Bash(diff:*)",
+      "Bash(date:*)",
+      "Bash(touch:*)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf /)*",
+      "Bash(curl:*)",
+      "Bash(wget:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Before finishing: verify all new files have been staged with git add. If tests exist for changed code, confirm they were run and pass. Check that SQL, LookML, and analysis files are also staged."
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}
