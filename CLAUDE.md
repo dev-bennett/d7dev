@@ -6,12 +6,13 @@ Principal analyst orchestration brain for dbt + Snowflake + Looker stack.
 
 - NOT a Python application -- this is an analytical workspace
 - Orchestrates analysis across: dbt (transforms), Snowflake (warehouse), Looker (reporting)
-- dbt and LookML repos are separate; snapshots ingested into context/
+- dbt repo: git submodule at context/dbt/ (live on main)
+- LookML repo: separate, air-gapped (context/lookml/ pending integration)
 
 ## Tech Stack
 
 - Snowflake (data warehouse)
-- dbt (data transformation -- separate repo, snapshots in context/dbt/)
+- dbt (data transformation -- git submodule at context/dbt/)
 - Looker + LookML (reporting -- separate repo, snapshots in context/lookml/)
 - Python 3.12+ (utility scripts only, in scripts/)
 
@@ -62,10 +63,10 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 ## Directory Map
 
 - `analysis/` -- Analysis outputs organized by domain, timestamped
-- `context/` -- Ingested repo snapshots (dbt, LookML) and reference materials
+- `context/` -- Cross-repo references (dbt submodule, LookML snapshots)
 - `knowledge/` -- KB articles, data dictionary, runbooks, decision records
 - `lookml/` -- LookML development workspace (models, views, explores, dashboards)
-- `etl/` -- SQL transforms, pipeline definitions, data quality checks
+- `etl/` -- ETL task workspaces, transform drafts, data quality checks (see etl/CLAUDE.md)
 - `scripts/` -- Python utilities and automation
 - `tests/` -- Test suite for Python scripts
 - `.claude/rules/` -- Auto-loaded conventions for all file types
@@ -89,12 +90,19 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 
 ## Cross-Repo Architecture
 
-This repo will eventually integrate with:
-- dbt repo (git submodule or API-based sync) -- for live model references
-- LookML repo (git submodule or API-based sync) -- for live Looker state
+- dbt: git submodule at context/dbt/ (SoundstripeEngineering/dbt-transformations)
+  - Pull latest: `git submodule update --remote context/dbt`
+  - Development branch: `develop_dab`
+- LookML: pending integration (Phase 3 in context/CLAUDE.md roadmap)
 
-Current approach: manual compressed snapshots in context/ with freshness tracking.
-See context/CLAUDE.md for integration roadmap.
+## Session Closeout Protocol
+
+Before ending a session with significant work:
+1. Review friction points and mistakes -- capture as feedback memory
+2. Update stale memory entries (architecture, references, project state)
+3. Update repo conventions (CLAUDE.md, etl/CLAUDE.md, rules) if patterns emerged
+4. Verify repo documentation matches current state (don't leave stale claims)
+5. Stage and commit only when the user explicitly asks
 
 ## Development
 
