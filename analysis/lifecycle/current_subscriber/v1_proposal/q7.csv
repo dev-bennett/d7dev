@@ -1,0 +1,7 @@
+LAPSE_STATUS,SUBSCRIBER_COUNT,PCT_OF_ACTIVE_SUBS
+active_last_30d,13702,42.3
+30-60d lapsed,3487,10.8
+61-90d lapsed,1912,5.9
+91-180d lapsed,3781,11.7
+180d+ lapsed,9085,28.0
+never_visited,422,1.3
