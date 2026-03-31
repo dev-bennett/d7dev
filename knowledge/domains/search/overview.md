@@ -1,11 +1,12 @@
 # Search Domain Overview
 
-- **Last updated:** 2026-03-28
+- **Last updated:** 2026-03-30
 - **Author:** d7admin
 
 ## Scope
 
 The search domain covers user search behavior within the Soundstripe platform, including:
+- **Searched Songs:** Core song search event with vocal filter, result count, and Supe origin tracking (properties added 2026-03-26)
 - **Reference Track Search:** Spotify-based similarity search (shipped 2026-02-18)
 - **Agent Search:** General search with optional reference track mode
 
@@ -18,13 +19,23 @@ The search domain covers user search behavior within the Soundstripe platform, i
 | Reference Track Search Error | Frontend + Backend | 2026-02-18 | Search failed (no Spotify match, track not analyzed, etc.) |
 | Reference Track Search Closed | Frontend | 2026-02-18 | User closed the reference track search interface |
 | Executed Agent Search | Frontend | Pre-existing | General search; now includes `search_type` and `spotify_id` when reference track mode |
+| Searched Songs | Frontend | Pre-existing | Core song search; new properties: Has Vocals, Result Count, Supe (added 2026-03-26) |
 
 ## Data Model
 
-- **Primary table:** `core.fct_events` (7 new columns added 2026-03-27)
+### Reference Track Search (added 2026-03-27)
+
+- **Primary table:** `core.fct_events` (7 columns)
 - **Columns:** spotify_track_id, spotify_id, ref_track_results_count, ref_track_title, ref_track_error_message, ref_track_signup_trigger, search_type
 - **Data dictionary:** knowledge/data-dictionary/fct-events-reference-track-search.md
 - **Schema decisions:** knowledge/decisions/2026-03-28-reference-track-search-schema.md
+
+### Searched Songs Properties (added 2026-03-30)
+
+- **Primary table:** `core.fct_events` (3 columns)
+- **Columns:** search_has_vocals, search_result_count, is_supe_search
+- **Data dictionary:** knowledge/data-dictionary/fct-events-searched-songs-properties.md
+- **Notes:** search_has_vocals reuses the existing HAS_VOCALS source column (previously array-style, now scalar enum). is_supe_search indicates search originated from the Supe AI chat sidebar.
 
 ## Downstream Models (Future Scope)
 
@@ -44,4 +55,5 @@ The search domain covers user search behavior within the Soundstripe platform, i
 ## Related Work
 
 - ETL task: etl/tasks/2026-03-27-reference-track-search/
+- ETL task: etl/tasks/2026-03-30-searched-songs-properties/
 - Analysis workspace: analysis/search/

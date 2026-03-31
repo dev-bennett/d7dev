@@ -1,0 +1,17 @@
+ACTION_TYPE,TIMING_BUCKET,SUBSCRIBER_COUNT,PCT_OF_GROUP
+first_download,day 0,8428,81.7
+first_download,day 1,455,4.4
+first_download,day 2-3,290,2.8
+first_download,day 4-7,297,2.9
+first_download,day 8-14,223,2.2
+first_download,day 15-30,228,2.2
+first_download,day 31-60,159,1.5
+first_download,day 61+,242,2.3
+first_session,day 0,11626,97.8
+first_session,day 1,55,0.5
+first_session,day 2-3,29,0.2
+first_session,day 4-7,32,0.3
+first_session,day 8-14,14,0.1
+first_session,day 15-30,6,0.1
+first_session,day 31-60,3,0.0
+first_session,day 61+,122,1.0

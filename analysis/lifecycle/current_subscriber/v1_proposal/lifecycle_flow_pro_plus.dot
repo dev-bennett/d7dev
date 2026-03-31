@@ -1,0 +1,67 @@
+digraph lifecycle {
+  rankdir=TB;
+  bgcolor="white";
+  labelloc="t";
+  label=<<B>Pro Plus — Lifecycle Email Flow</B><BR/><I>Monthly subscriber counts (Feb 2026, N=1,763)</I>>;
+  fontname="Helvetica"; fontsize=16;
+  node [fontname="Helvetica", fontsize=11, style="filled,rounded", shape=box, penwidth=1.5];
+  edge [fontname="Helvetica", fontsize=9, color="#6b7280"];
+
+  NEW [label=<New
+Subscriber<BR/><B>5</B> (0.3%)>, fillcolor="#4ade8040", color="#4ade80", fontcolor="#1f2937"];
+  ACTIVE_DOWNLOADER [label=<Active
+Downloader<BR/><B>788</B> (44.7%)>, fillcolor="#60a5fa40", color="#60a5fa", fontcolor="#1f2937"];
+  ACTIVE_BROWSER [label=<Active
+Browser<BR/><B>225</B> (12.8%)>, fillcolor="#a78bfa40", color="#a78bfa", fontcolor="#1f2937"];
+  EARLY_LAPSE [label=<Early
+Lapse<BR/><B>348</B> (19.7%)>, fillcolor="#fbbf2440", color="#fbbf24", fontcolor="#1f2937"];
+  DEEP_LAPSE [label=<Deep
+Lapse<BR/><B>128</B> (7.3%)>, fillcolor="#f9731640", color="#f97316", fontcolor="#1f2937"];
+  DORMANT [label=<Dormant<BR/><B>269</B> (15.3%)>, fillcolor="#ef444440", color="#ef4444", fontcolor="#1f2937"];
+
+  // Email touchpoint nodes
+  EMAIL_NEW [label=<Welcome + Onboarding
+Sequence (Day 0-7)>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  NEW -> EMAIL_NEW [style=dashed, color="#d97706", arrowsize=0.7];
+  EMAIL_ACTIVE_DOWNLOADER [label=<Value Reinforcement
++ Feature Discovery>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  ACTIVE_DOWNLOADER -> EMAIL_ACTIVE_DOWNLOADER [style=dashed, color="#d97706", arrowsize=0.7];
+  EMAIL_ACTIVE_BROWSER [label=<Download Nudge
++ Curated Content>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  ACTIVE_BROWSER -> EMAIL_ACTIVE_BROWSER [style=dashed, color="#d97706", arrowsize=0.7];
+  EMAIL_EARLY_LAPSE [label=<Re-engagement
+Trigger (30-90d)>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  EARLY_LAPSE -> EMAIL_EARLY_LAPSE [style=dashed, color="#d97706", arrowsize=0.7];
+  EMAIL_DEEP_LAPSE [label=<Win-back
+Campaign (90-180d)>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  DEEP_LAPSE -> EMAIL_DEEP_LAPSE [style=dashed, color="#d97706", arrowsize=0.7];
+  EMAIL_DORMANT [label=<Final Win-back
+or Sunset (180d+)>, shape=note, fillcolor="#fef3c7", color="#d97706", fontsize=9, fontcolor="#92400e"];
+  DORMANT -> EMAIL_DORMANT [style=dashed, color="#d97706", arrowsize=0.7];
+
+  // Transitions (avg monthly)
+  NEW -> ACTIVE_DOWNLOADER [label="3/mo", penwidth=1.0];
+  ACTIVE_DOWNLOADER -> ACTIVE_DOWNLOADER [label="191/mo", penwidth=1.0, color="#9ca3af", style=dashed];
+  ACTIVE_DOWNLOADER -> ACTIVE_BROWSER [label="83/mo", penwidth=1.0];
+  ACTIVE_DOWNLOADER -> EARLY_LAPSE [label="105/mo", penwidth=1.0];
+  ACTIVE_BROWSER -> ACTIVE_DOWNLOADER [label="65/mo", penwidth=1.0];
+  ACTIVE_BROWSER -> ACTIVE_BROWSER [label="33/mo", penwidth=1.0, color="#9ca3af", style=dashed];
+  ACTIVE_BROWSER -> EARLY_LAPSE [label="72/mo", penwidth=1.0];
+  EARLY_LAPSE -> ACTIVE_DOWNLOADER [label="91/mo", penwidth=1.0];
+  EARLY_LAPSE -> ACTIVE_BROWSER [label="74/mo", penwidth=1.0];
+  EARLY_LAPSE -> EARLY_LAPSE [label="121/mo", penwidth=1.0, color="#9ca3af", style=dashed];
+  EARLY_LAPSE -> DEEP_LAPSE [label="37/mo", penwidth=1.0];
+  DEEP_LAPSE -> DEEP_LAPSE [label="30/mo", penwidth=1.0, color="#9ca3af", style=dashed];
+  DEEP_LAPSE -> DORMANT [label="20/mo", penwidth=1.0];
+  DORMANT -> DORMANT [label="52/mo", penwidth=1.0, color="#9ca3af", style=dashed];
+
+  // Layout
+  { rank=same; ACTIVE_DOWNLOADER; ACTIVE_BROWSER; }
+  { rank=same; EARLY_LAPSE; DEEP_LAPSE; }
+  NEW -> ACTIVE_DOWNLOADER [style=invis];
+  EARLY_LAPSE -> DORMANT [style=invis];
+
+  CHURNED [label=<Cancelled / Churned>, shape=doubleoctagon, fillcolor="#fecaca", color="#dc2626", fontcolor="#991b1b", fontsize=10];
+  DORMANT -> CHURNED [style=dotted, color="#dc2626", label="churn risk"];
+  DEEP_LAPSE -> CHURNED [style=dotted, color="#dc2626"];
+}
