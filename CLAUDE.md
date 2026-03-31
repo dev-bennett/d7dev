@@ -58,6 +58,7 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 @.claude/rules/writing-standards.md
 @.claude/rules/python-standards.md
 @.claude/rules/git-workflow.md
+@.claude/rules/roadmapping-methodology.md
 @.claude/rules/guardrails.md
 
 ## Directory Map
@@ -83,6 +84,7 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - `/ingest <repo>` -- Ingest a compressed repo snapshot into context/
 - `/kb-update <topic>` -- Add or update knowledge base articles
 - `/scaffold <domain>` -- Create a new analytical domain scaffold
+- `/roadmap <domain>` -- Manage a roadmapping initiative (scope, consolidate, prioritize, plan)
 - `/review` -- Review uncommitted changes across all file types
 - `/test [args]` -- Run validations (Python, SQL, LookML)
 - `/status` -- Analytical project health dashboard

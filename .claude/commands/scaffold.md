@@ -23,5 +23,10 @@ Create a new analytical domain scaffold for "$ARGUMENTS":
    - What gaps exist (missing models, undefined metrics)
    - Suggested next steps
 
+8. Check if this domain is part of an active roadmapping initiative:
+   - Scan analysis/*/CLAUDE.md for references to $ARGUMENTS
+   - If found: link the new domain scaffold to the parent initiative
+   - If not: note that `/roadmap $ARGUMENTS` can be used to initiate roadmapping
+
 This creates the full analytical surface for a business domain.
 Think of it as: "I need to start understanding and measuring $ARGUMENTS."

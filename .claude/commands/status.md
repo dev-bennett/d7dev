@@ -21,5 +21,9 @@ Analytical project health dashboard for d7dev:
    - Flag scripts without corresponding tests
 8. **Domain coverage matrix**:
    - For each domain in analysis/: does it have KB articles? LookML views? ETL coverage?
+9. **Active initiatives**:
+   - Scan analysis/*/CLAUDE.md for roadmapping status fields
+   - List each initiative with: domain, current roadmap step (1-7), owner, last updated
+   - Flag stalled initiatives (no update in >30 days)
 
 Present as a concise dashboard. Flag gaps and recommend priorities.
