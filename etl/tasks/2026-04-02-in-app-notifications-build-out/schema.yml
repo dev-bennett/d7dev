@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: dim_ad_content
+    description: >
+      Dimension table containing ad creative/content fields for Meta (Facebook) and LinkedIn ads.
+      Join to fct_ad_performance on ad_id + platform.
+    columns:
+      - name: ad_id
+        description: "Ad identifier. Matches ad_id in fct_ad_performance."
+        tests:
+          - not_null
+      - name: platform
+        description: "Ad platform. Matches platform in fct_ad_performance."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['facebook', 'linkedin']
+      - name: ad_name
+        description: "Ad name from the ads table"
+      - name: creative_name
+        description: "Creative asset name"
+      - name: headline
+        description: "Primary headline/title text of the ad creative"
+      - name: body_text
+        description: "Body/message text of the ad creative"
+      - name: landing_page_url
+        description: "Destination URL the ad links to"
+      - name: image_url
+        description: "Image asset URL"
+      - name: video_id
+        description: "Video asset identifier"
+      - name: call_to_action_type
+        description: "CTA button type (e.g., LEARN_MORE, SIGN_UP, SUBSCRIBE)"
+      - name: thumbnail_url
+        description: "Thumbnail image URL"
+      - name: creative_format
+        description: "Creative format type (e.g., VIDEO, SHARE for Facebook)"
+
+  - name: dim_notification_content
+    description: >
+      Notification content dimension. One row per notification entry with
+      type metadata, content fields, and publication status. Covers generic,
+      targeted, and automated in-app notification types from the CMS.
+    columns:
+      - name: cms_entry_id
+        description: "Primary key. CMS entry identifier for the notification content."
+        tests:
+          - unique
+          - not_null
+      - name: notification_type
+        description: "CMS content type identifier (genericNotification, targetedNotification, automatedNotification)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - genericNotification
+                - targetedNotification
+                - automatedNotification
+      - name: notification_type_name
+        description: "Human-readable content type name."
+      - name: title
+        description: "Notification title text."
+      - name: message
+        description: "Notification message body text."
+      - name: url
+        description: "Destination URL for the notification CTA."
+      - name: tag
+        description: "Notification category tag (e.g., New Music, Announcement, Offer)."
+      - name: has_url
+        description: "Whether the notification has a destination URL."
+      - name: published
+        description: "Whether the CMS entry is published."
+      - name: published_at
+        description: "Timestamp when the CMS entry was published."
+      - name: entry_created_at
+        description: "Timestamp when the CMS entry was created."
+
+  - name: fct_notification_deliveries
+    description: >
+      Notification delivery fact table. One row per notification sent to a user,
+      enriched with notification content and type from dim_notification_content.
+      Incremental on created_at with 3-day lookback.
+    columns:
+      - name: notification_delivery_id
+        description: "Primary key. Unique identifier for each notification delivery."
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "User who received the notification."
+        tests:
+          - not_null
+      - name: cms_entry_id
+        description: "CMS entry identifier linking to notification content."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_notification_content')
+              field: cms_entry_id
+      - name: notification_type
+        description: "Notification type from content dimension (NULL if cms_entry_id maps to non-notification content type)."
+      - name: title
+        description: "Notification title text from content dimension."
+      - name: message
+        description: "Notification message body from content dimension."
+      - name: url
+        description: "Notification destination URL from content dimension."
+      - name: tag
+        description: "Notification category tag from content dimension."
+      - name: created_at
+        description: "Timestamp when the notification was delivered to the user."
+      - name: read_at
+        description: "Timestamp when the user read the notification (NULL if unread)."
+      - name: is_read
+        description: "Whether the user has read the notification."
+      - name: hours_to_read
+        description: "Hours between delivery and read (NULL if unread)."

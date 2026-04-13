@@ -1,0 +1,7 @@
+PERIOD,NOTIFICATION_TYPE,TOTAL_DELIVERIES,HAS_READ_AT,PCT_WITH_READ_AT
+Nov 2025+,automatedNotification,672270,51,0.01
+Nov 2025+,genericNotification,20053,19584,97.66
+Nov 2025+,targetedNotification,626199,8,0.00
+pre-Nov 2025,automatedNotification,1393442,190661,13.68
+pre-Nov 2025,genericNotification,145787,144208,98.92
+pre-Nov 2025,targetedNotification,407306,46461,11.41

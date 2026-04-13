@@ -1,0 +1,2 @@
+created_on,name,database_name,schema_name,kind,comment,cluster_by,rows,bytes,owner,retention_time,automatic_clustering,change_tracking,is_external,enable_schema_evolution,owner_role_type,is_event,is_hybrid,is_iceberg,is_dynamic,is_immutable,is_interactive
+2026-04-02 09:18:23.717 -07:00,DIM_NOTIFICATION_CONTENT,SOUNDSTRIPE_PROD,MARKETING,TRANSIENT,"","",1810561,45603840,TRANSFORMER,1,OFF,OFF,N,N,ROLE,N,N,N,N,N,N

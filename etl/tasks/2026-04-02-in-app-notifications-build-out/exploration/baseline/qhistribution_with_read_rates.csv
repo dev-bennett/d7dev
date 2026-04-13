@@ -1,0 +1,7 @@
+TAG,NOTIFICATION_TYPE,DELIVERY_COUNT,READ_COUNT,READ_RATE_PCT
+New Music,automatedNotification,1820426,182711,10.04
+(no tag),targetedNotification,1033505,46469,4.50
+Reminder,automatedNotification,227450,6813,3.00
+(no tag),genericNotification,165840,163792,98.77
+Announcement,automatedNotification,11590,508,4.38
+Update,automatedNotification,6246,680,10.89

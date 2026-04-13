@@ -1,0 +1,77 @@
+version: 2
+
+
+sources:
+    - name: soundstripe
+      database: pc_stitch_db
+      schema: soundstripe
+      tables:
+        - name: accounts
+        - name: albums
+        - name: album_songs
+        - name: api_keys
+        - name: artists
+        - name: artist_associations
+        - name: artist_songs
+        - name: audio_files
+        - name: categories
+        - name: cms_assets
+        - name: cms_content_types
+        - name: cms_entries
+        - name: cms_field_values
+        - name: cms_fields
+        - name: composers
+        - name: content_partners
+        - name: coupons
+        - name: crisp_conversations
+        - name: crisp_messages
+        - name: digital_usages
+        - name: documents
+        - name: downloads
+        - name: enterprise_invitations
+        - name: favorites
+        - name: leads
+        - name: licenses
+        - name: marketplace_artist_songs
+        - name: marketplace_artists
+        - name: marketplace_audio_files
+        - name: marketplace_content_partners
+        - name: marketplace_sale_items
+        - name: marketplace_sales
+        - name: marketplace_songs
+        - name: offers
+        - name: payout_accounts
+        - name: performing_rights_organizations
+        - name: playlists
+        - name: playlist_categories
+        - name: playlist_category_playlists
+        - name: playlist_items
+        - name: project_items
+        - name: projects
+        - name: publishers
+        - name: referrals
+        - name: sales
+        - name: songs
+        - name: songwriters
+        - name: song_bpms
+        - name: song_payout_accounts
+        - name: song_producers
+        - name: song_publishers
+        - name: song_recommendations
+        - name: sound_effects
+        - name: sound_effect_categories
+        - name: subscriptions
+        - name: subscription_cancellation_events
+        - name: subscription_lifecycle_events
+        - name: taggable_tags
+        - name: tags
+        - name: tried_songs
+        - name: twitch_channels
+        - name: user_notifications
+        - name: user_payout_accounts
+        - name: users
+        - name: videos
+        - name: video_encodings
+        - name: writers
+        - name: youtube_channels
+        - name: youtube_claims

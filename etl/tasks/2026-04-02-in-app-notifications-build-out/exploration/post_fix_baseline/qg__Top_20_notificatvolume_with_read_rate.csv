@@ -1,0 +1,21 @@
+CMS_ENTRY_ID,NOTIFICATION_TYPE,TITLE,TAG,DELIVERY_COUNT,READ_COUNT,READ_RATE_PCT,AVG_HOURS_TO_READ
+1152257,targetedNotification,"You asked, we listened!",,293408,4563,1.56,1096.9
+1144900,targetedNotification,🎧 The music you couldn’t find – until now.,,267275,779,0.29,1297.4
+137594,targetedNotification,🚨 Action needed! ,,156489,9083,5.80,2456.1
+259768,automatedNotification,Action needed!,Reminder,119597,5890,4.92,2283.6
+918838,automatedNotification,Get more out of your subscription!,Reminder,107795,4691,4.35,2175.5
+32,targetedNotification,🧠 Work smarter with projects!,,53148,9967,18.75,2267.0
+1323791,targetedNotification,Another wave just hit 🌊,,45407,266,0.59,158.8
+142008,targetedNotification,⭐ Save your fave!,,39444,7928,20.10,2032.2
+530449,targetedNotification,Supe’s still waiting 👀,,37438,8847,23.63,1965.6
+136659,targetedNotification,🤔  What are you creating?,,36437,4593,12.61,2386.2
+145321,targetedNotification,You’ve been out of the loop 🎶👀,,12994,3993,30.73,2201.4
+42,targetedNotification,🔓 Unlock More — Upgrade Today!,,11048,2980,26.97,2232.9
+1144897,targetedNotification,👑 The Warner Chappell Production Music Collection is here.,,10611,2645,24.93,1138.5
+3,genericNotification,Soundstripe is now available in Adobe Express!,,8160,8122,99.53,8.3
+1144898,targetedNotification,📈 Soundstripe’s music offering just got 3x bigger.,,8157,1189,14.58,1201.3
+6,genericNotification,New music just dropped!,,7932,7891,99.48,7.7
+7,genericNotification,New music just dropped!,,7110,7069,99.42,9.4
+9,genericNotification,New music just dropped! 🎧,,6866,6820,99.33,7.3
+10,genericNotification,Looking for something fresh?,,6649,6606,99.35,7.0
+11,genericNotification,Your next favorite song just dropped 🎶,,6188,6131,99.08,13.7

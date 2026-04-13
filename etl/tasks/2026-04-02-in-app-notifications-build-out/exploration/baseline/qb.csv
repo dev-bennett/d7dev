@@ -1,0 +1,4 @@
+NOTIFICATION_TYPE,NOTIFICATION_TYPE_NAME,DELIVERY_COUNT,PCT_OF_TOTAL
+automatedNotification,Automated Notification,2065712,63.27
+targetedNotification,Targeted Notification,1033505,31.65
+genericNotification,Generic Notification,165840,5.08
