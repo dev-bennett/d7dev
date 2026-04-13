@@ -7,13 +7,13 @@ Principal analyst orchestration brain for dbt + Snowflake + Looker stack.
 - NOT a Python application -- this is an analytical workspace
 - Orchestrates analysis across: dbt (transforms), Snowflake (warehouse), Looker (reporting)
 - dbt repo: git submodule at context/dbt/ (live on main)
-- LookML repo: separate, air-gapped (context/lookml/ pending integration)
+- LookML repo: git submodule at context/lookml/ (live on master)
 
 ## Tech Stack
 
 - Snowflake (data warehouse)
 - dbt (data transformation -- git submodule at context/dbt/)
-- Looker + LookML (reporting -- separate repo, snapshots in context/lookml/)
+- Looker + LookML (reporting -- git submodule at context/lookml/)
 - Python 3.12+ (utility scripts only, in scripts/)
 
 ## Analytical Execution Sequence
@@ -64,9 +64,10 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 ## Directory Map
 
 - `analysis/` -- Analysis outputs organized by domain, timestamped
-- `context/` -- Cross-repo references (dbt submodule, LookML snapshots)
+- `context/` -- Cross-repo references (dbt submodule, LookML submodule)
 - `knowledge/` -- KB articles, data dictionary, runbooks, decision records
-- `lookml/` -- LookML development workspace (models, views, explores, dashboards)
+- `initiatives/` -- Cross-workspace initiative tracking (ties ETL + LookML + knowledge + analysis together)
+- `lookml/` -- LookML development workspace (reference/, tasks/)
 - `etl/` -- ETL task workspaces, transform drafts, data quality checks (see etl/CLAUDE.md)
 - `scripts/` -- Python utilities and automation
 - `tests/` -- Test suite for Python scripts
@@ -89,22 +90,28 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - `/test [args]` -- Run validations (Python, SQL, LookML)
 - `/status` -- Analytical project health dashboard
 - `/checkpoint [init|update|review]` -- Session state management
+- `/preflight [task]` -- Pre-flight check: verify environment, targets, existing patterns before starting work
+- `/evolve [scope]` -- Post-task retrospective: detect friction, audit repo health, integrate improvements
 
 ## Cross-Repo Architecture
 
 - dbt: git submodule at context/dbt/ (SoundstripeEngineering/dbt-transformations)
   - Pull latest: `git submodule update --remote context/dbt`
   - Development branch: `develop_dab`
-- LookML: pending integration (Phase 3 in context/CLAUDE.md roadmap)
+- LookML: git submodule at context/lookml/ (SoundstripeEngineering/looker)
+  - Pull latest: `git submodule update --remote context/lookml`
+  - Development: prepare in lookml/tasks/, user promotes via Looker IDE
 
 ## Session Closeout Protocol
 
 Before ending a session with significant work:
-1. Review friction points and mistakes -- capture as feedback memory
-2. Update stale memory entries (architecture, references, project state)
-3. Update repo conventions (CLAUDE.md, etl/CLAUDE.md, rules) if patterns emerged
-4. Verify repo documentation matches current state (don't leave stale claims)
-5. Stage and commit only when the user explicitly asks
+1. Update initiative files in `initiatives/` for any cross-workspace work (changelog entry + artifact links)
+2. Review friction points and mistakes -- capture as feedback memory
+3. Update stale memory entries (architecture, references, project state)
+4. Update repo conventions (CLAUDE.md, etl/CLAUDE.md, rules) if patterns emerged
+5. Verify repo documentation matches current state (don't leave stale claims)
+6. Update task README.md status in etl/tasks/ and lookml/tasks/ for completed work
+7. Stage and commit only when the user explicitly asks
 
 ## Development
 

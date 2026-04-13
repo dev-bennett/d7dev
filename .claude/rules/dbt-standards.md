@@ -18,3 +18,10 @@ paths: ["context/dbt/**", "etl/**"]
 - Seeds: only for small lookup/mapping tables, not data loads
 - Snapshots: use timestamp strategy when available, check strategy as fallback
 - Follow the staging -> intermediate -> marts layering pattern
+- Place intermediate models in transformations/<domain>/, mart models in existing marts/<domain>/
+- New source tables: add to existing src_*.yml in alphabetical order, provide complete file replacement
+- Schema tests must match join semantics: no relationships tests on LEFT JOIN FKs, no accepted_values without verifying the full value set
+- Stitch sources: use `updated_at` as replication key for tables where rows get updated after insert (not `id`)
+- dbt Cloud dev targets soundstripe_dev; production tables live in soundstripe_prod
+- When manually rebuilding prod tables: USE ROLE TRANSFORMER, then GRANT SELECT to EMBEDDED_ANALYST after creation
+- Before writing any dbt run/build command: read the target model's config block and incremental logic to confirm materialization strategy, unique_key, and available variables. Do not assume one model's config matches another's -- fct_events has backfill_from, fct_sessions_build does not.

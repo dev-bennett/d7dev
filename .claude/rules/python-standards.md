@@ -1,6 +1,6 @@
 ---
 name: Python Standards
-paths: ["scripts/**/*.py", "tests/**/*.py"]
+paths: ["scripts/**/*.py", "tests/**/*.py", "analysis/**/*.py"]
 ---
 
 # Python Coding Standards

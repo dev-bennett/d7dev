@@ -56,6 +56,23 @@ ALIGNMENT CHECK -- [category]:
 
 Do not proceed to query authoring for any category that fails alignment.
 
+## Investigatory Analysis (Signal Detection, Data Quality, Anomaly Investigation)
+
+Investigatory work follows a modified sequence: context gathering precedes query authoring.
+
+1. **CONTEXT:** Gather all available domain context BEFORE writing diagnostic SQL.
+   - If the user states a suspected cause, investigate that cause first
+   - Seek PRDs, deployment timelines, architecture docs, changelogs for the relevant system
+   - Read the dbt model lineage (source → staging → marts) for any tables you'll query
+   - Identify the fields available in the model before writing queries that reference them
+2. **BUILD:** Write diagnostic queries directly to the working file (visitors.sql or equivalent). Do not show queries in chat for the user to copy.
+3. **ITERATE:** After each query round, check the filesystem for result files before composing analysis. The user may export results faster than you respond.
+4. **VERIFY/INTERPRET:** Same as the standard three-pass workflow -- verification artifacts, null hypothesis checks, claim verification.
+
+Hypothesis discipline: let the data constrain hypotheses, but also let available context constrain them. If a known infrastructure change coincides with a data anomaly, the infrastructure change is the leading hypothesis until evidence contradicts it.
+
+**Correction filter validation:** When building a filter to exclude contaminated data, validate against control periods before presenting results. If the corrected metric in the affected window is systematically higher or lower than both the pre-contamination and post-fix control periods, the filter is miscalibrated. Use all available prior query results to inform the filter — do not ignore dimensions (e.g., landing host, geo) that the data already exposed as relevant.
+
 ## Core Standards
 
 - Every analysis must state: question, methodology, data sources, limitations
