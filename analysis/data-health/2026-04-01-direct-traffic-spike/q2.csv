@@ -1,0 +1,142 @@
+DAY_TYPE,BROWSER,SESSIONS,VISITORS,SESSIONS_PER_VISITOR
+baseline,Chrome,163977,151810,1.08
+baseline,,15028,14696,1.02
+baseline,Mobile Safari,7154,5984,1.20
+baseline,Safari,5672,4262,1.33
+baseline,Firefox,4055,3408,1.19
+baseline,Microsoft Edge,4054,3167,1.28
+baseline,Chrome Mobile,3554,3310,1.07
+baseline,Mozilla,1327,1327,1.00
+baseline,Opera,920,677,1.36
+baseline,Chrome Webview,850,819,1.04
+baseline,WeChat,837,832,1.01
+baseline,Chrome iOS,746,553,1.35
+baseline,Facebook,662,660,1.00
+baseline,Daum,498,498,1.00
+baseline,Microsoft Start,486,486,1.00
+baseline,Naver,439,439,1.00
+baseline,Snapchat,343,343,1.00
+baseline,OkHttp,327,206,1.59
+baseline,Samsung Internet,234,197,1.19
+baseline,Headless Chrome,205,204,1.00
+baseline,Firefox Mobile,192,151,1.27
+baseline,Android Browser,157,102,1.54
+baseline,Chrome Mobile iOS,156,156,1.00
+baseline,QQ Browser,150,141,1.06
+baseline,UC Browser,114,78,1.46
+baseline,NewsArticle App,107,107,1.00
+baseline,Quark,97,93,1.04
+baseline,LinkedIn,95,95,1.00
+baseline,Huawei Browser Mobile,82,80,1.03
+baseline,Sogou Explorer,79,75,1.05
+baseline,Opera Mobile,70,70,1.00
+baseline,Google Search App,66,65,1.02
+baseline,Yandex Browser,60,43,1.40
+baseline,vivo Browser,54,54,1.00
+baseline,Samsung Browser,49,47,1.04
+baseline,OBS Studio,46,16,2.88
+baseline,Facebook Mobile,45,40,1.13
+baseline,MIUI Browser,36,35,1.03
+baseline,Firefox iOS,32,25,1.28
+baseline,Avast Secure Browser,32,29,1.10
+baseline,Norton Private Browser,29,26,1.12
+baseline,Brave,26,21,1.24
+baseline,Android Mobile,24,24,1.00
+baseline,HeyTapBrowser,23,23,1.00
+baseline,Line,22,18,1.22
+baseline,AVG Secure Browser,17,13,1.31
+baseline,Smart Lenovo Browser,15,14,1.07
+baseline,Whale Browser,14,7,2.00
+baseline,aweme,14,14,1.00
+baseline,Internet Explorer,13,13,1.00
+baseline,Aloha Browser,8,8,1.00
+baseline,curl,8,4,2.00
+baseline,CCleaner,8,6,1.33
+baseline,Baidu Box App,7,7,1.00
+baseline,Opera GX,7,7,1.00
+baseline,Huawei Browser,5,5,1.00
+baseline,JioSphere,5,5,1.00
+baseline,QtWebEngine,4,4,1.00
+baseline,Firefox Mobile iOS,4,4,1.00
+baseline,Instagram,4,4,1.00
+baseline,Visual Studio Code,4,4,1.00
+baseline,Opera Touch,3,3,1.00
+baseline,Zalo,3,3,1.00
+baseline,Pinterest,3,3,1.00
+baseline,Lenovo Browser,3,3,1.00
+baseline,Hi Browser,3,3,1.00
+baseline,Ecosia,2,2,1.00
+baseline,DingTalk,2,2,1.00
+baseline,Konqueror,2,1,2.00
+baseline,SearchCraft,1,1,1.00
+baseline,Microsoft Bing,1,1,1.00
+baseline,Oculus Browser,1,1,1.00
+baseline,Threads,1,1,1.00
+baseline,Mobile Silk,1,1,1.00
+baseline,Maxthon,1,1,1.00
+baseline,doubao,1,1,1.00
+baseline,Phoenix Browser,1,1,1.00
+baseline,RDDocuments,1,1,1.00
+baseline,Spotify,1,1,1.00
+baseline,Thunder,1,1,1.00
+baseline,Meizu Browser,1,1,1.00
+baseline,Light,1,1,1.00
+spike,Chrome,190435,188253,1.01
+spike,,1753,1721,1.02
+spike,Mobile Safari,1406,1233,1.14
+spike,Safari,1255,1023,1.23
+spike,Microsoft Edge,916,771,1.19
+spike,Firefox,847,743,1.14
+spike,Chrome Mobile,653,625,1.04
+spike,Mozilla,244,244,1.00
+spike,Opera,178,144,1.24
+spike,Chrome iOS,176,140,1.26
+spike,WeChat,174,174,1.00
+spike,Chrome Webview,169,166,1.02
+spike,Daum,123,123,1.00
+spike,Microsoft Start,106,106,1.00
+spike,Headless Chrome,104,103,1.01
+spike,Snapchat,99,99,1.00
+spike,Facebook,96,96,1.00
+spike,Android Browser,45,35,1.29
+spike,OkHttp,44,36,1.22
+spike,Naver,43,43,1.00
+spike,Samsung Internet,41,41,1.00
+spike,Chrome Mobile iOS,37,35,1.06
+spike,Firefox Mobile,27,24,1.13
+spike,UC Browser,26,21,1.24
+spike,QQ Browser,23,23,1.00
+spike,Yandex Browser,16,13,1.23
+spike,Opera Mobile,16,16,1.00
+spike,NewsArticle App,14,14,1.00
+spike,LinkedIn,14,14,1.00
+spike,Google Search App,11,11,1.00
+spike,Huawei Browser Mobile,10,10,1.00
+spike,Quark,10,10,1.00
+spike,Brave,9,7,1.29
+spike,Norton Private Browser,8,5,1.60
+spike,Samsung Browser,7,7,1.00
+spike,Sogou Explorer,7,7,1.00
+spike,Firefox iOS,7,4,1.75
+spike,Avast Secure Browser,6,6,1.00
+spike,OBS Studio,6,5,1.20
+spike,Whale Browser,5,3,1.67
+spike,MIUI Browser,5,5,1.00
+spike,vivo Browser,5,5,1.00
+spike,Smart Lenovo Browser,4,4,1.00
+spike,Android Mobile,4,4,1.00
+spike,Aloha Browser,4,4,1.00
+spike,Facebook Mobile,4,4,1.00
+spike,aweme,3,3,1.00
+spike,HeyTapBrowser,3,3,1.00
+spike,Zalo,2,1,2.00
+spike,Pinterest,1,1,1.00
+spike,Spotify,1,1,1.00
+spike,Baidu Box App,1,1,1.00
+spike,Openwave Mobile Browser,1,1,1.00
+spike,Ecosia,1,1,1.00
+spike,DingTalk,1,1,1.00
+spike,JioSphere,1,1,1.00
+spike,Lenovo Browser,1,1,1.00
+spike,Mobile Silk,1,1,1.00
+spike,Phoenix Browser,1,1,1.00

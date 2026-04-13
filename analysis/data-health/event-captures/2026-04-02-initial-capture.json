@@ -1,0 +1,125 @@
+[
+  {
+    "event": "Played Song",
+    "props": {
+      "Play Duration": 1,
+      "Play Completed": false,
+      "Song ID": "26274",
+      "Song Title": "Coastal Haze",
+      "Song Parent ID": null,
+      "Recommendation Rank": null,
+      "Artist ID": "741",
+      "Artist Name": "Non-Stop Producer Series",
+      "Playlist ID": null,
+      "Playlist Name": null,
+      "Content Partner Slug": "warner_chappell_production_music",
+      "Song Version ID": "87337",
+      "Song Version Description": "Lead Vocal + Background Vocals + Music [Primary]",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141598480
+    }
+  },
+  {
+    "event": "Clicked Pricing Product",
+    "props": {
+      "Product Type": "License",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141601066
+    }
+  },
+  {
+    "event": "Viewed Modal",
+    "props": {
+      "context": "Buy Song License",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141601076
+    }
+  },
+  {
+    "event": "Clicked Element",
+    "props": {
+      "context": "Buy Song License Modal",
+      "element": "select digital",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141602926
+    }
+  },
+  {
+    "event": "Clicked Element",
+    "props": {
+      "element": "Add to Cart",
+      "context": "License Purchase",
+      "Items": [
+        {
+          "Type": "Song",
+          "ID": "26274",
+          "Name": "Coastal Haze",
+          "LicenseID": "digital-wcpm-song-license-usd",
+          "LicenseType": "Digital",
+          "ContentPartner": "warner_chappell_production_music"
+        }
+      ],
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141603965
+    }
+  },
+  {
+    "event": "Clicked Download Song",
+    "props": {
+      "Song ID": "26274",
+      "Song Title": "Coastal Haze",
+      "Artist ID": "741",
+      "Artist Name": "Non-Stop Producer Series",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141606981
+    }
+  },
+  {
+    "event": "Viewed Modal",
+    "props": {
+      "context": "Download Song Preview",
+      "Song Id": "26274",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141607639
+    }
+  },
+  {
+    "event": "Viewed Account Avatar Menu",
+    "props": {
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141614713
+    }
+  },
+  {
+    "event": "Clicked Notifications Link",
+    "props": {
+      "Context": "Account Menu",
+      "Link Text": "Notifications",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141617005
+    }
+  },
+  {
+    "event": "Clicked Element",
+    "props": {
+      "context": "User Notification",
+      "url": "https://www.soundstripe.com/soundstripe-sessions",
+      "title": "New Soundstripe Sessions episodes.",
+      "message": "Another conversation with the musicians who make this catalog what it is. Pull up a seat and hit play.",
+      "read_at": "2026-04-02T14:50:10.777Z",
+      "notification_type": "Generic Notification",
+      "$device_id": "c05135a5-9b33-4346-b554-88cdbe76da4b",
+      "Statsig Stable ID": "776731ea-316e-4fcc-9d41-de8bc05e2b2e",
+      "Client Event Timestamp": 1775141618945
+    }
+  }
+]
