@@ -1,0 +1,17 @@
+EVENT,CONTEXT,PRESENCE
+CTA Form Submitted,Image with Text,current_only
+Clicked Element,Teams Page - Enterprise Upsell Button,current_only
+Submitted Form,"",current_only
+Submitted Form,Enterprise Contact Form,current_only
+CTA Form Submitted,Full Width CTA,both
+CTA Form Submitted,Landing Page Hero,both
+Clicked Element,Modal: Close Enterprise Intent Modal,both
+Clicked Element,Song Search Page - Enterprise Upsell Link,both
+MKT Submitted Enterprise Contact Form,,both
+MKT Viewed Enterprise Contact Form,,both
+Submitted Form,Licensing Request Form,both
+Viewed Enterprise Contact Form,signup intent modal,both
+Viewed Enterprise Contact Form,,both
+CTA Form Submitted,Homepage Hero - no motion,baseline_only
+Clicked Element,Enterprise Contact Form,baseline_only
+Submitted Form,Enterprise Contact form,baseline_only

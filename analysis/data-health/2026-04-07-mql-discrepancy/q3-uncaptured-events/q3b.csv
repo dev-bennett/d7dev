@@ -1,0 +1,32 @@
+ISO_WEEK,HOST,PATH,CONTEXT,EVENT_COUNT
+2026-02-02 00:00:00.000000000,www.soundstripe.com,"",Homepage Hero - no motion,9
+2026-02-02 00:00:00.000000000,www.soundstripe.com,api,Landing Page Hero,8
+2026-02-02 00:00:00.000000000,www.soundstripe.com,brands,Landing Page Hero,6
+2026-02-02 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,4
+2026-02-02 00:00:00.000000000,www.soundstripe.com,"",Full Width CTA,4
+2026-02-02 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Landing Page Hero,3
+2026-02-02 00:00:00.000000000,www.soundstripe.com,enterprise,Full Width CTA,3
+2026-02-09 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,10
+2026-02-09 00:00:00.000000000,www.soundstripe.com,traditional-sync,Landing Page Hero,9
+2026-02-16 00:00:00.000000000,www.soundstripe.com,"",Homepage Hero - no motion,13
+2026-02-16 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,10
+2026-02-16 00:00:00.000000000,www.soundstripe.com,enterprise,Full Width CTA,8
+2026-02-16 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Landing Page Hero,4
+2026-02-16 00:00:00.000000000,www.soundstripe.com,brands,Full Width CTA,1
+2026-02-23 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,39
+2026-02-23 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Landing Page Hero,5
+2026-03-02 00:00:00.000000000,www.soundstripe.com,enterprise,Full Width CTA,1
+2026-03-09 00:00:00.000000000,www.soundstripe.com,api,Landing Page Hero,11
+2026-03-09 00:00:00.000000000,www.soundstripe.com,traditional-sync,Image with Text,3
+2026-03-16 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,15
+2026-03-16 00:00:00.000000000,www.soundstripe.com,api,Landing Page Hero,10
+2026-03-16 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Landing Page Hero,6
+2026-03-23 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,16
+2026-03-23 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Landing Page Hero,12
+2026-03-23 00:00:00.000000000,www.soundstripe.com,brands,Image with Text,5
+2026-03-23 00:00:00.000000000,www.soundstripe.com,traditional-sync,Landing Page Hero,5
+2026-03-23 00:00:00.000000000,www.soundstripe.com,music-licensing-cheat-sheet,Image with Text,3
+2026-03-23 00:00:00.000000000,www.soundstripe.com,"",Full Width CTA,2
+2026-03-30 00:00:00.000000000,www.soundstripe.com,enterprise,Full Width CTA,5
+2026-03-30 00:00:00.000000000,www.soundstripe.com,traditional-sync,Image with Text,5
+2026-03-30 00:00:00.000000000,www.soundstripe.com,enterprise,Landing Page Hero,5

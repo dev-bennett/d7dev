@@ -1,0 +1,18 @@
+EMAIL,DISTINCT_ID_COUNT,SESSION_COUNT,MATCH_TIERS,FIRST_SESSION,LAST_SESSION
+jonathan.sollis@zzsclub.com,3,3,"tier3_session, tier2_page",2026-03-23 20:57:03.000000000,2026-03-23 21:05:12.000000000
+32sasgab@isd712.org,3,3,tier3_session,2026-03-18 13:50:55.000000000,2026-03-18 14:33:37.000000000
+baugh@queensberry.com,2,2,tier3_session,2026-04-05 08:51:52.000000000,2026-04-05 09:05:58.000000000
+ben.holliday@dart.ky,2,2,tier3_session,2026-04-01 17:24:27.000000000,2026-04-01 17:31:00.000000000
+david@deestroying.co,2,2,tier3_session,2026-04-03 23:33:04.000000000,2026-04-03 23:35:31.000000000
+robert.chew@studio11f.com,2,2,"tier1_form, tier3_session",2026-03-30 18:30:21.000000000,2026-03-30 18:34:07.000000000
+clare.solomon@t-three.co.uk,2,2,tier3_session,2026-03-31 14:34:58.000000000,2026-03-31 14:36:42.000000000
+ben@newplainsmedia.com,2,2,"tier1_form, tier3_session",2026-03-13 19:34:09.000000000,2026-03-13 19:34:44.000000000
+slloyd@ftdi.com,2,2,"tier1_form, tier3_session",2026-03-16 13:35:02.000000000,2026-03-16 13:37:29.000000000
+hello@pijamai.app,2,2,"tier3_session, tier1_form",2026-03-19 18:09:25.000000000,2026-03-19 18:23:35.000000000
+anieves@lakelandschools.org,2,2,"tier3_session, tier1_form",2026-03-12 19:05:46.000000000,2026-03-12 19:25:11.000000000
+amcpeak@calvary-church.com,2,2,"tier3_session, tier1_form",2026-03-23 21:05:12.000000000,2026-03-23 21:08:01.000000000
+cory.booth@cityofvacaville.gov,2,2,tier3_session,2026-04-02 20:41:42.000000000,2026-04-02 20:47:40.000000000
+jaxon@joby.com,2,2,tier3_session,2026-03-24 00:35:33.000000000,2026-03-24 00:46:17.000000000
+ediespeaks@ediedevilbiss.com,2,2,"tier3_session, tier1_form",2026-02-26 22:05:42.000000000,2026-02-26 22:09:10.000000000
+info@web-icon.com,2,2,"tier3_session, tier1_form",2026-03-10 19:43:32.000000000,2026-03-10 20:12:40.000000000
+hello@whistlrnetwork.social,2,2,"tier2_page, tier3_session",2026-03-10 00:22:56.000000000,2026-03-10 00:24:03.000000000

@@ -1,0 +1,101 @@
+ISO_WEEK,EVENT,CONTEXT,EVENT_COUNT
+2026-02-02 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,999
+2026-02-02 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,780
+2026-02-02 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,158
+2026-02-02 00:00:00.000000000,Submitted Form,Enterprise Contact form,143
+2026-02-02 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,26
+2026-02-02 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,22
+2026-02-02 00:00:00.000000000,Clicked Element,Enterprise Contact Form,22
+2026-02-02 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,21
+2026-02-02 00:00:00.000000000,Submitted Form,Licensing Request Form,13
+2026-02-02 00:00:00.000000000,CTA Form Submitted,Homepage Hero - no motion,9
+2026-02-02 00:00:00.000000000,CTA Form Submitted,Full Width CTA,7
+2026-02-09 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,1054
+2026-02-09 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,866
+2026-02-09 00:00:00.000000000,Submitted Form,Enterprise Contact form,180
+2026-02-09 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,147
+2026-02-09 00:00:00.000000000,Submitted Form,Licensing Request Form,51
+2026-02-09 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,38
+2026-02-09 00:00:00.000000000,Clicked Element,Enterprise Contact Form,19
+2026-02-09 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,19
+2026-02-09 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,10
+2026-02-09 00:00:00.000000000,Viewed Enterprise Contact Form,,4
+2026-02-16 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,1118
+2026-02-16 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,888
+2026-02-16 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,166
+2026-02-16 00:00:00.000000000,Submitted Form,Enterprise Contact form,137
+2026-02-16 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,41
+2026-02-16 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,32
+2026-02-16 00:00:00.000000000,Clicked Element,Enterprise Contact Form,25
+2026-02-16 00:00:00.000000000,Submitted Form,Licensing Request Form,19
+2026-02-16 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,14
+2026-02-16 00:00:00.000000000,CTA Form Submitted,Homepage Hero - no motion,13
+2026-02-16 00:00:00.000000000,CTA Form Submitted,Full Width CTA,9
+2026-02-16 00:00:00.000000000,Viewed Enterprise Contact Form,,3
+2026-02-23 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,698
+2026-02-23 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,535
+2026-02-23 00:00:00.000000000,Submitted Form,Enterprise Contact form,153
+2026-02-23 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,80
+2026-02-23 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,74
+2026-02-23 00:00:00.000000000,Submitted Form,Enterprise Contact Form,60
+2026-02-23 00:00:00.000000000,Submitted Form,,51
+2026-02-23 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,44
+2026-02-23 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,39
+2026-02-23 00:00:00.000000000,Submitted Form,Licensing Request Form,20
+2026-02-23 00:00:00.000000000,Submitted Form,"",18
+2026-02-23 00:00:00.000000000,Form Submitted,,10
+2026-02-23 00:00:00.000000000,Submitted Form,Test Form,10
+2026-02-23 00:00:00.000000000,Clicked Element,Enterprise Contact Form,1
+2026-03-02 00:00:00.000000000,Submitted Form,Enterprise Contact Form,115
+2026-03-02 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,60
+2026-03-02 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,42
+2026-03-02 00:00:00.000000000,Submitted Form,Licensing Request Form,30
+2026-03-02 00:00:00.000000000,Submitted Form,"",24
+2026-03-02 00:00:00.000000000,Viewed Enterprise Contact Form,,8
+2026-03-02 00:00:00.000000000,CTA Form Submitted,Full Width CTA,1
+2026-03-02 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,1
+2026-03-09 00:00:00.000000000,Submitted Form,Enterprise Contact Form,173
+2026-03-09 00:00:00.000000000,Submitted Form,"",83
+2026-03-09 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,79
+2026-03-09 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,56
+2026-03-09 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,31
+2026-03-09 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,26
+2026-03-09 00:00:00.000000000,Submitted Form,Licensing Request Form,24
+2026-03-09 00:00:00.000000000,Viewed Enterprise Contact Form,,18
+2026-03-09 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,11
+2026-03-09 00:00:00.000000000,Clicked Element,Enterprise Contact Form,5
+2026-03-09 00:00:00.000000000,Submitted Form,Enterprise Contact form,5
+2026-03-09 00:00:00.000000000,CTA Form Submitted,Image with Text,3
+2026-03-09 00:00:00.000000000,Clicked Element,Teams Page - Enterprise Upsell Button,3
+2026-03-16 00:00:00.000000000,Submitted Form,Enterprise Contact Form,60
+2026-03-16 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,53
+2026-03-16 00:00:00.000000000,Submitted Form,"",44
+2026-03-16 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,31
+2026-03-16 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,28
+2026-03-16 00:00:00.000000000,Submitted Form,Licensing Request Form,21
+2026-03-16 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,15
+2026-03-16 00:00:00.000000000,Viewed Enterprise Contact Form,,7
+2026-03-16 00:00:00.000000000,Viewed Enterprise Contact Form,signup intent modal,7
+2026-03-16 00:00:00.000000000,Clicked Element,Modal: Close Enterprise Intent Modal,7
+2026-03-16 00:00:00.000000000,Clicked Element,Teams Page - Enterprise Upsell Button,4
+2026-03-23 00:00:00.000000000,Submitted Form,"",203
+2026-03-23 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,66
+2026-03-23 00:00:00.000000000,Submitted Form,Enterprise Contact Form,51
+2026-03-23 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,44
+2026-03-23 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,33
+2026-03-23 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,23
+2026-03-23 00:00:00.000000000,Submitted Form,Licensing Request Form,19
+2026-03-23 00:00:00.000000000,Viewed Enterprise Contact Form,,16
+2026-03-23 00:00:00.000000000,CTA Form Submitted,Image with Text,8
+2026-03-23 00:00:00.000000000,CTA Form Submitted,Full Width CTA,2
+2026-03-23 00:00:00.000000000,Clicked Element,Teams Page - Enterprise Upsell Button,1
+2026-03-30 00:00:00.000000000,Submitted Form,"",300
+2026-03-30 00:00:00.000000000,Submitted Form,Enterprise Contact Form,74
+2026-03-30 00:00:00.000000000,MKT Viewed Enterprise Contact Form,,48
+2026-03-30 00:00:00.000000000,Clicked Element,Song Search Page - Enterprise Upsell Link,44
+2026-03-30 00:00:00.000000000,Submitted Form,Licensing Request Form,14
+2026-03-30 00:00:00.000000000,MKT Submitted Enterprise Contact Form,,10
+2026-03-30 00:00:00.000000000,CTA Form Submitted,Landing Page Hero,5
+2026-03-30 00:00:00.000000000,CTA Form Submitted,Full Width CTA,5
+2026-03-30 00:00:00.000000000,CTA Form Submitted,Image with Text,5
+2026-03-30 00:00:00.000000000,Clicked Element,Teams Page - Enterprise Upsell Button,4

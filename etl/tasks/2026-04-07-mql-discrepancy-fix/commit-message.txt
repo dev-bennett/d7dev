@@ -1,0 +1,12 @@
+Expand enterprise form event matching and add tiered HubSpot-to-Mixpanel MQL mapping
+
+fct_sessions_build: add Submitted Form on /brand-solutions and /agency-solutions,
+CTA Form Submitted on /enterprise, and corresponding page views to
+enterprise_form_submissions and enterprise_form_view aggregations.
+
+dim_mql_mapping: rewrite with three-tier matching (vid+time+url, time+url,
+session proximity) to recover 100% of HubSpot MQLs to Mixpanel sessions.
+Adds match_tier, match_reason, form_page_type columns.
+
+dim_session_mqls: new session-level bridge table aggregating dim_mql_mapping
+to one row per session_id for 1:1 join to fct_sessions.

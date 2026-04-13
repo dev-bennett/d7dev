@@ -1,0 +1,12 @@
+EVENT,CONTEXT,HAS_EMAIL_PROP,HAS_PRE_IDENTITY_ID,EVENT_COUNT,DISTINCT_EMAILS
+Submitted Form,"",false,false,300,0
+Submitted Form,Enterprise Contact Form,false,false,64,0
+Submitted Form,Licensing Request Form,false,false,10,0
+Submitted Form,Enterprise Contact Form,false,true,10,0
+CTA Form Submitted,Landing Page Hero,false,false,5,0
+CTA Form Submitted,Full Width CTA,false,true,5,0
+MKT Submitted Enterprise Contact Form,,false,false,5,0
+MKT Submitted Enterprise Contact Form,,false,true,5,0
+Submitted Form,Licensing Request Form,false,true,4,0
+CTA Form Submitted,Image with Text,false,true,4,0
+CTA Form Submitted,Image with Text,false,false,1,0

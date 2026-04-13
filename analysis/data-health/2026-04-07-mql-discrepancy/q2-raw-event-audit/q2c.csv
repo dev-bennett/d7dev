@@ -1,0 +1,53 @@
+ISO_WEEK,HOST,EVENT,EVENT_COUNT
+2026-02-02 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,927
+2026-02-02 00:00:00.000000000,app.soundstripe.com,Clicked Element,770
+2026-02-02 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,158
+2026-02-02 00:00:00.000000000,app.soundstripe.com,Submitted Form,120
+2026-02-02 00:00:00.000000000,www.soundstripe.com,Viewed Enterprise Contact Form,72
+2026-02-02 00:00:00.000000000,www.soundstripe.com,Clicked Element,54
+2026-02-02 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,26
+2026-02-02 00:00:00.000000000,www.soundstripe.com,Submitted Form,23
+2026-02-09 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,1058
+2026-02-09 00:00:00.000000000,app.soundstripe.com,Clicked Element,923
+2026-02-09 00:00:00.000000000,app.soundstripe.com,Submitted Form,180
+2026-02-09 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,147
+2026-02-09 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,10
+2026-02-16 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,1121
+2026-02-16 00:00:00.000000000,app.soundstripe.com,Clicked Element,954
+2026-02-16 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,166
+2026-02-16 00:00:00.000000000,app.soundstripe.com,Submitted Form,137
+2026-02-16 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,32
+2026-02-23 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,698
+2026-02-23 00:00:00.000000000,app.soundstripe.com,Clicked Element,610
+2026-02-23 00:00:00.000000000,app.soundstripe.com,Submitted Form,153
+2026-02-23 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,80
+2026-02-23 00:00:00.000000000,www.soundstripe.com,Submitted Form,60
+2026-02-23 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,39
+2026-03-02 00:00:00.000000000,www.soundstripe.com,Submitted Form,115
+2026-03-02 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,60
+2026-03-02 00:00:00.000000000,app.soundstripe.com,Clicked Element,42
+2026-03-02 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,8
+2026-03-02 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,1
+2026-03-09 00:00:00.000000000,www.soundstripe.com,Submitted Form,173
+2026-03-09 00:00:00.000000000,app.soundstripe.com,Clicked Element,113
+2026-03-09 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,56
+2026-03-09 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,49
+2026-03-09 00:00:00.000000000,app.soundstripe.com,Submitted Form,5
+2026-03-16 00:00:00.000000000,www.soundstripe.com,Submitted Form,60
+2026-03-16 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,53
+2026-03-16 00:00:00.000000000,www.soundstripe.com,Clicked Element,32
+2026-03-16 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,15
+2026-03-16 00:00:00.000000000,app.soundstripe.com,Clicked Element,7
+2026-03-16 00:00:00.000000000,app.soundstripe.com,Viewed Enterprise Contact Form,7
+2026-03-16 00:00:00.000000000,www.soundstripe.com,Viewed Enterprise Contact Form,7
+2026-03-23 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,66
+2026-03-23 00:00:00.000000000,www.soundstripe.com,Submitted Form,51
+2026-03-23 00:00:00.000000000,www.soundstripe.com,Clicked Element,45
+2026-03-23 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,23
+2026-03-23 00:00:00.000000000,www.soundstripe.com,Viewed Enterprise Contact Form,16
+2026-03-30 00:00:00.000000000,www.soundstripe.com,Submitted Form,74
+2026-03-30 00:00:00.000000000,www.soundstripe.com,Clicked Element,48
+2026-03-30 00:00:00.000000000,www.soundstripe.com,MKT Viewed Enterprise Contact Form,38
+2026-03-30 00:00:00.000000000,www.soundstripe.com,MKT Submitted Enterprise Contact Form,10
+2026-03-30 00:00:00.000000000,www.musicsound.info,MKT Viewed Enterprise Contact Form,5
+2026-03-30 00:00:00.000000000,musicsound.info,MKT Viewed Enterprise Contact Form,5
