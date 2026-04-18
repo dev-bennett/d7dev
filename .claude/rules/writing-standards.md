@@ -1,6 +1,6 @@
 ---
 name: Writing Standards
-paths: ["analysis/**", "knowledge/**"]
+paths: ["analysis/**", "knowledge/**", "evolution/**", "initiatives/**", "etl/tasks/**", "lookml/tasks/**", "**/README.md", "**/brief.md", "**/tracker.md", "**/checkpoint.md"]
 ---
 
 # Stakeholder Writing Standards (§10)
@@ -8,6 +8,8 @@ paths: ["analysis/**", "knowledge/**"]
 See context/informational/agent_directives_v3.md for full directive details.
 
 All stakeholder-facing prose must be in analyst mode: observations and evidence, not reactions or rhetoric.
+
+**Stakeholder-facing scope.** Includes every artifact produced for a consumer other than the author — external destinations AND workspace-internal destinations where the operator (principal analyst) consumes agent-authored artifacts. Briefs, trackers, roadmap documents, epic plans, retrospectives, checkpoints, findings, and chat responses are all stakeholder-facing. "Internal" is not an exemption. See framework doc §1.5.
 
 ## Sentence Test
 
