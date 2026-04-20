@@ -92,6 +92,7 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - `/checkpoint [init|update|review]` -- Session state management
 - `/preflight [task]` -- Pre-flight check: verify environment, targets, existing patterns before starting work
 - `/evolve [scope]` -- Post-task retrospective: detect friction, audit repo health, integrate improvements
+- `/orient` -- Session-start infrastructure review: mandatory inventory of rules, commands, agents, memory, CLAUDE.md chain, initiatives, task workspaces; produces briefing and routing table before any task work
 
 ## Cross-Repo Architecture
 
