@@ -5,15 +5,16 @@
 ## Completed
 - `../analytical-orchestration-framework.md` — reference architecture document; 14 sections including §1.4 Runtime substrate, §1.5 Stakeholder framing, §10 scope clarification, §13 bootstrap sequence with step 0 substrate audit. §1.4 now cross-references `knowledge/runbooks/runtime-substrate-catalog.md` (2026-04-20).
 - `GAP_ANALYSIS.md` — 67 recommendations audited (13 MATCH / 11 PARTIAL / 13 GAP / 30 ABSENT)
-- `README.md`, `CLAUDE.md`, `MASTER_TRACKER.md` — directory entry points (MASTER_TRACKER refreshed 2026-04-20 with Epic 0.1 → complete).
+- `README.md`, `CLAUDE.md`, `MASTER_TRACKER.md` — directory entry points (MASTER_TRACKER refreshed 2026-04-20 with Epic 0.2 → complete).
 - `_templates/project-template/` — scaffolding for task directories
 - 25 task directories (`01-*` through `25-*`), each with `CLAUDE.md`, `brief.md`, `tracker.md`
 - `roadmap/` — 7-step roadmapping outputs: `01-scope.md`, `02-brainstorm-consolidation.md` (55 I-items with coverage audit), `03-groupings.md` (13 groups), `04-swimlanes-and-epics.md` (23 epics across 7 swimlanes), `05-priorities.md` (P1 = 5 epics), `06-roadmap-artifact.md` (dependency graph + epic-to-task index)
 - `.claude/rules/writing-standards.md` — `paths` glob expanded to cover workspace-internal artifacts (`evolution/**`, `initiatives/**`, task workspaces, common internal filenames); scope clarification added referencing framework §1.5
 - **Epic 0.1 — Runtime substrate catalog (2026-04-20).** All three phases complete. Raw inventory + interaction mapping at `03-runtime-substrate-audit/inventory/phase1-enumeration.md` and `phase2-interactions.md`. Consolidated runbook at `knowledge/runbooks/runtime-substrate-catalog.md` (primary deliverable). Framework §1.4 and `.claude/commands/orient.md` updated with cross-references.
+- **Epic 0.2 — Zero-prompt contract audit (2026-04-20).** All three phases complete. `.claude/settings.json` allowlist extended 27 → 44 entries (bare `Write`/`Edit` per operator decision; Phase-1 defensive bash: `stat`/`find`/`awk`/`sort`/`uniq`/`cut`/`tr`/`jq`/`echo`/`printf`/`xargs`/`for`/`while`/`if`/`test`; Phase-2 adds: `rm`/`mv`/`cp` to cover `/ingest` and `/evolve` cleanup paths). Reference artifact `01-zero-prompt-contract-audit/command-tool-matrix.md` reconciles all 16 canonical commands. Automated audit at `scripts/audit_command_permissions.py` with 23 passing tests at `tests/test_audit_command_permissions.py`; wired into `/test` step 5 as regression guard. Audit currently clean: 17/17 explicit tool-call references covered.
 
 ## In Progress
-- None actively. 22 of 23 epics remain `not-started`. Epic 0.1 is `complete`. Next critical-path pick is Epic 1.1 (hook lifecycle & safety); Epics 0.2 and 0.3 are also P1 and runnable in parallel.
+- None actively. 20 of 23 epics remain `not-started`. Epics 0.1, 0.2, 0.3 complete. Next critical-path pick is Epic 1.1 (hook lifecycle & safety); no remaining parallel-runnable P1 at Swimlane 0/1.
 
 ## Open Items
 - Three new task directories to create when those epics begin work:
@@ -42,4 +43,4 @@
   - Adversarial risk assessment must happen during brief authoring, not on re-examination
 
 ## Next session entry point
-Read this file plus `MASTER_TRACKER.md` plus any `_open.md` project memories. Start with **Epic 1.1 (hook lifecycle & safety)** — now unblocked by Epic 0.1 completion on 2026-04-20 — or pick 0.2 / 0.3 in parallel. The substrate catalog at `knowledge/runbooks/runtime-substrate-catalog.md` is the reference when any epic touches settings, hooks, skills, memory, or CLAUDE.md chain design.
+Read this file plus `MASTER_TRACKER.md` plus any `_open.md` project memories. Start with **Epic 1.1 (hook lifecycle & safety)** — now the sole remaining P1 at Swimlane 0/1 after 0.1, 0.2, 0.3 all closed on 2026-04-20. Epic 1.2 (unified session state log) follows immediately after 1.1 lands. The substrate catalog at `knowledge/runbooks/runtime-substrate-catalog.md` is the reference when any epic touches settings, hooks, skills, memory, or CLAUDE.md chain design. The zero-prompt contract is guarded by `/test` step 5 — any new command-file change that references a tool call outside `.claude/settings.json` will fail the audit.

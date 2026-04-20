@@ -4,7 +4,7 @@ Reference framework: `../analytical-orchestration-framework.md`
 Gap analysis: `GAP_ANALYSIS.md`
 Roadmap artifacts: `roadmap/` (steps 1–6 of the roadmapping process)
 Project index: `README.md`
-Last updated: 2026-04-20 (Epic 0.3 complete — all 3 phases closed with validation evidence captured; downstream consumers unblocked)
+Last updated: 2026-04-20 (Epic 0.2 complete — zero-prompt contract audit landed; settings.json allowlist 27→44; audit script + 23 tests + /test wiring)
 
 ## Structure
 Work is organized as **swimlane → epic → task-directory**.
@@ -29,7 +29,7 @@ Work is organized as **swimlane → epic → task-directory**.
 ### Epic 0.2 — Zero-prompt & command-call integrity — **P1**
 - Ideas: I22, I29
 - Tasks:
-  - `01-zero-prompt-contract-audit/` — not-started
+  - `01-zero-prompt-contract-audit/` — complete (2026-04-20; all 3 phases closed. `command-tool-matrix.md` reconciles every canonical command's tool-call surface against the effective allowlist. `.claude/settings.json` extended from 27 → 44 entries (bare `Write`/`Edit`, `Bash(stat|find|awk|sort|uniq|cut|tr|jq|echo|printf|xargs|for|while|if|test|rm|mv|cp:*)`). `scripts/audit_command_permissions.py` + `tests/test_audit_command_permissions.py` (23 tests, all pass) guard against regression; wired into `/test` step 5.)
 
 ### Epic 0.3 — Telemetry substrate (OpenTelemetry) — **P1**
 - Ideas: I55 (user-introduced)
@@ -205,10 +205,10 @@ Work is organized as **swimlane → epic → task-directory**.
 - Total: 23 epics
 
 **Counts by status**
-- not-started: 21 epics (23 task-directories not-started, 3 new task-directories needed for 2.2, 3.3, 4.3)
+- not-started: 20 epics (22 task-directories not-started, 3 new task-directories needed for 2.2, 3.3, 4.3)
 - in-progress: 0
 - blocked: 0 (all dependencies satisfied at P1 level)
-- complete: 2 (Epic 0.1 — runtime substrate catalog; Epic 0.3 — telemetry substrate)
+- complete: 3 (Epic 0.1 — runtime substrate catalog; Epic 0.2 — zero-prompt contract audit; Epic 0.3 — telemetry substrate)
 - abandoned: 0
 
 **Counts by swimlane**
@@ -224,9 +224,9 @@ Work is organized as **swimlane → epic → task-directory**.
 `0.1 → 1.1 → 1.2 → 2.1 → 5.3 → 6.6` — six epics in series. Any slip on 0.1 propagates the chain. Epic 0.3 is parallel to 0.1 and feeds 1.2, 2.3, 5.2, 6.8, 6.9 but does not extend the critical path.
 
 ## Immediate pick
-Epics 0.1 + 0.3 both complete 2026-04-20. All P1 Swimlane-0 substrate is landed; downstream consumers 1.2, 2.3, 5.2, 6.8, 6.9 are no longer gated on telemetry.
+Epics 0.1 + 0.2 + 0.3 all complete 2026-04-20. All P1 Swimlane-0 substrate + command-contract substrate landed. Zero-prompt contract is durable (audit script guards regressions). Downstream consumers 1.2, 2.3, 5.2, 6.8, 6.9 are no longer gated on telemetry.
 
-Next critical-path pick is **1.1** (hook lifecycle & safety) — unblocked by 0.1. Parallel-runnable P1 not-started: **0.2** (zero-prompt contract). **1.2** now gated only on 1.1 (0.3 dependency satisfied).
+Next critical-path pick is **1.1** (hook lifecycle & safety) — unblocked by 0.1. No remaining parallel-runnable P1 work at Swimlane 0/1; **1.2** now gated only on 1.1 (0.3 dependency satisfied).
 
 ## Gap-analysis coverage
 Per `roadmap/06-roadmap-artifact.md` integration check: every non-MATCH item in `GAP_ANALYSIS.md` maps to exactly one epic (52 items), is emergent (2 items — epistemic discipline + memory discipline — covered across multiple epics), or is out-of-scope operational cleanup (1 item — lookml submodule half-registration, tracked in `project_commit_backlog.md`). Plus one user-introduced item (I55 OTel telemetry) owned by Epic 0.3, added post-audit.
