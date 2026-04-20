@@ -1,0 +1,33 @@
+MP_LIB,LIB_VERSION,OS,MP_USER_AGENT,SS_USER_AGENT,COUNTRY,EVENTS,DISTINCT_IDS,UNIQUE_IPS,NULL_INITIAL_REFERRER_EVENTS
+web,2.78.0,Windows,(null),(null),CN,96770,25725,0,0
+web,2.78.0,Windows,(null),(null),SG,28689,7169,0,0
+web,2.78.0,(null),(null),(null),SG,17349,4338,0,0
+web,2.78.0,Windows,(null),(null),VN,3847,990,0,0
+web,2.78.0,Windows,(null),(null),HK,2798,703,0,0
+web,2.78.0,Windows,(null),(null),JP,1900,425,0,0
+web,2.78.0,Android,(null),(null),CN,428,66,0,0
+web,2.78.0,Mac OS X,(null),(null),SG,303,27,0,0
+web,2.78.0,Mac OS X,(null),(null),HK,201,17,0,0
+web,2.78.0,Mac OS X,(null),(null),JP,198,22,0,0
+web,2.78.0,Android,(null),(null),SG,157,11,0,0
+web,2.78.0,iOS,(null),(null),CN,156,37,0,0
+web,2.78.0,iOS,(null),(null),JP,113,12,0,0
+web,2.78.0,Mac OS X,(null),(null),CN,103,26,0,0
+web,2.78.0,Mac OS X,(null),(null),VN,87,7,0,0
+web,2.78.0,(null),(null),(null),CN,75,17,0,0
+web,2.56.0,Windows,(null),(null),SG,46,12,0,0
+web,2.78.0,iOS,(null),(null),SG,34,6,0,0
+web,2.78.0,Android,(null),(null),VN,33,4,0,0
+web,2.78.0,Linux,(null),(null),SG,24,7,0,0
+web,2.78.0,Android,(null),(null),JP,21,3,0,0
+web,2.78.0,Android,(null),(null),HK,8,2,0,0
+web,2.78.0,Chrome OS,(null),(null),JP,5,1,0,0
+web,2.76.0,Windows,(null),(null),JP,5,1,0,0
+web,2.78.0,Linux,(null),(null),CN,4,2,0,0
+web,2.78.0,iOS,(null),(null),VN,4,2,0,0
+web,2.56.0,Windows,(null),(null),CN,4,1,0,0
+web,2.78.0,Linux,(null),(null),VN,3,1,0,0
+web,2.77.0,Windows,(null),(null),CN,3,1,0,0
+web,2.73.0,Windows,(null),(null),VN,3,1,0,0
+web,2.78.0,iOS,(null),(null),HK,2,2,0,0
+web,2.78.0,Linux,(null),(null),JP,1,1,0,0

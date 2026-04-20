@@ -1,0 +1,27 @@
+Ryan,
+
+Yes, the scoring model was updated on November 19 2025. The update added new inputs: LinkedIn follower count, a LinkedIn presence flag, and five new industry categories (real estate, digital media, photography, software development, marketing). It also fixed a title-matching bug that was missing C-suite titles like Chief Marketing Officer and Chief Revenue Officer.
+
+Under the updated model, average scores run about 0.68. Under the prior version they ran about 0.58.
+
+HubSpot stores each contact's lead score from the first time it's written and doesn't update it as the model evolves. Contacts who signed up before the November update carry their old-model scores. The volume of newly scored leads roughly tripled from January to February (321 to 1,007), and February is the first cohort where most scored contacts carry an updated-model score.
+
+Signup-cohort means for free-account signups:
+
+  2025-08   0.508
+  2025-09   0.497
+  2025-10   0.498
+  2025-11   0.497
+  2025-12   0.489
+  2026-01   0.484
+  2026-02   0.643
+  2026-03   0.663
+  2026-04   0.679
+
+Two implications:
+
+1. The lead score in HubSpot is a point-in-time snapshot from when the contact was first scored. An August 2025 contact with 0.50 would score closer to 0.68 under today's model. HubSpot still shows 0.50.
+
+2. HubSpot carries no model-version identifier on the contact record. The only way to tell which version scored a given contact is signup date against known model-change dates.
+
+-d

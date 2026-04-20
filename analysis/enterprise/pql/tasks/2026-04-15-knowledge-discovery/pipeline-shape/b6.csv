@@ -1,0 +1,246 @@
+LEAD_MONTH,LEAD_TYPE,CONTACT_STATE,LEADS
+2025-08-01,DIRECT_TRAFFIC,deal in progress,1
+2025-08-01,DIRECT_TRAFFIC,deal lost,5
+2025-08-01,OFFLINE,deal in progress,3
+2025-08-01,OFFLINE,deal lost,10
+2025-08-01,OFFLINE,deal won,2
+2025-08-01,ORGANIC_SEARCH,deal lost,7
+2025-08-01,ORGANIC_SEARCH,deal won,3
+2025-08-01,OTHER_CAMPAIGNS,deal lost,1
+2025-08-01,PAID_SEARCH,deal in progress,1
+2025-08-01,PAID_SEARCH,deal lost,4
+2025-08-01,dtc sequences,deal in progress,1
+2025-08-01,dtc sequences,deal lost,7
+2025-08-01,dtc sequences,deal won,1
+2025-08-01,dtc sequences,no contact,27
+2025-08-01,dtc sequences,sal,43
+2025-08-01,dtc sequences,sql,1
+2025-08-01,mql: form submission,deal in progress,2
+2025-08-01,mql: form submission,deal lost,32
+2025-08-01,mql: form submission,deal won,7
+2025-08-01,mql: form submission,no contact,84
+2025-08-01,mql: form submission,sal,73
+2025-08-01,unknown,sal,297
+2025-08-01,unknown,sql,27
+2025-08-01,,deal in progress,2
+2025-08-01,,deal lost,2
+2025-08-01,,deal won,1
+2025-09-01,AI_REFERRALS,deal lost,1
+2025-09-01,AI_REFERRALS,deal won,1
+2025-09-01,DIRECT_TRAFFIC,deal in progress,54
+2025-09-01,DIRECT_TRAFFIC,deal lost,28
+2025-09-01,DIRECT_TRAFFIC,deal won,35
+2025-09-01,OFFLINE,deal in progress,74
+2025-09-01,OFFLINE,deal lost,38
+2025-09-01,OFFLINE,deal won,39
+2025-09-01,ORGANIC_SEARCH,deal in progress,34
+2025-09-01,ORGANIC_SEARCH,deal lost,8
+2025-09-01,ORGANIC_SEARCH,deal won,26
+2025-09-01,OTHER_CAMPAIGNS,deal in progress,3
+2025-09-01,OTHER_CAMPAIGNS,deal lost,1
+2025-09-01,OTHER_CAMPAIGNS,deal won,1
+2025-09-01,PAID_SEARCH,deal in progress,26
+2025-09-01,PAID_SEARCH,deal lost,8
+2025-09-01,PAID_SEARCH,deal won,14
+2025-09-01,PAID_SOCIAL,deal in progress,1
+2025-09-01,REFERRALS,deal in progress,1
+2025-09-01,SOCIAL_MEDIA,deal in progress,1
+2025-09-01,dtc sequences,deal in progress,1
+2025-09-01,dtc sequences,deal lost,3
+2025-09-01,dtc sequences,no contact,16
+2025-09-01,dtc sequences,sal,34
+2025-09-01,mql: form submission,deal in progress,4
+2025-09-01,mql: form submission,deal lost,24
+2025-09-01,mql: form submission,deal won,2
+2025-09-01,mql: form submission,no contact,125
+2025-09-01,mql: form submission,sal,95
+2025-09-01,mql: form submission,sql,3
+2025-09-01,new process: pql,deal in progress,6
+2025-09-01,new process: pql,deal lost,8
+2025-09-01,new process: pql,deal won,4
+2025-09-01,new process: pql,no contact,119
+2025-09-01,new process: pql,sal,496
+2025-09-01,new process: pql,sql,3
+2025-09-01,unknown,sal,202
+2025-09-01,unknown,sql,14
+2025-09-01,,deal in progress,7
+2025-10-01,DIRECT_TRAFFIC,deal in progress,1
+2025-10-01,DIRECT_TRAFFIC,deal lost,5
+2025-10-01,DIRECT_TRAFFIC,deal won,2
+2025-10-01,OFFLINE,deal in progress,2
+2025-10-01,OFFLINE,deal lost,7
+2025-10-01,OFFLINE,deal won,3
+2025-10-01,ORGANIC_SEARCH,deal lost,6
+2025-10-01,ORGANIC_SEARCH,deal won,3
+2025-10-01,dtc sequences,deal won,2
+2025-10-01,dtc sequences,no contact,26
+2025-10-01,dtc sequences,sal,7
+2025-10-01,mql: form submission,deal lost,32
+2025-10-01,mql: form submission,deal won,5
+2025-10-01,mql: form submission,no contact,107
+2025-10-01,mql: form submission,sal,66
+2025-10-01,mql: form submission,sql,1
+2025-10-01,new process: pql,deal in progress,9
+2025-10-01,new process: pql,deal lost,7
+2025-10-01,new process: pql,deal won,4
+2025-10-01,new process: pql,no contact,112
+2025-10-01,new process: pql,sal,774
+2025-10-01,new process: pql,sql,2
+2025-10-01,unknown,sal,47
+2025-10-01,unknown,sql,11
+2025-10-01,,deal lost,1
+2025-11-01,AI_REFERRALS,deal won,1
+2025-11-01,DIRECT_TRAFFIC,deal lost,2
+2025-11-01,DIRECT_TRAFFIC,deal won,2
+2025-11-01,OFFLINE,deal in progress,1
+2025-11-01,OFFLINE,deal lost,6
+2025-11-01,ORGANIC_SEARCH,deal lost,2
+2025-11-01,PAID_SEARCH,deal won,1
+2025-11-01,dtc sequences,deal in progress,3
+2025-11-01,dtc sequences,deal lost,5
+2025-11-01,dtc sequences,deal won,4
+2025-11-01,dtc sequences,no contact,56
+2025-11-01,dtc sequences,sal,11
+2025-11-01,dtc sequences,sql,1
+2025-11-01,mql: form submission,deal in progress,2
+2025-11-01,mql: form submission,deal lost,19
+2025-11-01,mql: form submission,deal won,1
+2025-11-01,mql: form submission,no contact,79
+2025-11-01,mql: form submission,sal,74
+2025-11-01,mql: form submission,sql,3
+2025-11-01,new process: pql,deal in progress,6
+2025-11-01,new process: pql,deal lost,5
+2025-11-01,new process: pql,deal won,2
+2025-11-01,new process: pql,no contact,75
+2025-11-01,new process: pql,sal,505
+2025-11-01,new process: pql,sql,3
+2025-11-01,unknown,sal,44
+2025-11-01,unknown,sql,11
+2025-12-01,DIRECT_TRAFFIC,deal lost,1
+2025-12-01,DIRECT_TRAFFIC,deal won,1
+2025-12-01,OFFLINE,deal in progress,2
+2025-12-01,OFFLINE,deal lost,2
+2025-12-01,OFFLINE,deal won,2
+2025-12-01,ORGANIC_SEARCH,deal in progress,1
+2025-12-01,ORGANIC_SEARCH,deal lost,1
+2025-12-01,PAID_SEARCH,deal lost,2
+2025-12-01,dtc sequences,deal lost,1
+2025-12-01,dtc sequences,no contact,9
+2025-12-01,dtc sequences,sal,3
+2025-12-01,mql: form submission,deal in progress,4
+2025-12-01,mql: form submission,deal lost,22
+2025-12-01,mql: form submission,deal won,4
+2025-12-01,mql: form submission,no contact,68
+2025-12-01,mql: form submission,sal,56
+2025-12-01,new process: pql,deal in progress,7
+2025-12-01,new process: pql,deal lost,5
+2025-12-01,new process: pql,deal won,2
+2025-12-01,new process: pql,no contact,62
+2025-12-01,new process: pql,sal,369
+2025-12-01,new process: pql,sql,4
+2025-12-01,unknown,sal,35
+2025-12-01,unknown,sql,7
+2026-01-01,AI_REFERRALS,deal won,1
+2026-01-01,DIRECT_TRAFFIC,deal in progress,55
+2026-01-01,DIRECT_TRAFFIC,deal lost,6
+2026-01-01,DIRECT_TRAFFIC,deal won,6
+2026-01-01,EMAIL_MARKETING,deal lost,3
+2026-01-01,OFFLINE,deal in progress,75
+2026-01-01,OFFLINE,deal lost,11
+2026-01-01,OFFLINE,deal won,8
+2026-01-01,ORGANIC_SEARCH,deal in progress,28
+2026-01-01,ORGANIC_SEARCH,deal lost,1
+2026-01-01,ORGANIC_SEARCH,deal won,4
+2026-01-01,OTHER_CAMPAIGNS,deal in progress,1
+2026-01-01,PAID_SEARCH,deal in progress,15
+2026-01-01,PAID_SEARCH,deal won,2
+2026-01-01,REFERRALS,deal in progress,4
+2026-01-01,SOCIAL_MEDIA,deal in progress,1
+2026-01-01,SOCIAL_MEDIA,deal lost,1
+2026-01-01,dtc sequences,deal lost,1
+2026-01-01,dtc sequences,deal won,1
+2026-01-01,dtc sequences,sal,1
+2026-01-01,mql: form submission,deal in progress,5
+2026-01-01,mql: form submission,deal lost,38
+2026-01-01,mql: form submission,deal won,6
+2026-01-01,mql: form submission,no contact,60
+2026-01-01,mql: form submission,sal,22
+2026-01-01,mql: form submission,sql,3
+2026-01-01,new process: pql,deal in progress,9
+2026-01-01,new process: pql,deal lost,4
+2026-01-01,new process: pql,deal won,1
+2026-01-01,new process: pql,no contact,38
+2026-01-01,new process: pql,sal,266
+2026-01-01,new process: pql,sql,3
+2026-01-01,unknown,sal,19
+2026-01-01,unknown,sql,24
+2026-01-01,,deal in progress,5
+2026-02-01,DIRECT_TRAFFIC,deal lost,2
+2026-02-01,DIRECT_TRAFFIC,deal won,3
+2026-02-01,OFFLINE,deal in progress,2
+2026-02-01,OFFLINE,deal lost,2
+2026-02-01,OFFLINE,deal won,1
+2026-02-01,ORGANIC_SEARCH,deal in progress,3
+2026-02-01,ORGANIC_SEARCH,deal lost,3
+2026-02-01,ORGANIC_SEARCH,deal won,3
+2026-02-01,PAID_SEARCH,deal lost,3
+2026-02-01,PAID_SEARCH,deal won,1
+2026-02-01,dtc sequences,deal in progress,5
+2026-02-01,dtc sequences,deal lost,2
+2026-02-01,dtc sequences,no contact,14
+2026-02-01,dtc sequences,sal,4
+2026-02-01,mql: form submission,deal in progress,16
+2026-02-01,mql: form submission,deal lost,63
+2026-02-01,mql: form submission,deal won,2
+2026-02-01,mql: form submission,no contact,68
+2026-02-01,mql: form submission,sal,11
+2026-02-01,mql: form submission,sql,3
+2026-02-01,new process: pql,deal in progress,17
+2026-02-01,new process: pql,deal lost,9
+2026-02-01,new process: pql,no contact,157
+2026-02-01,new process: pql,sal,819
+2026-02-01,new process: pql,sql,5
+2026-02-01,unknown,sal,61
+2026-02-01,unknown,sql,39
+2026-03-01,DIRECT_TRAFFIC,deal in progress,21
+2026-03-01,DIRECT_TRAFFIC,deal lost,2
+2026-03-01,DIRECT_TRAFFIC,deal won,3
+2026-03-01,OFFLINE,deal in progress,21
+2026-03-01,OFFLINE,deal won,4
+2026-03-01,ORGANIC_SEARCH,deal in progress,14
+2026-03-01,ORGANIC_SEARCH,deal won,4
+2026-03-01,PAID_SEARCH,deal in progress,5
+2026-03-01,PAID_SEARCH,deal lost,1
+2026-03-01,dtc sequences,deal in progress,4
+2026-03-01,dtc sequences,deal lost,1
+2026-03-01,dtc sequences,no contact,2
+2026-03-01,dtc sequences,sal,4
+2026-03-01,mql: form submission,deal in progress,40
+2026-03-01,mql: form submission,deal lost,49
+2026-03-01,mql: form submission,deal won,3
+2026-03-01,mql: form submission,no contact,74
+2026-03-01,mql: form submission,sal,9
+2026-03-01,mql: form submission,sql,3
+2026-03-01,new process: pql,deal in progress,11
+2026-03-01,new process: pql,deal lost,4
+2026-03-01,new process: pql,no contact,266
+2026-03-01,new process: pql,sal,1004
+2026-03-01,unknown,sal,31
+2026-03-01,unknown,sql,31
+2026-04-01,DIRECT_TRAFFIC,deal in progress,5
+2026-04-01,DIRECT_TRAFFIC,deal lost,1
+2026-04-01,OFFLINE,deal in progress,6
+2026-04-01,ORGANIC_SEARCH,deal in progress,4
+2026-04-01,PAID_SEARCH,deal in progress,4
+2026-04-01,PAID_SEARCH,deal won,1
+2026-04-01,SOCIAL_MEDIA,deal in progress,1
+2026-04-01,mql: form submission,deal in progress,59
+2026-04-01,mql: form submission,deal lost,6
+2026-04-01,mql: form submission,no contact,136
+2026-04-01,mql: form submission,sal,7
+2026-04-01,mql: form submission,sql,2
+2026-04-01,new process: pql,deal in progress,4
+2026-04-01,new process: pql,no contact,282
+2026-04-01,new process: pql,sal,383
+2026-04-01,unknown,sal,12
+2026-04-01,unknown,sql,12

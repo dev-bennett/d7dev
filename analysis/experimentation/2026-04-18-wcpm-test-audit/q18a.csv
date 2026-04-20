@@ -1,0 +1,6 @@
+__SDC_PRIMARY_KEY,EVENT,MP_EVENT_TS,MP_SDC_RECEIVED_AT,CURRENT_ADDONS,CURRENT_PLAN_ID,CURRENT_SUBSCRIPTION_ID,STATSIG_STABLE_ID,IN_FCT_EVENTS,IN_STATSIG_MODEL
+86a9bd05-1b81-4546-9ecc-afb086e16302,Purchased Add-on,2026-03-22 19:53:40.000000000,2026-03-23 16:35:00.366000000 +00:00,['warner-chappell-production-music-monthly-usd'],pro-monthly-usd,236241,888dc645-9683-4f99-9bbb-dc98a7eb276a,0,0
+a7a9fe2a-2c96-4101-a041-bd6d40fdc329,Purchased Add-on,2026-03-22 19:53:40.000000000,2026-03-23 15:19:19.552000000 +00:00,['warner-chappell-production-music-monthly-usd'],pro-monthly-usd,236241,888dc645-9683-4f99-9bbb-dc98a7eb276a,1,0
+16c0f618-72fa-42bd-980d-0644585bfd2c,Purchased Add-on,2026-03-22 19:53:40.000000000,2026-03-23 15:23:24.965000000 +00:00,['warner-chappell-production-music-monthly-usd'],pro-monthly-usd,236241,888dc645-9683-4f99-9bbb-dc98a7eb276a,0,0
+22be75bf-3500-4f35-b7d6-9dfe80c6099f,Purchased Add-on,2026-03-22 19:53:40.000000000,2026-03-23 15:25:43.112000000 +00:00,['warner-chappell-production-music-monthly-usd'],pro-monthly-usd,236241,888dc645-9683-4f99-9bbb-dc98a7eb276a,0,0
+9ef1ca17-3eff-4703-b5d8-fd5480321a1e,Purchased Add-on,2026-03-22 19:53:40.000000000,2026-03-23 15:22:07.374000000 +00:00,['warner-chappell-production-music-monthly-usd'],pro-monthly-usd,236241,888dc645-9683-4f99-9bbb-dc98a7eb276a,0,0

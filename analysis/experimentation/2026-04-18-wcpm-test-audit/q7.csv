@@ -1,0 +1,4 @@
+BUCKET,EVENTS,DISTINCT_USERS,DISTINCT_USERS_WCPM_PLAN_ONLY
+1_mixpanel_only_dropped_at_fct_events,73,20,0
+2_fct_events_but_not_in_statsig_model,1,1,0
+3_in_all_three,22,22,0

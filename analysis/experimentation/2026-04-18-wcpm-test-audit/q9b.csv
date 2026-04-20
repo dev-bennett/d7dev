@@ -1,0 +1,13 @@
+EXPERIMENT_ID,GROUP_ID,GROUP_NAME,USER_ID,STABLE_ID,TIMESTAMP,USER_DIMENSIONS
+wcpm_pricing_test,gHGUnSFmwd9ngP45dIhya,Control,,26296535-cb2c-492b-aada-5090c75e00f0,2026-04-04 23:59:42.616000000,"{
+  ""browser_name"": ""Chrome"",
+  ""browser_version"": ""146.0.0"",
+  ""country"": ""US"",
+  ""os"": ""Mac OS X"",
+  ""os_version"": ""10.15.7"",
+  ""sessionID"": ""e39e585d-1933-4cab-af47-34d482e8e7a5"",
+  ""statsigEnvironment"": {
+    ""tier"": ""production""
+  },
+  ""userID"": 1876799
+}"

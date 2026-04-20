@@ -1,0 +1,7 @@
+table_name,schema_name,column_name,data_type,null?,default,kind,expression,comment,database_name,autoincrement,schema_evolution_record,write_default
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,EXPERIMENT_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,GROUP_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,UNIT_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,SECONDARY_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,FIRST_EXPOSURE,"{""type"":""TIMESTAMP_NTZ"",""precision"":0,""scale"":9,""nullable"":true}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+first_exposures_wcpm_pricing_test,_EXTERNAL_STATSIG,FIRST_EXPOSURE_DS,"{""type"":""DATE"",""nullable"":true}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,

@@ -1,0 +1,8 @@
+table_name,schema_name,column_name,data_type,null?,default,kind,expression,comment,database_name,autoincrement,schema_evolution_record,write_default
+EXPOSURES,_EXTERNAL_STATSIG,EXPERIMENT_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,GROUP_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,GROUP_NAME,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,USER_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,STABLE_ID,"{""type"":""TEXT"",""length"":16777216,""byteLength"":16777216,""nullable"":true,""fixed"":false}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,TIMESTAMP,"{""type"":""TIMESTAMP_NTZ"",""precision"":0,""scale"":9,""nullable"":true}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,
+EXPOSURES,_EXTERNAL_STATSIG,USER_DIMENSIONS,"{""type"":""VARIANT"",""nullable"":true}",true,"",COLUMN,"","",SOUNDSTRIPE_PROD,"",,

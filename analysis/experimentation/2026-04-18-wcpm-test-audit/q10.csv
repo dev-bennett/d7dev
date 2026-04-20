@@ -1,0 +1,5 @@
+ARM_OR_MISSING,ADDON_ROWS,EXISTING_SUB_ROWS,NEW_SUB_ROWS,DISTINCT_STABLE_IDS
+control,3,1,2,3
+deep reduction,5,0,5,5
+mid reduction,11,5,6,11
+not_exposed,3,2,1,2

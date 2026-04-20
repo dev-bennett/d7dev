@@ -1,0 +1,7 @@
+POPULATION,ASSET_TYPE,EVENTS,UNIQUE_PATHS,EVENTS_PER_PATH
+spike_apac_direct,songs/{id},29800,6840,4.36
+spike_apac_direct,sound-effects/{id},88628,20797,4.26
+us_direct_control,songs/{id},8568,1656,5.17
+us_direct_control,sound-effects/{id},7039,1559,4.52
+us_referred_control,songs/{id},7586,1358,5.59
+us_referred_control,sound-effects/{id},9380,1598,5.87

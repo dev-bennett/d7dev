@@ -1,0 +1,4 @@
+-- q1
+select *
+from SOUNDSTRIPE_PROD.HUBSPOT.HUBSPOT_CONTACTS
+limit 50;

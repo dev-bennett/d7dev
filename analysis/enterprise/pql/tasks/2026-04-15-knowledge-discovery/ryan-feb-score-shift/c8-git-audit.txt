@@ -1,0 +1,110 @@
+C8 -- dbt Scoring-Pipeline Commit Audit
+Window: 2025-10-01 .. 2026-03-15 (extended from Nov-20 model shift)
+Repo: /Users/dev/PycharmProjects/d7dev/analysis/enterprise/pql/tasks/2026-04-15-knowledge-discovery/ryan-feb-score-shift/../../../../../../context/dbt
+Generated: 2026-04-15T18:01:15Z
+
+==============================================================
+Commits touching scoring-pipeline paths in window
+==============================================================
+d4fc018 2026-03-11 Geoff Aoyagi correcting data type mismatch on coalesce from partition by
+b7a1801 2026-03-11 Geoff Aoyagi updating enterprise leads windowed partition by and updating logic in mql mapping based on change in eventing
+7b03763 2026-02-19 Geoff Aoyagi correcting group by for dim enterprise leads
+81207c3 2026-02-19 Geoff Aoyagi changing join key for dim enterprise leads to show current company
+9658170 2026-02-19 Geoff Aoyagi adding Meetings Link: ned-pruitt/enterprise-calendar-schedule-form as an MQL
+60d4941 2026-02-09 Geoff Aoyagi pushing change to enterprise kpi report and leads to allow for reporting by acq source
+f063cb6 2026-02-02 Geoff Aoyagi fixing and to or for dim enterprise leads dtc
+5852c9f 2026-02-02 Geoff Aoyagi aligning logic for dtc upsell leads
+9284bcb 2026-02-02 Geoff Aoyagi aligning logic with dashboards mostly for dim enterprise leads
+9c9b36c 2026-02-02 Geoff Aoyagi updating date trunc ihn dim enterprise leads
+3ea0cad 2026-02-02 Geoff Aoyagi refactoring mql transforms in dim enterprise leads
+35c24bd 2026-01-29 Geoff Aoyagi fixing datatype issues in stg_contacts_2
+5491a68 2026-01-28 Geoff Aoyagi getting dirty data in from hubspot/clay, so adjusting data casting to not error, but just ignore data that's not in the expected type
+2fb6c14 2026-01-21 Geoff Aoyagi adding snowflake lead score to stg_contacts_2
+5eff79f 2026-01-20 Geoff Aoyagi adding annotation and code change for in to enterprise leads and changing sync based on dirty data for won deals
+9425917 2025-11-19 Geoff Aoyagi updating lead scoring to incorporate more industries and linkedin info
+
+==============================================================
+Per-commit diff stats for each commit above
+==============================================================
+
+--- d4fc018 correcting data type mismatch on coalesce from partition by ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- b7a1801 updating enterprise leads windowed partition by and updating logic in mql mapping based on change in eventing ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 7b03763 correcting group by for dim enterprise leads ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 81207c3 changing join key for dim enterprise leads to show current company ---
+ models/marts/core/dim_enterprise_leads.sql | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
+
+
+--- 9658170 adding Meetings Link: ned-pruitt/enterprise-calendar-schedule-form as an MQL ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 60d4941 pushing change to enterprise kpi report and leads to allow for reporting by acq source ---
+ models/marts/core/dim_enterprise_leads.sql | 82 ++++++++++++++++++++++--------
+ 1 file changed, 62 insertions(+), 20 deletions(-)
+
+
+--- f063cb6 fixing and to or for dim enterprise leads dtc ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 5852c9f aligning logic for dtc upsell leads ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 9284bcb aligning logic with dashboards mostly for dim enterprise leads ---
+ models/marts/core/dim_enterprise_leads.sql | 123 +++++++++++++----------------
+ 1 file changed, 57 insertions(+), 66 deletions(-)
+
+
+--- 9c9b36c updating date trunc ihn dim enterprise leads ---
+ models/marts/core/dim_enterprise_leads.sql | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- 3ea0cad refactoring mql transforms in dim enterprise leads ---
+ models/marts/core/dim_enterprise_leads.sql | 50 +++++++++++++++++-------------
+ 1 file changed, 29 insertions(+), 21 deletions(-)
+
+
+--- 35c24bd fixing datatype issues in stg_contacts_2 ---
+ models/staging/hubspot/stg_contacts_2.sql | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+
+--- 5491a68 getting dirty data in from hubspot/clay, so adjusting data casting to not error, but just ignore data that's not in the expected type ---
+ models/transformations/python/leads_for_scoring.sql | 21 ++++++++++-----------
+ .../transformations/python/leads_for_training.sql   |  8 ++++----
+ 2 files changed, 14 insertions(+), 15 deletions(-)
+
+
+--- 2fb6c14 adding snowflake lead score to stg_contacts_2 ---
+ models/staging/hubspot/stg_contacts_2.sql | 1 +
+ 1 file changed, 1 insertion(+)
+
+
+--- 5eff79f adding annotation and code change for in to enterprise leads and changing sync based on dirty data for won deals ---
+ models/marts/core/dim_enterprise_leads.sql | 41 +++++++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
+
+
+--- 9425917 updating lead scoring to incorporate more industries and linkedin info ---
+ .../python/enterprise_lead_scoring_model.py                |  6 ++++--
+ models/transformations/python/leads_for_scoring.sql        | 14 +++++++++++++-
+ models/transformations/python/leads_for_training.sql       | 12 +++++++++++-
+ 3 files changed, 28 insertions(+), 4 deletions(-)
