@@ -53,3 +53,12 @@ A `.claude/state/sessions/<session-id>.jsonl` file exists per session. Every hoo
 ## Risks
 - Event schema churn during migration → pin schema version in each event; handle backward-compatible reads in /orient
 - Log file size growth over long sessions → rotation on size threshold, not just session end
+
+## Telemetry substrate consumption (from Epic 0.3)
+**Scope boundary.** Epic 0.3 delivers the collector, the filelog hook-bridge (pattern c — see `../25-telemetry-substrate/decisions/hook-bridge-pattern.md`), scrubbing, and the raw JSONL streams at `.claude/telemetry/data/{spans,metrics,logs}.jsonl`. This project (Epic 1.2) consumes those streams and produces `.claude/state/sessions/<session-id>.jsonl` as a derived projection for `/orient` and `/evolve`. Epic 1.2 does NOT modify the collector config, the hook-bridge, or the scrubbing rules — those are Epic 0.3's authored surface.
+
+**Stream read.** Primary: `logs.jsonl` (both host log records and filelog-bridged hook events, distinguished by `attributes.source == "d7dev.host"` vs `"d7dev.hook"`). Secondary: `spans.jsonl` for tool-invocation durations and `metrics.jsonl` for token-cost enrichment of session summaries.
+
+**Schema-agnostic keying.** Join host spans and hook events on `resource["session.id"]` only; do not key on host-emitted span names (they are host-versioned per `../25-telemetry-substrate/host-version-pin.md`). Workspace-stable keys for filtering: `attributes.source`, `attributes.hook`, `attributes.outcome`.
+
+**Projection algorithm (Phase 3 of this epic, not Epic 0.3).** Filter collector streams by current `session.id`, sort by timestamp, write one event per input record to `.claude/state/sessions/<session-id>.jsonl`. Retention and rotation of the projection are Epic 1.2's concern; they must respect the same local-only PII boundary Epic 0.3 enforces on the collector streams.

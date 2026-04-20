@@ -1,0 +1,494 @@
+❯ /orient
+
+  Searched for 1 pattern, listed 3 directories (ctrl+o to expand)
+
+⏺ Bash(git -C /Users/dev/PycharmProjects/d7dev rev-parse --show-toplevel)
+  ⎿  /Users/dev/PycharmProjects/d7dev
+
+  Read 32 files, listed 1 directory, recalled 46 memories (ctrl+o to expand)
+  ⎿  Loaded context/CLAUDE.md
+  ⎿  Loaded context/informational/CLAUDE.md
+
+⏺ Bash(for f in /Users/dev/PycharmProjects/d7dev/.claude/agents/*.md; do echo "=== $f ==="; head -6 "$f"; done)
+  ⎿  === /Users/dev/PycharmProjects/d7dev/.claude/agents/analyst.md ===
+     ---
+     name: analyst
+     … +39 lines (ctrl+o to expand)
+
+  Listed 1 directory (ctrl+o to expand)
+
+⏺ INVENTORY_MANIFEST
+  | # | path | mode | attestation |
+  |---|------|------|-------------|
+  | 1 | .claude/rules/analysis-methodology.md | verbatim | 3-pass workflow, prior investigation search §0, distribution-at-rollup frame |
+  | 2 | .claude/rules/dbt-standards.md | verbatim | marts/transformations placement, Stitch updated_at replication key, backfill vars |
+  | 3 | .claude/rules/deliverable-standards.md | verbatim | CONTRACT blocks, ADVERSARIAL CHECK, INTERVENTION CLASS |
+  | 4 | .claude/rules/git-workflow.md | verbatim | atomic commits, no `git add .`, branch naming |
+  | 5 | .claude/rules/guardrails.md | verbatim | file-first output, verify target before writing, mandatory CLAUDE.md chain, §6 enumeration |
+  | 6 | .claude/rules/lookml-standards.md | verbatim | views in domain subdirs, General.model.lkml for marketing, sql_on over foreign_key |
+  | 7 | .claude/rules/python-standards.md | verbatim | type hints, Google docstrings, pathlib, <30 line fns |
+  | 8 | .claude/rules/roadmapping-methodology.md | verbatim | 7-step scope → brainstorm → prioritize → plan |
+  | 9 | .claude/rules/sql-snowflake.md | verbatim | RATE block + TYPE AUDIT gate, query efficiency §13 |
+  | 10 | .claude/rules/writing-standards.md | verbatim | sentence test, banned phrases, platform-safe |
+  | 11 | .claude/commands/analyze.md | verbatim | 3-pass invocation, domain+dictionary checks |
+  | 12 | .claude/commands/checkpoint.md | verbatim | init/update/review, post-compaction rule |
+  | 13 | .claude/commands/etl.md | verbatim | transform/quality/pipeline/audit actions |
+  | 14 | .claude/commands/evolve.md | verbatim | 5-phase retrospective with audit checklist |
+  | 15 | .claude/commands/ingest.md | verbatim | context/ manifest + read-only reference |
+  | 16 | .claude/commands/kb-update.md | verbatim | domains/data-dictionary/runbooks/decisions |
+  | 17 | .claude/commands/lookml.md | verbatim | view/explore/dashboard/validate/audit |
+  | 18 | .claude/commands/model.md | verbatim | 3-pass business model build |
+  | 19 | .claude/commands/monitor.md | verbatim | data quality monitoring, analysis/_monitoring output |
+  | 20 | .claude/commands/orient.md | in-context (this file) | 5-phase session start |
+  | 21 | .claude/commands/preflight.md | verbatim | task classify, env check, prior-work scan, dir setup |
+  | 22 | .claude/commands/review.md | verbatim | uncommitted change review by file type |
+  | 23 | .claude/commands/roadmap.md | verbatim | 7-step initiative management |
+  | 24 | .claude/commands/scaffold.md | verbatim | new domain directory + KB + LookML stubs |
+  | 25 | .claude/commands/status.md | verbatim | analytical health dashboard |
+  | 26 | .claude/commands/test.md | verbatim | pytest + SQL/LookML/KB validation |
+  | 27 | context/informational/agent_directives_v3.md | verbatim | §1–§13 full governing directives |
+  | 28 | CLAUDE.md (root) | injected-context | analytical command center, execution sequence, directory map |
+  | 29 | context/CLAUDE.md | injected-context | read-only ingested references |
+  | 30 | context/informational/CLAUDE.md | injected-context | informational context chain |
+  | 31 | .claude/settings.json | verbatim | permissions, env, 5 hook events, session-briefing.md write pre-allowed |
+  | 32 | .claude/settings.local.json | verbatim | personal bash allowlist, WebFetch exceptions |
+  | 33 | .claude/hooks/session-gate.sh | verbatim | blocks writes without parent CLAUDE.md, preflight nudge ≥3 |
+  | 34 | .claude/hooks/prompt-context.sh | verbatim | injects today's date + checkpoint + MEMORY.md staleness |
+  | 35 | .claude/hooks/bash-guard.sh | verbatim | blocks `git add .`, warns pre-commit, detects repetition ≥4/≥7 |
+  | 36 | memory/MEMORY.md | verbatim | 47-entry index |
+  | 37 | memory/user_profile.md | verbatim | Devon Bennett, Principal Analyst, Soundstripe |
+  | 38 | memory/user_roadmapping_process.md | verbatim (19d) | 7-step sequence |
+  | 39 | memory/project_architecture.md | verbatim | analytical command center, not a Python app |
+  | 40 | memory/project_commit_backlog.md | verbatim | 88+ uncommitted files recurrence |
+  | 41 | memory/project_domain_consolidation.md | verbatim (18d) | Fastly/React/Rails, ~200K artifact sessions 03/05-03/25 |
+  | 42 | memory/project_lifecycle_email.md | verbatim (19d) | Dave owns roadmapping; 57 ideas, 6 stages |
+  | 43 | memory/project_mql_discrepancy.md | verbatim (11d) | Enterprise v2 form, tiered matching, ready for promo |
+  | 44 | memory/project_notifications_pipeline.md | verbatim (17d) | live 2026-04-02 |
+  | 45 | memory/project_org_restructure.md | verbatim | Sr Data Analyst pitch, reorg rejected |
+  | 46 | memory/project_seo_testing.md | verbatim (18d) | Statsig SEO test, awaiting team refinement |
+  | 47 | memory/project_xmr_charts.md | verbatim (13d) | 3 KPIs weekly sliding baseline |
+  | 48 | memory/project_xmr_open_design.md | verbatim (13d) | annotation/reference table feature unresolved (OPEN) |
+  | 49 | memory/project_direct_traffic_spike_2026_04_17_open.md | verbatim | second spike, likely same root cause as 04-01 (OPEN) |
+  | 50 | memory/project_statsig_model_late_arrival_open.md | verbatim | statsig_clickstream drops late-arriving rows (OPEN) |
+  | 51 | memory/reference_dbt_repo.md | verbatim (17d) | SoundstripeEngineering/dbt-transformations, develop_dab |
+  | 52 | memory/reference_looker_repo.md | verbatim (17d) | SoundstripeEngineering/looker, General.model.lkml 62 explores |
+  | 53 | memory/reference_session_event_join.md | verbatim (2d) | dim_session_mapping bridge |
+  | 54 | memory/feedback_communication_style.md | verbatim | §10 sentence test, banned patterns, no fabricated context |
+  | 55 | memory/feedback_session_retrospective.md | verbatim (11d) | mid-session scope updates to memory |
+  | 56 | memory/feedback_verify_before_writing.md | verbatim | verify external state before SQL/config |
+  | 57 | memory/feedback_investigate_root_cause.md | verbatim (23d) | enumerate then fix, no iterate-and-hope |
+  | 58 | memory/feedback_chestertons_fence.md | verbatim (23d) | understand why before removing |
+  | 59 | memory/feedback_claude_md_chain.md | verbatim (20d) | every new dir gets a chained CLAUDE.md |
+  | 60 | memory/feedback_dont_assume_commits.md | verbatim (23d) | mid-task restraint, task-complete drive |
+  | 61 | memory/feedback_investigatory_workflow.md | verbatim | prior investigation search, context-first |
+  | 62 | memory/feedback_dbt_model_placement.md | verbatim (17d) | transformations/<domain>, existing marts |
+  | 63 | memory/feedback_dbt_schema_test_consistency.md | verbatim (17d) | tests match join semantics |
+  | 64 | memory/feedback_dbt_environments.md | verbatim (11d) | dbt Cloud dev = soundstripe_dev only |
+  | 65 | memory/feedback_snowflake_permissions.md | verbatim (17d) | EMBEDDED_ANALYST vs TRANSFORMER, GRANT after create |
+  | 66 | memory/feedback_query_file_organization.md | verbatim (17d) | per-set subdirectory; unique query labels |
+  | 67 | memory/feedback_lookml_promotion_workflow.md | verbatim (17d) | staged: lookml/ → promotion guide → Looker IDE |
+  | 68 | memory/feedback_chart_standards.md | verbatim (13d) | legend outside, K/M labels, semantic markers |
+  | 69 | memory/feedback_listen_before_building.md | verbatim (13d) | build exactly what's asked |
+  | 70 | memory/feedback_stop_iterating_simplify.md | verbatim (13d) | 2 fails → reconsider approach |
+  | 71 | memory/feedback_slack_formatting.md | verbatim (13d) | plain text, bullets, no markdown tables |
+  | 72 | memory/feedback_exhaust_search_before_concluding.md | verbatim | search from both directions, including submodules |
+  | 73 | memory/feedback_design_for_consumer.md | verbatim (12d) | single-table for consumer, not bridge+join |
+  | 74 | memory/feedback_dont_edit_live_hooks.md | verbatim (11d) | do not edit hooks mid-session |
+  | 75 | memory/feedback_backfill_var.md | verbatim | add backfill_from var instead of --full-refresh |
+  | 76 | memory/feedback_hook_events.md | verbatim (6d) | Stop fires per-turn, use SessionEnd |
+  | 77 | memory/feedback_discovery_before_knowledge.md | verbatim (4d) | warehouse discovery before KB drafting |
+  | 78 | memory/feedback_follow_the_data_not_the_frame.md | verbatim (4d) | re-scope to data inflection, don't defer |
+  | 79 | memory/feedback_prior_investigation_search.md | verbatim | glob/grep analysis/** before any new query |
+  | 80 | memory/feedback_distribution_rollup_substantiation.md | verbatim | per-population × rollup × concentration FIRST |
+  | 81 | memory/feedback_no_overclaim_from_code_reads.md | verbatim | don't assert intent from code alone |
+  | 82 | memory/feedback_hold_correct_claims_under_pushback.md | verbatim | re-read evidence before retracting |
+  | 83 | .claude/agents/{analyst,architect,data-engineer,kb-curator,lookml-developer,modeler}.md | catalog | 6 agents, all Sonnet 4.6 |
+  | 84 | .claude/hooks/{_lib,health-check,retry-guard,session-closeout,test-all,workflow-tracker,writing-scrub}.sh | catalog | 7 supporting hook scripts |
+  | 85 | knowledge/decisions/ | catalog | 3 ADRs: reference-track-search, searched-songs-properties, user_notifications replication key |
+  | 86 | knowledge/runbooks/ | catalog | 6 runbooks: event-capture, roadmapping, runtime-substrate-catalog, telemetry-queries, telemetry-substrate, xmr-chart-workflow |
+  | 87 | knowledge/data-dictionary/ | catalog | 2 reference entries (reference-track-search, searched-songs-properties) |
+  | 88 | knowledge/domains/{experimentation,search,tracking}/ | catalog | 3 domain subdirs |
+  | 89 | **/CLAUDE.md | catalog | ~90 CLAUDE.md files across project (auto-loaded on navigation) |
+
+  Advancing to Phase 2.
+
+⏺ Bash(git status 2>&1 | head -120 && echo "---LOG---" && git log -20 --oneline && echo "---UNMERGED---" && git log main..HEAD --oneline 2>&1 | head -20 && echo "---SU…)
+  ⎿  On branch main
+     Your branch is up to date with 'origin/main'.
+     … +54 lines (ctrl+o to expand)
+
+⏺ Bash(CP=/Users/dev/PycharmProjects/d7dev/.claude/hooks/checkpoint.md; [ -f "$CP" ] && echo "EXISTS" && stat -f '%Sm mtime=%m' "$CP" || echo "MISSING")
+  ⎿  Running…
+⏺
+  LisEXISTS  rectories (ctrl+o to expand)
+     Apr 13 10:40:15 2026 mtime=1776094815
+⏺                                        -Users-dev-PycharmProjects-d7dev/*.jsonl 2>/dev/null | head -1 | while read f; do echo "$(basename "$f") mtime=$(stat -f '%Sm'…)
+  Listed 3 directories (ctrl+o to expand)
+
+⏺ Bash(ls -t /Users/dev/.claude/projects/-Users-dev-PycharmProjects-d7dev/*.jsonl 2>/dev/null | head -1 | while read f; do echo "$(basename "$f") mtime=$(stat -f '%Sm'…)
+  ⎿  5ca81f42-212f-4f17-ab24-4bdf9ecc25bb.jsonl mtime=Apr 20 10:32:40 2026
+ ─                                                                               ─           ─ ─    ─  ─ ─     ─    ─  ─  ─    ─           ─     ─            ─  ─       ────────────────────────────────────────
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Bash(for f in /Users/dev/PycharmProjects/d7dev/etl/tasks/*/README.md /Users/dev/PycharmProjects/d7dev/lookml/tasks/*/README.md; do [ -f "$f" ] && echo "=== $f ===" &…)
+  ⎿  === /Users/dev/PycharmProjects/d7dev/etl/tasks/2026-03-27-reference-track-search/README.md ===
+     - **Status:** complete
+     === /Users/dev/PycharmProjects/d7dev/etl/tasks/2026-03-30-searched-songs-properties/README.md ===
+     … +9 lines (ctrl+o to expand)
+
+⏺ STATE_SUMMARY
+    branch:                  main
+    head:                    1db3b76 Add analytical orchestration framework and evolution initiative
+    uncommitted_files:       54 (24 modified + 30 untracked paths; several untracked are dirs containing more files)
+    unmerged_commits:        0 (on main; no divergence vs origin/main)
+    submodule_heads:         context/dbt=9bb586c ; context/lookml NOT a submodule (loose-end: working-tree clone, untracked)
+    checkpoint_age_days:     7 (Apr 13 → Apr 20) — edge of staleness
+    last_retrospective:      2026-04-18 (2d) — fresh
+    active_initiatives:      1 (initiatives/lifecycle-email-brainstorm)
+    in_flight_task_dirs:     6 (etl/tasks: 4, lookml/tasks: 2)
+    recent_analysis_dirs:    data-health, experimentation, enterprise, lifecycle, adhoc
+    last_session_transcript: 5ca81f42-…-jsonl (today 10:32, <1d)
+
+  Phase 3 — static routing table and open problems queue.
+
+  ROUTING_TABLE (static)
+
+  Task type                        | Command(s)              | Rules                                                                     | Agent             | Memory anchors
+                                                                                                         | Required pre-step
+  ---------------------------------|-------------------------|---------------------------------------------------------------------------|-------------------|---------------------------------------------------
+  -------------------------------------------------------------------------------------------------------|-------------------
+  ETL / dbt model work             | /preflight then /etl    | dbt-standards, sql-snowflake, guardrails                                  | data-engineer     | feedback_dbt_environments,
+  feedback_dbt_model_placement, feedback_dbt_schema_test_consistency, feedback_backfill_var, feedback_snowflake_permissions     | ls etl/tasks/ for prior work on same model
+  LookML work                      | /preflight then /lookml | lookml-standards, guardrails                                              | lookml-developer  | feedback_lookml_promotion_workflow,
+  reference_looker_repo                                                                                                | read existing view in target dir for conventions
+  Investigatory analysis           | /preflight then /analyze| analysis-methodology, deliverable-standards, writing-standards            | analyst           | feedback_investigatory_workflow,
+  feedback_prior_investigation_search, feedback_distribution_rollup_substantiation, feedback_exhaust_search_before_concluding, feedback_follow_the_data_not_the_frame, feedback_discovery_before_knowledge,
+  reference_session_event_join | **Glob analysis/**/*<slug>* for prior investigations BEFORE any query**
+  Business modeling                | /model                  | analysis-methodology, deliverable-standards                               | modeler           | (topic-specific project memory)
+                                                                                                         | identify canonical data dictionary source
+  Knowledge base / docs            | /kb-update              | writing-standards, guardrails                                             | kb-curator        | feedback_discovery_before_knowledge
+                                                                                                         | run warehouse discovery queries before drafting
+  Roadmapping                      | /roadmap                | roadmapping-methodology                                                   | —                 | user_roadmapping_process
+                                                                                                         | confirm current step (1–7) of initiative
+  Data quality / monitoring        | /monitor                | analysis-methodology                                                      | analyst           | feedback_investigatory_workflow
+                                                                                                         | —
+  Retrospective / repo hygiene     | /evolve                 | (all)                                                                     | —                 | feedback_session_retrospective
+                                                                                                         | —
+  Cross-workspace initiative work  | check initiatives/ first| (depends on workspace involved)                                           | —                 | user_roadmapping_process
+                                                                                                         | read initiative README before any workspace edit
+  Content / brand work             | marketing:* skills      | —                                                                         | marketing:*       | —
+                                                                                                         | —
+
+  OPEN_PROBLEMS_QUEUE
+  [1] Direct Traffic Spike 2026-04-17 — project_direct_traffic_spike_2026_04_17_open.md — scraping hypothesis unconfirmed; likely same root cause as 04-01 (Fastly/pre-render/sitemap); needs engineering check
+  [2] Statsig clickstream model drops late-arriving rows — project_statsig_model_late_arrival_open.md — STRUCTURAL; repo-wide; incremental predicate `event_ts::date >= max(event_ts)` silently drops late
+  fct_events rows; proposed fix = widen to N-day lookback + backfill
+  [3] XmR signal annotation/reference table — project_xmr_open_design.md (13d) — annotation/ref table + definitions panel stripped after ~10 matplotlib iterations; needs fundamentally different tool
+  (Plotly/D3/HTML companion doc), NOT matplotlib FancyBboxPatch
+  [4] WCPM test trigger coverage on purchase path — retrospective 2026-04-18-wcpm-audit — 8 of 23 add-on purchasers never hit exposure trigger; owner unknown; design question
+  [5] In-flight ETL task: etl/tasks/2026-04-02-in-app-notifications-build-out — status "sources + staging promoted; intermediate/marts pending"
+  [6] In-flight ETL task: etl/tasks/2026-04-07-mql-discrepancy-fix — status draft (project memory says "In development"; models ready for promotion per project_mql_discrepancy.md)
+  [7] In-flight ETL task: etl/tasks/2026-03-30-searched-songs-properties — status in-progress
+  [8] In-flight LookML task: lookml/tasks/2026-04-07-mql-discrepancy-fix — status draft
+  [9] Commit/merge backlog (recurring) — project_commit_backlog.md — 54 uncommitted paths on working tree; pattern is recurring; drive commit+PR at task milestones
+
+  STALE FLAGS:
+  - project_xmr_open_design.md (13d — exceeds 14d threshold only by inference; memory static but design problem still open)
+  - checkpoint.md (.claude/hooks/checkpoint.md) is 7d old
+  - user_roadmapping_process.md (19d), project_domain_consolidation.md (18d), project_seo_testing.md (18d), project_lifecycle_email.md (19d) ≥14d unchanged — not "_open" memories so not strictly flagged, but
+  review before acting on them
+
+  Phase 4 — briefing artifact + chat summary.
+
+⏺ Write(.claude/hooks/session-briefing.md)
+  ⎿  Error writing file
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Write(.claude/hooks/session-briefing.md)
+  ⎿  Added 28 lines, removed 30 lines
+       1 -# Session Briefing — 2026-04-20 09:16
+       1 +# Session Briefing — 2026-04-20
+       2
+       3  - **Branch:** main (synced with origin/main)
+       4  - **HEAD:** 1db3b76 Add analytical orchestration framework and evolution initiative
+       5 -- **Last retrospective:** 2026-04-18-wcpm-audit-session-retrospective.md (2d old — fresh)
+       6 -- **Last checkpoint:** `.claude/hooks/checkpoint.md` (6d old — STALE; content is a prior /plan transcript for reviewing `.claude/hooks/`, not a live §9 checkpoint — do not treat as resumable s
+         -tate)
+       5 +- **Last retrospective:** 2026-04-18-wcpm-audit-session-retrospective.md (2d — fresh)
+       6 +- **Last checkpoint:** `.claude/hooks/checkpoint.md` (7d — stale; holds a /plan transcript, not a live §9 checkpoint)
+       7
+       8  ## Stakeholders
+       9 -- Devon Bennett — sole data-team member; Sr Data Analyst promotion pitch in play (see project_org_restructure.md)
+      10 -- Luke Capizano (Dir Eng), Trevor Hinesley (CTO), AJ Robertson, Dylan Price — engineering/infra
+      11 -- Dave Kart (VP Marketing) — owns lifecycle roadmap since 2026-03-31
+      12 -- Ryan Severns (RevOps), Meredith Knott, Taylor Armstrong
+      13 -- Sourav (CFO) — reporting line retained under Finance; backfilling Director of Data
+       9 +- Devon Bennett — sole data-team member; Sr Data Analyst promotion pitch in play (project_org_restructure.md)
+      10 +- Engineering: Luke Capizano (Dir Eng), Trevor Hinesley (CTO), AJ Robertson, Dylan Price
+      11 +- Marketing/Product/RevOps: Dave Kart (VP Mkt, lifecycle owner), Meredith Knott, Taylor Armstrong, Ryan Severns
+      12 +- Finance: Sourav (CFO) — reporting line retained; Director of Data backfill pending
+      13
+      14  ## Active initiatives
+      16 -- `initiatives/lifecycle-email-brainstorm/` — Step 3 (Group & Define) → Step 4 (Swimlanes & Epics); Dave owns roadmap; Devon's role is analytical support
+      15 +- `initiatives/lifecycle-email-brainstorm/` — Step 3 (Group & Define) → Step 4 (Swimlanes & Epics); Dave owns the roadmap; Devon is analytical support
+      16  - Cross-workspace: MQL discrepancy fix (etl + lookml tasks ready for deployment)
+      17  - Cross-workspace: In-app notifications pipeline (live 2026-04-02, phase 2 pending)
+      18
+      19  ## In-flight task workspaces
+      21 -- `etl/tasks/2026-04-07-mql-discrepancy-fix/` — draft models ready; full-refresh run 2026-04-09; next: PR to dbt repo (task README 11d stale)
+      22 -- `etl/tasks/2026-04-02-in-app-notifications-build-out/` — LIVE in prod; next scheduled prod run needs verification
+      23 -- `etl/tasks/2026-03-30-searched-songs-properties/` — complete
+      20 +- `etl/tasks/2026-04-07-mql-discrepancy-fix/` — status draft; models ready per memory; README 11d stale
+      21 +- `etl/tasks/2026-04-02-in-app-notifications-build-out/` — status: sources + staging promoted; intermediate/marts pending
+      22 +- `etl/tasks/2026-03-30-searched-songs-properties/` — in-progress
+      23  - `etl/tasks/2026-03-27-reference-track-search/` — complete
+      25 -- `lookml/tasks/2026-04-07-mql-discrepancy-fix/` — dependent on dbt PR merge
+      26 -- `lookml/tasks/2026-04-02-in-app-notifications-dashboard/` — promoted to Looker
+      27 -- `analysis/experimentation/2026-04-18-wcpm-test-audit/` — findings + retro written, still untracked
+      28 -- `analysis/data-health/2026-04-17-direct-traffic-spike/` — OPEN; 15 diagnostic queries + CSVs untracked; no findings doc committed
+      29 -- `analysis/enterprise/pql/tasks/2026-04-15-knowledge-discovery/` — untracked; contacts-shape + ryan-feb-score-shift subdirs in progress
+      24 +- `lookml/tasks/2026-04-07-mql-discrepancy-fix/` — draft; depends on dbt PR merge
+      25 +- `lookml/tasks/2026-04-02-in-app-notifications-dashboard/` — promoted to Looker, pending PR merge
+      26 +- `analysis/experimentation/2026-04-18-wcpm-test-audit/` — findings + retro written; untracked
+      27 +- `analysis/data-health/2026-04-17-direct-traffic-spike/` — OPEN; 15 diagnostic queries + CSVs; no findings doc committed
+      28 +- `analysis/enterprise/pql/tasks/2026-04-15-knowledge-discovery/` — untracked; contacts-shape + ryan-feb-score-shift in progress
+      29
+      30  ## Open problems
+      32 -1. **Direct Traffic Spike 2026-04-17** (OPEN). APAC-concentrated spike; scraping hypothesis unsubstantiated. Leading hypothesis = same Fastly/pre-render/sitemap mechanism as 2026-04-01. Next:
+         -ask Luke whether a CDN/pre-render/sitemap event happened on/around 2026-04-13. Do not recommend Fastly blocks or warehouse filters before that confirmation.
+      33 -2. **Statsig clickstream model late-arrival drop** (STRUCTURAL, repo-wide). Incremental predicate `event_ts::date >= max(event_ts)::date` silently excludes late-arriving fct_events rows. Propo
+         -sed fix: widen to lookback window; requires dbt PR + scoped backfill. Tracked in project_statsig_model_late_arrival_open.md.
+      34 -3. **WCPM test trigger coverage on purchase path**. 8 of 23 add-on purchasers never hit exposure trigger; 2 hit it post-purchase. Design question, owner unknown.
+      35 -4. **XmR signal annotation / reference table**. ~10 matplotlib iterations failed and were stripped; user's "interpretable signals inline" requirement remains unmet. Do NOT re-attempt matplotli
+         -b FancyBboxPatch manual positioning; consider HTML companion / Plotly / D3.
+      36 -5. **MQL discrepancy fix — prod verification pending**. Draft models ready since 2026-04-09; README untouched 11d. Need to confirm current prod state before promoting.
+      37 -6. **Commit/merge backlog recurrence**. 34 uncommitted files (13 modified, 21 untracked) across hooks edits, new commands, 04-13 investigation, 04-17 direct-traffic-spike, 04-15 knowledge-disc
+         -overy, lifecycle brainstorm, WCPM audit, retros. Violates Session Closeout Protocol step 7.
+      38 -7. **context/lookml submodule half-registration** + **lookml/reference embedded git repo**. `.gitmodules` has entry with no staged gitlink; lookml/reference is a redundant clone. Resolve in de
+         -dicated session.
+      31 +1. **Direct Traffic Spike 2026-04-17** — APAC-concentrated; scraping hypothesis unsubstantiated; leading hypothesis = same Fastly/pre-render/sitemap mechanism as 04-01; next action = confirm w
+         +ith Luke whether a CDN/pre-render/sitemap event happened around 2026-04-13 before recommending any Fastly block or warehouse filter
+      32 +2. **Statsig clickstream model late-arrival drop** (STRUCTURAL, repo-wide) — incremental predicate `event_ts::date >= max(event_ts)::date` drops late fct_events rows; fix = widen to N-day look
+         +back + backfill
+      33 +3. **XmR signal annotation/reference table** — stripped after ~10 matplotlib iterations; do NOT re-attempt matplotlib FancyBboxPatch; consider HTML companion / Plotly / D3
+      34 +4. **WCPM test trigger coverage on purchase path** — 8/23 add-on purchasers never hit exposure trigger; design question; owner unknown
+      35 +5. **MQL discrepancy fix prod promotion** — draft models ready since 2026-04-09; README 11d stale; confirm prod state before promoting
+      36 +6. **Commit/merge backlog recurrence** — 54 uncommitted paths (24 modified + 30 untracked); violates Session Closeout step 7
+      37 +7. **context/lookml submodule half-registration + lookml/reference embedded clone** — resolve in a dedicated session
+      38
+      39  ## Stale flags
+      41 -- Checkpoint ≥3d: `.claude/hooks/checkpoint.md` (6d) — prior /plan transcript, not a live §9 checkpoint
+      42 -- Memory approaching 14d stale: `project_xmr_open_design.md` (13d)
+      43 -- Task README stale: `etl/tasks/2026-04-07-mql-discrepancy-fix/README.md` (11d) despite memory claiming active dev
+      44 -- Commit hygiene: 34 uncommitted files
+      40 +- `.claude/hooks/checkpoint.md` 7d — prior /plan transcript, not a live §9 checkpoint
+      41 +- `project_xmr_open_design.md` (13d) — approaching the 14d threshold
+      42 +- `etl/tasks/2026-04-07-mql-discrepancy-fix/README.md` (11d) despite memory claiming active dev
+      43  - Hook files modified but unstaged — per feedback_dont_edit_live_hooks.md, do NOT edit `.claude/hooks/*.sh` during this session
+      44
+      45  ## Routing table
+      46  See `.claude/commands/orient.md` for the full table. Most likely task types given in-flight state:
+      49 -- Follow-up on 2026-04-17 direct-traffic-spike (Investigatory analysis — with engineering confirmation loop)
+      47 +- Follow-up on 2026-04-17 direct-traffic-spike (Investigatory analysis — engineering confirmation loop)
+      48  - Statsig incremental lookback fix (ETL / dbt model work)
+      49  - MQL discrepancy fix promotion (ETL → LookML)
+      52 -- Lifecycle email roadmapping (Roadmapping, Step 3→4)
+      50 +- Lifecycle email roadmapping (Roadmapping Step 3 → 4)
+      51  - Commit hygiene pass (/evolve or manual atomic commits)
+
+⏺ Phase 4 chat summary:
+
+  - Branch / HEAD: main @ 1db3b76
+  - Retro: 2026-04-18 (2d, fresh)
+  - Checkpoint: 7d old, not a live §9 checkpoint
+  - Initiatives: 1 active (lifecycle-email-brainstorm, Step 3→4)
+  - In-flight tasks: 6 (4 ETL, 2 LookML) + 3 untracked analysis workspaces
+  - Open problems: 7 (direct-traffic spike 04-17, Statsig late-arrival, XmR annotation, WCPM trigger, MQL promotion, commit backlog, lookml submodule)
+     - **Status:** draft
+  ⎿  1 PostToolUse hook ran
+
+                                                                                                                                                                                 10:33 AM claude-opus-4-7
+⏺ STATE_SUMMARY
+    branch:                  main
+    head:                    1db3b76 Add analytical orchestration framework and evolution initiative
+    uncommitted_files:       54 (24 modified + 30 untracked paths; several untracked are dirs containing more files)
+    unmerged_commits:        0 (on main; no divergence vs origin/main)
+    submodule_heads:         context/dbt=9bb586c ; context/lookml NOT a submodule (loose-end: working-tree clone, untracked)
+    checkpoint_age_days:     7 (Apr 13 → Apr 20) — edge of staleness
+    last_retrospective:      2026-04-18 (2d) — fresh
+    active_initiatives:      1 (initiatives/lifecycle-email-brainstorm)
+    in_flight_task_dirs:     6 (etl/tasks: 4, lookml/tasks: 2)
+    recent_analysis_dirs:    data-health, experimentation, enterprise, lifecycle, adhoc
+    last_session_transcript: 5ca81f42-…-jsonl (today 10:32, <1d)
+
+  Phase 3 — static routing table and open problems queue.
+
+  ROUTING_TABLE (static)
+
+  Task type                        | Command(s)              | Rules                                                                     | Agent             | Memory anchors
+                                                                                                         | Required pre-step
+  ---------------------------------|-------------------------|---------------------------------------------------------------------------|-------------------|---------------------------------------------------
+  -------------------------------------------------------------------------------------------------------|-------------------
+  ETL / dbt model work             | /preflight then /etl    | dbt-standards, sql-snowflake, guardrails                                  | data-engineer     | feedback_dbt_environments,
+  feedback_dbt_model_placement, feedback_dbt_schema_test_consistency, feedback_backfill_var, feedback_snowflake_permissions     | ls etl/tasks/ for prior work on same model
+  LookML work                      | /preflight then /lookml | lookml-standards, guardrails                                              | lookml-developer  | feedback_lookml_promotion_workflow,
+  reference_looker_repo                                                                                                | read existing view in target dir for conventions
+  Investigatory analysis           | /preflight then /analyze| analysis-methodology, deliverable-standards, writing-standards            | analyst           | feedback_investigatory_workflow,
+  feedback_prior_investigation_search, feedback_distribution_rollup_substantiation, feedback_exhaust_search_before_concluding, feedback_follow_the_data_not_the_frame, feedback_discovery_before_knowledge,
+  reference_session_event_join | **Glob analysis/**/*<slug>* for prior investigations BEFORE any query**
+  Business modeling                | /model                  | analysis-methodology, deliverable-standards                               | modeler           | (topic-specific project memory)
+                                                                                                         | identify canonical data dictionary source
+  Knowledge base / docs            | /kb-update              | writing-standards, guardrails                                             | kb-curator        | feedback_discovery_before_knowledge
+                                                                                                         | run warehouse discovery queries before drafting
+  Roadmapping                      | /roadmap                | roadmapping-methodology                                                   | —                 | user_roadmapping_process
+                                                                                                         | confirm current step (1–7) of initiative
+  Data quality / monitoring        | /monitor                | analysis-methodology                                                      | analyst           | feedback_investigatory_workflow
+                                                                                                         | —
+  Retrospective / repo hygiene     | /evolve                 | (all)                                                                     | —                 | feedback_session_retrospective
+                                                                                                         | —
+  Cross-workspace initiative work  | check initiatives/ first| (depends on workspace involved)                                           | —                 | user_roadmapping_process
+                                                                                                         | read initiative README before any workspace edit
+  Content / brand work             | marketing:* skills      | —                                                                         | marketing:*       | —
+                                                                                                         | —
+
+  OPEN_PROBLEMS_QUEUE
+  [1] Direct Traffic Spike 2026-04-17 — project_direct_traffic_spike_2026_04_17_open.md — scraping hypothesis unconfirmed; likely same root cause as 04-01 (Fastly/pre-render/sitemap); needs engineering check
+  [2] Statsig clickstream model drops late-arriving rows — project_statsig_model_late_arrival_open.md — STRUCTURAL; repo-wide; incremental predicate `event_ts::date >= max(event_ts)` silently drops late
+  fct_events rows; proposed fix = widen to N-day lookback + backfill
+  [3] XmR signal annotation/reference table — project_xmr_open_design.md (13d) — annotation/ref table + definitions panel stripped after ~10 matplotlib iterations; needs fundamentally different tool
+  (Plotly/D3/HTML companion doc), NOT matplotlib FancyBboxPatch
+  [4] WCPM test trigger coverage on purchase path — retrospective 2026-04-18-wcpm-audit — 8 of 23 add-on purchasers never hit exposure trigger; owner unknown; design question
+  [5] In-flight ETL task: etl/tasks/2026-04-02-in-app-notifications-build-out — status "sources + staging promoted; intermediate/marts pending"
+  [6] In-flight ETL task: etl/tasks/2026-04-07-mql-discrepancy-fix — status draft (project memory says "In development"; models ready for promotion per project_mql_discrepancy.md)
+  [7] In-flight ETL task: etl/tasks/2026-03-30-searched-songs-properties — status in-progress
+  [8] In-flight LookML task: lookml/tasks/2026-04-07-mql-discrepancy-fix — status draft
+  [9] Commit/merge backlog (recurring) — project_commit_backlog.md — 54 uncommitted paths on working tree; pattern is recurring; drive commit+PR at task milestones
+
+  STALE FLAGS:
+  - project_xmr_open_design.md (13d — exceeds 14d threshold only by inference; memory static but design problem still open)
+  - checkpoint.md (.claude/hooks/checkpoint.md) is 7d old
+  - user_roadmapping_process.md (19d), project_domain_consolidation.md (18d), project_seo_testing.md (18d), project_lifecycle_email.md (19d) ≥14d unchanged — not "_open" memories so not strictly flagged, but
+  review before acting on them
+
+  Phase 4 — briefing artifact + chat summary.
+
+⏺ Write(/Users/dev/PycharmProjects/d7dev/.claude/hooks/session-briefing.md)
+  ⎿  Error: File has not been read yet. Read it first before writing to it.
+
+⏺ Read(/Users/dev/PycharmProjects/d7dev/.claude/hooks/session-briefing.md)
+  ⎿  Read 54 lines
+
+⏺ Write(/Users/dev/PycharmProjects/d7dev/.claude/hooks/session-briefing.md)
+  ⎿  Added 28 lines, removed 30 lines
+       1 -# Session Briefing — 2026-04-20 09:16
+       1 +# Session Briefing — 2026-04-20
+       2
+       3  - **Branch:** main (synced with origin/main)
+       4  - **HEAD:** 1db3b76 Add analytical orchestration framework and evolution initiative
+       5 -- **Last retrospective:** 2026-04-18-wcpm-audit-session-retrospective.md (2d old — fresh)
+       6 -- **Last checkpoint:** `.claude/hooks/checkpoint.md` (6d old — STALE; content is a prior /plan transcript for reviewing `.claude/hooks/`, not a live §9 checkpoint — do not treat as resumable s
+         -tate)
+       5 +- **Last retrospective:** 2026-04-18-wcpm-audit-session-retrospective.md (2d — fresh)
+       6 +- **Last checkpoint:** `.claude/hooks/checkpoint.md` (7d — stale; holds a /plan transcript, not a live §9 checkpoint)
+       7
+       8  ## Stakeholders
+       9 -- Devon Bennett — sole data-team member; Sr Data Analyst promotion pitch in play (see project_org_restructure.md)
+      10 -- Luke Capizano (Dir Eng), Trevor Hinesley (CTO), AJ Robertson, Dylan Price — engineering/infra
+      11 -- Dave Kart (VP Marketing) — owns lifecycle roadmap since 2026-03-31
+      12 -- Ryan Severns (RevOps), Meredith Knott, Taylor Armstrong
+      13 -- Sourav (CFO) — reporting line retained under Finance; backfilling Director of Data
+       9 +- Devon Bennett — sole data-team member; Sr Data Analyst promotion pitch in play (project_org_restructure.md)
+      10 +- Engineering: Luke Capizano (Dir Eng), Trevor Hinesley (CTO), AJ Robertson, Dylan Price
+      11 +- Marketing/Product/RevOps: Dave Kart (VP Mkt, lifecycle owner), Meredith Knott, Taylor Armstrong, Ryan Severns
+      12 +- Finance: Sourav (CFO) — reporting line retained; Director of Data backfill pending
+      13
+      14  ## Active initiatives
+      16 -- `initiatives/lifecycle-email-brainstorm/` — Step 3 (Group & Define) → Step 4 (Swimlanes & Epics); Dave owns roadmap; Devon's role is analytical support
+      15 +- `initiatives/lifecycle-email-brainstorm/` — Step 3 (Group & Define) → Step 4 (Swimlanes & Epics); Dave owns the roadmap; Devon is analytical support
+      16  - Cross-workspace: MQL discrepancy fix (etl + lookml tasks ready for deployment)
+      17  - Cross-workspace: In-app notifications pipeline (live 2026-04-02, phase 2 pending)
+      18
+      19  ## In-flight task workspaces
+      21 -- `etl/tasks/2026-04-07-mql-discrepancy-fix/` — draft models ready; full-refresh run 2026-04-09; next: PR to dbt repo (task README 11d stale)
+      22 -- `etl/tasks/2026-04-02-in-app-notifications-build-out/` — LIVE in prod; next scheduled prod run needs verification
+      23 -- `etl/tasks/2026-03-30-searched-songs-properties/` — complete
+      20 +- `etl/tasks/2026-04-07-mql-discrepancy-fix/` — status draft; models ready per memory; README 11d stale
+      21 +- `etl/tasks/2026-04-02-in-app-notifications-build-out/` — status: sources + staging promoted; intermediate/marts pending
+      22 +- `etl/tasks/2026-03-30-searched-songs-properties/` — in-progress
+      23  - `etl/tasks/2026-03-27-reference-track-search/` — complete
+      25 -- `lookml/tasks/2026-04-07-mql-discrepancy-fix/` — dependent on dbt PR merge
+      26 -- `lookml/tasks/2026-04-02-in-app-notifications-dashboard/` — promoted to Looker
+      27 -- `analysis/experimentation/2026-04-18-wcpm-test-audit/` — findings + retro written, still untracked
+      28 -- `analysis/data-health/2026-04-17-direct-traffic-spike/` — OPEN; 15 diagnostic queries + CSVs untracked; no findings doc committed
+      29 -- `analysis/enterprise/pql/tasks/2026-04-15-knowledge-discovery/` — untracked; contacts-shape + ryan-feb-score-shift subdirs in progress
+      24 +- `lookml/tasks/2026-04-07-mql-discrepancy-fix/` — draft; depends on dbt PR merge
+      25 +- `lookml/tasks/2026-04-02-in-app-notifications-dashboard/` — promoted to Looker, pending PR merge
+      26 +- `analysis/experimentation/2026-04-18-wcpm-test-audit/` — findings + retro written; untracked
+      27 +- `analysis/data-health/2026-04-17-direct-traffic-spike/` — OPEN; 15 diagnostic queries + CSVs; no findings doc committed
+      28 +- `analysis/enterprise/pql/tasks/2026-04-15-knowledge-discovery/` — untracked; contacts-shape + ryan-feb-score-shift in progress
+      29
+      30  ## Open problems
+      32 -1. **Direct Traffic Spike 2026-04-17** (OPEN). APAC-concentrated spike; scraping hypothesis unsubstantiated. Leading hypothesis = same Fastly/pre-render/sitemap mechanism as 2026-04-01. Next:
+         -ask Luke whether a CDN/pre-render/sitemap event happened on/around 2026-04-13. Do not recommend Fastly blocks or warehouse filters before that confirmation.
+      33 -2. **Statsig clickstream model late-arrival drop** (STRUCTURAL, repo-wide). Incremental predicate `event_ts::date >= max(event_ts)::date` silently excludes late-arriving fct_events rows. Propo
+         -sed fix: widen to lookback window; requires dbt PR + scoped backfill. Tracked in project_statsig_model_late_arrival_open.md.
+      34 -3. **WCPM test trigger coverage on purchase path**. 8 of 23 add-on purchasers never hit exposure trigger; 2 hit it post-purchase. Design question, owner unknown.
+      35 -4. **XmR signal annotation / reference table**. ~10 matplotlib iterations failed and were stripped; user's "interpretable signals inline" requirement remains unmet. Do NOT re-attempt matplotli
+         -b FancyBboxPatch manual positioning; consider HTML companion / Plotly / D3.
+      36 -5. **MQL discrepancy fix — prod verification pending**. Draft models ready since 2026-04-09; README untouched 11d. Need to confirm current prod state before promoting.
+      37 -6. **Commit/merge backlog recurrence**. 34 uncommitted files (13 modified, 21 untracked) across hooks edits, new commands, 04-13 investigation, 04-17 direct-traffic-spike, 04-15 knowledge-disc
+         -overy, lifecycle brainstorm, WCPM audit, retros. Violates Session Closeout Protocol step 7.
+      38 -7. **context/lookml submodule half-registration** + **lookml/reference embedded git repo**. `.gitmodules` has entry with no staged gitlink; lookml/reference is a redundant clone. Resolve in de
+         -dicated session.
+      31 +1. **Direct Traffic Spike 2026-04-17** — APAC-concentrated; scraping hypothesis unsubstantiated; leading hypothesis = same Fastly/pre-render/sitemap mechanism as 04-01; next action = confirm w
+         +ith Luke whether a CDN/pre-render/sitemap event happened around 2026-04-13 before recommending any Fastly block or warehouse filter
+      32 +2. **Statsig clickstream model late-arrival drop** (STRUCTURAL, repo-wide) — incremental predicate `event_ts::date >= max(event_ts)::date` drops late fct_events rows; fix = widen to N-day look
+         +back + backfill
+      33 +3. **XmR signal annotation/reference table** — stripped after ~10 matplotlib iterations; do NOT re-attempt matplotlib FancyBboxPatch; consider HTML companion / Plotly / D3
+      34 +4. **WCPM test trigger coverage on purchase path** — 8/23 add-on purchasers never hit exposure trigger; design question; owner unknown
+      35 +5. **MQL discrepancy fix prod promotion** — draft models ready since 2026-04-09; README 11d stale; confirm prod state before promoting
+      36 +6. **Commit/merge backlog recurrence** — 54 uncommitted paths (24 modified + 30 untracked); violates Session Closeout step 7
+      37 +7. **context/lookml submodule half-registration + lookml/reference embedded clone** — resolve in a dedicated session
+      38
+      39  ## Stale flags
+      41 -- Checkpoint ≥3d: `.claude/hooks/checkpoint.md` (6d) — prior /plan transcript, not a live §9 checkpoint
+      42 -- Memory approaching 14d stale: `project_xmr_open_design.md` (13d)
+      43 -- Task README stale: `etl/tasks/2026-04-07-mql-discrepancy-fix/README.md` (11d) despite memory claiming active dev
+      44 -- Commit hygiene: 34 uncommitted files
+      40 +- `.claude/hooks/checkpoint.md` 7d — prior /plan transcript, not a live §9 checkpoint
+      41 +- `project_xmr_open_design.md` (13d) — approaching the 14d threshold
+      42 +- `etl/tasks/2026-04-07-mql-discrepancy-fix/README.md` (11d) despite memory claiming active dev
+      43  - Hook files modified but unstaged — per feedback_dont_edit_live_hooks.md, do NOT edit `.claude/hooks/*.sh` during this session
+      44
+      45  ## Routing table
+      46  See `.claude/commands/orient.md` for the full table. Most likely task types given in-flight state:
+      49 -- Follow-up on 2026-04-17 direct-traffic-spike (Investigatory analysis — with engineering confirmation loop)
+      47 +- Follow-up on 2026-04-17 direct-traffic-spike (Investigatory analysis — engineering confirmation loop)
+      48  - Statsig incremental lookback fix (ETL / dbt model work)
+      49  - MQL discrepancy fix promotion (ETL → LookML)
+      52 -- Lifecycle email roadmapping (Roadmapping, Step 3→4)
+      50 +- Lifecycle email roadmapping (Roadmapping Step 3 → 4)
+      51  - Commit hygiene pass (/evolve or manual atomic commits)
+  ⎿  2 PostToolUse hooks ran
+
+                                                                                                                                                                                 10:34 AM claude-opus-4-7
+⏺ Phase 4 chat summary:
+
+  - Branch / HEAD: main @ 1db3b76
+  - Retro: 2026-04-18 (2d, fresh)
+  - Checkpoint: 7d old, not a live §9 checkpoint
+  - Initiatives: 1 active (lifecycle-email-brainstorm, Step 3→4)
+  - In-flight tasks: 6 (4 ETL, 2 LookML) + 3 untracked analysis workspaces
+  - Open problems: 7 (direct-traffic spike 04-17, Statsig late-arrival, XmR annotation, WCPM trigger, MQL promotion, commit backlog, lookml submodule)
+  - Uncommitted: 54 paths (24 modified + 30 untracked)
+  - Do-not-touch this session: .claude/hooks/*.sh (per feedback_dont_edit_live_hooks.md)
+  - Memory: 47 files, all read; 4 ≥14d noted as possibly stale
+  - Briefing written: .claude/hooks/session-briefing.md
+
+  Phase 5.
+
+  READY.
+  Reviewed: 10 rules, 16 commands, 6 agents, 47 memory files, ~90 CLAUDE.md paths, 13 directive sections.
+  Routing table committed. 7 open problems queued. 4 stale items flagged.
+  If the next task falls under a row in the routing table and I skip a required pre-step, correct me.

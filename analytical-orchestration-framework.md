@@ -76,6 +76,8 @@ The framework sits on top of a host runtime (the LLM-agent CLI and its ecosystem
 - MCP/plugin integrations for external-system access (CRM, chat, storage, browser, ticketing, meetings)
 - **Structured telemetry export via OpenTelemetry** (`CLAUDE_CODE_ENABLE_TELEMETRY` + OTLP exporters). Tool calls, session lifecycle events, token usage, and latencies emit as spans/metrics/logs consumable by a local collector. This is the verification substrate for any measurement claim the framework makes — without it, every claim about system behavior reduces to trusting transcripts. Substrate schema is host-versioned: downstream consumers pin collector config to a tested host version or use schema-agnostic queries. (See Epic 0.3 in `evolution/`.)
 
+  **Host-version pinning operational rule.** The collector configuration (`<repo>/.claude/telemetry/otelcol-config.yaml`) is valid only against the Claude Code host version recorded in `<repo>/evolution/25-telemetry-substrate/host-version-pin.md`. When the host CLI upgrades, the operator must: (1) re-run the Phase 1 console-exporter verification to confirm span / metric / log names remain stable; (2) re-run the Phase 2 hook-bridge POC query to confirm the mapping still holds; (3) refresh the pin file with the new version and date; or (4) if the schema changed, update the collector config and every downstream consumer query that was not written schema-agnostically. This is a gating upgrade step, not an advisory. Attempting to read telemetry against a drifted host without re-validation produces silent miscounts that propagate to Epic 2.3 rule counters, Epic 5.2 cost reads, and Epic 6.8 / 6.9 outcome measurements.
+
 **Scope separation:**
 
 - **Project scope** (`<repo>/.claude/`): rules, commands, agents, hooks, local settings, allowlist overrides. Version-controlled with the workspace.
@@ -91,6 +93,8 @@ Project-scope artifacts override user-scope where they overlap. Memory is user-s
 - **Plugins/MCP servers** — external-system integration surface, not authored in-workspace
 
 A new implementation begins by auditing the host runtime's capability surface before scaffolding any project-scope artifacts. The bootstrap sequence (§13) assumes this audit is performed at step 0.
+
+For this workspace, the completed substrate audit lives at `knowledge/runbooks/runtime-substrate-catalog.md` — it catalogs every user-scope and project-scope runtime resource, the precedence rules, canonical usage patterns, and known failure modes. Refresh per host-runtime major upgrade.
 
 ### 1.5 Stakeholder framing
 Stakeholders for the framework include both **external consumers** (marketing, finance, engineering, product, RevOps — anyone receiving deliverables produced via the framework) AND the **workspace operator** (the principal analyst driving the framework's evolution and using its outputs). The operator is a first-class stakeholder, not an implementer in the background.

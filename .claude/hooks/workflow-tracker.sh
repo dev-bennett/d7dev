@@ -10,8 +10,8 @@ case "$TOOL_NAME" in
   Skill)
     # Track /preflight and /review invocations
     case "$SKILL_NAME" in
-      preflight*) set_marker "preflight_done" ;;
-      review*)    set_marker "review_done" ;;
+      preflight*) set_marker "$MARKER_PREFLIGHT_DONE" ;;
+      review*)    set_marker "$MARKER_REVIEW_DONE" ;;
     esac
     ;;
 
@@ -37,4 +37,4 @@ case "$TOOL_NAME" in
     ;;
 esac
 
-exit 0
+finish 0

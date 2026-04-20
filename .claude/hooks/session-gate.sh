@@ -6,7 +6,7 @@ read_input
 ensure_state_dir
 
 # Skip if no file path
-[[ -z "$FILE_PATH" ]] && exit 0
+[[ -z "$FILE_PATH" ]] && finish 0
 
 # --- Check 1: CLAUDE.md chain (managed directories only) ---
 IS_MANAGED=false
@@ -21,7 +21,7 @@ if $IS_MANAGED && ! $IS_CLAUDE_MD; then
   DIR=$(dirname "$FILE_PATH")
   if [[ ! -f "$DIR/CLAUDE.md" ]]; then
     echo "BLOCKED: Directory $DIR has no CLAUDE.md. Create it first (must include @../CLAUDE.md reference)." >&2
-    exit 2
+    finish 2 "block" '{"reason":"missing_claude_md"}'
   fi
 fi
 
@@ -31,10 +31,10 @@ if $IS_MANAGED && ! $IS_CLAUDE_MD; then
   append_line "$COUNTER_FILE" "1"
   COUNT=$(wc -l < "$COUNTER_FILE" | tr -d ' ')
 
-  if [ "$COUNT" -ge 3 ] && ! has_marker "preflight_done"; then
+  if [ "$COUNT" -ge 3 ] && ! has_marker "$MARKER_PREFLIGHT_DONE"; then
     echo "WARNING: ${COUNT} files written to managed directories without running /preflight. Run /preflight to verify environment and check for prior work." >&2
-    exit 1
+    finish 1 "warn" "$(jq -cn --argjson n "$COUNT" '{reason:"missing_preflight", managed_writes:$n}')"
   fi
 fi
 
-exit 0
+finish 0

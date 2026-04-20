@@ -20,5 +20,27 @@ analysis/**/scratch/
 context/dbt/**/*.json
 context/lookml/**/*.json
 
+# Hook telemetry and error logs (per-session, not tracked)
+.claude/hooks/session-log.jsonl
+.claude/hooks/session-log.jsonl.prev
+.claude/hooks/errors.log
+.claude/hooks/errors.log.prev
+
+# /orient session briefing (ephemeral, overwritten per invocation)
+.claude/hooks/session-briefing.md
+
+# OpenTelemetry substrate — local-only PII-carrying streams and collector state
+.claude/telemetry/data/
+.claude/telemetry/state/
+.claude/telemetry/collector.log
+
+# Symlinks to user-local Claude Code state (outside the repo, per-user paths)
+# - memory: auto-memory files + MEMORY.md index (read/written by Claude each session)
+# - session-transcripts: per-session .jsonl logs (full conversation history)
+# - debug: Claude Code debug dumps (~/.claude/debug)
+.claude/memory
+.claude/session-transcripts
+debug
+
 # Keep .gitkeep files
 !**/.gitkeep

@@ -42,3 +42,12 @@ A scheduled meta-retrospective reads `analysis/data-health/*-session-retrospecti
 ## Risks
 - Confirmation bias in meta-analysis → adversarial pass from project 14 critic
 - Proposal explosion → threshold on pattern recurrence (≥3 retrospectives)
+
+## Telemetry substrate consumption (from Epic 0.3)
+**Stream read.** Corpus-level reads across rotated collector output (`.claude/telemetry/data/*.jsonl` and rotated backups). `spans.jsonl` for tool-call frequency trends; `logs.jsonl` for hook-block rate over time; `metrics.jsonl` for latency percentile shifts and cost trends.
+
+**Schema-agnostic keying.** Retrospective indexer joins prose retrospectives to quantitative signals via `resource["session.id"]`. For cross-session aggregates, key on `attributes.source`, `attributes.hook`, and `attributes["rule.id"]` (all workspace-stable per `../25-telemetry-substrate/host-version-pin.md`). Avoid keying on span or metric names directly.
+
+**Threshold augmentation.** The `≥3 retrospectives` pattern-recurrence threshold is extended with: *"OR a single-session metric shift exceeding 2σ of the corpus baseline on a measured indicator (hook-block rate, P95 latency, token cost per turn)."* Quantitative shifts that never produced a retrospective still warrant meta-analysis because the absence of retrospective may itself be a signal.
+
+**Retention implication.** Epic 6.8 benefits from long collector retention (to read longer baselines). The 14-day default from Epic 0.3 Phase 2 is insufficient for quarterly meta-retrospective; before this epic's Phase 2 work begins, either (a) lengthen retention on the specific streams this epic reads, or (b) persist a pre-aggregated rolled corpus to `knowledge/` that survives rotation. Decision record belongs in this epic's decisions/ directory when the time comes.

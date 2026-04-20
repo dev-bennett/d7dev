@@ -12,5 +12,9 @@ Enable `CLAUDE_CODE_ENABLE_TELEMETRY` and stand up a local OTLP collector so eve
 Epic 0.3 (Swimlane 0, P1)
 
 ## Files
-- `brief.md`
-- `tracker.md`
+- `brief.md` — overview + phased approach + risks
+- `tracker.md` — phase log + decisions + open action items
+- `close-out.md` — gated, copy-paste-able steps to drive Phase 1/2/3 validation to completion
+- `host-version-pin.md` — Claude Code CLI version + observed host-emits; re-validation checklist
+- `decisions/` — load-bearing decision records (hook-bridge pattern, …)
+- `verification/` — phase-gate acceptance artifacts (`phase1-orient-spans.md`, `phase2-hook-bridge-poc.md`, `full-e2e.md`)

@@ -2,6 +2,7 @@
 # SessionStart hook — surfaces hook errors from prior sessions.
 source "$(dirname "$0")/_lib.sh"
 init_hook "health-check"
+read_input || true  # SessionStart has minimal JSON; best-effort
 
 # Check for errors from previous sessions
 if [ -f "$ERROR_LOG" ] && [ -s "$ERROR_LOG" ]; then
@@ -12,7 +13,7 @@ if [ -f "$ERROR_LOG" ] && [ -s "$ERROR_LOG" ]; then
   echo "Hook errors detected (${ERROR_COUNT} total). Most recent:" >&2
   echo "$RECENT" >&2
   echo "Run .claude/hooks/test-all.sh to diagnose. Full log: ${ERROR_LOG}.prev" >&2
-  exit 1
+  finish 1 "warn" "$(jq -cn --argjson n "$ERROR_COUNT" '{prior_errors:$n}')"
 fi
 
-exit 0
+finish 0

@@ -39,3 +39,12 @@ Every `.claude/agents/<name>.md` carries `expected_context_cost: low | medium | 
 
 ## Risks
 - Cost ratings are subjective at annotation time → re-rate quarterly based on measured context usage
+
+## Telemetry substrate consumption (from Epic 0.3)
+**Stream read.** `metrics.jsonl` — token-usage counter datapoints (host-emitted via native OTel). Secondary: `spans.jsonl` for per-tool latency and agent-invocation spans.
+
+**Schema-agnostic keying.** Match on attribute presence, not exact metric name. Token-cost metrics appear under host-versioned names (e.g. `gen_ai.client.token.usage` at the time of pin — see `../25-telemetry-substrate/host-version-pin.md`); group by `resource["session.id"]` plus the presence of a `type` / `gen_ai.token.type` attribute to split input/output. When the host pin shifts the metric name, update the filter; all other query shape stays constant.
+
+**Dispatch-decision consumption.** Dispatch decisions and their cost outcomes are logged by the orchestrator into the Epic 1.2 session event log (`.claude/state/sessions/<session-id>.jsonl`). This epic reads cost from that projection — the projection itself reads from `metrics.jsonl`. Keeps cost-read logic in one place (Epic 1.2) and dispatch-policy logic in another (Epic 5.2).
+
+**Calibration query.** Sum `gen_ai.client.token.usage` grouped by agent name (derived from the span hierarchy or logged in the dispatch decision) over a rolling window. A `high` cost rating whose measured consumption is low-tier is a candidate for re-rating. A `low` rating whose measured consumption is top-tier is a calibration error to flag.

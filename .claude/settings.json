@@ -24,7 +24,8 @@
       "Bash(diff:*)",
       "Bash(date:*)",
       "Bash(touch:*)",
-      "WebSearch"
+      "WebSearch",
+      "Write(.claude/hooks/session-briefing.md)"
     ],
     "deny": [
       "Bash(rm -rf /)*",
@@ -33,7 +34,15 @@
     ]
   },
   "env": {
-    "PYTHONDONTWRITEBYTECODE": "1"
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://127.0.0.1:4318",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+    "OTEL_METRIC_EXPORT_INTERVAL": "60000",
+    "OTEL_LOG_USER_PROMPTS": "0"
   },
   "hooks": {
     "SessionStart": [
@@ -42,6 +51,17 @@
           {
             "type": "command",
             "command": ".claude/hooks/health-check.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/prompt-context.sh",
             "timeout": 10
           }
         ]
@@ -59,6 +79,11 @@
           {
             "type": "command",
             "command": ".claude/hooks/retry-guard.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/writing-scrub.sh",
             "timeout": 10
           }
         ]
@@ -81,6 +106,17 @@
           {
             "type": "command",
             "command": ".claude/hooks/workflow-tracker.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/session-closeout.sh",
             "timeout": 10
           }
         ]

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  launchd agent template for d7dev local OpenTelemetry collector.
+
+  Install:
+    cp .claude/telemetry/com.d7dev.otelcol.plist.template ~/Library/LaunchAgents/com.d7dev.otelcol.plist
+    launchctl load  ~/Library/LaunchAgents/com.d7dev.otelcol.plist
+    launchctl start com.d7dev.otelcol
+
+  Verify:
+    nc -z 127.0.0.1 4318 && echo "collector up"
+    tail -f /Users/dev/PycharmProjects/d7dev/.claude/telemetry/collector.log
+
+  Stop:
+    launchctl stop   com.d7dev.otelcol
+    launchctl unload ~/Library/LaunchAgents/com.d7dev.otelcol.plist
+
+  Update when collector config changes:
+    launchctl kickstart -k gui/$(id -u)/com.d7dev.otelcol
+
+  Paths below are absolute because launchd does not expand environment variables
+  for user agents installed by hand. If you move the repo, regenerate this plist
+  from the template with the new path.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.d7dev.otelcol</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/otelcol-contrib</string>
+        <string>--config</string>
+        <string>/Users/dev/PycharmProjects/d7dev/.claude/telemetry/otelcol-config.yaml</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dev/PycharmProjects/d7dev/.claude/telemetry/collector.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dev/PycharmProjects/d7dev/.claude/telemetry/collector.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dev/PycharmProjects/d7dev</string>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

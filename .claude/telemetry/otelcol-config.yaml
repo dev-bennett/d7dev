@@ -1,0 +1,180 @@
+# OpenTelemetry Collector config — d7dev local substrate
+#
+# Purpose: receive native Claude Code OTel (OTLP) + bridge hook events (filelog
+#          tailing session-log.jsonl) into a single local JSONL store. No network
+#          egress beyond 127.0.0.1.
+# Epic:    0.3 (telemetry substrate)
+# Runbook: ../../knowledge/runbooks/telemetry-substrate.md
+# Collector: otelcol-contrib (filelog + file exporter are contrib-only)
+#
+# Invariants:
+#   - All endpoints bind to 127.0.0.1 (loopback).
+#   - PII scrubbing happens in processors/attributes/scrub before export.
+#   - Rotation caps disk footprint: 50 MB × 10 backups × 3 streams = 1.5 GB max.
+#   - file_storage extension persists filelog checkpoint so collector restart
+#     does not cause re-ingestion.
+#
+# Paths below use a placeholder <REPO> that the launchd plist substitutes to the
+# absolute repo path. For manual invocation, export REPO_DIR=/Users/dev/PycharmProjects/d7dev
+# and use envsubst, or hard-code absolute paths in a local override.
+
+extensions:
+  file_storage/otel:
+    directory: /Users/dev/PycharmProjects/d7dev/.claude/telemetry/state
+    timeout: 1s
+
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:4318
+      grpc:
+        endpoint: 127.0.0.1:4317
+
+  filelog:
+    include:
+      - /Users/dev/PycharmProjects/d7dev/.claude/hooks/session-log.jsonl
+      - /Users/dev/PycharmProjects/d7dev/.claude/hooks/session-log.jsonl.prev
+    start_at: end
+    storage: file_storage/otel
+    include_file_path: false
+    include_file_name: false
+    operators:
+      # Parse the JSONL line
+      - type: json_parser
+        timestamp:
+          parse_from: attributes.ts
+          layout: '%Y-%m-%dT%H:%M:%SZ'
+      # Tag the source so downstream queries can distinguish hook events from host spans
+      - type: add
+        field: attributes.source
+        value: d7dev.hook
+      # Promote session → OTel-convention session.id
+      - type: move
+        from: attributes.session
+        to: resource["session.id"]
+      # Map outcome → OTel severity
+      - type: severity_parser
+        parse_from: attributes.outcome
+        mapping:
+          info:
+            - pass
+            - info
+          warn: warn
+          error:
+            - block
+          fatal:
+            - crash
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 256
+
+  batch:
+    timeout: 5s
+    send_batch_size: 512
+
+  # PII scrubbing — collector-side only; hooks and host are unchanged
+  attributes/scrub:
+    actions:
+      # Delete any prompt-content attributes (defense in depth; host already
+      # should not emit these with OTEL_LOG_USER_PROMPTS=0)
+      - key: prompt.text
+        action: delete
+      - key: user.prompt
+        action: delete
+      - key: tool.input.prompt
+        action: delete
+      - key: tool.input.content
+        action: delete
+      # Hash file paths: preserves uniqueness (distinct-edit counts) without leaking paths
+      - key: file.path
+        action: hash
+      - key: tool.input.file_path
+        action: hash
+      # Normalize source tag if missing (host spans)
+      - key: source
+        action: insert
+        value: d7dev.host
+
+  transform/schema_version:
+    log_statements:
+      - context: log
+        statements:
+          - 'set(attributes["schema.version"], "0.3.0")'
+    trace_statements:
+      - context: span
+        statements:
+          - 'set(attributes["schema.version"], "0.3.0")'
+    metric_statements:
+      - context: datapoint
+        statements:
+          - 'set(attributes["schema.version"], "0.3.0")'
+
+exporters:
+  file/spans:
+    path: /Users/dev/PycharmProjects/d7dev/.claude/telemetry/data/spans.jsonl
+    rotation:
+      max_megabytes: 50
+      max_days: 14
+      max_backups: 10
+      localtime: true
+    format: json
+
+  file/metrics:
+    path: /Users/dev/PycharmProjects/d7dev/.claude/telemetry/data/metrics.jsonl
+    rotation:
+      max_megabytes: 50
+      max_days: 14
+      max_backups: 10
+      localtime: true
+    format: json
+
+  file/logs:
+    path: /Users/dev/PycharmProjects/d7dev/.claude/telemetry/data/logs.jsonl
+    rotation:
+      max_megabytes: 50
+      max_days: 14
+      max_backups: 10
+      localtime: true
+    format: json
+
+  # Enable only for debugging — noisy
+  # debug:
+  #   verbosity: basic
+
+service:
+  extensions: [file_storage/otel]
+
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, attributes/scrub, transform/schema_version, batch]
+      exporters: [file/spans]
+
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, transform/schema_version, batch]
+      exporters: [file/metrics]
+
+    logs/host:
+      receivers: [otlp]
+      processors: [memory_limiter, attributes/scrub, transform/schema_version, batch]
+      exporters: [file/logs]
+
+    logs/hooks:
+      receivers: [filelog]
+      processors: [memory_limiter, attributes/scrub, transform/schema_version, batch]
+      exporters: [file/logs]
+
+  telemetry:
+    metrics:
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: '127.0.0.1'
+                port: 8888
+    logs:
+      level: info

@@ -44,3 +44,17 @@ A variant framework attaches to directive sections: each section has a canonical
 - Directive churn → long cycles (quarter scale), pre-registered measures
 - Hawthorne effect on experimental variants → blind the session-level assignment where possible
 - Statistical under-power with small session count → plan experiments with tractable effect sizes
+
+## Telemetry substrate consumption (from Epic 0.3)
+**Stream read.** `logs.jsonl` for variant-tagged session events (assignment record + outcome events); `metrics.jsonl` for token-cost and latency outcome measures; `spans.jsonl` for workflow-time outcome measures.
+
+**Schema-agnostic keying.** Each session records its active variant in `attributes["directive.variant"]` at SessionStart (workspace-authored — added by the assignment hook or `prompt-context.sh` shim). All cross-stream joins use `resource["session.id"]`. The variant tag and session.id are the only keys required for rollup; everything else is filterable metadata.
+
+**Outcome measures — defined as queries.** Rather than persist bespoke outcome-measurement state, each pre-registered outcome is defined as a `jq` pipeline over the collector output (referenced from `../../knowledge/runbooks/telemetry-queries.md`). Example candidates:
+- *False-positive deliverable rate:* count of retrospective-logged false positives per variant per session, joined via session.id to variant tag
+- *Authoring time:* session-duration spans filtered by active-task attribute
+- *Rework rate:* count of retry-guard warn/block events per session per variant
+
+**Quarterly rollup.** Group outcome-query results by `attributes["directive.variant"]`, apply statistical test pre-registered per outcome. Variant-sample-size floor gates the rollup — underpowered comparisons hold, not report.
+
+**Host-version sensitivity.** Variant tags survive host upgrades (workspace-authored). Outcome measures that rely on host-emitted metrics (token cost, latency) are re-validated on upgrade per the framework §1.4 host-version pinning rule.

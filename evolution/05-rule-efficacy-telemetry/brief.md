@@ -40,3 +40,12 @@ Every rule file carries machine-readable frontmatter (`applies_to`, `implements`
 
 ## Risks
 - Violation counting requires retrospective attribution (who noticed the violation, when) → may need `/review` to explicitly tag which rule a correction implicates
+
+## Telemetry substrate consumption (from Epic 0.3)
+**Stream read.** `logs.jsonl` — specifically records with `attributes.source == "d7dev.hook"` (the filelog-bridged hook events; see `../25-telemetry-substrate/decisions/hook-bridge-pattern.md`). Counter aggregation runs on the collector output, not on `session-log.jsonl` directly, so rotation and scrubbing apply uniformly.
+
+**Schema-agnostic keying.** Aggregate on `attributes["rule.id"]` (workspace-authored — added by the hook when its check implements a named rule) plus `attributes.outcome`. Do NOT aggregate on `attributes.hook` — moving a check between hooks would silently split the counter. `rule.id` is invariant to hook refactoring; `hook` name is not.
+
+**Metric alternative.** If rule-fire counting migrates from log-record counting to native OTel counter metrics (e.g., a hook directly emits via a Python/Go sidecar), the metric name is workspace-authored-stable and the query pattern is unchanged — group by `attributes["rule.id"]`.
+
+**Irrelevance detection.** Rules with zero fire events over a 30-day window are detected by absence in the `rule.id` aggregation. Query fires across the full log corpus (collector `data/` directory with all rotated backups) to avoid false-positive "irrelevance" from short retention windows.
