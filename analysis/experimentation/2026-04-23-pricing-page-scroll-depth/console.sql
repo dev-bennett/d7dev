@@ -659,3 +659,119 @@ SELECT
 FROM steps
 ORDER BY window_label, plan_bucket, step_order
 ;
+
+
+-- =============================================================================
+-- Q9: Correctly-attributed plan-click → subscribe rate
+-- -----------------------------------------------------------------------------
+-- CONTEXT:       Q3 and Q8 computed step 5 (plan-clicker → subscriber) by
+--                dividing total subscribers (= pricing visitors who
+--                subscribed within 7d of any pricing VIEW) by total plan-
+--                clickers. The numerator does NOT require plan-click
+--                precedent — users who subscribed via account / email /
+--                dashboard upgrades without clicking a plan on pricing
+--                were counted. The result was implausibly high step-5
+--                rates (27.5% → 35.5% aggregate; 53-65% for free cohort)
+--                compared to product team's 7.3% — the tell I missed.
+-- Purpose:       Proper plan-click → subscribe attribution: count users
+--                who (a) clicked a plan-name element on a pricing URL in
+--                window AND (b) created a subscription within 7 days of
+--                THAT plan click. Subscribe attributes to the plan click,
+--                not the pricing view.
+-- Rate:          plan_click_to_subscribe = users_in_both / plan_clickers
+-- Export:        q9.csv
+-- =============================================================================
+
+WITH windows AS (
+    SELECT '1_pre'            AS window_label, '2026-01-07'::date AS start_d, '2026-02-06'::date AS end_d
+    UNION ALL SELECT '2_post_2wk'      , '2026-02-24'::date, '2026-03-10'::date
+    UNION ALL SELECT '3_post_8wk'      , '2026-02-24'::date, '2026-04-23'::date
+    UNION ALL SELECT '4_post_8wk_clean', '2026-02-24'::date, '2026-04-23'::date
+)
+, visitor_attrs AS (
+    SELECT
+        w.window_label
+      , e.distinct_id
+      , CASE
+            WHEN e.current_plan_id IS NULL                         THEN '1_anon'
+            WHEN e.current_plan_id = 'free'                        THEN '2_free'
+            ELSE                                                       '3_paid'
+        END                                       AS plan_bucket
+    FROM windows w
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (w.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Viewed Pricing Page'
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY w.window_label, e.distinct_id ORDER BY e.time) = 1
+)
+, plan_click_events AS (
+    -- Per (window, user, plan_bucket): earliest plan-name element click on a
+    -- pricing URL in window.
+    SELECT
+        va.window_label
+      , va.distinct_id
+      , va.plan_bucket
+      , MIN(e.time)::timestamp                    AS first_plan_click_ts
+    FROM visitor_attrs va
+    INNER JOIN windows w
+        ON va.window_label = w.window_label
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.distinct_id = va.distinct_id
+       AND e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (va.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Clicked Element'
+      AND e.element IN ('Pro Yearly', 'Pro Monthly',
+                         'Personal Yearly', 'Personal Monthly',
+                         'Pro Plus Yearly', 'Pro Plus Monthly',
+                         'Business Quarterly', 'Business Yearly',
+                         'Pro Yearly with Warner Chappell Production Music',
+                         'Pro Monthly with Warner Chappell Production Music',
+                         'Pro Plus with Warner Chappell Production Music Yearly',
+                         'Pro Plus with Warner Chappell Production Music Monthly')
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    GROUP BY va.window_label, va.distinct_id, va.plan_bucket
+)
+, plan_click_subs AS (
+    -- Plan-clickers who then created a subscription within 7 days of their
+    -- plan click.
+    SELECT DISTINCT
+        pce.window_label
+      , pce.distinct_id
+      , pce.plan_bucket
+    FROM plan_click_events pce
+    INNER JOIN soundstripe_prod.core.fct_events s
+        ON s.distinct_id = pce.distinct_id
+       AND s.event       = 'Created Subscription'
+       AND s.event_ts   >= pce.first_plan_click_ts
+       AND s.event_ts   <  DATEADD('day', 7, pce.first_plan_click_ts)
+)
+SELECT
+    pce.window_label
+  , pce.plan_bucket
+  , COUNT(DISTINCT pce.distinct_id)                                                     AS plan_clickers
+  , COUNT(DISTINCT pcs.distinct_id)                                                     AS plan_click_to_sub
+  , COUNT(DISTINCT pcs.distinct_id)::FLOAT / NULLIF(COUNT(DISTINCT pce.distinct_id), 0) AS plan_click_to_subscribe_rate
+FROM plan_click_events pce
+LEFT JOIN plan_click_subs pcs USING (window_label, distinct_id, plan_bucket)
+GROUP BY pce.window_label, pce.plan_bucket
+
+UNION ALL
+
+-- Aggregate row per window (ignore bucket)
+SELECT
+    pce.window_label
+  , '0_all' AS plan_bucket
+  , COUNT(DISTINCT pce.distinct_id)
+  , COUNT(DISTINCT pcs.distinct_id)
+  , COUNT(DISTINCT pcs.distinct_id)::FLOAT / NULLIF(COUNT(DISTINCT pce.distinct_id), 0)
+FROM plan_click_events pce
+LEFT JOIN plan_click_subs pcs USING (window_label, distinct_id, plan_bucket)
+GROUP BY pce.window_label
+
+ORDER BY window_label, plan_bucket
+;

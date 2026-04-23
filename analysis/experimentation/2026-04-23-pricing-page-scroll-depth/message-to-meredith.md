@@ -6,17 +6,22 @@ On the two stated goals:
 
 - Persona card clicks: cumulative persona-selection rate moved from 46.1% to 42.0% over the 8-week post window — a 4pp decrease. Decomposition: the drop happens at the entry step (56.3% → 51.7% of visitors clicked into the persona flow, -4.6pp). Once users entered the flow, the step rate to persona selection held (82% → 81%). Context: the 2/24 deploy added a second persona-flow entry CTA ("Choose a Plan") alongside "View Pricing" — the funnel now counts both as entry. Even with the broader definition, fewer users engaged the flow overall.
 
-Finding outside the stated goals — the aggregate conversion number looks good, but timing does not support attribution to the 2/24 deploy:
+Finding outside the stated goals — the aggregate conversion lift is real as a window-difference but not attributable to the banner; the mechanism behind the lift is ambiguous:
 
 - Aggregate subscription rate moved from 3.25% (pre window Jan 7 – Feb 6) to 4.07% (post-8wk-clean) — a 25% relative lift.
 
-- Weekly conversion rate (3-week rolling avg): 3.18% in early January → 3.64% → **4.05% by mid-February** → 4.05% mid-March → 4.10% late March / April. The rate reached ~4% three weeks BEFORE the 2/24 deploy and plateaued. No step change at the deploy week.
+- Decomposing the absolute subscriber-count increase by cohort (cohort = `current_plan_id` value at first pricing view): the measured free-account visitor count at pricing grew from 3,611 to 5,868 (+2,257, +62%). At the pre free-rate of ~10.8%, that "volume" alone accounts for ~102% of the +239 aggregate sub delta. Anonymous grew only +559 visitors and contributed ~+43 subs via a small rate lift. Free-cohort cumulative rate actually fell (10.80% → 9.73%).
 
-- Visitor composition also shifted (free-account share rose from 25% in early January to 28% by mid-February, step change to 33% in the week of 3/16, holding 31–35% through April). The 3/16 step aligns with the domain-consolidation rollout stabilizing, not the banner deploy. However, the conversion rate did not rise further when composition stepped up in mid-March — free share kept climbing through April, but conversion held at ~4%. Composition timing does not explain the conversion lift either.
+- Critical caveat on the mechanism. I cannot distinguish between two explanations for the measured free-share rise, and they have very different implications:
+    - (A) More actual free-account traffic is being routed to pricing post-consolidation (e.g., by dashboard CTAs, redirects, or marketing).
+    - (B) Identity reconciliation improved under domain consolidation. Pre-consolidation, a logged-in free user on `app.soundstripe.com` who hit `www.soundstripe.com/pricing` may not have had `current_plan_id` populated at that event and was counted as anonymous. Post-consolidation, auth state travels cleanly to `library/pricing`, and the same underlying population is now correctly classified as free. Under this mechanism, the pre-baseline composition was biased by under-identification and the "conversion rate rose 25%" headline is partly a measurement artifact rather than behavior change.
+    - Both are consistent with the data here. Neither is attributable to the 2/24 banner deploy. Both sit within the domain-consolidation timeframe. Confirming (A) vs (B) vs a mix needs engineering input on how the Mixpanel identity SDK was configured on the legacy app subdomain vs the new `library/pricing` route.
 
-- The +25% pre-vs-post aggregate lift is real as a window-difference, but the rise happened during the January – mid-February period and plateaued before any candidate cause tested here. The origin of the January – mid-February drift is not diagnosed by this analysis.
+- Weekly conversion rate (3-week rolling avg) reached ~4% by mid-February — three weeks before the 2/24 deploy — and plateaued. The free-account share stepped up in the week of 3/16, but aggregate conversion did not step further after mid-February.
 
-- Masked by the aggregate: free-account cumulative conversion actually declined 10.80% → 9.73% over the same pre-vs-post comparison. Per-cohort step-5 rates rose (anon 7.9% → 11.2%, free 53.4% → 64.7%) but free-cohort step-2 rate fell (56.5% → 47.2%), so the free-cohort cumulative ended lower.
+- Masked by the aggregate: free-cohort cumulative conversion measured at 10.80% pre vs 9.73% post. Under mechanism (A) that is a real decline. Under mechanism (B) it may be partly a mix-correction artifact (more "borderline" users now classified as free, pulling the average down).
+
+- Methodology note: an earlier version of this message reported a +8pp plan-click → subscribe step-rate lift. That was computed from a non-nested numerator/denominator pair and was wrong. Corrected via Q9 with proper plan-click attribution: 20.1% pre → 26.2% post (+6.2pp), within-cohort anon 6.3→8.4, free 40.3→49.4. Your product-team analysis reported 7.3%; the gap is definitional — their denominator included plan-screen controls (Plan tier toggle, Interval dropdown, etc.) while mine restricts to specific plan-name clicks.
 
 Three structural issues I need to flag:
 
@@ -33,5 +38,7 @@ Three questions back to you:
 2. Was the "Choose a Plan" CTA intentionally added alongside "View Pricing" in the same deploy? Product context would help me frame the funnel-shape change correctly.
 
 3. The conversion rate rose from ~3.2% to ~4.0% during January and mid-February, before the 2/24 deploy, and plateaued. Any context on what else changed in the pricing / sign-up / Chargebee path from early January to mid-February (marketing campaigns, pricing changes, attribution window changes, funnel instrumentation updates, seasonal patterns in prior years)? That would help explain the pre-deploy drift.
+
+4. Identity reconciliation question for engineering: on the pre-consolidation stack, was a user authenticated on `app.soundstripe.com` expected to carry `current_plan_id` in their Mixpanel super-property on a `www.soundstripe.com/pricing` page view, or could they appear as having `current_plan_id = null` on pricing until re-identified? Post-consolidation under `library/pricing`, is identity reliably retained? The answer decides whether mechanism (A) or (B) above dominates.
 
 Full analysis: analysis/experimentation/2026-04-23-pricing-page-scroll-depth/findings.md

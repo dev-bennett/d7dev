@@ -17,13 +17,13 @@
 
 - Goal 1 (reduce bounce): not met. Engagement-proxy bounce 34.4% → 37.0% (+2.6pp). Scroll-based bounce unmeasurable (autocapture collapsed 2/25).
 - Goal 2 (increase persona clicks): not met. Cumulative persona selection 46.1% → 42.0% (-4.1pp); drop concentrates at the entry step (56.3% → 51.7%).
-- Aggregate subscription rate shows 3.25% → 4.07% (+25% relative) as a pre-vs-post window delta, BUT D20 weekly rate shows the rise happened in January – mid-February (pre-deploy) and plateaued at ~4% by the week of 2/2 (3 weeks BEFORE the 2/24 deploy). Composition (free-account share) kept rising through April with no corresponding conversion rise after mid-Feb. Neither the banner deploy nor the mid-March composition step is supported as the driver. Origin of the pre-deploy drift is not diagnosed by this analysis.
+- Aggregate subscription rate shows 3.25% → 4.07% (+25% relative) as a pre-vs-post window delta, BUT D20 weekly rate shows the rise happened in January – mid-February (pre-deploy) and plateaued at ~4% by the week of 2/2 (3 weeks BEFORE the 2/24 deploy). Aggregate subscriber-count lift is arithmetically dominated by free-cohort visitor-count growth (Q9: +103% from free volume), but the mechanism of that free-share rise is ambiguous — could be actual routing growth OR cross-subdomain identity-reconciliation improvements revealing already-existing free users. Not attributable to the banner deploy. Not diagnosed here.
 
 ## Follow-on work (optional, pending Meredith's answers)
 
-1. Within-cohort decomposition of the +8pp step-5 lift (anonymous / free / paid × pre / post). Answerable from existing data in a single pass.
+1. ~~Within-cohort decomposition of the +8pp step-5 lift~~ DONE via Q8/Q9/D18-D20; step-5 corrected to 20.1% → 26.2% aggregate, volume-dominated, mechanism of free-share growth undiagnosed (routing vs identity-reconciliation).
 2. Mixpanel UI scroll-depth pull for March–April if the property still exists in Mixpanel's own store.
-3. Engineering: audit 2/24 deploy's Mixpanel SDK config + fix `stg_events.sql` page_category classifier.
+3. Engineering: audit 2/24 deploy's Mixpanel SDK config + fix `stg_events.sql` page_category classifier + confirm cross-subdomain Mixpanel identity-SDK behavior pre vs post consolidation (decides whether the free-share rise is routing or identity-reconciliation).
 
 ---
 

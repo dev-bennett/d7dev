@@ -322,10 +322,10 @@ Funnel-level (Q3) post_8wk vs post_8wk_clean difference:
    - Post-8wk-clean: 42.0%
    -4.1pp pre to post-8wk-clean. Decomposition: the drop concentrates at the entry step (56.3% → 51.7% entered persona flow, -4.6pp). The entered-flow → persona-selection step rate is flat (82% → 81%). Users who start the flow still complete persona selection at the same rate; fewer users start the flow.
 
-5. **Plan → subscribe step rate increased sharply.**
-   - Pre: 27.5% of plan-clickers subscribed within 7 days
-   - Post-8wk-clean: 35.5%
-   +8.0pp, +29% relative. This is the largest single step-rate movement in the funnel. Persona → plan step was flat (25.7% → 27.3%).
+5. **Plan → subscribe step rate — corrected via Q9.** Earlier versions of this document reported 27.5% → 35.5% (+8pp). That was a methodologically wrong rate: the numerator counted any subscriber who viewed pricing within 7d of the view, regardless of whether they clicked a plan on pricing. Q9 recomputed step 5 requiring the subscribe to occur within 7d of the plan click.
+   - Corrected Pre: **20.1%** of plan-clickers subscribed within 7 days of their plan click (Q9)
+   - Corrected Post-8wk-clean: **26.2%**
+   +6.2pp, +30.7% relative. Volume decomposition of the +178 plan-click-sub delta is arithmetically ~105% volume (from +2,257 more free-cohort visitors at their pre-rate) and ~−5% net rate (free rate drag offsets anon rate gain). **Interpretive caveat (per finding #7 mechanism caveat): the +2,257 free-cohort "visitor growth" may not be real new traffic — it may partly or wholly reflect improved identity classification of existing traffic under domain consolidation.** The arithmetic decomposition is correct; the "free-volume growth drives the lift" causal story is not supported without ruling out the identity-reconciliation alternative. Persona → plan step was flat (25.7% → 27.3%).
 
 6. **Cumulative subscription rate lifted 25% relative.**
    - Pre: 3.25% (499 / 15,334)
@@ -333,7 +333,7 @@ Funnel-level (Q3) post_8wk vs post_8wk_clean difference:
    - Post-8wk-clean: 4.07% (735 / 18,046)
    The lift is driven by step 5 (plan → subscribe), not by top-of-funnel engagement (which got worse).
 
-7. **Visitor composition drifted almost entirely toward free-account holders** (D18 verified; replaces earlier imprecise "existing subscriber" framing). `is_existing_subscriber = 1` in Q6 reduces to `current_plan_id IS NOT NULL AND != 'None'` on Viewed Pricing Page events. D18 enumerates the actual `current_plan_id` values on those events:
+7. **Measured visitor composition drifted toward the `'free'` `current_plan_id` value** (D18 verified). The mechanism is not identified — see mechanism caveat below this table. `is_existing_subscriber = 1` in Q6 reduces to `current_plan_id IS NOT NULL AND != 'None'` on Viewed Pricing Page events. D18 enumerates the actual `current_plan_id` values on those events:
 
    | Cohort (defined by current_plan_id on first pricing view) | Pre | Post-8wk-clean | Δpp |
    |---|---:|---:|---:|
@@ -342,6 +342,13 @@ Funnel-level (Q3) post_8wk vs post_8wk_clean difference:
    | Paid plan slug (pro-yearly-usd, pro-monthly-usd, creator-yearly-usd, etc.) | 2.5% | 1.5% | −1.0 |
 
    The +8pp Q6 "existing" shift is almost entirely +9.1pp free-account. Paying subscribers as a share of pricing visitors DECREASED. "Existing subscriber" in `fct_events.is_existing_subscriber` is not a paid-subscriber flag — it captures "has a current_plan_id string, including 'free'". Pre: 91% of flagged users are free-account. Post: 96%.
+
+   **Mechanism caveat — undiagnosed.** Multiple mechanisms could produce this measured shift, each with different implications. Stated without resolving which is dominant:
+   - (a) **More actual free-account traffic routed to pricing post-consolidation.** E.g., new dashboard CTAs, redirects from the old app subdomain preserving auth-state to the new `library/pricing`, or marketing campaigns targeting free users.
+   - (b) **Identity reconciliation improved under domain consolidation.** Pre-consolidation, a user authenticated on `app.soundstripe.com` who visited pricing on `www.soundstripe.com` (or any cross-subdomain path) may have had `current_plan_id` unset in their Mixpanel super-property at pricing-view time, appearing as anonymous even though they had a free account. Post-consolidation, domain unification means the user's authenticated state travels with them to `library/pricing` reliably. The measured rise from 25% to 33% free-account share would then be the same underlying population finally being classified correctly.
+   - (c) Some combination of (a) and (b).
+
+   This matters because under (b), the pre-window baseline composition was biased by under-identification, and the "free cohort cumulative conversion fell 10.80% → 9.73%" / "aggregate conversion rose 25%" framings are partly artifacts of the measurement change rather than behavior change. Without ground truth from engineering on when/how the Mixpanel identity SDK handled cross-subdomain auth pre vs post, this analysis cannot distinguish (a), (b), (c). The mix shift still occurred within the domain-consolidation-deploy timeframe either way, so it is a critical confound regardless of mechanism; it is simply not causally attributable to any specific product change and not independently interpretable.
 
 8. **D19: the mix shift does not coincide with the 2/24 banner deploy.** Weekly free-account share of pricing visitors:
    - Week of 1/5: 24.9% (baseline)
@@ -368,7 +375,7 @@ Funnel-level (Q3) post_8wk vs post_8wk_clean difference:
    | anonymous  | 11,346 / 11,905 | 7.9% → 11.2% (+3.3pp)  | 0.72% → 1.08% |
    | free       |  3,611 / 5,868  | 53.4% → 64.7% (+11.3pp) | 10.80% → **9.73%** |
    | paid       |    377 / 273    | 7.3% → 40.5% (tiny N, 3→15 subs — unreliable) | 0.80% → 5.49% |
-   | aggregate  | 15,334 / 18,046 | 27.5% → 35.5% | 3.25% → 4.07% |
+   | aggregate (Q9 corrected for step 5)  | 15,334 / 18,046 | 20.1% → 26.2% | 3.25% → 4.07% |
 
    Pure-composition counterfactual: holding within-cohort rates at pre values and shifting visitor mix to post composition → aggregate = 0.668×0.72% + 0.329×10.80% + 0.015×0.80% = **4.04%**. Actual post = **4.07%**. Composition accounts for +0.79pp of the observed +0.82pp lift. Within-cohort behavior accounts for ~+0.03pp.
 
@@ -403,11 +410,13 @@ INTERPRETATION: Bounce did not improve. Whether the mix shift fully accounts for
 ```
 
 ```
-NULL CHECK — plan→subscribe step rate lift
-OBSERVATION: 27.5% (pre) → 35.5% (post-8wk-clean), +8.0pp at step 5 aggregate.
-NULL HYPOTHESIS: Visitor mix shift (+9.1pp free-account holders; they have already passed the signup-friction step and convert at materially higher rates).
-VERDICT: Null PARTIALLY rejected. Q8 within-cohort decomposition shows step 5 did rise within both anon (+3.3pp) and free (+11.3pp) cohorts, so behavior change exists. But the aggregate shift from 27.5% to 35.5% is explained primarily by the mix shift because free-account users dominate step-5 conversion (53% pre, 65% post) and now make up a larger share of step-4 plan-clickers.
-INTERPRETATION: Real within-cohort step-5 lift exists for anon (7.9% → 11.2%) and free (53.4% → 64.7%). The aggregate +8pp is a blend of that within-cohort lift and the +9.1pp free-account visitor-mix shift. The separate question of cumulative conversion is addressed next.
+NULL CHECK — plan→subscribe step rate lift (Q9-corrected)
+OBSERVATION: 20.1% (pre) → 26.2% (post-8wk-clean), +6.2pp at step 5 aggregate (Q9 plan-click-attributed).
+NULL HYPOTHESIS (rate-level): Visitor mix shift (+9.1pp free-account holders) explains the aggregate lift via composition of plan-clickers.
+VERDICT (rate-level): Null partially rejected. Q9 shows step 5 rose within both anon (+2.1pp) and free (+9.1pp) cohorts, so within-cohort rate change exists. Composition contribution: ~+0.9pp of the +6.2pp (~15%). Behavior contribution: ~+5.3pp (~85%).
+NULL HYPOTHESIS (volume-level): The aggregate subscriber count lift is explained by visitor-volume growth in the free cohort (+2,257 free visitors) at roughly pre-period rates.
+VERDICT (volume-level): Null STRONGLY supported. Decomposing the +178 plan-click-sub delta: +184 from free-volume-at-pre-rate, −42 from free-rate drag, +3 from anon volume, +27 from anon rate, +6 paid noise. Free volume alone is 103% of the aggregate. Within-cohort rate movements net approximately zero.
+INTERPRETATION: Aggregate sub-count lift is dominated by free-cohort volume, which D19 attributes to domain consolidation (3/16 step), not the 2/24 banner deploy. Within-cohort step-5 rates did move (small absolute contribution), but timing is untested at the cohort level and cannot be attributed to any specific deploy.
 ```
 
 ```
@@ -446,8 +455,8 @@ INTERPRETATION: Instrumentation-level migration. Mixpanel autocapture spatial pr
 
 Each interpretive sentence below was drafted, then reverified independently by re-reading the supporting CSV.
 
-Claim 1: "Step 5 (Plan → Subscribe) improved +8pp pre to clean."
-Verification: q3.csv row 6 step_rate (pre step 5) = 0.2748; row 21 (clean step 5) = 0.3551. Delta = +0.0803 = +8.0pp. PASS.
+Claim 1 (Q9-corrected): "Step 5 (Plan → Subscribe) improved +6.2pp pre to clean, with aggregate sub-count lift ~105% explained by free-volume growth."
+Verification: q9.csv aggregate rows: 1_pre 20.1%, 4_post_8wk_clean 26.2%, delta +6.2pp. Volume decomposition: +178 aggregate plan-click-sub delta; free-volume contribution 2,257 × 8.14% = +184; free-rate contribution 5,868 × −0.71pp = −42; anon-volume 559 × 0.58% = +3; anon-rate 11,905 × +0.23pp = +27; paid +6. Sum +178 ✓. Free volume accounts for 103% of the aggregate. PASS.
 
 Claim 2: "Entered-flow → persona step rate was essentially flat."
 Verification: q3.csv row 4 (pre step 3) = 0.8184; row 20 (clean step 3) = 0.8134. Delta = -0.005 = -0.5pp. PASS.
@@ -541,8 +550,8 @@ CLASSIFICATION: OPERATIONAL.
 ```
 
 ```
-INTERVENTION CLASS — Plan→Subscribe step rate lift (+8pp), confounded
-FINDING: Step 5 rate moved from 27.5% (pre) to 35.5% (post-8wk-clean). Largest movement in the funnel.
+INTERVENTION CLASS — Plan→Subscribe step rate lift (Q9-corrected: +6.2pp), dominated by volume
+FINDING: Step 5 rate moved from 20.1% (pre) to 26.2% (post-8wk-clean) after Q9's plan-click-attribution fix. Of the +178 aggregate plan-click-sub delta, ~103% is free-cohort visitor-volume growth; within-cohort rates net approximately zero (anon +27, free −42).
 PERSISTENCE TEST: If the lift is real-and-sustained, pricing-page-attributed subs convert at ~30% higher rate. If it's composition-driven, it vanishes once the visitor mix normalizes.
 OWNER TEST: Analytics (Devon) to decompose; Marketing / Product if decomposition confirms real lift.
 SMALLEST FIX: Within-cohort decomposition (anonymous / free / paid × pre / post) on Q3 step 5 — answerable from existing data.
