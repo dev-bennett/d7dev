@@ -19,7 +19,7 @@ Post-change validation of the 2026-02-24 pricing-page banner shrink. Stakeholder
 
 - Goal 1 (reduce bounce): not met. Engagement-proxy bounce rate 34.4% → 37.0% (+2.6pp). Scroll-based bounce unmeasurable — Mixpanel autocapture scalars collapsed on 2026-02-25.
 - Goal 2 (increase persona clicks): not met. Cumulative persona selection 46.1% → 42.0% (-4.1pp), concentrated at the entry step (56.3% → 51.7%).
-- Unstated finding: cumulative subscription rate 3.25% → 4.07% (+25% relative), driven by plan→subscribe step rate +8pp — confounded by +8pp visitor-mix shift toward authenticated users.
+- Aggregate subscription rate shows 3.25% → 4.07% (+25% relative) pre-vs-post, but D20 weekly series shows the rise happened during January – mid-February (pre-deploy) and plateaued at ~4% by the week of 2/2. Composition (free-account share) kept rising through April with no corresponding conversion rise after mid-Feb. Neither the 2/24 banner deploy nor the 3/16 composition step is supported as the driver. Origin of the pre-deploy drift is not diagnosed by this analysis.
 
 ## Structural issues surfaced (separate follow-ups)
 

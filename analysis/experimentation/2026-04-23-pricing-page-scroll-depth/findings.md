@@ -333,12 +333,48 @@ Funnel-level (Q3) post_8wk vs post_8wk_clean difference:
    - Post-8wk-clean: 4.07% (735 / 18,046)
    The lift is driven by step 5 (plan → subscribe), not by top-of-funnel engagement (which got worse).
 
-7. **Visitor composition drifted toward existing authenticated users.** Per the clarified definition in Q6:
-   - Pre: 26% of pricing visitors had a non-null `current_plan_id` in their Mixpanel profile (authenticated; paid OR free account)
-   - Post-8wk-clean: 34%
-   +8pp. "Existing subscriber" as captured here is not strictly "paying subscriber" — free-account holders with `current_plan_id='free'` also count. Authenticated users are higher-intent, higher-conversion candidates, and an 8pp mix shift could plausibly account for much of the step-5 lift. A within-cohort decomposition (authenticated vs anonymous, paid vs free vs anon) would separate composition from behavior. Out of scope for this pass.
+7. **Visitor composition drifted almost entirely toward free-account holders** (D18 verified; replaces earlier imprecise "existing subscriber" framing). `is_existing_subscriber = 1` in Q6 reduces to `current_plan_id IS NOT NULL AND != 'None'` on Viewed Pricing Page events. D18 enumerates the actual `current_plan_id` values on those events:
 
-8. **Per-persona and per-plan conversion rates lifted broadly** — Youtuber 5.0%→7.7%, Student 6.9%→10.1%, Freelancer 8.7%→10.5%, Other 6.4%→8.3%, Podcast 5.4%→7.4%, Wedding 11.7%→11.9%. Consistent with the step-5 lift; consistent with the composition confound.
+   | Cohort (defined by current_plan_id on first pricing view) | Pre | Post-8wk-clean | Δpp |
+   |---|---:|---:|---:|
+   | `null` — anonymous / not authenticated | 74.0% | 65.9% | −8.1 |
+   | `'free'` — free-account holder | 23.5% | 32.6% | **+9.1** |
+   | Paid plan slug (pro-yearly-usd, pro-monthly-usd, creator-yearly-usd, etc.) | 2.5% | 1.5% | −1.0 |
+
+   The +8pp Q6 "existing" shift is almost entirely +9.1pp free-account. Paying subscribers as a share of pricing visitors DECREASED. "Existing subscriber" in `fct_events.is_existing_subscriber` is not a paid-subscriber flag — it captures "has a current_plan_id string, including 'free'". Pre: 91% of flagged users are free-account. Post: 96%.
+
+8. **D19: the mix shift does not coincide with the 2/24 banner deploy.** Weekly free-account share of pricing visitors:
+   - Week of 1/5: 24.9% (baseline)
+   - Weeks of 2/16 – 2/23: 27.3% → 27.9% (drift underway pre-deploy)
+   - Week of 2/23 (contains 2/24 deploy): 27.9% (no step change)
+   - Weeks of 3/2 – 3/9: 28.5% → 28.9% (continued small drift)
+   - **Week of 3/16: 32.9% (+4pp step change in one week)**
+   - Weeks of 3/23 – 4/13: stable 31.2% – 34.6%
+
+   The +9.1pp pre-vs-post free-account shift decomposes as approximately ~+3pp pre-deploy February drift, ~+4pp step change around 3/16 (aligned with domain-consolidation rollout stabilizing per `project_domain_consolidation.md`), ~+2pp tail drift through April. **Zero pp attributable to the 2/24 banner deploy.** The composition lift — and therefore the aggregate conversion lift that composition explains — is attributable to domain consolidation and pre-existing drift, not the banner shrink.
+
+9. **D20: the conversion rate does not track the composition timeline either — the +25% aggregate lift is pre-existing drift, not attributable to the banner deploy OR the composition step.**
+
+   Weekly aggregate conversion rate 3-week rolling averages: 3.18% (early Jan) → 3.64% → **4.05% (mid-Feb)** → 4.05% (mid-March) → 4.10% (late March – April). Conversion rate reached ~4% by the week of 2/2 — **three weeks before the 2/24 banner deploy** and six weeks before the 3/16 composition step. It plateaued at ~4% in mid-February and stayed there. Free share kept rising through April (28% → 35%) with no corresponding conversion rise after mid-February.
+
+   **The +25% pre-vs-post aggregate lift is a gradual pre-existing drift that plateaued BEFORE any candidate cause tested here.** My earlier "96% composition, 4% behavior" attribution was wrong — it was an integrative decomposition over the full post window that did not test whether composition's timing matches conversion's timing. The origin of the January–February conversion-rate drift is not diagnosed by this analysis. Candidates that would need to be ruled in or out: seasonality, earlier marketing or product changes, pricing or Chargebee-side changes, attribution methodology drift, or a trending signup funnel.
+
+10. **Within-cohort decomposition (Q8): step rates moved, but timing is not verified.**
+
+   Q8 splits the full funnel by visitor `plan_bucket` (anon / free / paid) × window:
+
+   | Cohort | Visitors (Pre / Post) | Step 5 rate (Pre → Post) | Cumulative conv (Pre → Post) |
+   |---|---|---:|---:|
+   | anonymous  | 11,346 / 11,905 | 7.9% → 11.2% (+3.3pp)  | 0.72% → 1.08% |
+   | free       |  3,611 / 5,868  | 53.4% → 64.7% (+11.3pp) | 10.80% → **9.73%** |
+   | paid       |    377 / 273    | 7.3% → 40.5% (tiny N, 3→15 subs — unreliable) | 0.80% → 5.49% |
+   | aggregate  | 15,334 / 18,046 | 27.5% → 35.5% | 3.25% → 4.07% |
+
+   Pure-composition counterfactual: holding within-cohort rates at pre values and shifting visitor mix to post composition → aggregate = 0.668×0.72% + 0.329×10.80% + 0.015×0.80% = **4.04%**. Actual post = **4.07%**. Composition accounts for +0.79pp of the observed +0.82pp lift. Within-cohort behavior accounts for ~+0.03pp.
+
+   **Free-account cumulative conversion actually decreased** (10.80% → 9.73%). The highest-converting cohort got worse post-change. Step 5 rose for free users but step 2 (enter persona flow) fell from 56.5% to 47.2%, dragging cumulative down. The aggregate +25% relative lift hides this.
+
+11. **Per-persona and per-plan conversion rates lifted broadly** — Youtuber 5.0%→7.7%, Student 6.9%→10.1%, Freelancer 8.7%→10.5%, Other 6.4%→8.3%, Podcast 5.4%→7.4%, Wedding 11.7%→11.9%. Like the aggregate, these are window-level averages and have not been tested for timing alignment with the banner deploy. Given D20's finding that the aggregate rose pre-deploy, per-persona and per-plan lifts are likely partly or wholly the same pre-existing drift. Weekly breakdowns per persona/plan are beyond this pass's scope.
 
 ### Null Hypothesis Blocks (§4)
 
@@ -368,10 +404,34 @@ INTERPRETATION: Bounce did not improve. Whether the mix shift fully accounts for
 
 ```
 NULL CHECK — plan→subscribe step rate lift
-OBSERVATION: 27.5% (pre) → 35.5% (post-8wk-clean), +8.0pp at step 5.
-NULL HYPOTHESIS: Visitor mix shift (+8pp existing authenticated users) — those users have prior-purchase intent and convert at higher rates when they reach a plan.
-VERDICT: Null strongly plausible. If existing authenticated users convert at ~2× the rate of anonymous users on plan click (typical for upgrade / repurchase flows), an 8pp mix shift can drive a large step-5 lift without any behavior change. Within-cohort decomposition required to reject the null.
-INTERPRETATION: The step-5 lift is the largest single movement in the funnel but is the step most sensitive to visitor composition. Cannot be attributed to the banner change without the within-cohort split.
+OBSERVATION: 27.5% (pre) → 35.5% (post-8wk-clean), +8.0pp at step 5 aggregate.
+NULL HYPOTHESIS: Visitor mix shift (+9.1pp free-account holders; they have already passed the signup-friction step and convert at materially higher rates).
+VERDICT: Null PARTIALLY rejected. Q8 within-cohort decomposition shows step 5 did rise within both anon (+3.3pp) and free (+11.3pp) cohorts, so behavior change exists. But the aggregate shift from 27.5% to 35.5% is explained primarily by the mix shift because free-account users dominate step-5 conversion (53% pre, 65% post) and now make up a larger share of step-4 plan-clickers.
+INTERPRETATION: Real within-cohort step-5 lift exists for anon (7.9% → 11.2%) and free (53.4% → 64.7%). The aggregate +8pp is a blend of that within-cohort lift and the +9.1pp free-account visitor-mix shift. The separate question of cumulative conversion is addressed next.
+```
+
+```
+NULL CHECK — cumulative conversion lift is 96% composition, 4% behavior
+OBSERVATION: Aggregate cumulative conversion 3.25% → 4.07% (+0.82pp, +25% relative).
+NULL HYPOTHESIS: The entire lift is attributable to visitor-mix drift toward free-account holders (who convert at ~10% cumulative vs anonymous at <1%).
+VERDICT: Null almost fully explains the aggregate. Counterfactual = pre within-cohort rates × post composition = 0.668×0.72% + 0.329×10.80% + 0.015×0.80% = 4.04%. Observed post = 4.07%. Composition accounts for 0.79 of the 0.82pp lift.
+INTERPRETATION: The +25% aggregate lift is a visitor-mix story, not a banner-shrink story. Free-account users' own cumulative conversion actually fell (10.80% → 9.73%). Framing the aggregate as a "banner-shrink success" would be wrong.
+```
+
+```
+NULL CHECK — does the mix shift timing align with the 2/24 banner deploy?
+OBSERVATION: Free-account share of pricing visitors rose +9.1pp pre to post-8wk-clean (23.5% → 32.6%).
+NULL HYPOTHESIS: The mix shift coincides with the 2/24 banner deploy (possibly bundled) — free share shows a step change in the week of 2/23.
+VERDICT: Null REJECTED by D19. Weekly free-account share: 24.9% (1/5) → 25.3% (2/2) → 27.9% (week of 2/23, which contains 2/24) → 28.9% (3/9) → 32.9% (3/16, +4pp step) → 34.6% (4/13). The 2/24 deploy week shows no discernible step. The dominant shift is a +4pp step in the week of 3/16, aligned with domain-consolidation rollout stabilizing per project_domain_consolidation.md.
+INTERPRETATION: The composition shift is attributable to domain consolidation plus pre-existing February drift, not the banner deploy.
+```
+
+```
+NULL CHECK — does the conversion rate timing align with the composition timing?
+OBSERVATION (D20): Weekly aggregate conversion rates: 3.28% (1/5) → 3.10% → 3.15% → 3.33% → 4.02% (2/2) → 3.57% → 4.05% → 4.38% (2/23, contains deploy) → 3.73% → 3.32% → 4.51% (3/16) → 4.31% → 4.89% → 3.91% → 3.51% (4/13).
+NULL HYPOTHESIS: Composition shift drives conversion. If true, conversion should track free share — flat through mid-February, step up in the week of 3/16, elevated afterward.
+VERDICT: Null REJECTED. Conversion rate reached ~4% by the week of 2/2 — three weeks BEFORE the 2/24 deploy and six weeks before the 3/16 composition step. 3-week rolling averages: 3.18% (early Jan) → 3.64% → 4.05% (mid-Feb) → 4.05% (mid-March) → 4.10% (late March – April). It plateaued at ~4% in mid-February and stayed there. Free share kept rising through April (28% → 35%) with no corresponding conversion lift.
+INTERPRETATION: The +25% aggregate lift is neither a banner-shrink story (no step at 2/24) nor a composition story (conversion did not follow the composition timeline). It is a gradual pre-existing drift from ~3.2% (early January) to ~4.0% (mid-February) that plateaued before either the banner deploy or the composition step. My earlier "96% composition" attribution was wrong — it integrated over the full post window without testing the timing. The origin of the pre-deploy January–February drift is not diagnosed by this analysis.
 ```
 
 ```

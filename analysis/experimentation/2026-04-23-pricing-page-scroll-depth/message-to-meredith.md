@@ -6,11 +6,17 @@ On the two stated goals:
 
 - Persona card clicks: cumulative persona-selection rate moved from 46.1% to 42.0% over the 8-week post window — a 4pp decrease. Decomposition: the drop happens at the entry step (56.3% → 51.7% of visitors clicked into the persona flow, -4.6pp). Once users entered the flow, the step rate to persona selection held (82% → 81%). Context: the 2/24 deploy added a second persona-flow entry CTA ("Choose a Plan") alongside "View Pricing" — the funnel now counts both as entry. Even with the broader definition, fewer users engaged the flow overall.
 
-Finding outside the stated goals:
+Finding outside the stated goals — the aggregate conversion number looks good, but timing does not support attribution to the 2/24 deploy:
 
-- Subscription conversion rate moved from 3.25% (pre) to 4.07% (8-week post, clean). Relative lift 25%. The lift concentrates at the bottom of the funnel: plan-clickers who subscribed within 7 days moved from 27.5% to 35.5% — a step-rate lift of 8pp. Top-of-funnel rates all stayed flat or declined; step 5 carried the cumulative improvement.
+- Aggregate subscription rate moved from 3.25% (pre window Jan 7 – Feb 6) to 4.07% (post-8wk-clean) — a 25% relative lift.
 
-- Caveat on the step-5 lift: the pricing-page visitor mix shifted toward authenticated users with a plan_id set (paid OR free account) — 26% pre, 34% post, +8pp. Authenticated users convert on plan clicks at higher rates than anonymous visitors. Some meaningful share of the 8pp step-5 lift is probably visitor-composition, not behavior change. A within-cohort split (anonymous vs free vs paid, pre vs post) would separate the two — see question 3 below.
+- Weekly conversion rate (3-week rolling avg): 3.18% in early January → 3.64% → **4.05% by mid-February** → 4.05% mid-March → 4.10% late March / April. The rate reached ~4% three weeks BEFORE the 2/24 deploy and plateaued. No step change at the deploy week.
+
+- Visitor composition also shifted (free-account share rose from 25% in early January to 28% by mid-February, step change to 33% in the week of 3/16, holding 31–35% through April). The 3/16 step aligns with the domain-consolidation rollout stabilizing, not the banner deploy. However, the conversion rate did not rise further when composition stepped up in mid-March — free share kept climbing through April, but conversion held at ~4%. Composition timing does not explain the conversion lift either.
+
+- The +25% pre-vs-post aggregate lift is real as a window-difference, but the rise happened during the January – mid-February period and plateaued before any candidate cause tested here. The origin of the January – mid-February drift is not diagnosed by this analysis.
+
+- Masked by the aggregate: free-account cumulative conversion actually declined 10.80% → 9.73% over the same pre-vs-post comparison. Per-cohort step-5 rates rose (anon 7.9% → 11.2%, free 53.4% → 64.7%) but free-cohort step-2 rate fell (56.5% → 47.2%), so the free-cohort cumulative ended lower.
 
 Three structural issues I need to flag:
 
@@ -26,6 +32,6 @@ Three questions back to you:
 
 2. Was the "Choose a Plan" CTA intentionally added alongside "View Pricing" in the same deploy? Product context would help me frame the funnel-shape change correctly.
 
-3. Do you want the within-cohort decomposition (anonymous / free / paid × pre / post) on the +8pp step-5 lift to separate composition from behavior?
+3. The conversion rate rose from ~3.2% to ~4.0% during January and mid-February, before the 2/24 deploy, and plateaued. Any context on what else changed in the pricing / sign-up / Chargebee path from early January to mid-February (marketing campaigns, pricing changes, attribution window changes, funnel instrumentation updates, seasonal patterns in prior years)? That would help explain the pre-deploy drift.
 
 Full analysis: analysis/experimentation/2026-04-23-pricing-page-scroll-depth/findings.md

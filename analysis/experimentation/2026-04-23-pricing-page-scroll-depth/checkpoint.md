@@ -17,7 +17,7 @@
 
 - Goal 1 (reduce bounce): not met. Engagement-proxy bounce 34.4% → 37.0% (+2.6pp). Scroll-based bounce unmeasurable (autocapture collapsed 2/25).
 - Goal 2 (increase persona clicks): not met. Cumulative persona selection 46.1% → 42.0% (-4.1pp); drop concentrates at the entry step (56.3% → 51.7%).
-- Subscription rate lifted 3.25% → 4.07% (+25% relative), concentrated at plan→subscribe step (+8pp). Confounded by +8pp visitor-mix shift toward authenticated users (paid + free).
+- Aggregate subscription rate shows 3.25% → 4.07% (+25% relative) as a pre-vs-post window delta, BUT D20 weekly rate shows the rise happened in January – mid-February (pre-deploy) and plateaued at ~4% by the week of 2/2 (3 weeks BEFORE the 2/24 deploy). Composition (free-account share) kept rising through April with no corresponding conversion rise after mid-Feb. Neither the banner deploy nor the mid-March composition step is supported as the driver. Origin of the pre-deploy drift is not diagnosed by this analysis.
 
 ## Follow-on work (optional, pending Meredith's answers)
 

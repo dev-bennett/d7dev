@@ -785,3 +785,192 @@ WHERE window_label != '9_other'
 GROUP BY window_label
 ORDER BY window_label
 ;
+
+
+-- =============================================================================
+-- D18: current_plan_id vs plan_id value distribution on Viewed Pricing Page
+-- -----------------------------------------------------------------------------
+-- Question:      Q6's "is_existing_subscriber" flag reduces to
+--                `coalesce(current_plan_id, plan_id) IS NOT NULL AND != 'None'`
+--                on Viewed Pricing Page events. What actual values populate
+--                current_plan_id and plan_id on those events per window? This
+--                pins down whether "existing" captures only paying subscribers,
+--                only free-account holders, a mix, or something else entirely.
+-- Method:        Earliest Viewed Pricing Page event per (window, distinct_id).
+--                Group by (current_plan_id, plan_id). Top 30 combinations per
+--                window.
+-- Export:        d18.csv
+-- =============================================================================
+
+WITH labeled AS (
+    SELECT
+        CASE
+            WHEN time::date BETWEEN '2026-01-07' AND '2026-02-06'                         THEN '1_pre'
+            WHEN time::date BETWEEN '2026-02-25' AND '2026-04-23'
+                 AND NOT (time::date BETWEEN '2026-03-05' AND '2026-03-25')               THEN '4_post_8wk_clean'
+            ELSE '9_other'
+        END                                        AS window_label
+      , distinct_id
+      , current_plan_id
+      , plan_id
+      , time
+    FROM pc_stitch_db.mixpanel.export
+    WHERE event = 'Viewed Pricing Page'
+      AND time::date BETWEEN '2026-01-07' AND '2026-04-23'
+      AND PARSE_URL(COALESCE(current_url, mp_reserved_current_url, url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY
+        CASE
+            WHEN time::date BETWEEN '2026-01-07' AND '2026-02-06'                         THEN '1_pre'
+            WHEN time::date BETWEEN '2026-02-25' AND '2026-04-23'
+                 AND NOT (time::date BETWEEN '2026-03-05' AND '2026-03-25')               THEN '4_post_8wk_clean'
+            ELSE '9_other'
+        END, distinct_id ORDER BY time) = 1
+)
+SELECT
+    window_label
+  , COALESCE(current_plan_id, '(null)') AS current_plan_id_val
+  , COALESCE(plan_id, '(null)')         AS plan_id_val
+  , COUNT(*)                            AS users
+FROM labeled
+WHERE window_label != '9_other'
+GROUP BY window_label, current_plan_id_val, plan_id_val
+QUALIFY ROW_NUMBER() OVER (PARTITION BY window_label ORDER BY users DESC) <= 30
+ORDER BY window_label, users DESC
+;
+
+
+-- =============================================================================
+-- D19: Weekly cohort-mix timing — when did the free-account share rise?
+-- -----------------------------------------------------------------------------
+-- Question:      Q8 found the +25% conversion lift is ~96% visitor-mix
+--                drift (free share 23.5% → 32.6%). I have been comparing
+--                two aggregate buckets without verifying WHEN the shift
+--                occurred. Scenarios:
+--                  a. Step change on/near 2026-02-24: coincident with the
+--                     banner deploy, possibly part of the bundled change.
+--                  b. Gradual pre-deploy trend: attribution to 2/24 is wrong.
+--                  c. Aligned to 2026-03-05 – 03-25 domain consolidation
+--                     rollout: attribution is to the URL move, not banner.
+--                  d. Later (mid-April): some other attributable cause.
+-- Method:        Weekly distinct-user share by plan_bucket across the full
+--                Jan 5 – Apr 19 window (full ISO weeks). Visual inspection
+--                locates the inflection.
+-- Export:        d19.csv
+-- =============================================================================
+
+WITH weekly_visitors AS (
+    SELECT
+        DATE_TRUNC('week', time)                 AS iso_week_start
+      , CASE
+            WHEN current_plan_id IS NULL                         THEN '1_anon'
+            WHEN current_plan_id = 'free'                        THEN '2_free'
+            ELSE                                                       '3_paid'
+        END                                       AS plan_bucket
+      , distinct_id
+    FROM pc_stitch_db.mixpanel.export
+    WHERE event = 'Viewed Pricing Page'
+      AND time::date BETWEEN '2026-01-05' AND '2026-04-19'
+      AND PARSE_URL(COALESCE(current_url, mp_reserved_current_url, url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY DATE_TRUNC('week', time), distinct_id ORDER BY time
+    ) = 1
+)
+, weekly_counts AS (
+    SELECT
+        iso_week_start
+      , plan_bucket
+      , COUNT(*)   AS users
+    FROM weekly_visitors
+    GROUP BY iso_week_start, plan_bucket
+)
+, weekly_totals AS (
+    SELECT iso_week_start, SUM(users) AS total_users
+    FROM weekly_counts
+    GROUP BY iso_week_start
+)
+SELECT
+    wc.iso_week_start
+  , wc.plan_bucket
+  , wc.users
+  , wt.total_users
+  , wc.users::FLOAT / wt.total_users       AS share_of_week
+FROM weekly_counts wc
+INNER JOIN weekly_totals wt USING (iso_week_start)
+ORDER BY wc.iso_week_start, wc.plan_bucket
+;
+
+
+-- =============================================================================
+-- D20: Weekly aggregate conversion rate + composition — timeline alignment test
+-- -----------------------------------------------------------------------------
+-- Question:      Does the cumulative conversion rate step up on the same
+--                timeline as the composition shift? D19 showed composition's
+--                big step change was the week of 3/16. If conversion rate
+--                also steps on/near 3/16, composition is the driver and
+--                attribution to the 2/24 banner deploy is wrong. If
+--                conversion rate steps earlier (e.g., 2/24 deploy week),
+--                composition CAN'T be the sole driver; real behavior change
+--                is in play.
+-- Method:        Per ISO week: pricing visitors, subscribers attributed via
+--                7-day window from first view in week, cumulative rate.
+--                Alongside, free-account share from D19's same definition.
+-- Export:        d20.csv
+-- =============================================================================
+
+WITH weekly_visitors AS (
+    -- One row per (iso_week, user) — earliest Viewed Pricing Page in that week
+    SELECT
+        DATE_TRUNC('week', time)                 AS iso_week_start
+      , distinct_id
+      , CASE
+            WHEN current_plan_id IS NULL                         THEN '1_anon'
+            WHEN current_plan_id = 'free'                        THEN '2_free'
+            ELSE                                                       '3_paid'
+        END                                       AS plan_bucket
+      , time::timestamp                           AS first_view_ts
+    FROM pc_stitch_db.mixpanel.export
+    WHERE event = 'Viewed Pricing Page'
+      AND time::date BETWEEN '2026-01-05' AND '2026-04-19'
+      AND PARSE_URL(COALESCE(current_url, mp_reserved_current_url, url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY DATE_TRUNC('week', time), distinct_id ORDER BY time
+    ) = 1
+)
+, weekly_subscribers AS (
+    SELECT DISTINCT
+        wv.iso_week_start
+      , wv.distinct_id
+    FROM weekly_visitors wv
+    INNER JOIN soundstripe_prod.core.fct_events s
+        ON s.distinct_id = wv.distinct_id
+       AND s.event       = 'Created Subscription'
+       AND s.event_ts   >= wv.first_view_ts
+       AND s.event_ts   <  DATEADD('day', 7, wv.first_view_ts)
+)
+, weekly_rollup AS (
+    SELECT
+        iso_week_start
+      , COUNT(*)                                                      AS visitors
+      , SUM(CASE WHEN plan_bucket = '1_anon' THEN 1 ELSE 0 END)       AS anon_users
+      , SUM(CASE WHEN plan_bucket = '2_free' THEN 1 ELSE 0 END)       AS free_users
+      , SUM(CASE WHEN plan_bucket = '3_paid' THEN 1 ELSE 0 END)       AS paid_users
+    FROM weekly_visitors
+    GROUP BY iso_week_start
+)
+SELECT
+    wr.iso_week_start
+  , wr.visitors
+  , COUNT(DISTINCT ws.distinct_id)                                    AS subscribers
+  , COUNT(DISTINCT ws.distinct_id)::FLOAT / wr.visitors                AS cumulative_conversion_rate
+  , wr.free_users::FLOAT / wr.visitors                                 AS free_share
+  , wr.anon_users::FLOAT / wr.visitors                                 AS anon_share
+  , wr.paid_users::FLOAT / wr.visitors                                 AS paid_share
+FROM weekly_rollup wr
+LEFT JOIN weekly_subscribers ws
+    ON wr.iso_week_start = ws.iso_week_start
+GROUP BY wr.iso_week_start, wr.visitors, wr.free_users, wr.anon_users, wr.paid_users
+ORDER BY wr.iso_week_start
+;

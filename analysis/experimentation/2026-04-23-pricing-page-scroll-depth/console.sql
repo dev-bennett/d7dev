@@ -536,3 +536,126 @@ FROM classified
 GROUP BY window_label
 ORDER BY window_label
 ;
+
+
+-- =============================================================================
+-- Q8: Within-cohort decomposition of the funnel by plan_id bucket
+-- -----------------------------------------------------------------------------
+-- Purpose:       D18 revealed that the +8pp "existing subscriber" visitor-mix
+--                shift is really +9pp free-account + -1pp paid. Step 5
+--                (Plan → Subscribe) rose from 27.5% to 35.5% cumulatively.
+--                This query decomposes every funnel step by the visitor's
+--                plan_id bucket (anon / free / paid) at their first Viewed
+--                Pricing Page event in window, for pre and post-8wk-clean.
+--                Settles whether within-cohort step rates changed or whether
+--                the lift is pure composition drift.
+-- Rate:          Per (window, plan_bucket, step): users_at_step / visitors_in_bucket
+--                for cumulative; users_at_step / users_at_prior_step for step.
+-- Export:        q8.csv
+-- =============================================================================
+
+WITH windows AS (
+    SELECT '1_pre'            AS window_label, '2026-01-07'::date AS start_d, '2026-02-06'::date AS end_d
+    UNION ALL SELECT '4_post_8wk_clean', '2026-02-24'::date, '2026-04-23'::date
+)
+, visitor_attrs AS (
+    -- Earliest Viewed Pricing Page per (window, user); carry current_plan_id at that event.
+    SELECT
+        w.window_label
+      , e.distinct_id
+      , CASE
+            WHEN e.current_plan_id IS NULL                         THEN '1_anon'
+            WHEN e.current_plan_id = 'free'                        THEN '2_free'
+            ELSE                                                       '3_paid'
+        END AS plan_bucket
+      , e.time::timestamp AS first_view_ts
+    FROM windows w
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (w.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Viewed Pricing Page'
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY w.window_label, e.distinct_id ORDER BY e.time) = 1
+)
+, entered_flow AS (
+    SELECT DISTINCT va.window_label, va.distinct_id, va.plan_bucket
+    FROM visitor_attrs va
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.distinct_id = va.distinct_id
+    INNER JOIN windows w
+        ON va.window_label = w.window_label
+       AND e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (w.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Clicked Element'
+      AND e.element IN ('View Pricing', 'Choose a Plan')
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+)
+, persona_selectors AS (
+    SELECT DISTINCT va.window_label, va.distinct_id, va.plan_bucket
+    FROM visitor_attrs va
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.distinct_id = va.distinct_id
+    INNER JOIN windows w
+        ON va.window_label = w.window_label
+       AND e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (w.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Clicked Element'
+      AND e.element IN ('Youtuber/Content Creator', 'Student/Hobbyist', 'Freelancer',
+                         'Other', 'Podcast', 'Wedding Filmmaker')
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+)
+, plan_clickers AS (
+    SELECT DISTINCT va.window_label, va.distinct_id, va.plan_bucket
+    FROM visitor_attrs va
+    INNER JOIN pc_stitch_db.mixpanel.export e
+        ON e.distinct_id = va.distinct_id
+    INNER JOIN windows w
+        ON va.window_label = w.window_label
+       AND e.time::date BETWEEN w.start_d AND w.end_d
+       AND NOT (w.window_label = '4_post_8wk_clean'
+                AND e.time::date BETWEEN '2026-03-05' AND '2026-03-25')
+    WHERE e.event = 'Clicked Element'
+      AND e.element IN ('Pro Yearly', 'Pro Monthly',
+                         'Personal Yearly', 'Personal Monthly',
+                         'Pro Plus Yearly', 'Pro Plus Monthly',
+                         'Business Quarterly', 'Business Yearly',
+                         'Pro Yearly with Warner Chappell Production Music',
+                         'Pro Monthly with Warner Chappell Production Music',
+                         'Pro Plus with Warner Chappell Production Music Yearly',
+                         'Pro Plus with Warner Chappell Production Music Monthly')
+      AND PARSE_URL(COALESCE(e.current_url, e.mp_reserved_current_url, e.url)):path::string
+          IN ('pricing', 'library/pricing', 'pricing/', 'library/pricing/')
+)
+, subscribers AS (
+    SELECT DISTINCT va.window_label, va.distinct_id, va.plan_bucket
+    FROM visitor_attrs va
+    INNER JOIN soundstripe_prod.core.fct_events s
+        ON s.distinct_id = va.distinct_id
+       AND s.event       = 'Created Subscription'
+       AND s.event_ts   >= va.first_view_ts
+       AND s.event_ts   <  DATEADD('day', 7, va.first_view_ts)
+)
+, steps AS (
+    SELECT window_label, plan_bucket, 1 AS step_order, 'Pricing Visitors'     AS step, COUNT(*) AS n FROM visitor_attrs     GROUP BY window_label, plan_bucket
+    UNION ALL SELECT window_label, plan_bucket, 2, 'Entered Persona Flow', COUNT(*) FROM entered_flow      GROUP BY window_label, plan_bucket
+    UNION ALL SELECT window_label, plan_bucket, 3, 'Selected Persona'    , COUNT(*) FROM persona_selectors GROUP BY window_label, plan_bucket
+    UNION ALL SELECT window_label, plan_bucket, 4, 'Clicked Plan'        , COUNT(*) FROM plan_clickers     GROUP BY window_label, plan_bucket
+    UNION ALL SELECT window_label, plan_bucket, 5, 'Subscribed'          , COUNT(*) FROM subscribers       GROUP BY window_label, plan_bucket
+)
+SELECT
+    window_label
+  , plan_bucket
+  , step_order
+  , step
+  , n
+  , n::FLOAT / FIRST_VALUE(n) OVER (PARTITION BY window_label, plan_bucket ORDER BY step_order)  AS cumulative_rate
+  , n::FLOAT / LAG(n)         OVER (PARTITION BY window_label, plan_bucket ORDER BY step_order)  AS step_rate
+FROM steps
+ORDER BY window_label, plan_bucket, step_order
+;
