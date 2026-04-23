@@ -1,0 +1,81 @@
+WINDOW_LABEL,EVENT,ELEMENT,CONTEXT,LINK_TEXT,EVENT_COUNT,DISTINCT_USERS
+1_pre,Clicked Element,View Pricing,Persona Pricing Page,(null),64857,8633
+1_pre,Clicked Element,Modal: Close Persona Pricing Modal,Persona Pricing Page,(null),48570,6902
+1_pre,Clicked Element,Open Interval dropdown,Persona Pricing Page,(null),21804,2480
+1_pre,Clicked Element,View Single-use Licenses,Pricing Page Type Toggle,(null),21379,3653
+1_pre,Clicked Element,Interval dropdown option,Persona Pricing Page,(null),16864,2092
+1_pre,Clicked Element,Youtuber/Content Creator,Persona Pricing Page,(null),16525,3259
+1_pre,Clicked Element,View Subscriptions,Pricing Page Type Toggle,(null),12560,2192
+1_pre,Clicked Element,Student/Hobbyist,Persona Pricing Page,(null),11568,2248
+1_pre,Clicked Element,Standard Coverage,Persona Pricing Page,(null),9607,1962
+1_pre,Clicked Element,Freelancer,Persona Pricing Page,(null),9495,1871
+1_pre,Clicked Element,Plan tier toggle,Persona Pricing Page,(null),8716,959
+1_pre,Clicked Element,Checkout Button,Persona Pricing Page,(null),7475,1371
+1_pre,Clicked Element,Pro Yearly,Persona Pricing Page,(null),5668,878
+1_pre,Clicked Element,Other,Persona Pricing Page,(null),5202,1127
+1_pre,Clicked Element,(null),Modal: Close Enterprise Intent Modal,(null),3790,757
+1_pre,Clicked Element,Extended Coverage,Persona Pricing Page,(null),2863,597
+1_pre,Clicked Element,Podcast,Persona Pricing Page,(null),2430,506
+1_pre,Clicked Element,Wedding Filmmaker,Persona Pricing Page,(null),2009,406
+1_pre,Clicked Element,Personal Monthly,Persona Pricing Page,(null),1798,315
+1_pre,Clicked Element,Personal Yearly,Persona Pricing Page,(null),1757,275
+1_pre,Clicked Sign Up Button,(null),Header,Subscribe,1425,219
+1_pre,Clicked Element,Pro Plus Yearly,Persona Pricing Page,(null),1237,225
+1_pre,Clicked Element,Pro Monthly,Persona Pricing Page,(null),1200,199
+1_pre,Clicked Element,Pro Yearly with Warner Chappell Production Music,Persona Pricing Page,(null),952,151
+1_pre,Clicked Element,Business Quarterly,Persona Pricing Page,(null),915,145
+1_pre,Clicked Element,Business Yearly,Persona Pricing Page,(null),660,109
+1_pre,Clicked Sign Up Link,(null),Header,Create a Free Account,614,154
+1_pre,Clicked Element,(null),Waveform,(null),558,47
+1_pre,Clicked Element,Check Out The Music,Pricing Page Music Button,(null),534,122
+1_pre,Clicked Element,Cart,Header Nav,(null),511,97
+1_pre,Clicked Element,Billing,Account Avatar,(null),424,98
+1_pre,Clicked Element,Profile,Account Avatar,(null),393,89
+1_pre,Clicked Element,Close,Cart,(null),369,81
+1_pre,Clicked Element,dismiss,Audio Player CTA,(null),304,72
+1_pre,Clicked Element,Subscription,Account Avatar,(null),273,62
+1_pre,Clicked Element,My Media - Favorites,Account Avatar,(null),207,48
+1_pre,Clicked Element,My Media - Downloads,Account Avatar,(null),199,44
+1_pre,Clicked Pricing Link,(null),Footer,Pricing,131,31
+1_pre,Clicked Element,Pro Monthly with Warner Chappell Production Music,Persona Pricing Page,(null),131,26
+1_pre,Clicked Element,Pro Plus Monthly,Persona Pricing Page,(null),113,27
+4_post_8wk_clean,Clicked Element,Modal: Close Persona Pricing Modal,Persona Pricing Page,(null),45298,6978
+4_post_8wk_clean,Clicked Element,Choose a Plan,Persona Pricing Page,(null),32675,4833
+4_post_8wk_clean,Clicked Element,View Pricing,Persona Pricing Page,(null),29202,4257
+4_post_8wk_clean,Clicked Element,View Single-use Licenses,Pricing Page Type Toggle,(null),26545,4671
+4_post_8wk_clean,Clicked Element,Open Interval dropdown,Persona Pricing Page,(null),22009,2681
+4_post_8wk_clean,Clicked Element,Interval dropdown option,Persona Pricing Page,(null),17045,2299
+4_post_8wk_clean,Clicked Element,View Subscriptions,Pricing Page Type Toggle,(null),16541,3028
+4_post_8wk_clean,Clicked Element,Youtuber/Content Creator,Persona Pricing Page,(null),14185,2980
+4_post_8wk_clean,Clicked Element,Student/Hobbyist,Persona Pricing Page,(null),11969,2468
+4_post_8wk_clean,Clicked Element,Freelancer,Persona Pricing Page,(null),9944,2087
+4_post_8wk_clean,Clicked Element,Standard Coverage,Persona Pricing Page,(null),8842,1908
+4_post_8wk_clean,Clicked Element,Checkout Button,Persona Pricing Page,(null),7783,1618
+4_post_8wk_clean,Clicked Element,Pro Yearly,Persona Pricing Page,(null),5401,925
+4_post_8wk_clean,Clicked Element,Other,Persona Pricing Page,(null),5292,1211
+4_post_8wk_clean,Clicked Element,Pro Plus Yearly,Persona Pricing Page,(null),2156,394
+4_post_8wk_clean,Clicked Element,Personal Monthly,Persona Pricing Page,(null),2141,445
+4_post_8wk_clean,Clicked Element,Extended Coverage,Persona Pricing Page,(null),2049,448
+4_post_8wk_clean,Clicked Element,Wedding Filmmaker,Persona Pricing Page,(null),2009,426
+4_post_8wk_clean,Clicked Element,Personal Yearly,Persona Pricing Page,(null),1874,284
+4_post_8wk_clean,Clicked Element,Podcast,Persona Pricing Page,(null),1692,387
+4_post_8wk_clean,Clicked Sign Up Button,(null),Header,Subscribe,1397,248
+4_post_8wk_clean,Clicked Element,Pro Monthly,Persona Pricing Page,(null),1233,234
+4_post_8wk_clean,Clicked Element,Business Quarterly,Persona Pricing Page,(null),763,144
+4_post_8wk_clean,Clicked Sign Up Link,(null),Header,Create a Free Account,680,174
+4_post_8wk_clean,Clicked Element,Business Yearly,Persona Pricing Page,(null),566,115
+4_post_8wk_clean,Clicked Element,Check Out The Music,Pricing Page Music Button,(null),518,135
+4_post_8wk_clean,Clicked Element,Cart,Header Nav,(null),503,108
+4_post_8wk_clean,Clicked Element,Close,Cart,(null),372,85
+4_post_8wk_clean,Clicked Element,Billing,Account Avatar,(null),360,88
+4_post_8wk_clean,Clicked Element,Profile,Account Avatar,(null),352,89
+4_post_8wk_clean,Clicked Element,dismiss,Audio Player CTA,(null),328,88
+4_post_8wk_clean,Clicked Element,My Media - Favorites,Account Avatar,(null),247,58
+4_post_8wk_clean,Clicked Element,(null),Waveform,(null),244,37
+4_post_8wk_clean,Clicked Element,Pro Plus Monthly,Persona Pricing Page,(null),224,54
+4_post_8wk_clean,Clicked Element,My Media - Downloads,Account Avatar,(null),203,50
+4_post_8wk_clean,Clicked Pricing Link,(null),Footer,Pricing,146,38
+4_post_8wk_clean,Clicked Element,/pricing,Discover Page Banner,(null),145,31
+4_post_8wk_clean,Clicked Element,Open LicensingContactModal,Pricing Page,(null),144,29
+4_post_8wk_clean,Clicked Element,Subscription,Account Avatar,(null),127,34
+4_post_8wk_clean,Clicked Element,(null),Modal: Close Enterprise Intent Modal,(null),106,23

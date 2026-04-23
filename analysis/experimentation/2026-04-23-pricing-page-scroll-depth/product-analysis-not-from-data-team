@@ -1,0 +1,315 @@
+## Revised Key Takeaways
+
+1. **The pricing page is actually much more engaging than previously measured.** 43.5% engage with the persona flow. The internal funnel from View Pricing → Persona → Plan is very healthy at 95.7% → 89.0%.
+2. **The two real problems are top-of-page bounce (56.5%) and plan-to-checkout drop (92.7% don't subscribe).** The middle of the funnel is not the issue.
+3. **Monthly plans convert 2-5x better than annual plans** despite getting fewer clicks. This could inform how plans are presented — leading with monthly pricing or featuring monthly options more prominently could increase immediate conversion at the expense of lower initial ACV.
+4. **Wedding Filmmaker and Freelancer personas convert best** (11.6% and 9.3%), suggesting users with specific professional needs convert at higher rates than general "Content Creator" users who may be earlier in their consideration journey.
+5. **YouTuber/Content Creator is the highest-volume persona (3,328) but lowest-converting individual persona (6.4%).** Given this is likely your largest addressable audience, even a small improvement in this persona's conversion rate would have a meaningful revenue impact.
+6. The strategic implication is clear — the pricing page alone doesn't convert. It's the **pricing → content exploration → return to pricing loop** that drives conversion.
+
+## Traffic Volume (Jan 7 – Feb 6, 2026)
+
+The pricing page saw **15,256 unique visitors** (18,576 total pageviews) in this 30-day period — roughly **~500 unique visitors/day**. The vast majority are anonymous/visitor traffic. Breaking down by account status: about **66% are anonymous visitors** (no account), **15% are free account holders**, and **4% are existing paid users** (Free Account = false). The remaining ~15% are unclassified.
+
+Traffic sources to pricing skew heavily toward organic/direct: ~65% have no UTM source (direct or organic), Google accounts for ~25%, Bing ~3%, HubSpot ~1.5%, and ChatGPT referrals ~1.5%.
+
+---
+
+## Time on Page & Scroll Depth
+
+For users who trigger a page leave event on pricing, the **average time on page is ~75 seconds** (~1 minute 15 seconds). However, this likely skews toward more engaged users — many visitors bounce quickly without triggering the event.
+
+**Average scroll depth is only ~33%**, which means most users are seeing the top third of the page and leaving. The scroll depth distribution is telling:
+
+- **~39% scroll less than 5%** — essentially bouncing instantly without scrolling at all
+- **~56% scroll less than 20%** — only seeing the very top of the page
+- **~23% reach 100%+ scroll** — these are your engaged viewers who see the full page
+- Only **~10% scroll between 50-95%** — very few users make it to the middle/bottom without going all the way
+
+This is a bimodal distribution: users either bounce almost immediately or they scroll the entire page. There's very little "middle ground" engagement, which suggests the top of the page either hooks them or loses them.
+
+---
+
+## Engagement Actions (within 30 min of pricing page view) — REVISED
+
+Of the 15,285 pricing page visitors, here's what they do in the same session:
+
+| Action | Users | % of Pricing Visitors | Avg Time After Pricing View |
+| --- | --- | --- | --- |
+| **Click "View Pricing" button** (persona card) | 6,511 | **42.6%** | ~42 seconds |
+| Navigate to another page | 6,665 | **43.7%** | ~47 seconds |
+| **Select a Persona** (after clicking View Pricing) | 6,220 | **40.7%** | ~51 seconds |
+| **Click a specific Plan** | 5,507 | **36.0%** | ~66 seconds |
+| Play a song | 2,304 | **15.1%** | — |
+| Search for songs | 1,890 | **12.4%** | — |
+| View sign-up form | 1,131 | **7.4%** | ~3.3 minutes |
+| Play a sound effect | 564 | **3.7%** | — |
+
+The previous analysis understated pricing element engagement significantly. Using the "Clicked Pricing Product" event alone showed only 1.6% (238 users) interacting with pricing — but the persona card flow tells a very different story. **42.6% of pricing visitors actively click into the persona-based pricing flow within the same session**, selecting a coverage type (Individual or Business), choosing a persona, and viewing plan options. This is not a passive page — nearly half of all visitors are engaging with the pricing discovery experience.
+
+The internal flow from card to plan is remarkably smooth. Of users who click "View Pricing," **95.5% select a persona** (avg 9 seconds later) and **88.5% then click a specific plan** (avg 15 seconds after persona). Users move through the persona → plan flow almost instantly once they start.
+
+**Coverage split**: 76% click into Individual pricing, 24% into Business. About 10% of Individual clickers also explore the Business card, suggesting some uncertainty about which category they belong in.
+
+**Persona selection breakdown** (Individual):
+
+| Persona | Users | % of Persona Selectors |
+| --- | --- | --- |
+| YouTuber/Content Creator | 2,771 | **31.8%** |
+| Student/Hobbyist | 1,864 | **21.4%** |
+| Freelancer | 1,529 | **17.5%** |
+| Other | 952 | **10.9%** |
+| Podcast | 423 | **4.8%** |
+| Wedding Filmmaker | 336 | **3.9%** |
+
+**Plan click breakdown** (top plans by volume):
+
+| Plan | Clicks | % of Plan Clicks |
+| --- | --- | --- |
+| Pro Yearly | 4,508 | **41.6%** |
+| Pro Monthly | 1,648 | **15.2%** |
+| Creator Yearly | 1,593 | **14.7%** |
+| Enterprise Business Quarterly | 1,456 | **13.4%** |
+| Pro+ Yearly | 724 | **6.7%** |
+| Creator Monthly | 262 | **2.4%** |
+| Pro+ Monthly | 137 | **1.3%** |
+| Enterprise Business Yearly | 89 | **0.8%** |
+
+**88% of plan-clickers click 2+ different plans**, confirming heavy comparison-shopping behavior at the plan screen. Users aren't just clicking one plan and moving on — they're actively evaluating multiple options before deciding.
+
+The remaining **57.4% who don't click "View Pricing"** fall into two groups: 43.7% navigate elsewhere on the site (mostly to browse content), and an estimated ~13-14% leave the site entirely without any interaction. Combined with the scroll depth data (39% don't scroll past 5%), a meaningful portion of these non-engagers likely never see the persona cards at all.
+
+---
+
+## Where They Drop Off — REVISED
+
+The full persona-card-based conversion funnel within a **7-day window** reveals two distinct chokepoints:
+
+**Pricing Page → View Pricing → Persona → Plan → Subscribed**
+
+- 15,285 → 6,649 → 6,360 → 5,660 → 412
+
+| Step | Step Conv. | Cumulative Conv. | Avg Time |
+| --- | --- | --- | --- |
+| Pricing Page → Click "View Pricing" | **43.5%** | 43.5% | ~42 sec |
+| View Pricing → Select Persona | **95.7%** | 41.6% | ~9 sec |
+| Select Persona → Click Plan | **89.0%** | 37.0% | ~15 sec |
+| Click Plan → Subscribe | **7.3%** | **2.7%** | ~9.5 hours |
+| **Overall: Pricing → Subscribed** | — | **2.7%** | — |
+
+Within a **30-minute same-session window**, the persona-through-plan flow performs almost identically (42.6% → 95.5% → 88.5%), but plan-to-subscribe drops to 5.3% (290 conversions). This means **70% of pricing-driven subscriptions happen in the same session**, with the remaining 30% converting within 1-7 days.
+
+**The two real leaks are now clearly identifiable:**
+
+**Leak #1 — Top of page: 56.5% never click "View Pricing"** (~8,636 users). This aligns directly with the scroll depth data showing 39% bounce without scrolling past 5% and 56% don't reach 20% scroll depth. The persona cards may not be visible or compelling enough above the fold for a majority of visitors. These users are landing, seeing the hero area, and leaving without ever engaging with the pricing flow.
+
+**Leak #2 — Plan screen to checkout: 92.7% of plan-clickers don't subscribe** (5,660 users saw plans, only 412 subscribed). This is the largest absolute opportunity. These users demonstrated clear purchase intent — they clicked a coverage type, chose a persona, reviewed plans with pricing — and still didn't convert. Something at or after the plan selection screen is losing them. Potential causes include price objection after seeing actual numbers, confusion about plan differences, friction in the checkout/sign-up process, or the need to create an account before purchasing.
+
+**What's NOT broken:** The middle of the funnel. The persona card → persona selection → plan selection flow converts at 95.7% and 89.0% respectively — these steps are working extremely well. Users who engage with the first card are almost guaranteed to complete the entire pricing discovery experience. Optimization efforts should focus on the two ends, not the middle.
+
+**Plan-level conversion rates reveal further nuance:**
+
+| Plan | Clicks → Subscribed | Conv. Rate | Avg Time to Subscribe |
+| --- | --- | --- | --- |
+| Creator Monthly | 323 → 116 | **35.9%** | ~2.4 hours |
+| Pro+ Monthly | 209 → 31 | **14.8%** | ~2.5 hours |
+| Enterprise Business Yearly | 110 → 15 | **13.6%** | ~14.8 hours |
+| Pro Monthly | 1,977 → 256 | **12.9%** | ~10.3 hours |
+| Pro+ Yearly | 1,034 → 112 | **10.8%** | ~11.7 hours |
+| Pro Yearly | 5,464 → 397 | **7.3%** | ~11.3 hours |
+| Creator Yearly | 1,942 → 137 | **7.1%** | ~7.3 hours |
+| Enterprise Business Quarterly | 1,799 → 107 | **5.9%** | ~12.5 hours |
+
+Monthly plans consistently convert at **2-5x the rate** of their yearly equivalents, and convert faster (~2.5 hours vs. ~10-12 hours). The highest-volume plan (Pro Yearly at 5,464 clicks) has one of the lower conversion rates at 7.3%, while Creator Monthly — the lowest price point — converts at 35.9% despite getting the fewest clicks (323). This suggests lower upfront commitment significantly reduces the final conversion barrier, and that more prominent monthly pricing could improve overall conversion at the potential expense of initial ACV.
+
+A few standout patterns:
+
+**Creator Monthly has by far the highest conversion rate (35.9%)** but the lowest click volume (323). These are users who want the cheapest entry point and convert fast (~2.4 hours). The low click volume suggests not many personas are being routed to this plan, or it's not prominently featured.
+
+**Monthly plans convert at 2-5x the rate of their yearly equivalents.** Pro Monthly converts at 12.9% vs. Pro Yearly at 7.3%. Pro+ Monthly at 14.8% vs. Pro+ Yearly at 10.8%. Users are more willing to commit to a lower upfront cost, and they do it faster (2-3 hours vs. 10-12 hours for annual plans).
+
+**Pro Yearly is the highest-volume plan click (5,464) but converts at only 7.3%.** This is likely the "default" or most-promoted plan, attracting a lot of window-shoppers. It's also worth noting that 5,464 people clicked Pro Yearly but the entire pricing page only produced 429 total subscriptions — so the vast majority of Pro Yearly clickers go somewhere else.
+
+**88% of plan-clickers click 2+ different plans** — nearly everyone is comparison-shopping across plans before deciding. This is healthy behavior but also suggests the plan differentiation or value proposition at the plan screen may need work to help users commit.
+
+---
+
+## Coverage Split: Individual vs. Business
+
+The "View Pricing" button clicks split 76% Individual / 24% Business — with about 10% of individual card clickers also exploring the business card. This cross-shopping suggests some users aren't sure which category they belong in, which could indicate the card descriptions or persona labels need more clarity.
+
+## Additional Breakdown for Users Exploring both Individual and Business plans
+
+## Cross-Shopper Email Domain Analysis
+
+Of the **1,157 users** who clicked both Individual and Business pricing cards:
+
+| Segment | Users | % of Cohort |
+| --- | --- | --- |
+| **Anonymous (no email)** | 677 | **58.5%** |
+| **Free email domain** (Gmail, Yahoo, etc.) | 289 | **25.0%** |
+| **Business email domain** | 178 | **15.3%** |
+| Apple Private Relay / typos | 14 | 1.2% |
+
+So right away — **83.5% of cross-shoppers are either anonymous or using free email**, meaning we can't use email alone to determine if they're "really" a business. Only 15.3% have identifiable business domains.
+
+### Breaking Down the 178 Business Email Users
+
+| Category | Users | % of Biz Emails | Examples |
+| --- | --- | --- | --- |
+| **Other small businesses** | 70 | 39.3% | Consulting firms, landscaping, restaurants, SaaS startups, marketing agencies |
+| **Media / Production / Creative** | 36 | 20.2% | Video production houses, photography studios, multimedia agencies |
+| **Churches / Nonprofits** | 35 | 19.7% | Churches, religious orgs, nonprofits, healthcare orgs |
+| **Freelancer / Personal brand** | 16 | 9.0% | Solo photographers, filmmakers with personal domains |
+| **Corporate / Enterprise** | 13 | 7.3% | Boehringer-Ingelheim, Mahle, Keller Knapp, Real Mushrooms |
+| **Education** | 8 | 4.5% | Universities, school districts |
+|  |  |  |  |
+
+## Cross-Shopper Conversion: Business Email Users
+
+Of the 178 business email users who clicked both Individual and Business pricing cards, **5 went on to create a subscription** (2.8% conversion rate, roughly in line with the overall pricing page conversion rate).
+
+| Name | Domain | Category | Plan Chosen |
+| --- | --- | --- | --- |
+| Al Hammond | awakenfilms.net | Media/Production | **Pro (Yearly)** |
+| Scott Patterson | lifeshighlights.net | Media/Production | **Pro (Monthly)** |
+| Colin Mason | mirandumpictures.com | Media/Production | **Pro (Monthly)** |
+| J. Mays | seared.show | Other Business | **Pro (Monthly)** |
+| Nicolas Brooks | geyser.media | Media/Production | **Pro (Monthly)** |
+
+**Every single converter chose an Individual plan** — 4 on Pro Monthly, 1 on Pro Yearly. None chose an Enterprise Business plan. And 4 of the 5 are small media/production companies — exactly the kind of business that likely *should* be on an Individual plan since they're essentially solo operators or very small teams using a business domain.
+
+No transactional license purchases or add-ons from this group either.
+
+**The takeaway reinforces the earlier finding:** These cross-shoppers aren't misrouted users who belong on Business plans. They're small creative professionals who correctly end up on Individual plans after checking both options. The cross-shopping is a moment of uncertainty, not a routing failure.
+
+**One caveat:** 143 of the 178 business email users had device IDs (anonymous browsing) rather than logged-in account IDs. Some of those could have later created accounts and converted under a different distinct_id that doesn't link back to this cohort. So 5 is a floor, not a ceiling — but given how few of the identified accounts converted to Business plans (zero), the pattern would likely hold even with complete tracking.
+
+### The Key Takeaway: Most Cross-Shoppers Are Confused, Not Miscategorized
+
+**Only 13 users (7.3% of business-email holders, ~1.1% of the full cohort) are from clearly enterprise/corporate organizations** — the kind of users who should definitively be on a Business plan. The rest fall into a gray area:
+
+The **churches, nonprofits, and small media companies** (71 users combined) are the most interesting group. These organizations likely *do* need multi-seat licensing or broader coverage, but they may not self-identify as "Business" — they're small teams that feel more like individuals. The persona card labels probably don't speak to them. A church media director or a 3-person production house might click "Individual" first, realize it doesn't fit, then explore "Business" to compare.
+
+The **freelancers with personal brand domains** (16 users) are almost certainly Individual plan customers who are just curious about business pricing — they're correctly starting on Individual but peeking at Business to make sure they're not missing something.
+
+The **289 free-email users** (Gmail, Yahoo, etc.) are the biggest group with any identity signal, and they skew heavily personal — 237 of them are Gmail. These are most likely individual creators who clicked "Business" out of curiosity or uncertainty, not because they need enterprise licensing.
+
+**Bottom line:** The cross-shopping behavior appears to be driven more by **unclear card descriptions** than by users genuinely belonging on the wrong plan. The ambiguous middle — churches, nonprofits, small production studios — is where clearer messaging about "who this is for" would help the most. Something like "Teams of 2+" or "Need licenses for employees?" on the Business card could reduce the confusion without requiring these users to click through and compare.
+
+---
+
+## Distinguishing Behaviors for Converters vs Non-Converters who visit the Pricing Page
+
+## 1. Repeat Pricing Visits Are the Strongest Conversion Signal
+
+This is the single most predictive behavior in the data:
+
+| Pricing Page Views | Users | Subscription Conv. Rate |
+| --- | --- | --- |
+| 1 view only | ~10,590 | ~1.8% (est.) |
+| 2+ views | 4,668 (30.6%) | **5.0%** |
+| 3+ views | 878 (5.8%) | **14.6%** |
+
+Users who come back to pricing 3+ times within 7 days convert at **5x the overall rate**. This tells you converters are comparison-shopping — they look at pricing, go browse content, come back to pricing, browse more, and return again before committing. The average time between pricing views is ~4.5 hours for the 2nd visit and ~10 hours for the 3rd, suggesting these are spread across multiple sessions over days, not a single session.
+
+Non-converters overwhelmingly view pricing once and never return.
+
+---
+
+## 2. Converters Engage with Content Before (and Between) Pricing Visits
+
+Among pricing visitors who played at least one song within 7 days, **5.0% subscribed** — nearly 2x the overall rate. But the pattern goes deeper when you look at the full journey:
+
+**Pricing → Played Song → Sign-Up Form → Signed Up → Subscribed:**
+
+- 15,258 → 2,714 (17.8%) → 633 (23.3% of players) → 134 (21.2%) → 20 (14.9%)
+
+The key insight: once someone plays a song **and** views the sign-up form, their conversion rate to actually signing up is 21%. And of those who sign up after playing songs, 15% subscribe. Compare that to the overall funnel where only 7.6% ever reach the sign-up form at all.
+
+Song search also correlates — 12.4% of pricing visitors searched for songs, and searchers subscribed at 3.7% (vs. 2.8% overall). Favoriting a song is an even stronger signal: only 2.3% of pricing visitors favorited a song, but those who did subscribed at **6.1%**.
+
+Non-converters overwhelmingly view pricing and leave without ever interacting with the music catalog.
+
+---
+
+## 3. Existing Account Holders (Sign-In Path) Convert at 3x the Rate
+
+Two distinct converter paths emerged:
+
+**New user path** (Pricing → Sign Up → Subscribe): 597 users signed up, 64 subscribed = **10.7% conversion from sign-up to subscription**. Average time from pricing to subscription: ~15 hours.
+
+**Returning user path** (Pricing → Sign In → Subscribe): 578 users signed in, 50 subscribed = **8.7% conversion from sign-in to subscription**. Average time: ~30 hours.
+
+Both paths convert much better than the average (2.8%), but the new user path actually edges out returning users slightly. The bigger story is that **these two groups account for ~114 of the 429 subscriptions** — meaning the remaining ~315 converters were already logged in when they visited pricing (they didn't need to sign in or sign up during the window).
+
+This implies the majority of converters are **existing free account holders** who are already authenticated and browsing the platform regularly.
+
+---
+
+## 4. Desktop/Mac Users Over-Index Heavily Among Converters
+
+| Platform | % of Pricing Visitors | % of Subscribers | Implied Conv. Rate |
+| --- | --- | --- | --- |
+| Mac | 34% | **63.6%** | ~5.2% |
+| Windows | 31% | **28.8%** | ~2.6% |
+| Linux | 19% | ~0% | Near 0% |
+| iOS (mobile) | 9% | **4.8%** | ~1.5% |
+| Android | 6% | **2.2%** | ~1.0% |
+
+Mac users convert at roughly **2x the rate** of Windows users and **5x the rate** of mobile users. Linux traffic (19% of pricing visitors!) has virtually zero conversion — this is likely bot or scraper traffic, which is worth investigating.
+
+Mobile in general converts poorly from pricing — only ~6-7% of subscriptions come from mobile despite making up ~15% of pricing traffic. This suggests the pricing page may not be optimized for mobile checkout, or that mobile users are doing initial research but converting later on desktop.
+
+---
+
+## 5. Traffic Source: Direct/Organic and Google Convert Best
+
+| Source | % of Pricing Visitors | % of Subscribers | Conv. Rate |
+| --- | --- | --- | --- |
+| Direct/Organic (no UTM) | 65% | **72%** | ~3.1% |
+| Google (organic) | 25% | **13%** | ~1.5% |
+| Adwords | ~0.1% | **9%** | Very high (small n) |
+| Bing | 3% | **3.4%** | ~3.0% |
+
+Direct/organic traffic converts at the highest rate in absolute terms. Adwords has a disproportionately high share of conversions relative to its small traffic volume (only 11 visitors to pricing but 37 subscriptions overall in Jan — meaning adwords users may not always visit pricing before subscribing). ChatGPT referrals, while interesting, only produced 4 subscriptions from 203 pricing visitors (~2%).
+
+---
+
+## 6. Geography: US Dominates Conversion, International Traffic Mostly Window-Shops
+
+| Country | % of Pricing Visitors | % of Subscribers | Conv. Rate |
+| --- | --- | --- | --- |
+| US | 42% | **66.8%** | ~4.5% |
+| Australia | 3.2% | **6.0%** | ~5.3% |
+| UK | 4.8% | **5.6%** | ~3.3% |
+| Canada | 4.8% | **5.6%** | ~3.3% |
+| Germany | 13.5% | **1.5%** | ~0.3% |
+| Netherlands | 7.1% | **0.5%** | ~0.2% |
+| India | 2.8% | **0.2%** | ~0.2% |
+
+The English-speaking markets (US, AU, UK, CA) account for **~84% of all conversions** despite being only ~55% of pricing traffic. Germany and the Netherlands together make up **20.6% of pricing visitors but only 2% of conversions** — this traffic is almost entirely non-converting. It may be worth investigating whether this is bot traffic or whether localization/currency issues are creating friction.
+
+---
+
+## 7. The Transactional License Buyer Profile
+
+The 43 transactional license purchasers followed a distinct path — **100% of them viewed the Cart Slideout** before purchasing, with a 17.1% cart-to-purchase conversion rate. Average time from pricing to license purchase was ~22 hours, suggesting they browse, evaluate, and come back. This is a smaller but important segment with a very clear behavioral funnel.
+
+---
+
+## Summary: What Converters Do Differently
+
+The composite converter profile is someone who:
+
+1. **Visits pricing multiple times** (3+ views = 14.6% conv. rate vs. 2.8% baseline)
+2. **Plays songs between pricing visits** (song players convert at 5%)
+3. **Favorites or searches for specific content** (favoriting = 6.1% conv.)
+4. **Is on a Mac/desktop** (63% of converters, converting at 5.2%)
+5. **Is in the US or English-speaking market** (84% of conversions)
+6. **Already has a free account** or creates one quickly after first pricing visit
+7. **Converts within ~15-30 hours** of their first pricing view, not instantly
+
+The non-converter profile is the mirror image: single pricing visit, no content engagement, mobile or Linux device, international (especially Germany/Netherlands), and no return visit.
+
+The strategic implication is clear — the pricing page alone doesn't convert. It's the **pricing → content exploration → return to pricing loop** that drives conversion. Anything you can do to pull people from pricing into the music catalog (and then back to pricing) would likely have the biggest impact on conversion rates.

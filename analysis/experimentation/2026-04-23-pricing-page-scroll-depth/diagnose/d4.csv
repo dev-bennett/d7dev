@@ -1,0 +1,31 @@
+PAGE_CATEGORY,EVENT,EVENT_COUNT,DISTINCT_USERS
+signup,Viewed Page,11418,9282
+signup,$mp_web_page_view,10186,8406
+signup,Viewed Sign Up Form,10178,8947
+signup,$mp_click,7329,4501
+signup,Signed Up,2482,2430
+signup,free_account_registration,2287,2239
+signup,Display Element,399,300
+signup,Clicked Element,147,129
+signup,Played Song,91,73
+signup,Viewed Modal,59,49
+signup,Clicked Sign Up Link,54,52
+signup,Added Team Member,48,37
+signup,Viewed Purchase Page,26,13
+signup,$mp_rage_click,24,17
+signup,Signed In,23,23
+signup,Clicked Payment Method,19,4
+signup,Searched Songs,14,8
+signup,Viewed Banner,12,12
+signup,Viewed Dashboard Page,11,10
+signup,Clicked Download Song,7,5
+signup,Viewed Sign In Form,5,5
+signup,Viewed Pricing Page,4,3
+signup,Viewed Song Page,3,2
+signup,Searched Sound Effects,3,2
+signup,Downloaded Song Preview,3,1
+signup,Viewed Curated Music Playlists Page,3,3
+signup,Coupon Succeeded,2,1
+signup,Favorited Song,2,2
+signup,Viewed Cart Slideout,2,2
+signup,Favorited Sound Effect,1,1

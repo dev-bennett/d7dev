@@ -1,0 +1,122 @@
+ROLLUP_DIM,WINDOW_LABEL,ROLLUP_VALUE,N,SHARE_OF_VISITORS
+channel,1_pre,(null/direct),14010,0.9136559280031303
+channel,1_pre,Paid Search,1105,0.07206208425720621
+channel,1_pre,Email,164,0.0106951871657754
+channel,1_pre,Affiliate,52,0.0033911569062214687
+channel,1_pre,Paid Social,3,0.0001956436676666232
+channel,2_post_2wk,(null/direct),6539,0.932012542759407
+channel,2_post_2wk,Paid Search,384,0.05473204104903079
+channel,2_post_2wk,Email,76,0.010832383124287344
+channel,2_post_2wk,Affiliate,17,0.0024230330672748005
+channel,3_post_8wk,(null/direct),25192,0.9317257193579407
+channel,3_post_8wk,Paid Search,1300,0.04808047932539389
+channel,3_post_8wk,Email,470,0.017382942525334715
+channel,3_post_8wk,Affiliate,76,0.0028108587913307195
+channel,4_post_8wk_clean,(null/direct),16745,0.9279064612656545
+channel,4_post_8wk_clean,Paid Search,859,0.04760057630499834
+channel,4_post_8wk_clean,Email,400,0.02216557685913776
+channel,4_post_8wk_clean,Affiliate,42,0.0023273855702094647
+country,1_pre,US,8013,0.5225642363375506
+country,1_pre,GB,884,0.057649667405764965
+country,1_pre,CA,872,0.056867092735098476
+country,1_pre,AU,609,0.03971566453632451
+country,1_pre,IN,493,0.03215077605321508
+country,1_pre,DE,429,0.027977044476327116
+country,1_pre,FR,219,0.014281987739663493
+country,1_pre,CN,194,0.012651623842441633
+country,1_pre,IT,178,0.011608190948219643
+country,1_pre,ES,168,0.010956045389330898
+country,1_pre,NL,163,0.010629972609886526
+country,1_pre,BR,152,0.009912612495108908
+country,2_post_2wk,US,3542,0.5048460661345496
+country,2_post_2wk,CA,417,0.05943557582668187
+country,2_post_2wk,GB,393,0.056014823261117445
+country,2_post_2wk,AU,325,0.046322690992018245
+country,2_post_2wk,IN,236,0.033637400228050174
+country,2_post_2wk,DE,215,0.0306442417331813
+country,2_post_2wk,FR,100,0.014253135689851768
+country,2_post_2wk,IT,87,0.012400228050171038
+country,2_post_2wk,BR,84,0.011972633979475485
+country,2_post_2wk,PH,78,0.011117445838084378
+country,2_post_2wk,NL,73,0.01040478905359179
+country,2_post_2wk,PL,73,0.01040478905359179
+country,3_post_8wk,US,13804,0.5105407204674902
+country,3_post_8wk,GB,1489,0.05507064131962423
+country,3_post_8wk,CA,1425,0.05270360233745099
+country,3_post_8wk,AU,1255,0.046416155041053335
+country,3_post_8wk,IN,973,0.0359863895258525
+country,3_post_8wk,DE,734,0.02714697832679932
+country,3_post_8wk,FR,378,0.013980323988460684
+country,3_post_8wk,BR,327,0.012094089799541387
+country,3_post_8wk,IT,322,0.011909164879059101
+country,3_post_8wk,NL,293,0.010836600340261853
+country,3_post_8wk,PL,287,0.010614690435683112
+country,3_post_8wk,PH,281,0.010392780531104371
+country,4_post_8wk_clean,US,9226,0.5112490302560124
+country,4_post_8wk_clean,GB,1017,0.05635597916435775
+country,4_post_8wk_clean,CA,971,0.05380693782555691
+country,4_post_8wk_clean,AU,832,0.04610439986700654
+country,4_post_8wk_clean,IN,618,0.03424581624736784
+country,4_post_8wk_clean,DE,503,0.02787321290036573
+country,4_post_8wk_clean,FR,248,0.013742657652665411
+country,4_post_8wk_clean,BR,231,0.012800620636152055
+country,4_post_8wk_clean,IT,204,0.011304444198160258
+country,4_post_8wk_clean,NL,190,0.010528649008090436
+country,4_post_8wk_clean,PL,189,0.01047323506594259
+country,4_post_8wk_clean,PH,176,0.009752853818020614
+device,1_pre,(desktop),12841,0.8374201121690361
+device,1_pre,iPhone (smartphone),1345,0.08771357767053606
+device,1_pre,(smartphone),930,0.060649536976653186
+device,1_pre,iPad (tablet),77,0.005021520803443328
+device,1_pre,(),63,0.004108517020999087
+device,1_pre,(tablet),24,0.0015651493413329856
+device,1_pre,Galaxy A51 (smartphone),2,0.00013042911177774878
+device,1_pre,Galaxy S24 Ultra (smartphone),2,0.00013042911177774878
+device,1_pre,Moto G Stylus 5G (smartphone),2,0.00013042911177774878
+device,1_pre,Find X5 (smartphone),2,0.00013042911177774878
+device,1_pre,CPH2705 (smartphone),1,0.00006521455588887439
+device,1_pre,F92 E 5G (smartphone),1,0.00006521455588887439
+device,2_post_2wk,(desktop),5899,0.8407924743443558
+device,2_post_2wk,iPhone (smartphone),559,0.07967502850627138
+device,2_post_2wk,(smartphone),448,0.06385404789053592
+device,2_post_2wk,(),42,0.0059863169897377425
+device,2_post_2wk,iPad (tablet),32,0.004561003420752566
+device,2_post_2wk,(tablet),10,0.0014253135689851768
+device,2_post_2wk,Mate 50 Pro (smartphone),2,0.00028506271379703536
+device,2_post_2wk,SM-A176B (smartphone),2,0.00028506271379703536
+device,2_post_2wk,A5 (smartphone),1,0.00014253135689851768
+device,2_post_2wk,iPhone 13 (phablet),1,0.00014253135689851768
+device,2_post_2wk,Moto E7 (smartphone),1,0.00014253135689851768
+device,2_post_2wk,Galaxy S7 (smartphone),1,0.00014253135689851768
+device,3_post_8wk,(desktop),21920,0.8107108513943339
+device,3_post_8wk,iPhone (smartphone),2443,0.09035431614764405
+device,3_post_8wk,(smartphone),2105,0.07785339152304165
+device,3_post_8wk,(),152,0.005621717582661439
+device,3_post_8wk,iPad (tablet),150,0.005547747614468526
+device,3_post_8wk,Galaxy S24 (smartphone),67,0.0024779939344626084
+device,3_post_8wk,(tablet),62,0.002293069013980324
+device,3_post_8wk,Galaxy S7 (smartphone),7,0.00025889488867519785
+device,3_post_8wk,iPhone 12 (phablet),5,0.0001849249204822842
+device,3_post_8wk,iPhone 15 Pro (phablet),4,0.00014793993638582736
+device,3_post_8wk,Galaxy S23 Ultra (smartphone),3,0.00011095495228937051
+device,3_post_8wk,iPhone 14 Pro (phablet),3,0.00011095495228937051
+device,4_post_8wk_clean,(desktop),14487,0.8027817798958218
+device,4_post_8wk_clean,iPhone (smartphone),1714,0.0949794968414053
+device,4_post_8wk_clean,(smartphone),1467,0.08129225313088773
+device,4_post_8wk_clean,iPad (tablet),94,0.005208910561897373
+device,4_post_8wk_clean,(),89,0.004931840851158152
+device,4_post_8wk_clean,Galaxy S24 (smartphone),67,0.0037127341239055747
+device,4_post_8wk_clean,(tablet),46,0.002549041338800842
+device,4_post_8wk_clean,Galaxy S7 (smartphone),7,0.0003878975950349108
+device,4_post_8wk_clean,iPhone 12 (phablet),4,0.0002216557685913776
+device,4_post_8wk_clean,iPhone 15 Pro (phablet),3,0.0001662418264435332
+device,4_post_8wk_clean,Quest 3 (wearable),2,0.0001108278842956888
+device,4_post_8wk_clean,Mi 11 (smartphone),2,0.0001108278842956888
+existing_sub,1_pre,non_existing,11346,0.7399243511151689
+existing_sub,1_pre,existing,3988,0.2600756488848311
+existing_sub,2_post_2wk,non_existing,4917,0.7008266818700114
+existing_sub,2_post_2wk,existing,2099,0.2991733181299886
+existing_sub,3_post_8wk,non_existing,18137,0.6707966565574377
+existing_sub,3_post_8wk,existing,8901,0.3292033434425623
+existing_sub,4_post_8wk_clean,non_existing,11905,0.6597029812700875
+existing_sub,4_post_8wk_clean,existing,6141,0.34029701872991247

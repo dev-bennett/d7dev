@@ -1,0 +1,81 @@
+WINDOW_LABEL,EVENT,SOURCE_PATH,CONTEXT,LINK_TEXT,EVENT_COUNT,DISTINCT_USERS
+1_pre,Clicked Element,pricing,Persona Pricing Page,(null),113422,8644
+1_pre,Clicked Element,join,Persona Pricing Page,(null),1321,122
+1_pre,Clicked Element,royalty-free-music,Audio Player CTA,(null),441,109
+1_pre,Clicked Pricing Link,"",Footer,Pricing,439,93
+1_pre,Clicked Element,checkout,Persona Pricing Page,(null),205,33
+1_pre,Clicked Pricing Link,help,Header,Pricing,136,31
+1_pre,Clicked Pricing Link,pricing,Footer,Pricing,131,31
+1_pre,Clicked Element,royalty-free-music,Persona Pricing Page,(null),91,21
+1_pre,Clicked Element,pricing,Audio Player CTA,(null),82,22
+1_pre,Clicked Element,"",Persona Pricing Page,(null),73,20
+1_pre,Clicked Element,"",Audio Player CTA,(null),62,15
+1_pre,Clicked Element,sound-effects,Persona Pricing Page,(null),54,12
+1_pre,Clicked Pricing Link,podcast-music,Header,Pricing,44,10
+1_pre,Clicked Pricing Link,youtube,Header,Pricing,36,7
+1_pre,Clicked Pricing Link,adobe-premiere-pro,Header,Pricing,33,5
+1_pre,Clicked Pricing Link,artists,Header,Pricing,32,7
+1_pre,Clicked Element,my_media/favorites/music,Audio Player CTA,(null),26,6
+1_pre,Clicked Pricing Link,partners,Header,Pricing,22,5
+1_pre,Clicked Pricing Link,twitch-extension,Header,Pricing,21,5
+1_pre,Clicked Pricing Link,coupons,Header,Pricing,21,6
+1_pre,Clicked Element,royalty-free-music/mood/fun,Audio Player CTA,(null),20,5
+1_pre,Clicked Pricing Link,podcasts,Header,Pricing,18,3
+1_pre,Clicked Pricing Link,why-soundstripe,Header,Pricing,17,4
+1_pre,Clicked Pricing Link,music-for-creators,Footer,Pricing,15,2
+1_pre,Clicked Pricing Link,adobe-premiere-pro,Footer,Pricing,13,2
+1_pre,Clicked Pricing Link,podcast-music,Footer,Pricing,13,2
+1_pre,Clicked Element,account/billing,Audio Player CTA,(null),13,3
+1_pre,Clicked Element,checkout,Audio Player CTA,(null),13,3
+1_pre,Clicked Element,license_checkout,Audio Player CTA,(null),12,4
+1_pre,Clicked Pricing Link,help,Footer,Pricing,11,3
+1_pre,Clicked Element,royalty-free-music/mood/suspenseful,Audio Player CTA,(null),11,2
+1_pre,Clicked Element,licenses/music,Persona Pricing Page,(null),10,1
+1_pre,Clicked Element,account/billing,Persona Pricing Page,(null),10,2
+1_pre,Clicked Element,royalty-free-music/mood/chill,Audio Player CTA,(null),10,3
+1_pre,Clicked Element,royalty-free-music/genre/electronic,Audio Player CTA,(null),10,2
+1_pre,Clicked Element,playlists/music/54,Audio Player CTA,(null),10,2
+1_pre,Clicked Element,royalty-free-music/instrument/piano,Audio Player CTA,(null),10,2
+1_pre,Clicked Element,sign_in,Persona Pricing Page,(null),9,2
+1_pre,Clicked Element,songs/12736,Audio Player CTA,(null),8,1
+1_pre,Clicked Element,songs/18007,Persona Pricing Page,(null),8,1
+4_post_8wk_clean,Clicked Element,library/pricing,Persona Pricing Page,(null),49989,5849
+4_post_8wk_clean,Clicked Element,pricing,Persona Pricing Page,(null),24506,2098
+4_post_8wk_clean,Clicked Element,library,Discover Page Banner,(null),1750,451
+4_post_8wk_clean,Clicked Element,library/join,Persona Pricing Page,(null),517,59
+4_post_8wk_clean,Clicked Element,join,Persona Pricing Page,(null),326,31
+4_post_8wk_clean,Clicked Element,library/,Discover Page Banner,(null),289,73
+4_post_8wk_clean,Clicked Element,library/royalty-free-music,Audio Player CTA,(null),279,72
+4_post_8wk_clean,Clicked Pricing Link,library,Footer,Pricing,179,46
+4_post_8wk_clean,Clicked Sign Up Button,library/royalty-free-music,Header,See Pricing,178,40
+4_post_8wk_clean,Clicked Element,library/checkout,Persona Pricing Page,(null),146,31
+4_post_8wk_clean,Clicked Element,library/pricing,Discover Page Banner,(null),145,31
+4_post_8wk_clean,Clicked Sign Up Button,library,Header,See Pricing,140,37
+4_post_8wk_clean,Clicked Pricing Link,library/pricing,Footer,Pricing,118,31
+4_post_8wk_clean,Clicked Element,library/royalty-free-music,Persona Pricing Page,(null),71,16
+4_post_8wk_clean,Clicked Sign Up Button,library/pricing,Header,See Pricing,65,15
+4_post_8wk_clean,Clicked Element,royalty-free-music,Audio Player CTA,(null),63,15
+4_post_8wk_clean,Clicked Element,library/pricing,Audio Player CTA,(null),61,17
+4_post_8wk_clean,Clicked Element,library,Audio Player CTA,(null),59,15
+4_post_8wk_clean,Clicked Element,library,Persona Pricing Page,(null),55,13
+4_post_8wk_clean,Clicked Element,library/sound-effects,Persona Pricing Page,(null),51,13
+4_post_8wk_clean,Clicked Pricing Link,"",Footer,Pricing,50,13
+4_post_8wk_clean,Clicked Element,checkout,Persona Pricing Page,(null),43,12
+4_post_8wk_clean,Clicked Pricing Link,artists,Header,Pricing,34,9
+4_post_8wk_clean,Clicked Element,pricing,Audio Player CTA,(null),32,10
+4_post_8wk_clean,Clicked Sign Up Button,library/sound-effects,Header,See Pricing,30,7
+4_post_8wk_clean,Clicked Pricing Link,pricing,Footer,Pricing,28,7
+4_post_8wk_clean,Clicked Pricing Link,youtube,Header,Pricing,28,7
+4_post_8wk_clean,Clicked Sign Up Button,library/my_media/favorites/music,Header,See Pricing,27,6
+4_post_8wk_clean,Clicked Element,"",Audio Player CTA,(null),16,5
+4_post_8wk_clean,Clicked Element,music-licensing-for-enterprise,Persona Pricing Page,(null),16,3
+4_post_8wk_clean,Clicked Pricing Link,partners,Header,Pricing,15,3
+4_post_8wk_clean,Clicked Element,library/my_media/favorites/music,Audio Player CTA,(null),15,4
+4_post_8wk_clean,Clicked Pricing Link,library/warner-chappell-production-music,Footer,Pricing,13,3
+4_post_8wk_clean,Clicked Pricing Link,podcast-music,Header,Pricing,12,3
+4_post_8wk_clean,Clicked Element,library/checkout,Audio Player CTA,(null),12,3
+4_post_8wk_clean,Clicked Pricing Link,library/,Footer,Pricing,11,3
+4_post_8wk_clean,Clicked Element,sound-effects,Persona Pricing Page,(null),10,2
+4_post_8wk_clean,Clicked Pricing Link,podcasts,Header,Pricing,9,2
+4_post_8wk_clean,Clicked Sign Up Button,library/license_checkout,Header,See Pricing,9,2
+4_post_8wk_clean,Clicked Element,library/playlists/music,Persona Pricing Page,(null),9,2

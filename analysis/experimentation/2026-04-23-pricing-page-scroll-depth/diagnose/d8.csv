@@ -1,0 +1,89 @@
+PROPERTY_NAME,PROPERTY_VALUE,N
+cta_id,(null),285368
+cta_name,(null),285368
+element,View Pricing,64857
+element,Modal: Close Persona Pricing Modal,48570
+element,Open Interval dropdown,21804
+element,View Single-use Licenses,21379
+element,Interval dropdown option,16864
+element,Youtuber/Content Creator,16525
+element,View Subscriptions,12560
+element,Student/Hobbyist,11568
+element,Standard Coverage,9607
+element,Freelancer,9495
+element,Plan tier toggle,8716
+element,Checkout Button,7475
+element,Pro Yearly,5668
+element,Other,5202
+element,(null),4457
+element,Extended Coverage,2863
+element,Podcast,2430
+element,Wedding Filmmaker,2009
+element,Personal Monthly,1798
+element,Personal Yearly,1757
+element,Pro Plus Yearly,1237
+element,Pro Monthly,1200
+element,Pro Yearly with Warner Chappell Production Music,952
+element,Business Quarterly,915
+element,Business Yearly,660
+element,Check Out The Music,534
+element,Cart,511
+element,Billing,424
+element,Profile,393
+element,Close,369
+element,dismiss,304
+element,Subscription,273
+element,My Media - Favorites,207
+element,My Media - Downloads,199
+element,Pro Monthly with Warner Chappell Production Music,131
+element,Pro Plus Monthly,113
+element,open_license_slideout,99
+element,My Media - Projects,99
+element,Pro Plus with Warner Chappell Production Music Yearly,96
+element,App Version Banner,91
+element,open_pricing_page,82
+element,Live Chat,79
+element,Open LicensingContactModal,79
+element,Select Time,73
+element,Checkout,70
+element,My Media - Playlists,64
+element,Copyright Claims,55
+element,Add to Cart,51
+element,See Your Options,48
+element,Extensions,41
+element,Browse Music,41
+element,select personal,36
+element,Pro Plan,33
+element,select digital,29
+element,Monthly,23
+element,Remove from Cart,21
+element,open_sign_up_page,18
+element,API,15
+element,Download Song,12
+element,My Media - Following,11
+element,Select Plan,11
+element,Subscribe to Pro,10
+element,deselect digital,10
+element,Pro Plus with Warner Chappell Production Music Monthly,10
+element,Song Link,8
+element,Yearly,5
+element,Team,5
+element,deselect expanded,5
+element,Purchase License,5
+element,Quarterly,5
+element,Similar Songs Button,2
+element_text,(null),285090
+element_text,Add to Cart,99
+element_text,Become a Member,82
+element_text,Get a Free Quote,79
+element_text,Create a Free Account,18
+persona,(null),107703
+persona,Youtuber/Content Creator,58837
+persona,Freelancer,35631
+persona,Student/Hobbyist,25822
+persona,Standard Coverage,20151
+persona,Other,15705
+persona,Podcast,7367
+persona,Wedding Filmmaker,7123
+persona,"",4166
+persona,Extended Coverage,2863
