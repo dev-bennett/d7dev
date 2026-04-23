@@ -32,6 +32,23 @@ TYPE AUDIT -- [Query name]:
 
 **The JOIN type IS the denominator.** A LEFT JOIN preserves the left table population. An INNER JOIN restricts to the intersection. If declared and JOIN-implied denominators disagree, the query is wrong. No query advances without a passing Type Audit.
 
+### Step-rate nesting audit (funnel step rates)
+
+When a query computes step rates (step N numerator / step N-1 denominator) via LAG / LEAD / FIRST_VALUE over a UNION ALL of per-step CTEs, the numerator population MUST be a subset of the denominator population. Independent CTEs do not automatically nest — the SELECT DISTINCT that builds each step's population says nothing about whether the downstream population is contained in the upstream one.
+
+After writing any step-rate query, add to the Type Audit:
+
+```
+STEP NESTING AUDIT -- [Query name]:
+  Step N-1 population definition: [summary]
+  Step N population definition:   [summary]
+  Is step N population a subset of step N-1? [YES/NO + reasoning]
+  Enforcement: [INNER JOIN on (window,user) to prior step's CTE / predicate in WHERE / none]
+  RESULT: [PASS or FAIL]
+```
+
+Enforce nesting explicitly in the CTE chain: each step CTE should INNER JOIN (or filter against) the prior step's CTE on (window, distinct_id). Two independently-defined `SELECT DISTINCT` CTEs that happen to share a key do NOT count as nested. If the ratio is bigger than the published benchmark for the same metric by >2x, the nesting is almost certainly wrong. See `feedback_population_nesting_in_step_rates.md`.
+
 ## Query Efficiency (§13)
 
 - Check existing artifacts before writing new queries -- don't duplicate prior work

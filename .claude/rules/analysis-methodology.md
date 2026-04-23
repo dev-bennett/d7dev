@@ -86,6 +86,16 @@ This frame separates coverage hypotheses from preference hypotheses from misattr
 
 **Correction filter validation:** When building a filter to exclude contaminated data, validate against control periods before presenting results. If the corrected metric in the affected window is systematically higher or lower than both the pre-contamination and post-fix control periods, the filter is miscalibrated. Use all available prior query results to inform the filter — do not ignore dimensions (e.g., landing host, geo) that the data already exposed as relevant.
 
+## Attribution discipline: timing alignment + mechanism enumeration
+
+Before attributing a pre-vs-post window difference to any specific date, event, or mechanism, run both checks below. Failing either reduces the claim to "this analysis does not attribute the delta."
+
+**Timing alignment test.** Pre-vs-post window-level deltas hide the within-window timeline. If you attribute a delta to a specific date (e.g., a deploy, a config change), the weekly (or daily) series of the metric must show a discontinuity on/near that date. Draw the weekly series BEFORE committing to attribution. If the metric rose pre-deploy, plateaued, or stepped on a different date, the window-level attribution is unsupported. See `feedback_enumerate_mechanisms_before_attribution.md`.
+
+**Mechanism enumeration.** Before writing "X caused Y" / "Y is an X story" / "Y is explained by X", enumerate at least one alternative mechanism that would produce the same observed data. Explain how the data discriminates between them. If it does not, rewrite the claim as "the data is consistent with {X, alternative}; this analysis does not distinguish among them" and state what evidence would discriminate. Integrative / window-level decompositions do NOT substitute for weekly timing alignment — "aggregate X explains aggregate Y over the window" is not the same as "X drove Y at the timeline that matters." See `feedback_enumerate_mechanisms_before_attribution.md`.
+
+**Stakeholder benchmark cross-check.** If a stakeholder-provided document reports a prior value for a metric you are recomputing, explicitly compare your computed value to theirs in the Verify pass. Treat >2x gaps as failed sanity checks — likely a methodology bug, not a "definitional difference." Re-audit the query (particularly step-rate nesting per sql-snowflake.md) before publishing. See `feedback_cross_check_stakeholder_benchmarks.md`.
+
 ## Core Standards
 
 - Every analysis must state: question, methodology, data sources, limitations
