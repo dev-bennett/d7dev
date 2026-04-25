@@ -13,6 +13,10 @@ build/
 .pytest_cache/
 .mypy_cache/
 
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store
+
 # Analysis scratch work
 analysis/**/scratch/
 
