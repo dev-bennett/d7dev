@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_fct_creatives
+    description: >
+      LinkedIn creatives bridge used by stg_linkedin_ads_ad_performance_report.
+      creative_id is the numeric tail of the LinkedIn URN (id field from source).
+    columns:
+      - name: creative_id
+        description: Numeric tail of `creatives.id`, parsed via `split_part(id, ':', -1)`. Primary key.
+        tests:
+          - unique
+          - not_null
+      - name: campaign_id
+        description: Foreign key to stg_fct_campaigns.campaign_id.
+
+  - name: stg_linkedin_ads_creative_content
+    description: >
+      LinkedIn creative metadata feeder for dim_ad_content.linkedin_content.
+      creative_id must match the normalization used in stg_fct_creatives to
+      preserve the fct_ad_performance ↔ dim_ad_content join.
+    columns:
+      - name: creative_id
+        description: Numeric tail of `creatives.id`, parsed via `split_part(id, ':', -1)`. Primary key.
+        tests:
+          - unique
+          - not_null

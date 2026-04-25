@@ -1,0 +1,14 @@
+Fix LinkedIn creative_id normalization in staging
+
+right(id, 9) truncated the numeric tail of LinkedIn creative URNs once
+IDs grew past 9 digits in late 2025, which caused the INNER JOIN in
+stg_linkedin_ads_ad_performance_report to drop every 2026 analytics row
+and left fct_ad_performance showing zero LinkedIn spend for 2026.
+
+Replace with split_part(id, ':', -1) in stg_fct_creatives and
+stg_linkedin_ads_creative_content so both sides of the dim_ad_content ↔
+fct_ad_performance join use the LinkedIn URN's numeric tail. Add
+schema.yml with unique + not_null tests on creative_id for both models.
+
+Evidence and diagnostic queries:
+d7dev/etl/tasks/2026-04-22-linkedin-id-normalization-fix/findings.md
