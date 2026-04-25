@@ -1,0 +1,35 @@
+METRIC,BUCKET,UNITS
+a. stable_ids: arm count distribution,1,28852
+b. user_ids: arm count distribution (only logged-in),1,17363
+b. user_ids: arm count distribution (only logged-in),2,2216
+b. user_ids: arm count distribution (only logged-in),3,493
+c. user_ids: stable_id count distribution (identity sprawl),1,16471
+c. user_ids: stable_id count distribution (identity sprawl),10,13
+c. user_ids: stable_id count distribution (identity sprawl),106,1
+c. user_ids: stable_id count distribution (identity sprawl),11,6
+c. user_ids: stable_id count distribution (identity sprawl),12,4
+c. user_ids: stable_id count distribution (identity sprawl),13,2
+c. user_ids: stable_id count distribution (identity sprawl),14,3
+c. user_ids: stable_id count distribution (identity sprawl),15,3
+c. user_ids: stable_id count distribution (identity sprawl),16,1
+c. user_ids: stable_id count distribution (identity sprawl),17,1
+c. user_ids: stable_id count distribution (identity sprawl),18,2
+c. user_ids: stable_id count distribution (identity sprawl),2,2379
+c. user_ids: stable_id count distribution (identity sprawl),20,1
+c. user_ids: stable_id count distribution (identity sprawl),21,2
+c. user_ids: stable_id count distribution (identity sprawl),22,1
+c. user_ids: stable_id count distribution (identity sprawl),23,2
+c. user_ids: stable_id count distribution (identity sprawl),24,2
+c. user_ids: stable_id count distribution (identity sprawl),26,1
+c. user_ids: stable_id count distribution (identity sprawl),3,690
+c. user_ids: stable_id count distribution (identity sprawl),31,1
+c. user_ids: stable_id count distribution (identity sprawl),33,1
+c. user_ids: stable_id count distribution (identity sprawl),4,245
+c. user_ids: stable_id count distribution (identity sprawl),41,1
+c. user_ids: stable_id count distribution (identity sprawl),48,1
+c. user_ids: stable_id count distribution (identity sprawl),49,1
+c. user_ids: stable_id count distribution (identity sprawl),5,108
+c. user_ids: stable_id count distribution (identity sprawl),6,61
+c. user_ids: stable_id count distribution (identity sprawl),7,31
+c. user_ids: stable_id count distribution (identity sprawl),8,19
+c. user_ids: stable_id count distribution (identity sprawl),9,18

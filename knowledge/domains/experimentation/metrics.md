@@ -1,7 +1,11 @@
 # Experimentation Metrics
 
-Last updated: 2026-04-01
-Author: d7admin
+Last updated: 2026-04-20
+Author: d7admin (revised by Devon Bennett 2026-04-20)
+
+## Pulse-undercount caveat (open, 2026-04-20)
+
+Every metric below is read from Statsig Pulse, which applies Enforced 1:1 identifier mapping to the exposed population. Post-domain-consolidation stable_id sprawl currently causes ~13.5% of logged-in exposed user_ids to be dropped across `wcpm_pricing_test` (see `identifier-mapping-and-exclusions.md`). Until that finding is resolved, treat Pulse totals and per-arm counts as lower bounds, and treat arm-level comparisons as potentially biased if sprawl rates differ across arms. Stakeholder readouts for any Statsig-sourced metric should include this caveat explicitly.
 
 ## User-Level Experiment Metrics
 

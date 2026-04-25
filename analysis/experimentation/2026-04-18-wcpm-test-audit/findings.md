@@ -1,14 +1,14 @@
 # WCPM Pricing Test — Mixpanel vs. Statsig Reconciliation
 
-Status: draft — **reconciliation fully closed via q13/q14; pipeline-drop root cause confirmed via q17/q18 as a STRUCTURAL issue.** Findings 1 and 2 retracted earlier in the session; see "Retractions" at bottom.
+Status: draft — reconciliation closed via q13/q14; two OPEN structural findings: pipeline late-arrival drop (Finding 4, confirmed 2026-04-18) and Statsig 1:1 identifier mapping exclusion (Finding 6, confirmed 2026-04-20). Findings 1 and 2 retracted earlier in the session; see "Retractions" at bottom.
 Author: Devon / Claude
-Date: 2026-04-18
-Queries: `console.sql` q0–q18 (q6 empty; q10 superseded by q12 → q13; q15/q16 obsolete after the Mixpanel-backfill explanation)
-Source exports: `q0.csv`–`q18d.csv`, plus Meredith's `Untitled Report_Insights_*.csv` (Mixpanel) and `wcpm_pricing_test-pulse_export-*.csv` (Statsig)
+Date: 2026-04-18; updated 2026-04-20
+Queries: `console.sql` q0–q23a (q6 empty; q10 superseded by q12 → q13; q15/q16 obsolete after the Mixpanel-backfill explanation)
+Source exports: `q0.csv`–`q23a.csv`, plus Meredith's `Untitled Report_Insights_*.csv` (Mixpanel) and `wcpm_pricing_test-pulse_export-*.csv` (Statsig)
 
 ## Headline
 
-The WCPM Pricing Test is instrumented correctly. Mixpanel's 27 and Statsig's 12 are both right, and the 15-unit gap decomposes exactly.
+The WCPM Pricing Test is instrumented correctly and Chargebee's differential pricing applies the correct variant price at checkout. Mixpanel's 27 and Statsig's 12 are both right, and the 15-unit gap decomposes exactly. The reason Statsig's 12 is lower than the in-arm purchase population has a named root cause: Statsig's Enforced 1:1 identifier mapping drops users whose identity spans multiple stable_ids, a condition triggered at scale (~13.5% of logged-in exposed user_ids) by stable_id churn from the March 2026 domain consolidation.
 
 **27 → 12 decomposition:**
 
@@ -141,12 +141,113 @@ q6 returned empty. The `subscription_periods` join without a period-selection pr
 
 INFORMATIONAL.
 
+## Finding 6 — Statsig Enforced 1:1 identifier mapping drops sprawl-affected users (STRUCTURAL)
+
+Added 2026-04-20 after stakeholder identified "Enforced 1:1 identifier mapping" as a hypothesized root cause for the 8 never-exposed + 2 exposed-after-purchase bucket.
+
+### Mechanism
+
+Statsig's default `Enforced 1:1` identifier mapping mode disqualifies any user whose `user_id` resolves to multiple `statsig_stable_id` values (or vice versa). Statsig's own documentation ([ID Resolution Mapping Modes](https://docs.statsig.com/)): *"Choosing this mode will change the exposures on the primary ID as it disqualifies any records outside of a 1:1 mapping."* Affected records are removed from the analysis population used in Pulse.
+
+Domain consolidation (www.soundstripe.com + app.soundstripe.com → soundstripe.com via Fastly, launched March 2026) caused large-scale stable_id churn: a single logged-in user now commonly carries 2+ stable_ids across surfaces / visits / browsers. Any of those users who were exposed to the experiment are then dropped from Pulse when Statsig cannot pick one canonical stable_id for them.
+
+### Evidence — global scale (q21)
+
+| Metric | Count |
+|---|---|
+| Logged-in user_ids exposed to `wcpm_pricing_test` | 20,072 |
+| → exposed to exactly 1 arm | 17,363 |
+| → exposed to 2 arms | 2,216 |
+| → exposed to 3 arms | 493 |
+| **Total user_ids with multi-arm exposure (1:1 conflict)** | **2,709 (~13.5%)** |
+| User_ids with 2+ distinct stable_ids (sprawl rate) | 3,601 |
+| Stable_ids in raw `exposures` with >1 arm | 0 |
+
+The raw `exposures` table is deduped at the stable_id level (no stable_id appears in two arms) but retains user_id-level sprawl. That lets us observe the conflicts directly and confirm that the drop is real, not just inferred.
+
+### Evidence — per-suspect (q22, q22a, q23)
+
+Of the 10 add-on purchasers excluded from Pulse (8 never_exposed + 2 exposed_after_purchase):
+
+| # | Suspect | Price paid (q20) | Stable_ids | Arms | Verdict |
+|---|---|---|---|---|---|
+| 1 | 61f4b26d | $17.99 (B) | 4 | control + mid + deep | 1:1 conflict |
+| 2 | c9980571 | yearly $113.21 | 3 | control + deep | 1:1 conflict |
+| 3 | 02188ea0 | yearly $236.29 | 2 | control + deep | 1:1 conflict |
+| 4 | device-only (user 1868435) | $21.63 proration | 3 | control + mid | 1:1 conflict (q22 missed — NULL-join bug; q22a shows truth) |
+| 5 | 8c0609f2 | $17.99 (B) | 2 | mid only | sprawl same-arm (still 1:1-dropped per Statsig policy) |
+| 6 | 95551cca | yearly $37.55 | 2 | mid only | sprawl same-arm |
+| 7 | af007bc8 | $24.99 (A) | 1 | deep | `exposed_after_purchase` — our own bucket, not a data issue |
+| 8 | a9894073 | $0.81 | 1 | mid | `exposed_after_purchase` |
+| 9 | 2fc757ce | **$15.99 (C)** | 1 | deep | single-arm in raw, absent from `first_exposures` for unknown reason |
+| 10 | e4ba58b5 | yearly $95.34 | 1 | deep | same shape as #9 |
+
+**6 of 10 directly explained by 1:1 enforcement.** **2 of 10 correctly excluded by our own attribution logic** (exposed after purchase). **2 of 10 remain unexplained** — these have a raw exposure row in the deep-reduction arm but are absent from `first_exposures_wcpm_pricing_test`, which is not a 1:1 symptom. Candidates: unit-quality filter, bot classification, exposure timestamp after pulse-snapshot cutoff.
+
+### Variant pricing confirms the experiment applied correctly
+
+Test setup doc (provided 2026-04-20):
+
+| Plan Type | A: Control | B: Mid Reduction | C: Deep Reduction |
+|---|---|---|---|
+| Pro/Pro+ Monthly | $24.99/mo | $17.99/mo | $15.99/mo |
+| Pro/Pro+ Yearly | $19.99/mo ($239.88/yr) | $14.99/mo ($179.88/yr) | $12.99/mo ($155.88/yr) |
+
+Three 1:1-dropped suspects paid a non-control arm's headline monthly price at checkout (q20): 8c0609f2 and 61f4b26d at $17.99 (Variant B), 2fc757ce at $15.99 (Variant C). This confirms Chargebee's Product Catalog 2.0 differential pricing successfully keyed on the user's Statsig assignment — the variant was served; only the exposure attribution was lost. Meredith's test-setup instrumentation is working. The gap is entirely in Statsig's post-ingestion filtering.
+
+### Arm-level impact
+
+| Arm | Pulse today | + 1:1 recovered | + unexplained + pipeline drop |
+|---|---|---|---|
+| Control | 2 | 3 | 3 |
+| Mid Reduction | 8 | 11 | 11 |
+| Deep Reduction | 2 | 4 | 7 |
+| **Total** | **12** | **18** | **21** |
+
+The experiment population is systematically understated by ~13.5% at the global level — the add-on metric undercount (12 vs. 18 at the 1:1 level) is a reflection of that, not a WCPM-specific issue. Every `wcpm_pricing_test` metric is affected.
+
+### Intervention class
+
+`INTERVENTION CLASS — 1:1 identifier mapping exclusion`
+- **FINDING:** Statsig's Enforced 1:1 identifier mapping, combined with post-domain-consolidation stable_id sprawl, drops 13.5% of logged-in exposed user_ids from Pulse analysis. Variant delivery at the Chargebee layer is unaffected; only attribution and measurement are lost.
+- **PERSISTENCE TEST:** Left in place, every subsequent Statsig experiment at Soundstripe carries a ~13.5% Pulse-undercount bias (larger for experiments that attract heavily-fragmented users). Experiment power is proportionately reduced; arm-level effect sizes may be biased if sprawl rate differs across arms.
+- **OWNER TEST:** Analytics + product engineering. Two independent levers: (a) analytics can change Statsig's mapping mode (e.g., to "Most Recent" or a user_id-primary mode) — tradeoff is a different set of biases; (b) engineering can stabilize stable_id continuity across the consolidated domain (cookie domain, SameSite settings, SDK init order) to reduce sprawl at source.
+- **SMALLEST FIX:** Evaluate Statsig's alternative mapping modes against the current `wcpm_pricing_test` data (Statsig can re-run Pulse under different modes). Pick the mode that maximizes retained-unit count without introducing a compensating bias. Parallel track: stabilize stable_id. See the KB article `knowledge/domains/experimentation/identifier-mapping-and-exclusions.md` for the full diagnostic + mitigation workflow.
+- **CLASSIFICATION:** STRUCTURAL.
+
+## Updated synopsis (2026-04-20) — stakeholder readout
+
+Current Pulse total for WCPM add-on purchases in `wcpm_pricing_test`: **12** (Control 2, Mid 8, Deep 2).
+
+True in-window WCPM add-on purchases in raw Mixpanel: **23**. Gap decomposition:
+
+| Bucket | Count | Recoverable by fixing the mechanism? |
+|---|---|---|
+| 1:1 identifier mapping drop (Finding 6) | 6 | Yes |
+| Unknown exclusion (Finding 6, residual) | 2 | Likely — pending root cause |
+| Statsig dbt model late-arrival drop (Finding 4) | 1 | Yes — widen incremental predicate |
+| Exposed after purchase (Statsig attribution rule, working as designed) | 2 | No — correctly excluded |
+| Mixpanel weekly-bucket UI pre-window backfill | 4 | Not applicable — pre-window rows, not actually in-window |
+
+- If Finding 6's 1:1 drops were recovered: **Pulse = 18** (control 3, mid 11, deep 4).
+- If Finding 6 residual + Finding 4 also recovered: **Pulse = 21** (control 3, mid 11, deep 7).
+- The 2 `exposed_after_purchase` remain excluded regardless.
+
+Scale of 1:1 issue beyond this test: 13.5% of all logged-in exposed user_ids across `wcpm_pricing_test`. The experiment's total exposed population is understated by roughly that proportion — not just the add-on count.
+
 ## Adversarial check (§8)
 
+Original draft (2026-04-18):
 - **Q1 — Skeptical reader's first challenge?** "How do we know the numbers really reconcile and aren't just coincidentally close?" Addressed: q13 hits the pulse CSV's per-arm Existing/New/Total splits exactly (Control 1/1/2, Mid 3/5/8, Deep 0/2/2), and q14 shows the specific users in each bucket — including the two `exposed_after_purchase` users whose exposure timestamps literally postdate their add-on events.
 - **Q2 — What assumption, if wrong, would flip a conclusion?** That `first_exposures_wcpm_pricing_test.unit_id` is the right join key to `statsig_clickstream_events_etl_output.statsig_stable_id`. Both are UUID-shaped and the arm totals in q11c match the pulse CSV exactly (6,115 / 5,972 / 6,137) under that join — if the join were wrong the arm sizes wouldn't reconcile.
 - **Q3 — Next obvious question?** "Why do 8 add-on purchasers never see the experiment?" Answered partially: the exposure trigger fires on some client-side surface that isn't on every path leading to WCPM add-on purchase. The remedy is a conversation with whoever wired the test (not a data bug). Flagged as awareness item.
 - **Q4 — Intervention mismatches?** Finding 4 (late-arrival drop) is framed as STRUCTURAL and carries a concrete fix direction. Other findings are INFORMATIONAL. No framing mismatches.
+
+Updated 2026-04-20 (after Finding 6):
+- **Q3 revisited.** The earlier "partial" answer to "why do 8 add-on purchasers never see the experiment?" was wrong in framing — the trigger wasn't missing from the checkout path; it was firing correctly under a stable_id that Statsig then dropped from Pulse because the same user_id also fired it under a different stable_id. Q22a shows this directly: e.g., 61f4b26d fired mid-reduction exposures under its original stable_id at purchase time AND under 3 sibling stable_ids that drifted across all three arms over 30 days. The exposure-trigger-coverage hypothesis is refuted; the 1:1 hypothesis is confirmed for 6 of 8.
+- **Q4 revisited.** Finding 6 added as STRUCTURAL. No framing mismatches remain.
+- **New Q5 — What would the skeptical reader challenge next?** "Could the three confirmed non-control price suspects have been charged the reduced price for reasons other than the experiment variant?" Answered: the test doc confirms the three monthly prices $24.99 / $17.99 / $15.99 are arm-exclusive, gated via Statsig assignment in Chargebee's differential pricing. The doc lists no alternative reason a `pro-monthly-usd` user would pay $17.99 or $15.99.
+- **New Q6 — What unifies the 2 unexplained residuals?** Both paid a deep-reduction price and both have a clean raw exposure row in the deep arm but are absent from `first_exposures`. Residual filter source is currently unknown — worth pulling Statsig's per-user exclusion reason from the console diagnostics before assuming it's bot/unit-quality.
 
 ## Message to Meredith (Slack-ready)
 

@@ -1,7 +1,7 @@
 # Experimentation Domain Overview
 
-Last updated: 2026-04-01
-Author: d7admin
+Last updated: 2026-04-20
+Author: d7admin (revised by Devon Bennett 2026-04-20)
 
 ## Purpose
 
@@ -40,8 +40,20 @@ Controlled experimentation across the Soundstripe platform — A/B testing, mult
 - `soundstripe_prod._external_statsig.statsig_clickstream_events_etl_output` — Statsig-facing enriched events
 - Google Search Console — organic impressions, clicks, position (not yet integrated with Statsig)
 
+## Known systemic issues
+
+Two open structural findings affect every user-level experiment read through our current stack. Both were surfaced during the `wcpm_pricing_test` audit (2026-04-18 → 2026-04-20) and are repo-wide, not WCPM-specific.
+
+| Finding | Effect | Doc |
+|---|---|---|
+| Statsig Enforced 1:1 identifier mapping + post-consolidation stable_id sprawl | ~13.5% of logged-in exposed user_ids dropped from Pulse; experiment power proportionately reduced | [`identifier-mapping-and-exclusions.md`](identifier-mapping-and-exclusions.md) |
+| `statsig_clickstream_events_etl_output` incremental predicate | Late-arriving fct_events rows silently skipped; directionally undercounts any downstream metric | memory: `project_statsig_model_late_arrival_open.md`; `analysis/experimentation/2026-04-18-wcpm-test-audit/findings.md` Finding 4 |
+
+Both should be flagged to stakeholders consuming Statsig Pulse results until resolved.
+
 ## Related
 
 - dbt models: `context/dbt/models/marts/_external_statsig/`
 - dbt config: `dbt_project.yml` lines 29-31 (`_external_statsig` schema)
 - Domain consolidation PRD: Statsig reconfiguration documented in Phase 3
+- `identifier-mapping-and-exclusions.md` — 1:1 mapping mechanism, detection queries, and mitigation options

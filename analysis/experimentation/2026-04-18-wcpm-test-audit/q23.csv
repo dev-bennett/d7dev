@@ -1,0 +1,11 @@
+ATTRIBUTION_BUCKET,ORIGINAL_STABLE_ID,USER_ID,CURRENT_ACCOUNT_ID,CURRENT_SUBSCRIPTION_ID,PURCHASE_TS,DISTINCT_STABLE_IDS,OTHER_STABLE_IDS_LINKED,MATCHED_VIA_KEYS,SPRAWL_VERDICT
+never_exposed,e4ba58b5-19c1-4540-9438-bd8b8a8577b1,,748,830,2026-03-20 17:35:22.000000000,14,20,"account_id, distinct_id",sprawl_present
+never_exposed,2fc757ce-dc03-4baa-8ba1-b373a7043e01,,1416909,232659,2026-04-04 20:36:54.000000000,7,10,"account_id, distinct_id",sprawl_present
+never_exposed,c9980571-475c-4d1c-82e4-ce8f0f90d290,44815,44815,48884,2026-03-16 19:26:47.000000000,5,7,"distinct_id, user_id",sprawl_present
+never_exposed,61f4b26d-71e0-40a4-9a00-38e7bfd889cb,1774266,1769312,252338,2026-03-28 16:55:31.000000000,4,5,"distinct_id, user_id",sprawl_present
+never_exposed,02188ea0-35e5-4fe0-be14-ecb8855d977e,1867971,1862698,252129,2026-03-25 03:18:51.000000000,3,4,"distinct_id, user_id",sprawl_present
+never_exposed,95551cca-532a-4ff3-8517-e04ecf123a34,23761,23761,128900,2026-03-13 19:07:58.000000000,2,2,"distinct_id, user_id",sprawl_present
+never_exposed,8c0609f2-02b2-4187-8f4c-cf6dffd8f401,100295,100295,252067,2026-03-16 17:39:51.000000000,2,2,"distinct_id, user_id",sprawl_present
+exposed_after_purchase,af007bc8-ad11-42f1-88e2-4874bc7d8e56,,1839062,252017,2026-03-13 00:35:52.000000000,1,0,account_id,no_sprawl
+exposed_after_purchase,a9894073-8e1c-4387-857b-9b688eaa4e5f,74353,74353,252026,2026-03-13 14:59:10.000000000,1,0,user_id,no_sprawl
+never_exposed,,1868435,1863161,252154,2026-03-24 17:45:47.000000000,0,1,"",no_linked_events
