@@ -1,0 +1,5 @@
+window_label,window_dates,days,path_category,sessions,visitors,bounced,bounce_pct,apac_sessions,shield_sessions,us_sessions,sessions_per_day,apac_pct
+A_baseline,2026-03-26 to 2026-04-08,14,non_library,109560,101077,99673,91.0,53339,7403,28848,7826,48.7
+B_pre_spike,2026-04-09 to 2026-04-13,5,non_library,28648,26354,25452,88.8,12833,1900,8087,5730,44.8
+C_spike,2026-04-14 to 2026-04-17,4,non_library,85799,83353,82125,95.7,67150,2276,8538,21450,78.3
+D_tail,2026-04-18 to 2026-04-24,7,non_library,86493,82981,80134,92.6,56913,4004,11487,12356,65.8

@@ -1,0 +1,37 @@
+window_label,window_dates,dow_pattern,channel,sessions,visitors,days_in_window,sessions_per_day,visitors_per_day
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Affiliate,9988,4350,45,222,97
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Affiliate,5508,3228,45,122,72
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Affiliate,3390,1650,19,178,87
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Affiliate,1913,1185,19,101,62
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Direct,368013,289392,45,8178,6431
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Direct,374264,340130,45,8317,7559
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Direct,166692,135957,19,8773,7156
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Direct,138209,126448,19,7274,6655
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Email,12045,3695,45,268,82
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Email,8973,3658,45,199,81
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Email,5246,2084,19,276,110
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Email,8178,6281,19,430,331
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Organic Search,414124,193393,45,9203,4298
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Organic Search,253506,121386,45,5633,2697
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Organic Search,154181,76819,19,8115,4043
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Organic Search,134433,88429,19,7075,4654
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Organic Social,9802,4153,45,218,92
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Organic Social,4524,3145,45,101,70
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Organic Social,3411,1330,19,180,70
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Organic Social,1774,1286,19,93,68
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Paid Content,146,118,45,3,3
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Paid Content,269,45,45,6,1
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Paid Content,158,144,19,8,8
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Paid Content,108,18,19,6,1
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Paid Search,147699,109925,45,3282,2443
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Paid Search,68922,42718,45,1531,949
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Paid Search,49379,36843,19,2599,1939
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Paid Search,31068,21567,19,1635,1135
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Paid Social,712,458,45,16,10
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Paid Social,2013,1745,45,45,39
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Paid Social,180,125,19,9,7
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Paid Social,1305,1218,19,69,64
+A_2025_pre_dow_aligned,2025-01-20 to 2025-03-05,Mon-Wed,Referral,54255,24460,45,1206,544
+A_2026_pre,2026-01-19 to 2026-03-04,Mon-Wed,Referral,35126,13618,45,781,303
+C_2025_post_dow_aligned,2025-03-27 to 2025-04-14,Thu-Mon,Referral,22039,11586,19,1160,610
+C_2026_post,2026-03-26 to 2026-04-13,Thu-Mon,Referral,14413,6588,19,759,347

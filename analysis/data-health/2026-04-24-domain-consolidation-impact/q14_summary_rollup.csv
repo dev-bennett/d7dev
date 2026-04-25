@@ -1,0 +1,55 @@
+window_label,channel,sessions,visitors,bounce_pct,avg_duration_sec,median_duration_sec,avg_pageviews,days_in_window,sessions_per_day
+A_pre_recency,Affiliate,5508,3228,66.2,297,1,2.19,45,122
+A_pre_recency,Direct,374264,340130,90.3,99,3,1.21,45,8317
+A_pre_recency,Email,8973,3658,56.4,449,19,2.63,45,199
+A_pre_recency,Organic Search,253506,121386,54.6,450,36,2.58,45,5633
+A_pre_recency,Organic Social,4524,3145,68.5,215,7,1.91,45,101
+A_pre_recency,Paid Content,269,45,52.0,599,139,2.94,45,6
+A_pre_recency,Paid Search,68922,42718,50.2,442,50,2.60,45,1531
+A_pre_recency,Paid Social,2013,1745,81.0,100,0,1.57,45,45
+A_pre_recency,Referral,35126,13618,58.5,1045,35,2.43,45,781
+B_contam1,Affiliate,2248,1367,64.3,324,2,2.24,21,107
+B_contam1,Direct,333536,318703,91.3,50,0,1.16,21,15883
+B_contam1,Email,5888,3694,69.2,363,2,2.18,21,280
+B_contam1,Organic Search,124216,69886,56.6,429,32,2.45,21,5915
+B_contam1,Organic Social,2169,1542,73.4,290,3,1.75,21,103
+B_contam1,Paid Content,57,18,49.1,231,29,2.67,21,3
+B_contam1,Paid Search,28683,17843,49.4,498,56,2.64,21,1366
+B_contam1,Paid Social,960,834,86.3,62,0,1.36,21,46
+B_contam1,Referral,17292,7680,60.0,1189,30,2.37,21,823
+C_post_clean,Affiliate,1913,1185,64.6,349,2,2.20,19,101
+C_post_clean,Direct,138209,126448,90.5,98,1,1.23,19,7274
+C_post_clean,Email,8178,6281,79.4,222,1,1.77,19,430
+C_post_clean,Organic Search,134433,88429,62.4,332,23,2.22,19,7075
+C_post_clean,Organic Social,1774,1286,74.6,187,3,1.70,19,93
+C_post_clean,Paid Content,108,18,48.1,517,145,2.81,19,6
+C_post_clean,Paid Search,31068,21567,54.5,387,50,2.43,19,1635
+C_post_clean,Paid Social,1305,1218,91.8,39,0,1.21,19,69
+C_post_clean,Referral,14413,6588,59.1,661,32,2.36,19,759
+D_contam2,Affiliate,445,326,62.2,284,2,2.13,4,111
+D_contam2,Direct,85799,83353,95.7,44,3,1.11,4,21450
+D_contam2,Email,1427,1063,74.6,257,1,1.94,4,357
+D_contam2,Organic Search,32524,23632,60.3,322,23,2.29,4,8131
+D_contam2,Organic Social,375,283,71.5,151,4,1.79,4,94
+D_contam2,Paid Content,41,10,61.0,488,183,2.17,4,10
+D_contam2,Paid Search,6412,4880,53.7,357,43,2.47,4,1603
+D_contam2,Paid Social,249,243,94.8,28,0,1.11,4,62
+D_contam2,Referral,3953,2228,59.7,536,28,2.30,4,988
+E_tail,Affiliate,677,506,61.2,233,1,2.11,7,97
+E_tail,Direct,86496,82984,92.6,59,2,1.16,7,12356
+E_tail,Email,1055,549,52.1,477,46,2.88,7,151
+E_tail,Organic Search,42530,29983,61.3,334,24,2.23,7,6076
+E_tail,Organic Social,936,799,82.4,130,3,1.59,7,134
+E_tail,Paid Content,53,15,67.9,410,87,2.02,7,8
+E_tail,Paid Search,8696,6359,53.9,408,57,2.46,7,1242
+E_tail,Paid Social,422,399,89.8,69,0,1.19,7,60
+E_tail,Referral,4934,2661,59.3,574,33,2.37,7,705
+F_yoy_2025,Affiliate,3552,1745,53.6,566,17,2.24,19,187
+F_yoy_2025,Direct,166633,135167,79.6,233,0,1.13,19,8770
+F_yoy_2025,Email,5482,2169,52.4,555,46,2.50,19,288
+F_yoy_2025,Organic Search,162216,81164,50.3,487,39,2.44,19,8538
+F_yoy_2025,Organic Social,3508,1405,38.0,811,7,1.41,19,185
+F_yoy_2025,Paid Content,158,144,83.5,75,0,1.46,19,8
+F_yoy_2025,Paid Search,51766,38768,57.2,341,49,2.07,19,2725
+F_yoy_2025,Paid Social,202,144,67.3,197,1,1.96,19,11
+F_yoy_2025,Referral,23028,12177,60.8,472,22,2.05,19,1212
