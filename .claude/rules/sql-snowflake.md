@@ -52,10 +52,20 @@ Enforce nesting explicitly in the CTE chain: each step CTE should INNER JOIN (or
 ## Query Efficiency (§13)
 
 - Check existing artifacts before writing new queries -- don't duplicate prior work
+- Check `knowledge/query-patterns/_index.md` for a canonical reusable pattern before drafting from scratch
 - Consolidate related checks into single queries using conditional aggregation
 - Minimize round-trips: each query the user must run manually is a round-trip
 - No subset queries: if Query A returns monthly breakdown and Query B returns the overall total from the same table, drop Query B
 - Scope queries to the hypothesis -- don't produce broad audits unless asked
+
+## MCP Execution
+
+Direct Snowflake execution is available via `mcp__claude_ai_Snowflake__sql_exec_tool` and the `/sql` command. Governance in `.claude/rules/snowflake-mcp.md`.
+
+- MCP is for BUILD iteration, VERIFY spot-checks, and schema discovery — not a substitute for file-first deliverable queries
+- Any query whose result is kept, cited, or delivered must live in a `.sql` file; MCP is the engine, the file is the deliverable
+- "Twice = save": after two MCP runs of the same query, write it to the task's `console.sql` with a q## label before the third run
+- EMBEDDED_ANALYST is SELECT-only; a DML statement is a bug — stop and surface it rather than executing
 
 ## Formatting & Style
 

@@ -26,6 +26,11 @@ For LookML tasks:
 
 For Analysis tasks:
 - Confirm which schemas/tables will be queried
+- **Calibration status.** For each target table the task will likely touch, check `knowledge/data-dictionary/calibration/<qualified_name>.md`:
+  - Current artifact → ok
+  - Missing/stale AND (row_count > 1M OR fact-grain naming OR raw/external schema) → **blocker.** Run `/calibrate <schema.table>` before task begins
+  - Missing/stale on small dim tables → note as promotion candidate; proceed
+  - See `.claude/rules/snowflake-mcp.md` "Calibration before query" for the full decision matrix
 - Check for existing work on the same topic in `etl/tasks/` and `analysis/`
 - **For signal-detection / anomaly / data-health tasks specifically:** Glob `analysis/**/*<topic-slug>*` (e.g. `*direct-traffic-spike*`, `*mql-discrepancy*`) and Grep the metric/channel/pipeline name across `analysis/`. If a prior investigation is found, its findings doc must be read before writing any new query — its confirmed root cause is the leading hypothesis for the current observation.
 

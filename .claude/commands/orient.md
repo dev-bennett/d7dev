@@ -149,6 +149,9 @@ Produce the briefing artifact AND a 10-line chat summary. Artifact is ephemeral 
 ## Stale flags
 - <checkpoint ≥3d, retro ≥7d, *_open.md memory ≥14d without update>
 
+## Calibration status
+- <count of artifacts in knowledge/data-dictionary/calibration/; count stale (>30d or schema-hash drift); any tables flagged by recent `_sweep_*.md` output>
+
 ## Routing table
 (See `.claude/commands/orient.md` for the full table; this session's most likely task types given in-flight work: <list>)
 ```

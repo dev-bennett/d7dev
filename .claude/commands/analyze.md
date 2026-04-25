@@ -6,13 +6,14 @@ Follow the Three-Pass Workflow (§7) from context/informational/agent_directives
 1. Check knowledge/domains/ and knowledge/data-dictionary/ for existing context
 2. Check context/dbt/ for relevant models and their lineage
 3. Check context/lookml/ for existing reporting on this topic
-4. Produce Rate Declarations (§1) for any rate/ratio metrics before writing SQL
-5. Produce Definition-Use Case Alignment (§12) for any segments or cohorts
-6. Draft analysis using analysis/_templates/ as structure:
+4. **Calibration.** For each target table the analysis will touch, check `knowledge/data-dictionary/calibration/<qualified_name>.md`. Follow the first-touch rule in `.claude/rules/snowflake-mcp.md` — block-and-calibrate for fact-grain / large / raw-source / join-heavy queries; soft-warn for small dim tables. Read each artifact's "Known pitfalls" section before writing queries — that's where prior gotchas live
+5. Produce Rate Declarations (§1) for any rate/ratio metrics before writing SQL
+6. Produce Definition-Use Case Alignment (§12) for any segments or cohorts
+7. Draft analysis using analysis/_templates/ as structure:
    - State the question clearly
    - Identify data sources and relevant tables
    - Write SQL queries (Snowflake dialect) to investigate
-7. Initialize checkpoint: create/update analysis/<domain>/checkpoint.md (§9)
+8. Initialize checkpoint: create/update analysis/<domain>/checkpoint.md (§9)
 
 **PASS 2 -- VERIFY:**
 8. Type Audit (§1) every query that computes a rate

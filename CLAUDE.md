@@ -51,6 +51,7 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 ## Rules
 
 @.claude/rules/sql-snowflake.md
+@.claude/rules/snowflake-mcp.md
 @.claude/rules/lookml-standards.md
 @.claude/rules/dbt-standards.md
 @.claude/rules/analysis-methodology.md
@@ -66,6 +67,8 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - `analysis/` -- Analysis outputs organized by domain, timestamped
 - `context/` -- Cross-repo references (dbt submodule, LookML submodule)
 - `knowledge/` -- KB articles, data dictionary, runbooks, decision records
+  - `knowledge/query-patterns/` -- Canonical reusable SQL patterns (seeded 2026-04-24)
+  - `knowledge/data-dictionary/calibration/` -- Per-table technical-truth artifacts (lineage, columns, joins, pitfalls, cost); universal mechanism per `.claude/rules/snowflake-mcp.md`
 - `initiatives/` -- Cross-workspace initiative tracking (ties ETL + LookML + knowledge + analysis together)
 - `lookml/` -- LookML development workspace (reference/, tasks/)
 - `etl/` -- ETL task workspaces, transform drafts, data quality checks (see etl/CLAUDE.md)
@@ -93,6 +96,8 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - `/preflight [task]` -- Pre-flight check: verify environment, targets, existing patterns before starting work
 - `/evolve [scope]` -- Post-task retrospective: detect friction, audit repo health, integrate improvements
 - `/orient` -- Session-start infrastructure review: mandatory inventory of rules, commands, agents, memory, CLAUDE.md chain, initiatives, task workspaces; produces briefing and routing table before any task work
+- `/sql <question>` -- Execute SQL against Snowflake via MCP, wrapped in three-pass discipline (pre-check KB + task dir, calibration check, RATE/ALIGNMENT blocks, cost caps, post-execution audits). See `.claude/rules/snowflake-mcp.md`
+- `/calibrate <table | domain | --stale | --refresh <table>>` -- Ground MCP queries in dbt + LookML + Snowflake + analysis-history context. Produces per-table calibration artifacts at `knowledge/data-dictionary/calibration/`. Universal mechanism — any warehouse table is a candidate; first-touch rule in `.claude/rules/snowflake-mcp.md` decides block-vs-warn based on size/grain
 
 ## Cross-Repo Architecture
 
@@ -102,6 +107,7 @@ When you discover an error: state it directly. "I made an error in [X]. [What wa
 - LookML: git submodule at context/lookml/ (SoundstripeEngineering/looker)
   - Pull latest: `git submodule update --remote context/lookml`
   - Development: prepare in lookml/tasks/, user promotes via Looker IDE
+- Snowflake: direct execution via `mcp__claude_ai_Snowflake__sql_exec_tool` (role EMBEDDED_ANALYST, warehouse DATA_SCIENCE). Governance in `.claude/rules/snowflake-mcp.md`; canonical reusable queries in `knowledge/query-patterns/`; per-table calibration artifacts (lineage, columns, joins, pitfalls, cost) in `knowledge/data-dictionary/calibration/` — accumulate organically as tables are queried (universal mechanism, not a whitelist)
 
 ## Session Closeout Protocol
 

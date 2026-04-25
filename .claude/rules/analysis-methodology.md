@@ -17,6 +17,8 @@ All analytical work follows three sequential passes. Do not interleave them.
 
 Pass 2 cannot be skipped. Pass 3 cannot begin until Pass 2 is complete.
 
+Direct Snowflake execution (`mcp__claude_ai_Snowflake__sql_exec_tool`, or `/sql`) is appropriate during PASS 1 BUILD iteration and PASS 2 VERIFY spot-checks. It is not a substitute for file-first capture of deliverable queries — any query whose result is cited must live in a `.sql` file. See `.claude/rules/snowflake-mcp.md`.
+
 ## Claim Verification (§3)
 
 For each interpretive claim: (1) state the claim, (2) formulate a verification question that could disprove it, (3) answer that question independently without looking at the original claim, (4) compare, (5) revise if they conflict.
@@ -85,6 +87,17 @@ This frame separates coverage hypotheses from preference hypotheses from misattr
 **Diagnostic saturation check:** before presenting a metric as signal, verify it's not saturated at baseline. If bounce rate is 88% at baseline and 97% in the spike window, the spike is not a bounce-rate story — the population is already bot-heavy. Character-level discriminators require non-saturated baselines.
 
 **Correction filter validation:** When building a filter to exclude contaminated data, validate against control periods before presenting results. If the corrected metric in the affected window is systematically higher or lower than both the pre-contamination and post-fix control periods, the filter is miscalibrated. Use all available prior query results to inform the filter — do not ignore dimensions (e.g., landing host, geo) that the data already exposed as relevant.
+
+## Pre/post event impact analyses: DoW-aligned DID + metric discipline
+
+For analyses of the form "did event X (cutover, launch, deploy) at date D change metric Y over a short post-window," the headline construct is **difference-in-differences against DoW-aligned prior-year anchors** — not raw within-period pre/post and not raw same-period YoY. See `feedback_did_for_pre_post_event_analyses.md` for full how-to.
+
+Key requirements:
+- DoW-align the prior-year windows (start on the same weekday as the current-year window). 19-day windows are sensitive to weekday/weekend mix; misalignment by even one day biases the YoY ratio. Verify Easter and other DoW-sensitive holidays sit at similar positions.
+- For SEO-incrementality questions, **sessions** is the right metric. Visitors are polluted by post-cutover identity fragmentation (documented at the `statsig_stable_id` level by the WCPM audit; equivalent applies to Mixpanel `distinct_id`). Logged-in users are gated by login propensity and represent returning customers, not the SEO target population. See `feedback_apply_memory_at_metric_validity.md`.
+- Disclose the attribution column choice. `last_channel_non_direct` carries attribution forward across visits. Raw `channel` gives a cleaner SEO-incrementality read but breaks comparability with marketing dashboards. State which was used and why.
+- When the focal channel's DID swings opposite to a concurrent channel's DID at the same cutover (e.g., Organic +X, Direct −Y), some of the focal gain may be reclassification. Bound real incrementality: floor = focal_DID − |concurrent_decline|; ceiling = focal_DID. Present as a range.
+- Commit to ONE headline metric across the whole deliverable. Don't flip metrics under pushback — present a defensible range with the caveat inline. See `feedback_commit_to_one_metric.md`.
 
 ## Attribution discipline: timing alignment + mechanism enumeration
 

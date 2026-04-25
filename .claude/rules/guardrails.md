@@ -19,7 +19,7 @@ name: Guardrails
 - Never modify context/ snapshots -- they are read-only reference material
 - When analysis contradicts existing KB, flag the discrepancy, don't silently update
 - Never fabricate database names, schema paths, table names, column names, dbt variables, model parameters, or any other identifiers. If a reference isn't confirmed from the actual source file, existing queries, or schema checks, read the file first. This includes dbt run commands -- read the model's config block and incremental logic before proposing --vars, --full-refresh, or backfill instructions.
-- SQL queries against production: read-only. Never generate DML without explicit request
+- SQL queries against production: read-only. Never generate DML without explicit request. Direct Snowflake execution via `mcp__claude_ai_Snowflake__sql_exec_tool` is allow-listed; usage governed by `.claude/rules/snowflake-mcp.md` (file-first preserved, "twice = save", cost and context discipline)
 - LookML: validate syntax before committing (check for common errors)
 - Data sensitivity: never include PII or credentials in analysis outputs
 - Context freshness: note when snapshots are stale (>30 days old)

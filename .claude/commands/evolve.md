@@ -36,6 +36,7 @@ Scan the current repo state for structural health. Every item below MUST be addr
 8. **Orphaned files:** Check for temp files, lock files, or files outside established directory structure.
 9. **Task directory hygiene:** Verify task directories have README.md/CLAUDE.md with current status. Verify completed work is marked as such.
 10. **Open design problems:** Identify features or requirements that were abandoned, deferred, or stripped out due to execution failure. These are NOT resolved -- they are open items that need to be logged honestly. Removing a broken feature is not fixing it.
+11. **Calibration artifact updates:** Review any calibrated tables touched in the session (`knowledge/data-dictionary/calibration/`). Did queries surface new gotchas, join patterns, upstream-source drops, or cost surprises? For each, propose an append to the table's artifact under "Known pitfalls" or "Typical usage patterns". Do NOT rewrite artifacts wholesale — additive updates only, with a `last_calibrated` date bump.
 
 **PHASE 2 GATE -- Before proceeding to Phase 3, produce the checklist:**
 
