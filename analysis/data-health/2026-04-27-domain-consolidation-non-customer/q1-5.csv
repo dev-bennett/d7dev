@@ -1,0 +1,10 @@
+METRIC_KIND,BUCKET,VALUE,EXTRA
+cell_count,0_0,193255,
+cell_count,0_1,28,
+cell_count,1_1,118,
+count_sum,sum_MARKET_COUNT,0,
+count_sum,sum_PURCHASED_PRODUCT_COUNT,155,
+count_sum,sum_SFX_COUNT,0,
+count_sum,sum_SINGLE_SONG+SFX+MARKET,34,
+count_sum,sum_SINGLE_SONG_COUNT,34,
+created_sub_count,sum_CREATED_SUBSCRIPTION,118,

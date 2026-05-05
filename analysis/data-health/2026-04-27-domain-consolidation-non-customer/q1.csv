@@ -1,0 +1,738 @@
+WEEK_START,CHANNEL,SUBSCRIBER_CATEGORY,SESSIONS
+2025-09-29,Affiliate,existing subscriber,246
+2025-09-29,Affiliate,non subscriber,354
+2025-09-29,Affiliate,subscribing session,3
+2025-09-29,Direct,existing subscriber,838
+2025-09-29,Direct,non subscriber,28968
+2025-09-29,Direct,subscribing session,21
+2025-09-29,Email,existing subscriber,678
+2025-09-29,Email,non subscriber,421
+2025-09-29,Email,subscribing session,4
+2025-09-29,Organic Search,existing subscriber,13443
+2025-09-29,Organic Search,non subscriber,20000
+2025-09-29,Organic Search,subscribing session,77
+2025-09-29,Organic Social,existing subscriber,113
+2025-09-29,Organic Social,non subscriber,374
+2025-09-29,Paid Content,existing subscriber,17
+2025-09-29,Paid Content,non subscriber,429
+2025-09-29,Paid Search,existing subscriber,2155
+2025-09-29,Paid Search,non subscriber,5683
+2025-09-29,Paid Search,subscribing session,35
+2025-09-29,Paid Social,existing subscriber,16
+2025-09-29,Paid Social,non subscriber,194
+2025-09-29,Referral,existing subscriber,1384
+2025-09-29,Referral,non subscriber,2917
+2025-09-29,Referral,subscribing session,9
+2025-10-06,Affiliate,existing subscriber,367
+2025-10-06,Affiliate,non subscriber,514
+2025-10-06,Affiliate,subscribing session,4
+2025-10-06,Direct,existing subscriber,1350
+2025-10-06,Direct,non subscriber,32259
+2025-10-06,Direct,subscribing session,40
+2025-10-06,Email,existing subscriber,1035
+2025-10-06,Email,non subscriber,1348
+2025-10-06,Email,subscribing session,3
+2025-10-06,Organic Search,existing subscriber,21162
+2025-10-06,Organic Search,non subscriber,32451
+2025-10-06,Organic Search,subscribing session,102
+2025-10-06,Organic Social,existing subscriber,110
+2025-10-06,Organic Social,non subscriber,672
+2025-10-06,Paid Content,existing subscriber,17
+2025-10-06,Paid Content,non subscriber,367
+2025-10-06,Paid Search,existing subscriber,3222
+2025-10-06,Paid Search,non subscriber,7478
+2025-10-06,Paid Search,subscribing session,40
+2025-10-06,Paid Social,existing subscriber,27
+2025-10-06,Paid Social,non subscriber,818
+2025-10-06,Referral,existing subscriber,2387
+2025-10-06,Referral,non subscriber,5360
+2025-10-06,Referral,subscribing session,10
+2025-10-13,Affiliate,existing subscriber,368
+2025-10-13,Affiliate,non subscriber,544
+2025-10-13,Affiliate,subscribing session,2
+2025-10-13,Direct,existing subscriber,1459
+2025-10-13,Direct,non subscriber,36259
+2025-10-13,Direct,subscribing session,55
+2025-10-13,Email,existing subscriber,1181
+2025-10-13,Email,non subscriber,798
+2025-10-13,Email,subscribing session,5
+2025-10-13,Organic Search,existing subscriber,21379
+2025-10-13,Organic Search,non subscriber,31413
+2025-10-13,Organic Search,subscribing session,112
+2025-10-13,Organic Social,existing subscriber,185
+2025-10-13,Organic Social,non subscriber,633
+2025-10-13,Paid Content,existing subscriber,22
+2025-10-13,Paid Content,non subscriber,95
+2025-10-13,Paid Search,existing subscriber,2987
+2025-10-13,Paid Search,non subscriber,8093
+2025-10-13,Paid Search,subscribing session,35
+2025-10-13,Paid Social,existing subscriber,14
+2025-10-13,Paid Social,non subscriber,193
+2025-10-13,Paid Social,subscribing session,1
+2025-10-13,Referral,existing subscriber,2346
+2025-10-13,Referral,non subscriber,6331
+2025-10-13,Referral,subscribing session,10
+2025-10-20,Affiliate,existing subscriber,370
+2025-10-20,Affiliate,non subscriber,657
+2025-10-20,Direct,existing subscriber,1656
+2025-10-20,Direct,non subscriber,36735
+2025-10-20,Direct,subscribing session,53
+2025-10-20,Email,existing subscriber,1224
+2025-10-20,Email,non subscriber,1215
+2025-10-20,Email,subscribing session,2
+2025-10-20,Organic Search,existing subscriber,21307
+2025-10-20,Organic Search,non subscriber,32736
+2025-10-20,Organic Search,subscribing session,91
+2025-10-20,Organic Social,existing subscriber,125
+2025-10-20,Organic Social,non subscriber,633
+2025-10-20,Paid Content,existing subscriber,20
+2025-10-20,Paid Content,non subscriber,310
+2025-10-20,Paid Search,existing subscriber,3164
+2025-10-20,Paid Search,non subscriber,9763
+2025-10-20,Paid Search,subscribing session,45
+2025-10-20,Paid Social,existing subscriber,17
+2025-10-20,Paid Social,non subscriber,385
+2025-10-20,Referral,existing subscriber,2484
+2025-10-20,Referral,non subscriber,6720
+2025-10-20,Referral,subscribing session,9
+2025-10-27,Affiliate,existing subscriber,398
+2025-10-27,Affiliate,non subscriber,921
+2025-10-27,Direct,existing subscriber,1576
+2025-10-27,Direct,non subscriber,40207
+2025-10-27,Direct,subscribing session,42
+2025-10-27,Email,existing subscriber,1201
+2025-10-27,Email,non subscriber,802
+2025-10-27,Email,subscribing session,7
+2025-10-27,Organic Search,existing subscriber,21500
+2025-10-27,Organic Search,non subscriber,33035
+2025-10-27,Organic Search,subscribing session,91
+2025-10-27,Organic Social,existing subscriber,154
+2025-10-27,Organic Social,non subscriber,728
+2025-10-27,Paid Content,existing subscriber,19
+2025-10-27,Paid Content,non subscriber,294
+2025-10-27,Paid Search,existing subscriber,3091
+2025-10-27,Paid Search,non subscriber,11680
+2025-10-27,Paid Search,subscribing session,39
+2025-10-27,Paid Social,existing subscriber,22
+2025-10-27,Paid Social,non subscriber,2182
+2025-10-27,Referral,existing subscriber,2565
+2025-10-27,Referral,non subscriber,6018
+2025-10-27,Referral,subscribing session,6
+2025-11-03,Affiliate,existing subscriber,379
+2025-11-03,Affiliate,non subscriber,698
+2025-11-03,Direct,existing subscriber,1471
+2025-11-03,Direct,non subscriber,35840
+2025-11-03,Direct,subscribing session,33
+2025-11-03,Email,existing subscriber,1253
+2025-11-03,Email,non subscriber,346
+2025-11-03,Email,subscribing session,4
+2025-11-03,Organic Search,existing subscriber,21052
+2025-11-03,Organic Search,non subscriber,32165
+2025-11-03,Organic Search,subscribing session,81
+2025-11-03,Organic Social,existing subscriber,141
+2025-11-03,Organic Social,non subscriber,627
+2025-11-03,Paid Content,existing subscriber,28
+2025-11-03,Paid Content,non subscriber,122
+2025-11-03,Paid Search,existing subscriber,3209
+2025-11-03,Paid Search,non subscriber,12250
+2025-11-03,Paid Search,subscribing session,56
+2025-11-03,Paid Social,existing subscriber,26
+2025-11-03,Paid Social,non subscriber,1454
+2025-11-03,Referral,existing subscriber,2281
+2025-11-03,Referral,non subscriber,5580
+2025-11-03,Referral,subscribing session,8
+2025-11-10,Affiliate,existing subscriber,446
+2025-11-10,Affiliate,non subscriber,693
+2025-11-10,Affiliate,subscribing session,4
+2025-11-10,Direct,existing subscriber,1515
+2025-11-10,Direct,non subscriber,44013
+2025-11-10,Direct,subscribing session,37
+2025-11-10,Email,existing subscriber,1188
+2025-11-10,Email,non subscriber,704
+2025-11-10,Email,subscribing session,2
+2025-11-10,Organic Search,existing subscriber,21852
+2025-11-10,Organic Search,non subscriber,30658
+2025-11-10,Organic Search,subscribing session,95
+2025-11-10,Organic Social,existing subscriber,125
+2025-11-10,Organic Social,non subscriber,544
+2025-11-10,Paid Content,existing subscriber,40
+2025-11-10,Paid Content,non subscriber,116
+2025-11-10,Paid Search,existing subscriber,3679
+2025-11-10,Paid Search,non subscriber,12483
+2025-11-10,Paid Search,subscribing session,46
+2025-11-10,Paid Social,existing subscriber,20
+2025-11-10,Paid Social,non subscriber,272
+2025-11-10,Referral,existing subscriber,2204
+2025-11-10,Referral,non subscriber,4998
+2025-11-10,Referral,subscribing session,15
+2025-11-17,Affiliate,existing subscriber,473
+2025-11-17,Affiliate,non subscriber,685
+2025-11-17,Affiliate,subscribing session,3
+2025-11-17,Direct,existing subscriber,1357
+2025-11-17,Direct,non subscriber,44277
+2025-11-17,Direct,subscribing session,28
+2025-11-17,Email,existing subscriber,1434
+2025-11-17,Email,non subscriber,2119
+2025-11-17,Email,subscribing session,5
+2025-11-17,Organic Search,existing subscriber,22104
+2025-11-17,Organic Search,non subscriber,32736
+2025-11-17,Organic Search,subscribing session,86
+2025-11-17,Organic Social,existing subscriber,162
+2025-11-17,Organic Social,non subscriber,584
+2025-11-17,Organic Social,subscribing session,2
+2025-11-17,Paid Content,existing subscriber,26
+2025-11-17,Paid Content,non subscriber,141
+2025-11-17,Paid Search,existing subscriber,3867
+2025-11-17,Paid Search,non subscriber,9416
+2025-11-17,Paid Search,subscribing session,30
+2025-11-17,Paid Social,existing subscriber,21
+2025-11-17,Paid Social,non subscriber,429
+2025-11-17,Referral,existing subscriber,2536
+2025-11-17,Referral,non subscriber,4118
+2025-11-17,Referral,subscribing session,4
+2025-11-24,Affiliate,existing subscriber,365
+2025-11-24,Affiliate,non subscriber,561
+2025-11-24,Affiliate,subscribing session,1
+2025-11-24,Direct,existing subscriber,1037
+2025-11-24,Direct,non subscriber,74173
+2025-11-24,Direct,subscribing session,20
+2025-11-24,Email,existing subscriber,981
+2025-11-24,Email,non subscriber,898
+2025-11-24,Email,subscribing session,6
+2025-11-24,Organic Search,existing subscriber,17144
+2025-11-24,Organic Search,non subscriber,23613
+2025-11-24,Organic Search,subscribing session,90
+2025-11-24,Organic Social,existing subscriber,178
+2025-11-24,Organic Social,non subscriber,548
+2025-11-24,Organic Social,subscribing session,2
+2025-11-24,Paid Content,existing subscriber,21
+2025-11-24,Paid Content,non subscriber,119
+2025-11-24,Paid Search,existing subscriber,2866
+2025-11-24,Paid Search,non subscriber,7603
+2025-11-24,Paid Search,subscribing session,42
+2025-11-24,Paid Social,existing subscriber,15
+2025-11-24,Paid Social,non subscriber,344
+2025-11-24,Referral,existing subscriber,2015
+2025-11-24,Referral,non subscriber,3466
+2025-11-24,Referral,subscribing session,7
+2025-12-01,Affiliate,existing subscriber,293
+2025-12-01,Affiliate,non subscriber,643
+2025-12-01,Affiliate,subscribing session,2
+2025-12-01,Direct,existing subscriber,1193
+2025-12-01,Direct,non subscriber,59498
+2025-12-01,Direct,subscribing session,24
+2025-12-01,Email,existing subscriber,1083
+2025-12-01,Email,non subscriber,357
+2025-12-01,Email,subscribing session,5
+2025-12-01,Organic Search,existing subscriber,19275
+2025-12-01,Organic Search,non subscriber,28917
+2025-12-01,Organic Search,subscribing session,93
+2025-12-01,Organic Social,existing subscriber,149
+2025-12-01,Organic Social,non subscriber,559
+2025-12-01,Paid Content,existing subscriber,29
+2025-12-01,Paid Content,non subscriber,128
+2025-12-01,Paid Search,existing subscriber,3636
+2025-12-01,Paid Search,non subscriber,10389
+2025-12-01,Paid Search,subscribing session,47
+2025-12-01,Paid Social,existing subscriber,13
+2025-12-01,Paid Social,non subscriber,405
+2025-12-01,Referral,existing subscriber,2271
+2025-12-01,Referral,non subscriber,3558
+2025-12-01,Referral,subscribing session,10
+2025-12-08,Affiliate,existing subscriber,368
+2025-12-08,Affiliate,non subscriber,669
+2025-12-08,Affiliate,subscribing session,4
+2025-12-08,Direct,existing subscriber,1155
+2025-12-08,Direct,non subscriber,94203
+2025-12-08,Direct,subscribing session,35
+2025-12-08,Email,existing subscriber,904
+2025-12-08,Email,non subscriber,604
+2025-12-08,Email,subscribing session,2
+2025-12-08,Organic Search,existing subscriber,19152
+2025-12-08,Organic Search,non subscriber,27339
+2025-12-08,Organic Search,subscribing session,71
+2025-12-08,Organic Social,existing subscriber,118
+2025-12-08,Organic Social,non subscriber,605
+2025-12-08,Paid Content,existing subscriber,30
+2025-12-08,Paid Content,non subscriber,485
+2025-12-08,Paid Search,existing subscriber,3821
+2025-12-08,Paid Search,non subscriber,9738
+2025-12-08,Paid Search,subscribing session,47
+2025-12-08,Paid Social,existing subscriber,28
+2025-12-08,Paid Social,non subscriber,596
+2025-12-08,Referral,existing subscriber,2552
+2025-12-08,Referral,non subscriber,3578
+2025-12-08,Referral,subscribing session,7
+2025-12-15,Affiliate,existing subscriber,283
+2025-12-15,Affiliate,non subscriber,652
+2025-12-15,Direct,existing subscriber,1017
+2025-12-15,Direct,non subscriber,59180
+2025-12-15,Direct,subscribing session,18
+2025-12-15,Email,existing subscriber,948
+2025-12-15,Email,non subscriber,590
+2025-12-15,Email,subscribing session,3
+2025-12-15,Organic Search,existing subscriber,19403
+2025-12-15,Organic Search,non subscriber,25548
+2025-12-15,Organic Search,subscribing session,86
+2025-12-15,Organic Social,existing subscriber,158
+2025-12-15,Organic Social,non subscriber,552
+2025-12-15,Organic Social,subscribing session,1
+2025-12-15,Paid Content,existing subscriber,47
+2025-12-15,Paid Content,non subscriber,232
+2025-12-15,Paid Search,existing subscriber,3839
+2025-12-15,Paid Search,non subscriber,9354
+2025-12-15,Paid Search,subscribing session,46
+2025-12-15,Paid Social,existing subscriber,16
+2025-12-15,Paid Social,non subscriber,271
+2025-12-15,Referral,existing subscriber,2503
+2025-12-15,Referral,non subscriber,3181
+2025-12-15,Referral,subscribing session,10
+2025-12-22,Affiliate,existing subscriber,173
+2025-12-22,Affiliate,non subscriber,557
+2025-12-22,Affiliate,subscribing session,2
+2025-12-22,Direct,existing subscriber,629
+2025-12-22,Direct,non subscriber,64458
+2025-12-22,Direct,subscribing session,20
+2025-12-22,Email,existing subscriber,502
+2025-12-22,Email,non subscriber,552
+2025-12-22,Email,subscribing session,3
+2025-12-22,Organic Search,existing subscriber,9434
+2025-12-22,Organic Search,non subscriber,16841
+2025-12-22,Organic Search,subscribing session,56
+2025-12-22,Organic Social,existing subscriber,105
+2025-12-22,Organic Social,non subscriber,479
+2025-12-22,Paid Content,existing subscriber,23
+2025-12-22,Paid Content,non subscriber,26
+2025-12-22,Paid Search,existing subscriber,1996
+2025-12-22,Paid Search,non subscriber,6258
+2025-12-22,Paid Search,subscribing session,24
+2025-12-22,Paid Social,existing subscriber,6
+2025-12-22,Paid Social,non subscriber,58
+2025-12-22,Referral,existing subscriber,1242
+2025-12-22,Referral,non subscriber,2626
+2025-12-22,Referral,subscribing session,5
+2025-12-29,Affiliate,existing subscriber,150
+2025-12-29,Affiliate,non subscriber,566
+2025-12-29,Affiliate,subscribing session,2
+2025-12-29,Direct,existing subscriber,653
+2025-12-29,Direct,non subscriber,55112
+2025-12-29,Direct,subscribing session,13
+2025-12-29,Email,existing subscriber,541
+2025-12-29,Email,non subscriber,185
+2025-12-29,Email,subscribing session,2
+2025-12-29,Organic Search,existing subscriber,9870
+2025-12-29,Organic Search,non subscriber,17978
+2025-12-29,Organic Search,subscribing session,42
+2025-12-29,Organic Social,existing subscriber,66
+2025-12-29,Organic Social,non subscriber,526
+2025-12-29,Organic Social,subscribing session,1
+2025-12-29,Paid Content,existing subscriber,20
+2025-12-29,Paid Content,non subscriber,14
+2025-12-29,Paid Search,existing subscriber,1822
+2025-12-29,Paid Search,non subscriber,3525
+2025-12-29,Paid Search,subscribing session,17
+2025-12-29,Paid Social,existing subscriber,3
+2025-12-29,Paid Social,non subscriber,46
+2025-12-29,Referral,existing subscriber,1234
+2025-12-29,Referral,non subscriber,2574
+2025-12-29,Referral,subscribing session,10
+2026-01-05,Affiliate,existing subscriber,237
+2026-01-05,Affiliate,non subscriber,591
+2026-01-05,Affiliate,subscribing session,2
+2026-01-05,Direct,existing subscriber,960
+2026-01-05,Direct,non subscriber,86981
+2026-01-05,Direct,subscribing session,20
+2026-01-05,Email,existing subscriber,748
+2026-01-05,Email,non subscriber,1436
+2026-01-05,Email,subscribing session,1
+2026-01-05,Organic Search,existing subscriber,16039
+2026-01-05,Organic Search,non subscriber,24435
+2026-01-05,Organic Search,subscribing session,57
+2026-01-05,Organic Social,existing subscriber,109
+2026-01-05,Organic Social,non subscriber,538
+2026-01-05,Paid Content,existing subscriber,41
+2026-01-05,Paid Content,non subscriber,10
+2026-01-05,Paid Search,existing subscriber,3133
+2026-01-05,Paid Search,non subscriber,7474
+2026-01-05,Paid Search,subscribing session,30
+2026-01-05,Paid Social,existing subscriber,7
+2026-01-05,Paid Social,non subscriber,106
+2026-01-05,Referral,existing subscriber,2311
+2026-01-05,Referral,non subscriber,3494
+2026-01-05,Referral,subscribing session,6
+2026-01-12,Affiliate,existing subscriber,342
+2026-01-12,Affiliate,non subscriber,570
+2026-01-12,Affiliate,subscribing session,2
+2026-01-12,Direct,existing subscriber,925
+2026-01-12,Direct,non subscriber,54170
+2026-01-12,Direct,subscribing session,13
+2026-01-12,Email,existing subscriber,882
+2026-01-12,Email,non subscriber,369
+2026-01-12,Email,subscribing session,2
+2026-01-12,Organic Search,existing subscriber,17660
+2026-01-12,Organic Search,non subscriber,25668
+2026-01-12,Organic Search,subscribing session,55
+2026-01-12,Organic Social,existing subscriber,134
+2026-01-12,Organic Social,non subscriber,667
+2026-01-12,Paid Content,existing subscriber,25
+2026-01-12,Paid Content,non subscriber,7
+2026-01-12,Paid Search,existing subscriber,3267
+2026-01-12,Paid Search,non subscriber,7143
+2026-01-12,Paid Search,subscribing session,32
+2026-01-12,Paid Social,existing subscriber,7
+2026-01-12,Paid Social,non subscriber,377
+2026-01-12,Referral,existing subscriber,2265
+2026-01-12,Referral,non subscriber,3531
+2026-01-12,Referral,subscribing session,8
+2026-01-19,Affiliate,existing subscriber,303
+2026-01-19,Affiliate,non subscriber,650
+2026-01-19,Direct,existing subscriber,928
+2026-01-19,Direct,non subscriber,44943
+2026-01-19,Direct,subscribing session,17
+2026-01-19,Email,existing subscriber,777
+2026-01-19,Email,non subscriber,212
+2026-01-19,Email,subscribing session,3
+2026-01-19,Organic Search,existing subscriber,16833
+2026-01-19,Organic Search,non subscriber,22147
+2026-01-19,Organic Search,subscribing session,67
+2026-01-19,Organic Social,existing subscriber,107
+2026-01-19,Organic Social,non subscriber,537
+2026-01-19,Organic Social,subscribing session,1
+2026-01-19,Paid Content,existing subscriber,41
+2026-01-19,Paid Content,non subscriber,10
+2026-01-19,Paid Search,existing subscriber,3168
+2026-01-19,Paid Search,non subscriber,7804
+2026-01-19,Paid Search,subscribing session,25
+2026-01-19,Paid Social,existing subscriber,8
+2026-01-19,Paid Social,non subscriber,336
+2026-01-19,Referral,existing subscriber,2145
+2026-01-19,Referral,non subscriber,3470
+2026-01-19,Referral,subscribing session,8
+2026-01-26,Affiliate,existing subscriber,319
+2026-01-26,Affiliate,non subscriber,575
+2026-01-26,Affiliate,subscribing session,1
+2026-01-26,Direct,existing subscriber,896
+2026-01-26,Direct,non subscriber,58414
+2026-01-26,Direct,subscribing session,20
+2026-01-26,Email,existing subscriber,811
+2026-01-26,Email,non subscriber,320
+2026-01-26,Email,subscribing session,1
+2026-01-26,Organic Search,existing subscriber,16776
+2026-01-26,Organic Search,non subscriber,22318
+2026-01-26,Organic Search,subscribing session,53
+2026-01-26,Organic Social,existing subscriber,98
+2026-01-26,Organic Social,non subscriber,561
+2026-01-26,Paid Content,existing subscriber,21
+2026-01-26,Paid Content,non subscriber,6
+2026-01-26,Paid Search,existing subscriber,3000
+2026-01-26,Paid Search,non subscriber,7401
+2026-01-26,Paid Search,subscribing session,40
+2026-01-26,Paid Social,existing subscriber,3
+2026-01-26,Paid Social,non subscriber,323
+2026-01-26,Referral,existing subscriber,1977
+2026-01-26,Referral,non subscriber,3246
+2026-01-26,Referral,subscribing session,1
+2026-02-02,Affiliate,existing subscriber,325
+2026-02-02,Affiliate,non subscriber,545
+2026-02-02,Affiliate,subscribing session,1
+2026-02-02,Direct,existing subscriber,831
+2026-02-02,Direct,non subscriber,82560
+2026-02-02,Direct,subscribing session,21
+2026-02-02,Email,existing subscriber,731
+2026-02-02,Email,non subscriber,831
+2026-02-02,Email,subscribing session,2
+2026-02-02,Organic Search,existing subscriber,16741
+2026-02-02,Organic Search,non subscriber,22302
+2026-02-02,Organic Search,subscribing session,60
+2026-02-02,Organic Social,existing subscriber,103
+2026-02-02,Organic Social,non subscriber,674
+2026-02-02,Paid Content,existing subscriber,43
+2026-02-02,Paid Content,non subscriber,7
+2026-02-02,Paid Search,existing subscriber,3163
+2026-02-02,Paid Search,non subscriber,7781
+2026-02-02,Paid Search,subscribing session,37
+2026-02-02,Paid Social,existing subscriber,4
+2026-02-02,Paid Social,non subscriber,297
+2026-02-02,Referral,existing subscriber,2041
+2026-02-02,Referral,non subscriber,3325
+2026-02-02,Referral,subscribing session,4
+2026-02-09,Affiliate,existing subscriber,284
+2026-02-09,Affiliate,non subscriber,579
+2026-02-09,Affiliate,subscribing session,1
+2026-02-09,Direct,existing subscriber,889
+2026-02-09,Direct,non subscriber,56557
+2026-02-09,Direct,subscribing session,20
+2026-02-09,Email,existing subscriber,747
+2026-02-09,Email,non subscriber,341
+2026-02-09,Email,subscribing session,4
+2026-02-09,Organic Search,existing subscriber,17008
+2026-02-09,Organic Search,non subscriber,22082
+2026-02-09,Organic Search,subscribing session,56
+2026-02-09,Organic Social,existing subscriber,62
+2026-02-09,Organic Social,non subscriber,692
+2026-02-09,Organic Social,subscribing session,1
+2026-02-09,Paid Content,existing subscriber,36
+2026-02-09,Paid Content,non subscriber,4
+2026-02-09,Paid Search,existing subscriber,3110
+2026-02-09,Paid Search,non subscriber,7288
+2026-02-09,Paid Search,subscribing session,33
+2026-02-09,Paid Social,existing subscriber,2
+2026-02-09,Paid Social,non subscriber,319
+2026-02-09,Referral,existing subscriber,2039
+2026-02-09,Referral,non subscriber,3414
+2026-02-09,Referral,subscribing session,2
+2026-02-16,Affiliate,existing subscriber,199
+2026-02-16,Affiliate,non subscriber,607
+2026-02-16,Affiliate,subscribing session,1
+2026-02-16,Direct,existing subscriber,811
+2026-02-16,Direct,non subscriber,52120
+2026-02-16,Direct,subscribing session,17
+2026-02-16,Email,existing subscriber,789
+2026-02-16,Email,non subscriber,351
+2026-02-16,Email,subscribing session,4
+2026-02-16,Organic Search,existing subscriber,15679
+2026-02-16,Organic Search,non subscriber,21487
+2026-02-16,Organic Search,subscribing session,55
+2026-02-16,Organic Social,existing subscriber,81
+2026-02-16,Organic Social,non subscriber,662
+2026-02-16,Paid Content,existing subscriber,26
+2026-02-16,Paid Content,non subscriber,6
+2026-02-16,Paid Search,existing subscriber,3210
+2026-02-16,Paid Search,non subscriber,6692
+2026-02-16,Paid Search,subscribing session,35
+2026-02-16,Paid Social,existing subscriber,2
+2026-02-16,Paid Social,non subscriber,366
+2026-02-16,Referral,existing subscriber,1952
+2026-02-16,Referral,non subscriber,2931
+2026-02-16,Referral,subscribing session,10
+2026-02-23,Affiliate,existing subscriber,255
+2026-02-23,Affiliate,non subscriber,515
+2026-02-23,Affiliate,subscribing session,3
+2026-02-23,Direct,existing subscriber,915
+2026-02-23,Direct,non subscriber,50433
+2026-02-23,Direct,subscribing session,20
+2026-02-23,Email,existing subscriber,777
+2026-02-23,Email,non subscriber,1452
+2026-02-23,Email,subscribing session,2
+2026-02-23,Organic Search,existing subscriber,16581
+2026-02-23,Organic Search,non subscriber,23023
+2026-02-23,Organic Search,subscribing session,68
+2026-02-23,Organic Social,existing subscriber,82
+2026-02-23,Organic Social,non subscriber,627
+2026-02-23,Organic Social,subscribing session,1
+2026-02-23,Paid Content,existing subscriber,47
+2026-02-23,Paid Content,non subscriber,6
+2026-02-23,Paid Search,existing subscriber,3398
+2026-02-23,Paid Search,non subscriber,7730
+2026-02-23,Paid Search,subscribing session,43
+2026-02-23,Paid Social,existing subscriber,8
+2026-02-23,Paid Social,non subscriber,254
+2026-02-23,Referral,existing subscriber,2178
+2026-02-23,Referral,non subscriber,3338
+2026-02-23,Referral,subscribing session,6
+2026-03-02,Affiliate,existing subscriber,229
+2026-03-02,Affiliate,non subscriber,542
+2026-03-02,Direct,existing subscriber,928
+2026-03-02,Direct,non subscriber,66332
+2026-03-02,Direct,subscribing session,20
+2026-03-02,Email,existing subscriber,757
+2026-03-02,Email,non subscriber,1131
+2026-03-02,Email,subscribing session,3
+2026-03-02,Organic Search,existing subscriber,16533
+2026-03-02,Organic Search,non subscriber,23876
+2026-03-02,Organic Search,subscribing session,64
+2026-03-02,Organic Social,existing subscriber,73
+2026-03-02,Organic Social,non subscriber,512
+2026-03-02,Organic Social,subscribing session,1
+2026-03-02,Paid Content,existing subscriber,17
+2026-03-02,Paid Content,non subscriber,3
+2026-03-02,Paid Search,existing subscriber,3286
+2026-03-02,Paid Search,non subscriber,7125
+2026-03-02,Paid Search,subscribing session,26
+2026-03-02,Paid Social,existing subscriber,6
+2026-03-02,Paid Social,non subscriber,192
+2026-03-02,Referral,existing subscriber,2239
+2026-03-02,Referral,non subscriber,3405
+2026-03-02,Referral,subscribing session,4
+2026-03-09,Affiliate,existing subscriber,294
+2026-03-09,Affiliate,non subscriber,488
+2026-03-09,Affiliate,subscribing session,2
+2026-03-09,Direct,existing subscriber,897
+2026-03-09,Direct,non subscriber,54582
+2026-03-09,Direct,subscribing session,14
+2026-03-09,Email,existing subscriber,738
+2026-03-09,Email,non subscriber,1503
+2026-03-09,Email,subscribing session,3
+2026-03-09,Organic Search,existing subscriber,16115
+2026-03-09,Organic Search,non subscriber,24216
+2026-03-09,Organic Search,subscribing session,49
+2026-03-09,Organic Social,existing subscriber,81
+2026-03-09,Organic Social,non subscriber,638
+2026-03-09,Paid Content,existing subscriber,16
+2026-03-09,Paid Content,non subscriber,2
+2026-03-09,Paid Search,existing subscriber,3243
+2026-03-09,Paid Search,non subscriber,6303
+2026-03-09,Paid Search,subscribing session,34
+2026-03-09,Paid Social,existing subscriber,4
+2026-03-09,Paid Social,non subscriber,213
+2026-03-09,Referral,existing subscriber,2308
+2026-03-09,Referral,non subscriber,3380
+2026-03-09,Referral,subscribing session,4
+2026-03-16,Affiliate,existing subscriber,253
+2026-03-16,Affiliate,non subscriber,424
+2026-03-16,Affiliate,subscribing session,4
+2026-03-16,Direct,existing subscriber,832
+2026-03-16,Direct,non subscriber,189380
+2026-03-16,Direct,subscribing session,21
+2026-03-16,Email,existing subscriber,815
+2026-03-16,Email,non subscriber,581
+2026-03-16,Email,subscribing session,5
+2026-03-16,Organic Search,existing subscriber,15033
+2026-03-16,Organic Search,non subscriber,26377
+2026-03-16,Organic Search,subscribing session,64
+2026-03-16,Organic Social,existing subscriber,81
+2026-03-16,Organic Social,non subscriber,667
+2026-03-16,Paid Content,existing subscriber,14
+2026-03-16,Paid Content,non subscriber,7
+2026-03-16,Paid Search,existing subscriber,3130
+2026-03-16,Paid Search,non subscriber,5574
+2026-03-16,Paid Search,subscribing session,35
+2026-03-16,Paid Social,existing subscriber,15
+2026-03-16,Paid Social,non subscriber,345
+2026-03-16,Referral,existing subscriber,2172
+2026-03-16,Referral,non subscriber,3634
+2026-03-16,Referral,subscribing session,4
+2026-03-23,Affiliate,existing subscriber,292
+2026-03-23,Affiliate,non subscriber,511
+2026-03-23,Affiliate,subscribing session,1
+2026-03-23,Direct,existing subscriber,886
+2026-03-23,Direct,non subscriber,72602
+2026-03-23,Direct,subscribing session,23
+2026-03-23,Email,existing subscriber,767
+2026-03-23,Email,non subscriber,2154
+2026-03-23,Email,subscribing session,3
+2026-03-23,Organic Search,existing subscriber,16023
+2026-03-23,Organic Search,non subscriber,30603
+2026-03-23,Organic Search,subscribing session,80
+2026-03-23,Organic Social,existing subscriber,71
+2026-03-23,Organic Social,non subscriber,662
+2026-03-23,Paid Content,existing subscriber,27
+2026-03-23,Paid Content,non subscriber,3
+2026-03-23,Paid Search,existing subscriber,3316
+2026-03-23,Paid Search,non subscriber,7221
+2026-03-23,Paid Search,subscribing session,40
+2026-03-23,Paid Social,existing subscriber,12
+2026-03-23,Paid Social,non subscriber,571
+2026-03-23,Paid Social,subscribing session,1
+2026-03-23,Referral,existing subscriber,2250
+2026-03-23,Referral,non subscriber,3610
+2026-03-23,Referral,subscribing session,3
+2026-03-30,Affiliate,existing subscriber,277
+2026-03-30,Affiliate,non subscriber,451
+2026-03-30,Direct,existing subscriber,921
+2026-03-30,Direct,non subscriber,50469
+2026-03-30,Direct,subscribing session,32
+2026-03-30,Email,existing subscriber,777
+2026-03-30,Email,non subscriber,1912
+2026-03-30,Email,subscribing session,5
+2026-03-30,Organic Search,existing subscriber,15440
+2026-03-30,Organic Search,non subscriber,35860
+2026-03-30,Organic Search,subscribing session,80
+2026-03-30,Organic Social,existing subscriber,91
+2026-03-30,Organic Social,non subscriber,614
+2026-03-30,Paid Content,existing subscriber,30
+2026-03-30,Paid Content,non subscriber,6
+2026-03-30,Paid Search,existing subscriber,3309
+2026-03-30,Paid Search,non subscriber,7471
+2026-03-30,Paid Search,subscribing session,55
+2026-03-30,Paid Social,existing subscriber,6
+2026-03-30,Paid Social,non subscriber,552
+2026-03-30,Referral,existing subscriber,2087
+2026-03-30,Referral,non subscriber,3587
+2026-03-30,Referral,subscribing session,6
+2026-04-06,Affiliate,existing subscriber,219
+2026-04-06,Affiliate,non subscriber,439
+2026-04-06,Affiliate,subscribing session,1
+2026-04-06,Direct,existing subscriber,884
+2026-04-06,Direct,non subscriber,48816
+2026-04-06,Direct,subscribing session,26
+2026-04-06,Email,existing subscriber,761
+2026-04-06,Email,non subscriber,2518
+2026-04-06,Email,subscribing session,4
+2026-04-06,Organic Search,existing subscriber,13898
+2026-04-06,Organic Search,non subscriber,35916
+2026-04-06,Organic Search,subscribing session,66
+2026-04-06,Organic Social,existing subscriber,55
+2026-04-06,Organic Social,non subscriber,582
+2026-04-06,Paid Content,existing subscriber,42
+2026-04-06,Paid Content,non subscriber,4
+2026-04-06,Paid Search,existing subscriber,2894
+2026-04-06,Paid Search,non subscriber,9666
+2026-04-06,Paid Search,subscribing session,37
+2026-04-06,Paid Social,existing subscriber,3
+2026-04-06,Paid Social,non subscriber,389
+2026-04-06,Referral,existing subscriber,1853
+2026-04-06,Referral,non subscriber,3104
+2026-04-06,Referral,subscribing session,4
+2026-04-13,Affiliate,existing subscriber,231
+2026-04-13,Affiliate,non subscriber,470
+2026-04-13,Affiliate,subscribing session,1
+2026-04-13,Direct,existing subscriber,847
+2026-04-13,Direct,non subscriber,121684
+2026-04-13,Direct,subscribing session,15
+2026-04-13,Email,existing subscriber,716
+2026-04-13,Email,non subscriber,1457
+2026-04-13,Email,subscribing session,4
+2026-04-13,Organic Search,existing subscriber,14575
+2026-04-13,Organic Search,non subscriber,36130
+2026-04-13,Organic Search,subscribing session,59
+2026-04-13,Organic Social,existing subscriber,89
+2026-04-13,Organic Social,non subscriber,553
+2026-04-13,Paid Content,existing subscriber,52
+2026-04-13,Paid Content,non subscriber,6
+2026-04-13,Paid Search,existing subscriber,2941
+2026-04-13,Paid Search,non subscriber,7363
+2026-04-13,Paid Search,subscribing session,36
+2026-04-13,Paid Social,existing subscriber,2
+2026-04-13,Paid Social,non subscriber,400
+2026-04-13,Referral,existing subscriber,2108
+2026-04-13,Referral,non subscriber,3659
+2026-04-13,Referral,subscribing session,3
+2026-04-20,Affiliate,existing subscriber,223
+2026-04-20,Affiliate,non subscriber,577
+2026-04-20,Affiliate,subscribing session,1
+2026-04-20,Direct,existing subscriber,806
+2026-04-20,Direct,non subscriber,100008
+2026-04-20,Direct,subscribing session,27
+2026-04-20,Email,existing subscriber,736
+2026-04-20,Email,non subscriber,483
+2026-04-20,Email,subscribing session,4
+2026-04-20,Organic Search,existing subscriber,14990
+2026-04-20,Organic Search,non subscriber,37205
+2026-04-20,Organic Search,subscribing session,74
+2026-04-20,Organic Social,existing subscriber,83
+2026-04-20,Organic Social,non subscriber,2146
+2026-04-20,Organic Social,subscribing session,1
+2026-04-20,Paid Content,existing subscriber,45
+2026-04-20,Paid Content,non subscriber,10
+2026-04-20,Paid Search,existing subscriber,2877
+2026-04-20,Paid Search,non subscriber,6472
+2026-04-20,Paid Search,subscribing session,32
+2026-04-20,Paid Social,existing subscriber,2
+2026-04-20,Paid Social,non subscriber,488
+2026-04-20,Referral,existing subscriber,2069
+2026-04-20,Referral,non subscriber,3710
+2026-04-20,Referral,subscribing session,1
+2026-04-27,Direct,existing subscriber,2
+2026-04-27,Direct,non subscriber,529
+2026-04-27,Direct,subscribing session,1
+2026-04-27,Email,existing subscriber,3
+2026-04-27,Email,non subscriber,3
+2026-04-27,Organic Search,existing subscriber,53
+2026-04-27,Organic Search,non subscriber,204
+2026-04-27,Organic Social,non subscriber,6
+2026-04-27,Paid Search,existing subscriber,7
+2026-04-27,Paid Search,non subscriber,24
+2026-04-27,Paid Social,non subscriber,4
+2026-04-27,Referral,existing subscriber,12
+2026-04-27,Referral,non subscriber,20

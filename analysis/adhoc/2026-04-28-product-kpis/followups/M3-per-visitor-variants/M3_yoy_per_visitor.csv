@@ -1,0 +1,14 @@
+metric,y1,y2,y2_minus_y1_relative_pct
+sessions_total,8059479,6430349,-20.21
+visitors_total,4905030,4360975,-11.09
+signed_up_visitors,312924,196701,-37.14
+engaged_visitors,1577444,1050737,-33.39
+engaged_signed_up_visitors,312924,196701,-37.14
+mql_visitors_3component_sum,1454,2124,46.08
+
+rate,y1_pct,y2_pct,y2_minus_y1_relative_pct
+tile_5_signups_per_session,3.8827,3.0589,-21.22
+tile_5_signups_per_visitor,6.3797,4.5105,-29.3
+tile_6_mqls_per_session,0.018,0.033,83.09
+tile_6_mqls_per_visitor,0.0296,0.0487,64.3
+tile_11_engaged_signup_cvr,19.8374,18.7203,-5.63

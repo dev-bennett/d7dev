@@ -1,0 +1,5 @@
+WINDOW_LABEL,VISITOR_KIND,T0_SESSIONS,T2_SESSIONS,T3_SESSIONS
+A_pre_recency,first_time,100262,67929,56133
+A_pre_recency,returning,44888,30882,23643
+C_post_clean,first_time,75092,54493,43344
+C_post_clean,returning,20142,13793,11261

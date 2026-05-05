@@ -1,0 +1,3 @@
+window_id,label,start_date,end_date,kind
+W1,Domain consolidation artifact (DE/NL/CA Direct),2026-03-05,2026-03-25,session_denominator_artifact
+W2,APAC Direct artifact,2026-04-14,2026-04-17,session_denominator_artifact

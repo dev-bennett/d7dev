@@ -1,0 +1,4 @@
+arm,n,sum_y,sum_x,sum_xy,sum_y2,sum_x2,units_with_pre_activity
+control,10788,21,833940,7212,91,331151490,10717
+mid_reduction,10601,55,793264,3025,259,262820216,10524
+deep_reduction,10786,40,831089,4152,208,363170197,10715

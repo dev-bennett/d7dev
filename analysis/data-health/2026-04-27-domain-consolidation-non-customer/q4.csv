@@ -1,0 +1,37 @@
+WINDOW_LABEL,CHANNEL,SESSIONS,VISITORS
+A_2025_pre_dow_aligned,Affiliate,5200,3917
+A_2026_pre,Affiliate,3712,3048
+C_2025_post_dow_aligned,Affiliate,1886,1383
+C_2026_post,Affiliate,1239,1047
+A_2025_pre_dow_aligned,Direct,353696,287443
+A_2026_pre,Direct,368477,339168
+C_2025_post_dow_aligned,Direct,161495,134842
+C_2026_post,Direct,135800,125817
+A_2025_pre_dow_aligned,Email,4179,2723
+A_2026_pre,Email,3953,3007
+C_2025_post_dow_aligned,Email,1895,1422
+C_2026_post,Email,6120,5823
+A_2025_pre_dow_aligned,Organic Search,239682,179222
+A_2026_pre,Organic Search,145150,110726
+C_2025_post_dow_aligned,Organic Search,86386,66173
+C_2026_post,Organic Search,95234,81232
+A_2025_pre_dow_aligned,Organic Social,7795,4010
+A_2026_pre,Organic Social,3971,3092
+C_2025_post_dow_aligned,Organic Social,2477,1238
+C_2026_post,Organic Social,1585,1255
+A_2025_pre_dow_aligned,Paid Content,143,117
+A_2026_pre,Paid Content,41,29
+C_2025_post_dow_aligned,Paid Content,156,143
+C_2026_post,Paid Content,13,8
+A_2025_pre_dow_aligned,Paid Search,125504,106965
+A_2026_pre,Paid Search,48210,39653
+C_2025_post_dow_aligned,Paid Search,40662,34986
+C_2026_post,Paid Search,22793,19599
+A_2025_pre_dow_aligned,Paid Social,582,438
+A_2026_pre,Paid Social,1985,1736
+C_2025_post_dow_aligned,Paid Social,163,118
+C_2026_post,Paid Social,1290,1214
+A_2025_pre_dow_aligned,Referral,36765,23007
+A_2026_pre,Referral,21407,12358
+C_2025_post_dow_aligned,Referral,15849,10622
+C_2026_post,Referral,8960,5657

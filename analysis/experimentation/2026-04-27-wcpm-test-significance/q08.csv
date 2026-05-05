@@ -1,0 +1,2 @@
+purchase_event_count,distinct_purchasers_by_distinct_id,distinct_purchasers_by_stable_id,purchases_missing_stable_id
+125,30,28,4

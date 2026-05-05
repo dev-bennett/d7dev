@@ -1,0 +1,19 @@
+WINDOW_LABEL,CHANNEL,T0_SESSIONS,T1_SESSIONS,T2_SESSIONS,T3_SESSIONS,T4_SESSIONS
+A_pre_recency,Affiliate,3712,3712,1218,783,623
+C_post_clean,Affiliate,1239,1239,426,301,239
+A_pre_recency,Direct,368477,368477,216853,54600,28469
+C_post_clean,Direct,135800,135800,67620,25307,13458
+A_pre_recency,Email,3953,3953,1798,1013,794
+C_post_clean,Email,6120,6120,2071,432,358
+A_pre_recency,Organic Search,145150,145150,98811,79776,55448
+C_post_clean,Organic Search,95234,95234,68286,54605,31936
+A_pre_recency,Organic Social,3971,3971,2350,1435,1055
+C_post_clean,Organic Social,1585,1585,874,522,354
+A_pre_recency,Paid Content,41,41,8,4,4
+C_post_clean,Paid Content,13,13,2,2,1
+A_pre_recency,Paid Search,48210,48210,34058,28586,23570
+C_post_clean,Paid Search,22793,22793,15652,13743,11176
+A_pre_recency,Paid Social,1985,1985,592,380,329
+C_post_clean,Paid Social,1290,1290,306,100,75
+A_pre_recency,Referral,21407,21407,14164,9343,7437
+C_post_clean,Referral,8960,8960,5590,3828,2987
