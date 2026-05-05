@@ -1,0 +1,5 @@
+warehouse_dealid,warehouse_dealname,warehouse_amount,warehouse_closedate,warehouse_pipeline_name,warehouse_deal_grouping,warehouse_stage_category,note
+58404120424,By The Grape of God,8000,2026-04-01,Enterprise Pipeline,enterprise new deal,won,Enterprise new-deal won; not in tracker
+59275033671,Butter App-API SFx Upgrade 2026,750,2026-04-17,Enterprise Pipeline,sublicensing new deal,won,Sublicensing-tagged deal sitting in Enterprise Pipeline (not API & Partnerships); passes filter chain. Not in tracker
+59277589407,Studio McGee-+1 Team Seat Upgrade 2026,500,2026-04-17,Enterprise Pipeline,enterprise new deal,won,Small upgrade ($500); not in tracker
+59809236544,About Diabetes - Russia,5500,2026-04-30,Enterprise Pipeline,enterprise new deal,won,Enterprise new-deal won; not in tracker

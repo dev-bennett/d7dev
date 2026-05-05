@@ -1,0 +1,18 @@
+tracker_company,tracker_type,tracker_ae,tracker_plan,tracker_close_date,tracker_amount,warehouse_dealid,warehouse_dealname,warehouse_amount,warehouse_closedate,warehouse_pipeline_name,warehouse_deal_grouping,warehouse_stage_category,in_won_deal_amount,match_status
+Selby Films,Upsell - DTC,Ned Pruitt,Enterprise Plan,2026-04-01,4000,58630573959,Selby Films,4000,2026-04-01,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+AcuityMD,Upsell - DTC,Will Crosier,Enterprise Plan,2026-04-01,4500,58005194354,AcuityMD-New Business 2026,4500,2026-04-02,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Hemmerle,New,Ned Pruitt,Enterprise Plan,2026-04-03,4125,58327496571,Hemmerle-New Business 2026,4125,2026-04-03,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+"100 Thieves, LLC",New,Ned Pruitt,Enterprise Plan,2026-04-09,6500,58406225423,100 Thieves-New Business 2026,6500,2026-04-09,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Greater Visuals,New,Will Crosier,Enterprise Plan,2026-04-10,3750,58542984290,Greater Visuals - New Deal,3750,2026-04-10,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Queensberry,New,Will Crosier,Sublicensing,2026-04-10,2000,58848386132,Queensberry - New Deal,2000,2026-04-10,API & Partnerships,sublicensing new deal,won,FALSE,excluded_by_pipeline
+State Street Global Advisors,New,Ned Pruitt,Enterprise Plan,2026-04-14,11500,47416210576,State Street Global Advisors-New Business 2026,11500,2026-04-14,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Str8 Rippin,New,Will Crosier,Enterprise Plan,2026-04-14,3000,59020080186,Str8 Rippin - New Deal,3000,2026-04-17,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Lifelong Learning,New,Ned Pruitt,Enterprise Plan,2026-04-14,10500,58325056609,Lifelong Learning,10500,2026-04-17,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Wevi.ai,New,Will Crosier,Sublicensing,2026-04-22,1000,59275404960,Wevi AI-API New Business 2026,1000,2026-04-22,API & Partnerships,sublicensing new deal,won,FALSE,excluded_by_pipeline
+Aleph Media,New,Ned Pruitt,Enterprise Plan,2026-04-24,10000,57830310468,Aleph Media,10000,2026-04-24,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+University of Washington Marketing and Creative,Upsell - DTC,Will Crosier,Enterprise Plan,2026-04-24,9999,57397022644,University of Washington Marketing and Creative,9999,2026-04-24,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Microsoft Social & Creative Team - DTC (Biz Plan),Upsell - DTC,Ned Pruitt,Enterprise Plan,2026-04-28,11225,58134895205,Microsoft Social & Creative Team - DTC (Biz Plan),11225,2026-04-28,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Youi Insurance - DTC,Upsell - DTC,Will Crosier,Enterprise Plan,2026-04-29,14500,55881992861,Youi Insurance - DTC,14500,2026-04-30,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Kisco Senior Living,New,Will Crosier,Enterprise Plan,2026-04-30,8000,59418714148,Kisco Senior Living,8000,2026-04-30,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+GoodLife Fitness Centres Inc.,New,Ned Pruitt,Enterprise Plan,2026-04-30,12500,59272643467,GoodLife Fitness Centres Inc.,12500,2026-04-30,Enterprise Pipeline,enterprise new deal,won,TRUE,included
+Owl Town Productions,New,Will Crosier,Enterprise Plan,2026-04-30,6000,59814957978,Owl Town Productions (Tag Digital)-New Business 22026,6000,2026-04-30,Enterprise Pipeline,enterprise new deal,won,TRUE,included

@@ -1,0 +1,56 @@
+primary_genre,instrumental_count,background_vocal_count,full_vocal_count,vd_null_count,total
+Electronic,729,424,56,0,1209
+Hip Hop,717,343,58,0,1118
+Soundtrack / Cinematic,705,101,9,0,815
+Acoustic,580,78,152,0,810
+Rock,680,55,40,0,775
+Indie,467,70,104,0,641
+Pop,222,142,236,0,600
+Corporate / Jingle,477,63,13,0,553
+EDM,348,138,28,0,514
+Ambient,413,39,6,0,458
+Classical,362,51,3,0,416
+R&B,196,90,35,0,321
+Underscore,278,12,2,0,292
+Cinematic,197,92,3,0,292
+World,213,71,6,0,290
+Score,221,19,0,0,240
+Jazz,230,7,0,0,237
+Lo-Fi,176,25,5,0,206
+Country,162,11,20,0,193
+Funk,116,30,3,0,149
+Modern Orchestral,100,25,0,0,125
+Orchestral,114,7,0,0,121
+Corporate,51,57,4,0,112
+Ballad,33,6,52,0,91
+Latin,65,12,2,0,79
+Synthwave,66,5,4,0,75
+Rap,22,2,42,0,66
+Experimental,40,19,2,0,61
+Folk,29,7,8,0,44
+Blues,40,2,0,0,42
+Southern Rock,35,5,1,0,41
+Holiday,28,8,0,0,36
+Dub Step,22,11,0,0,33
+Metal,32,0,0,0,32
+Soundscape,27,5,0,0,32
+Gospel,11,1,10,0,22
+East Asian,18,2,0,0,20
+8-Bit,16,1,0,0,17
+Classic Rock,13,2,1,0,16
+Middle East,12,3,0,0,15
+Drum & Bass,8,6,0,0,14
+Tribal,10,2,0,0,12
+Reggae,10,0,1,0,11
+Celtic,11,0,0,0,11
+Punk,9,1,0,0,10
+Traditional Country,9,0,0,0,9
+Big Band,8,0,0,0,8
+Bollywood,5,2,1,0,8
+Western,7,1,0,0,8
+Surf Rock,6,0,0,0,6
+African,5,0,0,0,5
+Bluegrass,5,0,0,0,5
+Caribbean,2,0,1,0,3
+New Orleans / Dixieland,0,0,1,0,1
+TOTAL,8358,2053,909,0,11320
