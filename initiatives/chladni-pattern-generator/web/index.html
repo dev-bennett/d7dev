@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chladni · Cymatic Mode Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-shape="square" data-driving="true" data-style="lines">
+
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <main>
+
+    <header class="page-header">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M2 12 Q 7 6, 12 12 T 22 12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M2 12 Q 7 18, 12 12 T 22 12" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">CHLADNI</div>
+          <div class="brand-sub">cymatic mode explorer</div>
+        </div>
+      </div>
+      <div class="page-actions">
+        <button id="btn-snapshot" class="icon-btn" title="Save PNG (D)" aria-label="Save PNG">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <a href="https://en.wikipedia.org/wiki/Ernst_Chladni" target="_blank" rel="noopener" class="icon-btn" title="About Chladni">
+          <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 11v6M12 7v.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <section class="stage">
+      <div class="plate-wrap" id="plate-wrap">
+        <canvas id="plate" width="1024" height="1024" aria-label="Chladni nodal pattern visualization"></canvas>
+        <div class="plate-overlay" id="plate-overlay">
+          <div class="overlay-mode"><span id="ov-mode">(4,4)</span></div>
+          <div class="overlay-meta"><span id="ov-freq">1916.0</span><span class="ov-unit">Hz</span></div>
+        </div>
+        <div class="plate-corner top-right" id="ov-locked">LOCKED</div>
+      </div>
+    </section>
+
+    <section class="freq-section">
+      <div class="freq-labels">
+        <span class="freq-current"><span id="freq-label">1916</span><span class="freq-unit"> Hz</span></span>
+        <span class="freq-meta"><span id="readout">—</span></span>
+      </div>
+      <div class="freq-slider-wrap">
+        <input type="range" id="freq" min="50" max="6000" step="0.5" value="1916" aria-label="frequency in hertz">
+        <div class="freq-axis">
+          <canvas id="freq-ticks" height="22" aria-label="mode ticks (click to snap)"></canvas>
+          <div class="freq-tick-tooltip" id="tick-tip"></div>
+        </div>
+        <div class="freq-bounds">
+          <span id="freq-min">50</span>
+          <span id="freq-max">6000</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-grid">
+      <div class="control-group group-primary">
+        <button id="onoff" class="btn-driver" aria-pressed="true">
+          <span class="dot"></span>
+          <span class="label"></span>
+        </button>
+        <button id="audio-toggle" class="btn-audio" aria-pressed="false" title="Toggle audio (A)">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M3 10v4h4l5 4V6L7 10H3z" fill="currentColor"/><path class="audio-on" d="M16 8c2 1.6 2 6.4 0 8M19 5c4 2.5 4 12 0 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>SILENT</span>
+        </button>
+      </div>
+
+      <div class="control-group">
+        <label class="group-label">Plate</label>
+        <div class="segmented" role="radiogroup" aria-label="plate shape">
+          <button class="seg active" data-shape="square">Square</button>
+          <button class="seg" data-shape="circle">Circle</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="group-label">Render</label>
+        <div class="segmented" role="radiogroup" aria-label="render style">
+          <button class="seg active" data-style="lines">Lines</button>
+          <button class="seg" data-style="shaded">Shaded</button>
+          <button class="seg" data-style="sand">Sand</button>
+        </div>
+      </div>
+
+      <div class="control-group sup-only">
+        <label class="group-label">Symmetry</label>
+        <div class="segmented" role="radiogroup" aria-label="superposition">
+          <button class="seg active" data-sup="+">+</button>
+          <button class="seg" data-sup="-">−</button>
+        </div>
+      </div>
+
+      <div class="control-group slider-group">
+        <label class="group-label" for="qval">Sharpness <span class="aux" id="qval-num">30</span></label>
+        <input type="range" id="qval" min="5" max="200" step="1" value="30">
+      </div>
+
+      <div class="control-group slider-group">
+        <label class="group-label" for="amp">Intensity <span class="aux" id="amp-num">100%</span></label>
+        <input type="range" id="amp" min="0" max="1" step="0.01" value="1">
+      </div>
+    </section>
+
+    <details class="panel" id="panel-plate">
+      <summary>
+        <span class="panel-title">Plate properties</span>
+        <span class="panel-aux" id="plate-summary">Steel · 20.0 × 20.0 × 1.0 mm</span>
+      </summary>
+      <div class="panel-body">
+        <div class="control-group slider-group">
+          <label class="group-label" for="material">Material</label>
+          <div class="segmented small" role="radiogroup" aria-label="material">
+            <button class="seg active" data-material="steel">Steel</button>
+            <button class="seg" data-material="aluminum">Aluminum</button>
+            <button class="seg" data-material="brass">Brass</button>
+            <button class="seg" data-material="glass">Glass</button>
+          </div>
+        </div>
+        <div class="control-group slider-group">
+          <label class="group-label" for="side">Side / Diameter <span class="aux" id="side-num">20.0 cm</span></label>
+          <input type="range" id="side" min="0.05" max="0.50" step="0.005" value="0.20">
+        </div>
+        <div class="control-group slider-group">
+          <label class="group-label" for="thick">Thickness <span class="aux" id="thick-num">1.0 mm</span></label>
+          <input type="range" id="thick" min="0.0001" max="0.005" step="0.0001" value="0.001">
+        </div>
+        <div class="hint">Material and geometry rescale frequencies live; the eigenmode shapes are reused (eigenvalues drift &lt;1% across these materials).</div>
+      </div>
+    </details>
+
+    <footer class="page-footer">
+      <span class="meta" id="plate-meta">—</span>
+      <span class="meta keys"><kbd>←</kbd><kbd>→</kbd> step modes &nbsp;·&nbsp; <kbd>Space</kbd> drive &nbsp;·&nbsp; <kbd>S</kbd> style &nbsp;·&nbsp; <kbd>D</kbd> save</span>
+    </footer>
+
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

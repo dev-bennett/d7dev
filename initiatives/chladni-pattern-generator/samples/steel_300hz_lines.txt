@@ -1,0 +1,12 @@
+Input frequency: 300.000 Hz
+Plate shape:     square
+Side length:     0.2000 m
+Thickness:       0.00100 m
+Material:        E=2.000e+11 Pa, rho=7850 kg/m^3, nu=0.300
+Superposition:   +
+Render style:    lines
+Resolution:      800x800
+Mode tolerance:  +/- 2.00%
+
+Matched modes (n, m, f_nm Hz, weight):
+  (1, 2): f = 299.915 Hz, weight = 1.0000
