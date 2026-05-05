@@ -88,6 +88,23 @@ This frame separates coverage hypotheses from preference hypotheses from misattr
 
 **Correction filter validation:** When building a filter to exclude contaminated data, validate against control periods before presenting results. If the corrected metric in the affected window is systematically higher or lower than both the pre-contamination and post-fix control periods, the filter is miscalibrated. Use all available prior query results to inform the filter — do not ignore dimensions (e.g., landing host, geo) that the data already exposed as relevant.
 
+## Default trend-window selection for period-over-period reviews
+
+For "year in review" / "trend review" / period-over-period decomposition analyses (NOT discrete event impact analyses — that's the next section), the default comparison anchor is **YoY full 12-month windows.** Cherry-picked single-month or single-quarter endpoints are not defensible without explicit justification.
+
+**Rule:** when comparing period 1 to period 2 to compute Δs, decompositions, or YoY ratios, the default is two adjacent 12-month buckets (e.g., May 2024 - Apr 2025 vs May 2025 - Apr 2026). Two single calendar months are NOT a valid headline anchor — they're peak-vs-trough cherry-picking with no statistical defense.
+
+**Why this matters:** single-month endpoints amplify monthly noise; the "Δ" depends on which month you happened to pick. Single months are vulnerable to one-off events (campaigns, holidays, artifact spikes) that 12-month aggregates dilute. Stakeholders interpret "month X vs month Y" as the trend; it isn't — it's two snapshots that may or may not represent the trend.
+
+**When to deviate:**
+- If a discrete event partitions the window cleanly (cutover, deploy), use DID against DoW-aligned prior-year anchors per the next section.
+- If the stakeholder explicitly requested a different window (rolling 90-day, fiscal quarter, since-launch), state the request and proceed.
+- If the YoY window straddles a known artifact period (e.g., 2 months of 12 are contaminated), state the dilution effect; the bucket is usually still defensible because 10 of 12 months are clean.
+
+**Decomposition framings — provide both aggregate and per-segment by default.** When asked for a decomposition (channel, plan, geo, etc.), the natural reader question is both "what's the headline" and "what's driving it per segment." A per-segment decomposition that sums to the total is NOT the same as treating the total as one rate × volume pair — they hide the mix-shift effect in different places (per-segment hides it in the volume term; aggregate hides it in the rate term). Default to producing both, distinct, with the same Δ-total but different attribution narratives. Do not wait for the stakeholder to ask "where's the aggregate version" — that's the second-tier ask after "give me the channel breakdown" and predictable.
+
+**Mislabeling discipline:** if your headline window is May 2024 → Feb 2026 (21 months) do NOT call it a "24-month decline." Label the actual span.
+
 ## Pre/post event impact analyses: DoW-aligned DID + metric discipline
 
 For analyses of the form "did event X (cutover, launch, deploy) at date D change metric Y over a short post-window," the headline construct is **difference-in-differences against DoW-aligned prior-year anchors** — not raw within-period pre/post and not raw same-period YoY. See `feedback_did_for_pre_post_event_analyses.md` for full how-to.
@@ -108,6 +125,39 @@ Before attributing a pre-vs-post window difference to any specific date, event, 
 **Mechanism enumeration.** Before writing "X caused Y" / "Y is an X story" / "Y is explained by X", enumerate at least one alternative mechanism that would produce the same observed data. Explain how the data discriminates between them. If it does not, rewrite the claim as "the data is consistent with {X, alternative}; this analysis does not distinguish among them" and state what evidence would discriminate. Integrative / window-level decompositions do NOT substitute for weekly timing alignment — "aggregate X explains aggregate Y over the window" is not the same as "X drove Y at the timeline that matters." See `feedback_enumerate_mechanisms_before_attribution.md`.
 
 **Stakeholder benchmark cross-check.** If a stakeholder-provided document reports a prior value for a metric you are recomputing, explicitly compare your computed value to theirs in the Verify pass. Treat >2x gaps as failed sanity checks — likely a methodology bug, not a "definitional difference." Re-audit the query (particularly step-rate nesting per sql-snowflake.md) before publishing. See `feedback_cross_check_stakeholder_benchmarks.md`.
+
+## Reconciliation Audit: every number must trace to a real reporting source
+
+TRIGGER: You are about to deliver a chart, decomposition, sensitivity table, or comparison artifact whose numbers are framed as informing stakeholders about what the dashboard / canonical report shows.
+
+The §1 Type Audit checks SQL internal consistency (denominators match declared rate, JOINs preserve the right population). It does NOT check whether the rate I'm computing is the one a stakeholder would see if they pulled the dashboard. **An analyst-constructed metric can pass Type Audit while diverging from the canonical reporting source.** Three failure modes from this class — all observed in `analysis/adhoc/2026-04-28-product-kpis/`:
+
+1. **Synthesized denominator.** Built `chart_06_dl_30_60d_raw_vs_lagged.csv` with a "raw" series using `subscribers_in_cohort` as the denominator. The Looker tile uses `subs_60_plus`. The "raw" series existed nowhere on the dashboard — but was labeled as if it did, alongside a "lagged-clean" series at the real denominator. The implied "+10pp fix from lagging" was theater on a baseline that didn't exist.
+
+2. **Synthesized model layer.** M6 revenue model applied \$6,000 × Enterprise sub count as the Enterprise LTV contribution. Looker's `total_revenue` measure does NOT do this — Enterprise gets \$0 in the LTV term (LEFT JOIN to `subscription_ltv_assumptions` returns NULL because no Enterprise row exists), and \$6k appears separately as `mqls × 0.05 × 6000`. The +18% rev/session and -6% net headlines computed from M6's model don't reconcile to any Looker tile.
+
+3. **Synthesized rate variant.** chart_03 labeled an M3-derived per-visitor signup rate as "all_visitor_signup_rate" alongside the engaged-visitor CVR. The Looker tile 5 (`sign_ups_per_session`) uses a per-session denominator, not per-visitor. The label implied dashboard tile, the construction was an analyst-derived alternative.
+
+For any analytical artifact that purports to inform stakeholders about what the dashboard shows, run this block:
+
+```
+RECONCILIATION AUDIT — [artifact name]:
+  For every numerator: cite the LookML measure / dbt column that produces this value
+    [series 1 numerator]: [LookML measure path or "analyst-derived: <reason>"]
+    ...
+  For every denominator: cite the LookML measure / dbt column
+    [series 1 denominator]: [LookML measure path or "analyst-derived: <reason>"]
+    ...
+  Stakeholder-pull check: if a stakeholder opens the dashboard right now, do my numbers match within float precision? [YES / NO + which differ + why]
+  Synthetic-baseline check: any series in this artifact that doesn't exist as a real measure? [YES → must be relabeled `analyst_derived_*` and not shown side-by-side with real measures as peers / NO]
+  RESULT: [PASS / FAIL]
+```
+
+GATE: any FAIL, do not deliver. Either match the canonical source or relabel the synthetic component as `analyst_derived_<name>` with a paragraph explaining why the analyst-derived view differs from the dashboard view. Never both, never side-by-side as if peer comparisons.
+
+RULE: a series labeled "raw" or "before" or "as-shipped" or any framing that implies the dashboard's view must use the LookML measure formula exactly. Synthesized variants are the analyst's view, not the dashboard's view, and must be labeled as such.
+
+See `feedback_chart_series_must_be_apples_to_apples.md` for the longer-form discussion of why the failure mode is sandbagging (manufactured before/after) rather than just "different denominators" (labeling problem).
 
 ## Core Standards
 

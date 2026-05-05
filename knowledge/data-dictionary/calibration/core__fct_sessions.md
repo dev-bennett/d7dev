@@ -77,6 +77,8 @@ Full schema (79 cols): `SELECT column_name, data_type FROM soundstripe_prod.info
 | `core.fct_events` | via `dim_session_mapping` only: `dim_session_mapping.session_id_events = fct_events.session_id` | M:1 per event → consolidated session | **Never join fct_events directly to fct_sessions on session_id.** The two session_id namespaces are different. Two-hop bridge is mandatory. See `knowledge/query-patterns/session_event_bridge.sql` |
 | `core.dim_users` | `fct_sessions.user_id = dim_users.id` | M:1 | Only valid for authenticated sessions; NULL user_id = anonymous |
 
+**Canonical pattern for "merged-user attribute fold (no fan-out)":** see `knowledge/query-patterns/merged_user_attribute_fold.sql`. Folds raw-Mixpanel event attributes (OS, user_agent, scroll, plan, etc.) up to merged-user grain via `BOOLOR_AGG` / `MAX_BY`. Use whenever the question is "tag every merged user with a flag/attribute derived from their events in window X."
+
 ## Grain & identity
 
 - **Grain:** one row per consolidated session (post cross-host stitching)

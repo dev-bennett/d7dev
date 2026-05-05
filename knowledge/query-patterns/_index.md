@@ -12,6 +12,7 @@ Canonical, reusable SQL patterns. See `CLAUDE.md` for promotion rules and file c
 ### Joins
 
 - `session_event_bridge.sql` — bridge `fct_events` and `fct_sessions` via `dim_session_mapping` (they do NOT join directly). Pattern encoded in `reference_session_event_join`
+- `merged_user_attribute_fold.sql` — full lineage `pc_stitch_db.mixpanel.export → fct_events → dim_session_mapping → fct_sessions` with a per-user fold (`BOOLOR_AGG`, `MAX_BY`) so attributes attach to merged identity at one-row-per-user grain (no fan-out). Use whenever you need raw-Mixpanel-only attributes (OS, user_agent, scroll, plan, etc.) at merged-user grain. Extends `session_event_bridge.sql`
 
 ### Cohort pulls
 
@@ -25,9 +26,10 @@ Canonical, reusable SQL patterns. See `CLAUDE.md` for promotion rules and file c
 
 | Table | Patterns |
 |-------|----------|
-| `fct_events` | `schema_snapshot`, `column_existence`, `session_event_bridge` |
-| `fct_sessions` | `schema_snapshot`, `session_event_bridge` |
-| `dim_session_mapping` | `session_event_bridge` |
+| `pc_stitch_db.mixpanel.export` | `merged_user_attribute_fold` |
+| `fct_events` | `schema_snapshot`, `column_existence`, `session_event_bridge`, `merged_user_attribute_fold` |
+| `fct_sessions` | `schema_snapshot`, `session_event_bridge`, `merged_user_attribute_fold` |
+| `dim_session_mapping` | `session_event_bridge`, `merged_user_attribute_fold` |
 | `dim_daily_kpis` | `schema_snapshot` |
 | Statsig exposure tables | `statsig_exposure_cohort` |
 | Any | `schema_snapshot`, `column_existence`, `step_rate_with_nesting` |

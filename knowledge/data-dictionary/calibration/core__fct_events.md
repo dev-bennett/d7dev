@@ -56,8 +56,9 @@ If these are needed, query `pc_stitch_db.mixpanel.export` directly (see that tab
 
 | To table | On | Cardinality | Notes |
 |---|---|---|---|
-| `core.dim_session_mapping` | `fct_events.session_id = dim_session_mapping.session_id_events` | M:1 | **Mandatory bridge** — `fct_events.session_id ≠ fct_sessions.session_id`. See memory `reference_session_event_join.md` |
-| `core.fct_sessions` | via `dim_session_mapping` (two hops) | M:1 per session | Do not attempt a direct join |
+| `core.dim_session_mapping` | `fct_events.session_id = dim_session_mapping.session_id_events` | M:1 | **Mandatory bridge** — `fct_events.session_id ≠ fct_sessions.session_id`. See memory `reference_session_event_join.md` and pattern `knowledge/query-patterns/session_event_bridge.sql` |
+| `core.fct_sessions` | via `dim_session_mapping` (two hops) | M:1 per session | Do not attempt a direct join. For per-user attribute fold (no fan-out), use `knowledge/query-patterns/merged_user_attribute_fold.sql` |
+| `pc_stitch_db.mixpanel.export` | `fct_events.__sdc_primary_key = mixpanel.export.__SDC_PRIMARY_KEY` | 1:1 | Required when fct_events has dropped a column you need (`mp_reserved_browser`, `mp_reserved_device`, `user_agent`, `user_ip`, `mp_lib`, screen dims, scroll/click-position, `mp_reserved_initial_referrer`). Pattern: `knowledge/query-patterns/merged_user_attribute_fold.sql` |
 | `_external_statsig.exposures` | `fct_events.statsig_stable_id = exposures.stable_id` AND `user_id` agreement | N:M (sprawl) | Post-consolidation stable_id sprawl affects `user_id ↔ stable_id` stability — see exposures calibration |
 
 ## Grain & identity
