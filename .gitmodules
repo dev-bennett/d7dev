@@ -4,3 +4,6 @@
 [submodule "context/lookml"]
 	path = context/lookml
 	url = https://github.com/SoundstripeEngineering/looker.git
+[submodule "lookml/reference"]
+	path = lookml/reference
+	url = https://github.com/SoundstripeEngineering/looker.git
