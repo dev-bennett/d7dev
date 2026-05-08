@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: fct_enterprise_user_activity_for_scoring
+    description: >
+      Enterprise account engagement counters at HubSpot Company grain.
+      Powers the Polytomic sync that pushes account-level usage signals
+      (sessions, downloads, project creation, active users) onto HubSpot
+      Company custom properties for AM and CS triggering.
+
+      Phase A scope: Chargebee-billed enterprise customers only —
+      ~483 active HubSpot Companies, ≈48% of the ~1,004 won enterprise
+      customer base in `dim_enterprise_deals`. Non-Chargebee enterprise
+      customers (~225 won companies, 22% of won enterprise) are
+      deferred to Phase B (identity bridge — separate workstream).
+
+      Window: days 32-61 ('prior_30') vs days 1-31 ('last_30') to give
+      AM and CS a Δ vs prior period for triggering.
+
+    columns:
+      - name: companyid
+        description: >
+          HubSpot Company object_id. The Polytomic sync upserts on this
+          column; serves as the natural HubSpot-side join key without
+          requiring any new HubSpot custom property.
+        tests:
+          - not_null
+          - unique
+
+      - name: active_users
+        description: >
+          Count distinct of Soundstripe user_ids with activity in the
+          61-day window for any subscription belonging to this company.
+
+      - name: chargebee_customer_count
+        description: >
+          Count distinct of Chargebee customer_ids associated with this
+          company in `dim_enterprise_deals`. Diagnostic — typically 1
+          per company. Helps surface fan-out cases where one company
+          aggregates engagement across multiple Chargebee customers.
+
+      - name: chargebee_subscription_count
+        description: >
+          Count distinct of Chargebee subscription_ids contributing to
+          the engagement counters.
+
+      - name: sessions_prior_30
+        description: Sessions in days 32-61 (prior period for trend Δ).
+      - name: sessions_last_30
+        description: Sessions in days 1-31 (current period).
+      - name: song_downloads_prior_30
+        description: Sale/download events in days 32-61.
+      - name: song_downloads_last_30
+        description: Sale/download events in days 1-31.
+      - name: projects_created_prior_30
+        description: Project-create events in days 32-61.
+      - name: projects_created_last_30
+        description: Project-create events in days 1-31.
+
+  - name: subscriber_activity
+    description: >
+      Per-user-per-event activity for active subscribers, joined to
+      Chargebee customer attributes. Source for both
+      `fct_subscriber_activity_mixpanel` and
+      `fct_enterprise_user_activity_for_scoring`. Filters to Chargebee-
+      bearing subscriptions via `subscription_periods`; non-Chargebee
+      enterprise activity is NOT included (see Phase B identity bridge
+      for that scope).
+    columns:
+      - name: CUSTOMER_ID
+        description: Chargebee customer_id (joined from chargebee.customers.id).
+      - name: SUBSCRIPTION_ID
+        description: Chargebee subscription_id.
+      - name: SOUNDSTRIPE_ACCOUNT_ID
+        description: Soundstripe-internal account_id (present on most rows; see calibration artifact for null-rate by plan_type).
+      - name: SOUNDSTRIPE_SUBSCRIPTION_ID
+        description: Soundstripe-internal subscription_id.
+      - name: PLAN_TYPE
+        description: Plan tier — 'pro', 'creator', 'enterprise', 'pro-plus', 'twitch-pro', 'subaccounts', 'business', 'straynote-billing'.
+      - name: user_id
+        description: Soundstripe user_id (from soundstripe.users joined on soundstripe_account_id).
+      - name: event
+        description: Event class — 'session', 'sale', 'download', 'project create', 'playlist create'.
+      - name: event_ts
+        description: Event timestamp.

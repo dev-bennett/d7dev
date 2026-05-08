@@ -126,6 +126,14 @@ Before attributing a pre-vs-post window difference to any specific date, event, 
 
 **Stakeholder benchmark cross-check.** If a stakeholder-provided document reports a prior value for a metric you are recomputing, explicitly compare your computed value to theirs in the Verify pass. Treat >2x gaps as failed sanity checks — likely a methodology bug, not a "definitional difference." Re-audit the query (particularly step-rate nesting per sql-snowflake.md) before publishing. See `feedback_cross_check_stakeholder_benchmarks.md`.
 
+**BUILD-time application of the cross-check.** The cross-check fires at BUILD pass too, not only Verify. Whenever a query returns a row count or total that is computable against a known reference (a stakeholder doc's reported count, a baseline xlsx, a prior-snapshot file in the task folder), compare the two before iterating further or building charts/CSVs on top. A >2x ratio between your output and the reference is a STOP-and-diagnose signal at BUILD time — the most likely root cause is wrong scope, wrong filter, or wrong date interpretation, not a "growth story" or a "labeling difference." Three failure modes share this pattern:
+
+1. **Scope/filter mismatch.** Your query includes rows the reference excluded (e.g., content-partner songs, archived rows, all-states vs released-only).
+2. **Date interpretation.** A filename or doc-title date you parsed implies a different baseline date than the stakeholder intended (e.g., "0922" → September 2022 vs September 22, 2025).
+3. **Population definition.** The reference's denominator was a stricter cohort (logged-in only, paying only, Soundstripe-original only) than your default.
+
+If a downstream observation (e.g., "the vocal-class mapping doesn't fit") is also unexplained, do not rationalize the downstream observation independently — it is a *symptom* of the upstream scope failure. Unwind to the load-bearing assumption first.
+
 ## Reconciliation Audit: every number must trace to a real reporting source
 
 TRIGGER: You are about to deliver a chart, decomposition, sensitivity table, or comparison artifact whose numbers are framed as informing stakeholders about what the dashboard / canonical report shows.

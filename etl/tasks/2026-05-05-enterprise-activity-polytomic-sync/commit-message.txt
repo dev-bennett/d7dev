@@ -1,0 +1,17 @@
+Surface companyid on fct_enterprise_user_activity_for_scoring + add yml
+
+Refactors the model to join subscriber_activity to dim_enterprise_deals
+on chargebee_customer_id, regrouping the engagement counters at HubSpot
+Company grain. Output now keyed on companyid (HubSpot's native object_id),
+which Polytomic can use as the upsert key for the deferred sync —
+removing the "missing object-specific join key" blocker that kept the
+sync from being wired when the model was first merged.
+
+Phase A coverage: ~483 HubSpot Companies (the active, Chargebee-billed
+enterprise base). Non-Chargebee enterprise deals (~5,500) require a
+separate identity bridge — out of scope here.
+
+Adds models/marts/enterprise/_enterprise.yml with description, tests
+(not_null + unique on companyid; relationships → dim_enterprise_deals),
+and column documentation. No prior yml entry existed for either
+fct_enterprise_user_activity_for_scoring or subscriber_activity.
