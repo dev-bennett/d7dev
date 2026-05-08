@@ -2,13 +2,17 @@
 
 @../CLAUDE.md
 
+## Status
+
+Complete (2026-05-07). Will re-open if Devon's morning verification finds issues. See README.md "Closeout" section for the deploy/revert/redeploy story.
+
 ## Purpose
 
 Draft dbt model changes to fix the MQL discrepancy identified in
 `analysis/data-health/2026-04-07-mql-discrepancy/`. Two models touched:
 
-1. `fct_sessions_build.sql` — expand enterprise form event matching
-2. `dim_mql_mapping.sql` — tiered HubSpot-to-Mixpanel session matching
+1. `fct_sessions_build.sql` — `backfill_from` var (Change 1B). Original `enterprise_schedule_demo` filter retained — the proposed expansion was reverted on 2026-05-07.
+2. `dim_mql_mapping.sql` — tiered HubSpot-to-Mixpanel session matching, plus four coverage edits (pricing-page event, /api CTA event, base_url normalization, tier-2 300s window, expanded enterprise_url_patterns).
 
 ## Table References
 

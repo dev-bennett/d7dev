@@ -1,12 +1,27 @@
-Expand enterprise form event matching and add tiered HubSpot-to-Mixpanel MQL mapping
+Close MQL coverage gap — pricing CTA via dim_mql_mapping, /api CTA, tier-2 window
 
-fct_sessions_build: add Submitted Form on /brand-solutions and /agency-solutions,
-CTA Form Submitted on /enterprise, and corresponding page views to
-enterprise_form_submissions and enterprise_form_view aggregations.
+fct_sessions_build:
+  - Incremental block: add backfill_from var (standard pattern) so future
+    scope changes don't require manual prod-row deletes to shift the
+    watermark.
+  - enterprise_schedule_demo: NO CHANGE. An earlier proposal to add
+    Clicked Contact Sales / Enterprise Intent here was deployed and
+    reverted on 2026-05-07 — that signal is 49x higher volume than the
+    existing one and has no HubSpot anchoring downstream, so it inflated
+    the Looker mqls_schedule_demo measure past HubSpot. The signal is
+    captured below in dim_mql_mapping where the join to HubSpot form
+    submissions filters it to real MQLs.
 
-dim_mql_mapping: rewrite with three-tier matching (vid+time+url, time+url,
-session proximity) to recover 100% of HubSpot MQLs to Mixpanel sessions.
-Adds match_tier, match_reason, form_page_type columns.
+dim_mql_mapping:
+  - form_events_mixpanel: add Clicked Contact Sales / Enterprise Intent
+    and CTA Form Submitted on /api to the tier-1 event filter.
+  - form_events_mixpanel: normalize /library/ out of base_url so HubSpot's
+    /pricing matches Mixpanel's /library/pricing.
+  - tier2_page_activity: widen window from 120s to 300s — covers slow-fill
+    cases on /music-licensing-for-enterprise.
+  - enterprise_url_patterns: add /library/pricing and /api so tier 3 also
+    covers these paths.
 
-dim_session_mqls: new session-level bridge table aggregating dim_mql_mapping
-to one row per session_id for 1:1 join to fct_sessions.
+Follow-up to #718 (v2 tiered matching). Closes the residual tier-3-only
+exposure from ~31% to ~9% (genuinely untrackable: meetings-only links and
+ad-blocked sessions).

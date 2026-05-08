@@ -1,6 +1,6 @@
 ---
 table: soundstripe_prod.core.fct_sessions
-last_calibrated: 2026-04-24-r2
+last_calibrated: 2026-05-07
 schema_hash: b92eee133013eb75087729c926fd2ac95d890d6f6cbf6ec58225333ae9ce55b1
 dbt_model: marts/core/fct_sessions.sql
 row_count: 42000676
@@ -156,6 +156,21 @@ The warehouse column `bounced_sessions = CASE WHEN pageviews = 1 THEN 1 ELSE 0 E
 ### 8. Cross-session `last_channel_non_direct` — attribution can reference sessions outside your analysis window
 
 `last_channel_non_direct` is computed via a LAST_VALUE window that is unbounded from the beginning of the visitor's history. If a visitor had a paid-search session in 2023 and a Direct session in 2026, `last_channel_non_direct` on the Direct session will show `'Paid Search'`. This is correct behavior for attribution purposes but means the attributed channel is not necessarily visible in the analysis window. When counting "paid sessions" in a date window, using `last_channel_non_direct` will include sessions where the attributing click event falls outside the window.
+
+### 9. `mqls_schedule_demo` measure has no HubSpot anchor — DO NOT add high-volume signals to `enterprise_schedule_demo`
+
+The Looker measure `mqls_schedule_demo` (`fct_sessions.view.lkml:493`) is `COUNT(DISTINCT case when ENTERPRISE_SCHEDULE_DEMO > 0 then distinct_id)` — pure event-counting with NO JOIN to HubSpot or any CRM source. Any signal added to the upstream `enterprise_schedule_demo` aggregation in `fct_sessions_build` flows directly into the user-facing MQL count without filtering by whether a real form submission happened.
+
+Confirmed event-volume disparity (YTD-2026, verified 2026-05-07):
+
+| Signal | Events | Distinct IDs |
+|---|---:|---:|
+| `Clicked Element` / `Enterprise Contact Form` (current) | 36 | 32 |
+| `Clicked Contact Sales` / `Enterprise Intent` | 1,997 | 1,567 |
+
+Adding the latter to `enterprise_schedule_demo` inflated `mqls_schedule_demo` 49× and dominated the source-distribution chart on `MQL Workflow Monitoring` dashboard (deployed and reverted 2026-05-07; required multi-hour DELETE + rebuild). High-volume MQL-candidate signals belong in `dim_mql_mapping.form_events_mixpanel` instead — that CTE is HubSpot-anchored via INNER JOIN to `hubspot_forms`, which filters event-volume noise to real MQLs.
+
+Rule of thumb: before expanding any aggregation feeding a `mqls_*` Looker measure on `fct_sessions`, run an event-volume check on the proposed new signal vs. the existing one. >5× ratio is a signal-routing red flag.
 
 ## Cost profile (from query_history; EMBEDDED_ANALYST, 9 recent queries against this table)
 

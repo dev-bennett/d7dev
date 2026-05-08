@@ -1,5 +1,11 @@
 # Revision Plan: Pricing Page Enterprise Intent
 
+> **Status (2026-05-06):** Base v2 model shipped in PR #718 (merged 2026-04-22).
+> All four changes below were verified still missing from `origin/main` HEAD.
+> This doc remains the per-change rationale; see `../implementation-guide.md`
+> for the consolidated follow-up runbook (which adds two items not in this
+> doc: tier-2 window 120s→300s and `/api` URL-pattern coverage).
+
 ## Problem
 
 Pricing page MQLs fire `Clicked Contact Sales` / `Enterprise Intent` on `www.soundstripe.com/library/pricing`. Neither fct_sessions_build nor dim_mql_mapping capture this event. These MQLs fall to tier 3 (false-positive-prone) or go unmatched.
@@ -71,9 +77,9 @@ While we're touching this model, add the `backfill_from` var to the incremental 
 
 ## Deployment
 
-This can either be folded into the current PR (if not yet merged) or a follow-up.
+Confirmed follow-up to PR #718 (the original PR is already merged).
 
-- fct_sessions_build: requires backfill from 2026-02-23 (DELETE + incremental rebuild, or full refresh, or backfill_from var if added first)
+- fct_sessions_build: requires backfill from 2026-02-23 (DELETE + incremental rebuild, or full refresh, or backfill_from var if added first — Change 4 below adds the var)
 - dim_mql_mapping: full refresh table, just rebuild
 - dim_session_mqls: depends on dim_mql_mapping, rebuild after
 

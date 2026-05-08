@@ -8,7 +8,7 @@
 
 /*
   ================================================================================
-  dim_mql_mapping.sql (v2 — tiered matching)
+  dim_mql_mapping.sql (v2 — tiered matching) — FOLLOW-UP TO PR #718
   ================================================================================
   Description:
       Maps HubSpot enterprise form submissions to Mixpanel sessions using a
@@ -18,9 +18,22 @@
       Tier 1: Form event match — Mixpanel form event within ±120s on same URL,
               optionally with VID confirmation
       Tier 2: Page activity match — any Mixpanel event on the same URL within
-              ±120s (page views, clicks — no form event required)
+              ±300s (page views, clicks — no form event required)
       Tier 3: Session proximity — any Mixpanel device that visited an enterprise-
               related page within ±30 min of the HubSpot submission
+
+  Status:
+      Base v2 model shipped in PR #718 (merged 2026-04-22, SHA 504f24d).
+      THIS FILE is the FOLLOW-UP draft applying four additional fixes to recover
+      the remaining tier-3-only population (~31% → ~9% genuinely untrackable).
+
+  Diff vs HEAD (PR #718 state):
+      1. enterprise_url_patterns: add '%/library/pricing%' and '%/api%'
+      2. form_events_mixpanel filter: add Clicked Contact Sales / Enterprise Intent
+         and CTA Form Submitted on /api
+      3. form_events_mixpanel base_url derivation: normalize /library/ out so
+         HubSpot's '/pricing' matches Mixpanel's '/library/pricing'
+      4. tier2_page_activity: widen 120s window to 300s
 
   Sources:
       - fct_events (Mixpanel events, post-staging)
@@ -41,11 +54,14 @@
 
 -- Enterprise form pages: used for URL matching across all tiers
 -- Add new pages here as the Enterprise v2 form is deployed to additional URLs
+-- FOLLOW-UP: Added /library/pricing (Clicked Contact Sales) and /api (CTA Form Submitted)
 {% set enterprise_url_patterns = [
     '%/music-licensing-for-enterprise%',
     '%/brand-solutions%',
     '%/agency-solutions%',
-    '%/enterprise%'
+    '%/enterprise%',
+    '%/library/pricing%',
+    '%/api%'
 ] %}
 
 
@@ -96,7 +112,8 @@ with forms_submitted_hubspot as
             ,a.event
             ,a.context
             ,a.session_id as event_session_id
-            ,split_part(split_part(a.url, '?', 1), '//', 2) as base_url
+            -- FOLLOW-UP: normalize /library/ out so HubSpot's /pricing matches Mixpanel's /library/pricing
+            ,replace(split_part(split_part(a.url, '?', 1), '//', 2), 'soundstripe.com/library/', 'soundstripe.com/') as base_url
             -- Resolve to fct_sessions for session_id and user_id
             ,c.SESSION_ID
             ,c.USER_ID as session_user_id
@@ -120,6 +137,10 @@ with forms_submitted_hubspot as
                 or (a.event = 'Submitted Form' and a.url ilike '%/agency-solutions%')
                 -- New: CTA Form Submitted on enterprise paths
                 or (a.event = 'CTA Form Submitted' and a.url ilike '%/enterprise%')
+                -- FOLLOW-UP: Contact Sales click on pricing page (enterprise intent)
+                or (a.event = 'Clicked Contact Sales' and a.context = 'Enterprise Intent')
+                -- FOLLOW-UP: CTA Form Submitted on /api page
+                or (a.event = 'CTA Form Submitted' and a.url ilike '%/api%')
             )
     )
 
@@ -179,8 +200,9 @@ with forms_submitted_hubspot as
 
 
 -- ============================================================================
--- TIER 2: Page activity match — any event on same URL within ±120s
+-- TIER 2: Page activity match — any event on same URL within ±300s
 -- Captures users whose page view fired but form event did not
+-- FOLLOW-UP: window widened from 120s to 300s
 -- ============================================================================
 
 ,tier2_page_activity as
@@ -197,7 +219,7 @@ with forms_submitted_hubspot as
             ,'page_activity_time_url' as match_reason
         from forms_submitted_hubspot h
             inner join {{ ref("fct_events") }} a
-                on abs(datediff('seconds', a.event_ts::timestamp, h.SUBMISSION_TS::timestamp)) < 120
+                on abs(datediff('seconds', a.event_ts::timestamp, h.SUBMISSION_TS::timestamp)) < 300
                 and split_part(split_part(a.url, '?', 1), '//', 2) = h.base_url
             left join {{ ref("dim_session_mapping") }} b
                 on a.session_id = b.session_id_events

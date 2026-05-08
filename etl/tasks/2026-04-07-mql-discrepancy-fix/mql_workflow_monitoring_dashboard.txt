@@ -1,0 +1,747 @@
+---
+- dashboard: mql_workflow_monitoring
+  title: MQL Workflow Monitoring
+  preferred_viewer: dashboards-next
+  description: ''
+  preferred_slug: 3uHmVR6D0HMKItbRzlSMKq
+  layout: newspaper
+  tabs:
+  - name: ''
+    label: ''
+  elements:
+  - title: MQL Forms (Hubspot) -> Workflow
+    name: MQL Forms (Hubspot) -> Workflow
+    model: General
+    explore: hubspot_forms
+    type: looker_column
+    fields: [hubspot_forms.emails, stg_contacts_2.mql_flag, hubspot_forms.dynamic_submission_date]
+    pivots: [stg_contacts_2.mql_flag]
+    fill_fields: [stg_contacts_2.mql_flag]
+    filters:
+      hubspot_forms.form_name: 'Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form,"''Meetings Link: ned-pruitt/enterprise-calendar-schedule-form''"'
+    sorts: [stg_contacts_2.mql_flag, hubspot_forms.dynamic_submission_date]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: true
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_labels:
+      Yes - hubspot_forms.emails: Mixpanel Labeled MQL
+      No - hubspot_forms.emails: Not Mixpanel Labeled MQL
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Trend Chart Date Range: hubspot_forms.submission_ts_date
+      Date Trunc: hubspot_forms.date_trunc
+    row: 9
+    col: 0
+    width: 12
+    height: 7
+    tab_name: ''
+  - title: MQL Forms (Hubspot) -> Workflow % of Total
+    name: MQL Forms (Hubspot) -> Workflow % of Total
+    model: General
+    explore: hubspot_forms
+    type: looker_column
+    fields: [hubspot_forms.emails, stg_contacts_2.mql_flag, hubspot_forms.dynamic_submission_date]
+    pivots: [stg_contacts_2.mql_flag]
+    fill_fields: [stg_contacts_2.mql_flag]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+    sorts: [stg_contacts_2.mql_flag, hubspot_forms.dynamic_submission_date]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: percent
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_labels:
+      No - hubspot_forms.emails: Not Mixpanel Labeled MQL
+      Yes - hubspot_forms.emails: Mixpanel Labeled MQL
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Trend Chart Date Range: hubspot_forms.submission_ts_date
+      Date Trunc: hubspot_forms.date_trunc
+    row: 9
+    col: 12
+    width: 12
+    height: 7
+    tab_name: ''
+  - title: MQLs (Mixpanel) - Source
+    name: MQLs (Mixpanel) - Source
+    model: General
+    explore: fct_sessions
+    type: looker_column
+    fields: [fct_sessions.mqls_enterprise_page, fct_sessions.mqls_pricing_page, fct_sessions.mqls_schedule_demo,
+      fct_sessions.dynamic_session_started]
+    sorts: [fct_sessions.dynamic_session_started]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: true
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Trend Chart Date Range: fct_sessions.session_started_at_date
+      Date Trunc: fct_sessions.date_trunc
+    row: 2
+    col: 0
+    width: 12
+    height: 7
+    tab_name: ''
+  - title: Hubspot MQL Form Fills
+    name: Hubspot MQL Form Fills
+    model: General
+    explore: hubspot_forms
+    type: single_value
+    fields: [hubspot_forms.emails]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Submission Ts Date: hubspot_forms.submission_ts_date
+    row: 0
+    col: 5
+    width: 5
+    height: 2
+    tab_name: ''
+  - title: Hubspot MQLs
+    name: Hubspot MQLs
+    model: General
+    explore: hubspot_forms
+    type: single_value
+    fields: [hubspot_forms.emails]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+      stg_contacts_2.mql_flag: 'Yes'
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Submission Ts Date: hubspot_forms.submission_ts_date
+    row: 0
+    col: 10
+    width: 5
+    height: 2
+    tab_name: ''
+  - title: MQLs (Mixpanel) -> Source % of Total
+    name: MQLs (Mixpanel) -> Source % of Total
+    model: General
+    explore: fct_sessions
+    type: looker_column
+    fields: [fct_sessions.mqls_enterprise_page, fct_sessions.mqls_pricing_page, fct_sessions.mqls_schedule_demo,
+      fct_sessions.dynamic_session_started]
+    sorts: [fct_sessions.dynamic_session_started]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: percent
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: true
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Trend Chart Date Range: fct_sessions.session_started_at_date
+      Date Trunc: fct_sessions.date_trunc
+    row: 2
+    col: 12
+    width: 12
+    height: 7
+    tab_name: ''
+  - title: MQLs (Mixpanel)
+    name: MQLs (Mixpanel)
+    model: General
+    explore: fct_sessions
+    type: single_value
+    fields: [fct_sessions.mqls]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: true
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    hidden_pivots: {}
+    listen:
+      Submission Ts Date: fct_sessions.session_started_at_date
+    row: 0
+    col: 0
+    width: 5
+    height: 2
+    tab_name: ''
+  - title: SAL
+    name: SAL
+    model: General
+    explore: hubspot_forms
+    type: single_value
+    fields: [hubspot_forms.emails]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+      stg_contacts_2.mql_flag: 'Yes'
+      stg_contacts_2.lead_status: SAL
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Submission Ts Date: hubspot_forms.submission_ts_date
+    row: 0
+    col: 15
+    width: 5
+    height: 2
+    tab_name: ''
+  - title: SQL
+    name: SQL
+    model: General
+    explore: hubspot_forms
+    type: single_value
+    fields: [hubspot_forms.emails]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+      stg_contacts_2.mql_flag: 'Yes'
+      stg_contacts_2.lead_status: SQL
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Submission Ts Date: hubspot_forms.submission_ts_date
+    row: 0
+    col: 20
+    width: 4
+    height: 2
+    tab_name: ''
+  - title: MQL Lead Status
+    name: MQL Lead Status
+    model: General
+    explore: hubspot_forms
+    type: looker_column
+    fields: [hubspot_forms.emails, hubspot_forms.dynamic_submission_date, stg_contacts_2.lead_status]
+    pivots: [stg_contacts_2.lead_status]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+      stg_contacts_2.mql_flag: 'Yes'
+    sorts: [stg_contacts_2.lead_status, hubspot_forms.dynamic_submission_date]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Trend Chart Date Range: hubspot_forms.submission_ts_date
+      Date Trunc: hubspot_forms.date_trunc
+    row: 16
+    col: 0
+    width: 12
+    height: 7
+    tab_name: ''
+  - title: MQL Lead Status % of Total
+    name: MQL Lead Status % of Total
+    model: General
+    explore: hubspot_forms
+    type: looker_column
+    fields: [hubspot_forms.emails, hubspot_forms.dynamic_submission_date, stg_contacts_2.lead_status]
+    pivots: [stg_contacts_2.lead_status]
+    filters:
+      hubspot_forms.form_name: Enterprise Multi-step Form,Enterprise Request Form
+        (Hubspot),Enterprise v2 - Updated,Enterprise (API Page),Enterprise Request
+        Form
+      stg_contacts_2.mql_flag: 'Yes'
+    sorts: [stg_contacts_2.lead_status, hubspot_forms.dynamic_submission_date]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: percent
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    x_axis_zoom: true
+    y_axis_zoom: true
+    hidden_pivots: {}
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Form Name: hubspot_forms.form_name
+      Trend Chart Date Range: hubspot_forms.submission_ts_date
+      Date Trunc: hubspot_forms.date_trunc
+    row: 16
+    col: 12
+    width: 12
+    height: 7
+    tab_name: ''
+  filters:
+  - name: Form Name
+    title: Form Name
+    type: field_filter
+    default_value: Enterprise Multi-step Form,Enterprise Request Form (Hubspot),Enterprise
+      v2 - Updated,Enterprise (API Page),Enterprise Request Form
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+    model: General
+    explore: hubspot_forms
+    listens_to_filters: []
+    field: hubspot_forms.form_name
+  - name: Submission Ts Date
+    title: Submission Ts Date
+    type: field_filter
+    default_value: 12 month
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+      options: []
+    model: General
+    explore: hubspot_forms
+    listens_to_filters: []
+    field: hubspot_forms.submission_ts_date
+  - name: Date Trunc
+    title: Date Trunc
+    type: field_filter
+    default_value: week
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: General
+    explore: fct_sessions
+    listens_to_filters: []
+    field: fct_sessions.date_trunc
+  - name: Trend Chart Date Range
+    title: Trend Chart Date Range
+    type: field_filter
+    default_value: 26 week
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+      options: []
+    model: General
+    explore: hubspot_forms
+    listens_to_filters: []
+    field: hubspot_forms.submission_ts_date

@@ -12,13 +12,14 @@ The calibration mechanism is **universal** — any table queried via MCP is a ca
 | _external_statsig.exposures | [_external_statsig__exposures.md](_external_statsig__exposures.md) | 2026-04-24 | `1110ae4a` | current | Initial seed |
 | core.fct_sessions_attribution | [core__fct_sessions_attribution.md](core__fct_sessions_attribution.md) | 2026-04-24 | `ecfdbcdd` | current | Initial calibration |
 | core.dim_daily_kpis | [core__dim_daily_kpis.md](core__dim_daily_kpis.md) | 2026-04-24 | `b4a51e89` | current | Proactive calibration; Identity Check anchor for domain consolidation impact analysis |
-| core.fct_sessions | [core__fct_sessions.md](core__fct_sessions.md) | 2026-04-24 | `b92eee13` | current | Domain consolidation + contamination zones documented |
+| core.fct_sessions | [core__fct_sessions.md](core__fct_sessions.md) | 2026-05-07 | `b92eee13` | current | Domain consolidation + contamination zones documented; pitfall #9 added (mqls_schedule_demo lacks HubSpot anchor — 2026-05-07 incident) |
 | finance.fct_ltv_subscription_projections | [finance__fct_ltv_subscription_projections.md](finance__fct_ltv_subscription_projections.md) | 2026-04-25 | `cee10897` | current | First touch; LTV cohort table for Product KPIs dashboard |
 | _external_statsig.statsig_clickstream_events_etl_output | [_external_statsig__statsig_clickstream_events_etl_output.md](_external_statsig__statsig_clickstream_events_etl_output.md) | 2026-04-27 | `94edc217` | current | WCPM refresh; incremental late-arrival drop (OPEN) + 1:1 mapping exclusion (OPEN) documented |
 | pc_stitch_db.mixpanel.export | [pc_stitch_db__mixpanel__export.md](pc_stitch_db__mixpanel__export.md) | 2026-04-27 | `956af91d` | current | Raw Stitch export; upstream of fct_events; 2.18B rows / 233.5 GiB; 3 OPEN structural issues documented |
 | core.fct_subscriber_activity_mixpanel | [core__fct_subscriber_activity_mixpanel.md](core__fct_subscriber_activity_mixpanel.md) | 2026-04-28 | `0f8720c5` | current | 11.1M rows / 0.54 GiB; subscriber × session grain; powers Dashboard 19 tiles #7–#10; right-censoring and end_date gotchas documented |
 | core.fct_kpis_enterprise | [core__fct_kpis_enterprise.md](core__fct_kpis_enterprise.md) | 2026-05-04 | `9261b188` | current | 36 rows / monthly grain; Enterprise funnel KPIs; triple filter chain on won_deal_amount; hardcoded soundstripe_dev ref in demo CTE |
 | finance.dim_enterprise_deals | [finance__dim_enterprise_deals.md](finance__dim_enterprise_deals.md) | 2026-05-04 | `24e933a1` | current | 6,706 rows; deal-level enterprise mart; domain enumerations for pipeline_name/deal_grouping/stage_category included; drives fct_kpis_enterprise won_deal_amount |
+| content.dim_all_songs_v2 | [content__dim_all_songs_v2.md](content__dim_all_songs_v2.md) | 2026-05-05 | `fc3bdd93` | current | 38,164 rows / song grain; canonical song dim; **Soundstripe-only filter is `soundstripe_original_percentage = 100`, NOT `content_partner_id IS NULL`**; vocal_degree 0/1/2 → instrumental/background/full mapping documented |
 
 <!-- /calibrate appends rows here as new tables are calibrated. No ordering implied — sort however is useful. -->
 

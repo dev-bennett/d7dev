@@ -1,3 +1,20 @@
+-- =============================================================================
+-- fct_sessions_enriched.sql — ABANDONED ALTERNATIVE ARCHITECTURE
+-- =============================================================================
+--
+-- Status (as of 2026-05-06):
+--   This model was an alternative architecture that was NOT pursued.
+--   PR #718 (merged 2026-04-22) shipped the dim_mql_mapping → dim_session_mqls
+--   path and joined dim_session_mqls into the existing fct_sessions explore at
+--   the LookML layer instead.
+--
+--   This file does NOT exist in the dbt repo and was never proposed for merge.
+--   Kept here only as a record of the alternative considered.
+--
+-- If reviving this design ever becomes useful, see context/dbt/models/transformations/mixpanel/
+-- for the directory structure and existing fct_sessions_build / fct_sessions_build_step2 / fct_sessions_product_engagement_build models.
+-- =============================================================================
+
 {{ config(
     materialized='view'
 ) }}

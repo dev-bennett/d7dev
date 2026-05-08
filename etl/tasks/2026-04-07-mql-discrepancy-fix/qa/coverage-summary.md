@@ -14,11 +14,11 @@ Tier 3 produces false positives (Q3 confirmed: every multi-distinct_id case is t
 
 ## Proposed Fixes
 
-### Fix 1: Already deployed (current PR)
+### Fix 1: Shipped in PR #718 (merged 2026-04-22)
 
 Expanded `enterprise_form_submissions` and `enterprise_form_view` in fct_sessions_build for `/brand-solutions`, `/agency-solutions`, and `CTA Form Submitted` on `/enterprise`. Added same patterns to dim_mql_mapping tier 1.
 
-Recovers: MQLs whose form submission fires a Mixpanel event on those URLs with matching base_url within 120s. These are already tier-1 matched in the deployed pipeline.
+Recovers: MQLs whose form submission fires a Mixpanel event on those URLs with matching base_url within 120s. These are tier-1 matched in the deployed pipeline as of 2026-04-22.
 
 ### Fix 2: Pricing page — `Clicked Contact Sales` / `Enterprise Intent`
 
