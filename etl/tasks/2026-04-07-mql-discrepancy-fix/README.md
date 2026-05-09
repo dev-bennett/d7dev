@@ -8,6 +8,10 @@
 - **Models touched (follow-up):** fct_sessions_build (`backfill_from` var), dim_mql_mapping (four coverage edits)
 - **Source:** analysis/data-health/2026-04-07-mql-discrepancy/
 
+## Open follow-up (2026-05-08, deferred to Monday 2026-05-11)
+
+Dashboard tile alignment question on `mql_workflow_monitoring_dashboard.txt`: the "MQLs (Mixpanel) - Source" tile and the "MQL Forms (Hubspot) -> Workflow" tile's "Mixpanel Labeled MQL" series don't agree, and per the LookML they can't (the latter's `mql_flag` actually measures HubSpot's `became_mql`, not anything Mixpanel-side; plus grain + double-count issues). Three suggested actions (label rename, `dim_mql_mapping`-sourced source breakdown, or a Mixpanel-evidence boolean on contacts) documented in `dashboard-tile-alignment.md`. Pick one Monday.
+
 ## Closeout (2026-05-07)
 
 Follow-up deployed and reverted-then-redeployed cleanly. Initial deployment of Change 1A (adding `Clicked Contact Sales` / `Enterprise Intent` to `enterprise_schedule_demo`) inflated the Looker `mqls_schedule_demo` measure 49× because that signal is high-volume AND the consuming Looker measure has no HubSpot anchoring. Reverted; signal correctly captured in `dim_mql_mapping.form_events_mixpanel` (Change 2B), where the join to HubSpot form submissions filters it down to real MQLs. Final state:
